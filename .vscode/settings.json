@@ -1,0 +1,6 @@
+{
+  "files.associations": {
+    "classfile.h": "c",
+    "reader.h": "c"
+  }
+}
