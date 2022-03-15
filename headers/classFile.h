@@ -23,15 +23,6 @@ typedef struct field_info
   attribute_info **attributes;
 } field_info;
 
-typedef struct method_info
-{
-  u2 access_flags;
-  u2 name_index;
-  u2 descriptor_index;
-  u2 attributes_count;
-  attribute_info **attributes;
-} method_info;
-
 typedef struct cp_info
 {
   u1 tag;
@@ -66,11 +57,7 @@ typedef struct ClassFile
   u2 access_flags;
   u2 this_class;
   u2 super_class;
-  u2 interfaces_count;
   u2 *interfaces;
-  u2 fields_count;
-  field_info *fields;
-  u2 methods_count;
   method_info *methods;
   u2 attributes_count;
   attribute_info **attributes;

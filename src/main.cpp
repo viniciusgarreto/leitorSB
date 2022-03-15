@@ -7,10 +7,6 @@ int main(int argc, char *argv[])
 {
   //Declara file
   ClassFile *class_file;
-  char *nomeArquivo;
-
-  //Faz alocação de memoria necessária para o file
-  nomeArquivo = (char *)malloc(strlen(argv[1]) * sizeof(char));
 
   //Copia file do argumento para file do código
   strcpy(nomeArquivo, argv[1]);
