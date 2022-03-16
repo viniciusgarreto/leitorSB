@@ -34,7 +34,9 @@
 \.vscode/ipch/
 
 build/*
-LEITOR
-*.exe
+testes
 
 \.vscode/launch\.json
+
+LEITOR
+*.exe

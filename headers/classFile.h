@@ -58,7 +58,7 @@ typedef struct ClassFile
   u2 this_class;
   u2 super_class;
   u2 *interfaces;
-  method_info *methods;
+  // method_info *methods;
   u2 attributes_count;
   attribute_info **attributes;
 } ClassFile;
