@@ -31,13 +31,13 @@ ConstantPool::ConstantPool(FILE *fp, u2 cp_count) {
       // tag 5, type long (8 bytes)
       case CONSTANT_Long: 
         this->AddCpInfo((CpInfo*) new CONSTANT_Long_info(fp));
-				i++;
+				// i++;
 				break;
 
       // tag 6, type double (8 bytes)
       case CONSTANT_Double:
         this->AddCpInfo((CpInfo*) new CONSTANT_Double_info(fp));
-				i++;
+				// i++;
 				break;
 
       // tag 7, type classRef (2 bytes)
