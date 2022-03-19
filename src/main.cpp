@@ -14,9 +14,7 @@ int main(int argc, char *argv[]) {
   //Copia file do argumento para file do código
   // strcpy("nomeArquivo", argv[1]);
 
-  class_file = (ClassFile *) malloc(sizeof(struct ClassFile));
-
-  class_file = lerArquivo(class_file, "nomeArquivo");
+  class_file = lerArquivo("nomeArquivo");
 
   exibirArquivo(class_file);
 

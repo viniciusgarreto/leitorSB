@@ -3,6 +3,6 @@
 
 #include "../headers/classFile.h"
 
-ClassFile* lerArquivo (ClassFile *, char *);
+ClassFile* lerArquivo (char *);
 
 #endif
