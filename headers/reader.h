@@ -1,5 +1,5 @@
-#ifndef READER_INIT
-#define READER_INIT
+#ifndef reader_h
+#define reader_h
 
 #include "../headers/classFile.h"
 

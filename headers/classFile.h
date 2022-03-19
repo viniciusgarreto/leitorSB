@@ -1,5 +1,5 @@
-#ifndef CLASSFILE_INIT
-#define CLASSFILE_INIT
+#ifndef classFile_h
+#define classFile_h
 
 #include "../headers/definitions.h"
 
@@ -17,7 +17,7 @@ typedef struct field_info
   u2 descriptor_index;
   u2 attributes_count;
   attribute_info **attributes;
-} field_info;
+} field_Info;
 
 typedef struct cp_info
 {
@@ -25,23 +25,13 @@ typedef struct cp_info
   u1 info[];
 } cp_info;
 
-enum constant_pool_tags_values
-{
-  CONSTANT_Class = 7,
-  CONSTANT_Fieldref = 9,
-  CONSTANT_Methodref = 10,
-  CONSTANT_InterfaceMethodref = 11,
-  CONSTANT_String = 8,
-  CONSTANT_Integer = 3,
-  CONSTANT_Float = 4,
-  CONSTANT_Long = 5,
-  CONSTANT_Double = 6,
-  CONSTANT_NameAndType = 12,
-  CONSTANT_Utf8 = 1,
-  CONSTANT_MethodHandle = 15,
-  CONSTANT_MethodType = 16,
-  CONSTANT_InvokeDynamic = 18,
-};
+typedef struct method_info {
+  u2 access_flags;
+  u2 name_index;
+  u2 descriptor_index;
+  u2 attributes_count;
+  attribute_info attributes[];
+} method_Info;
 
 typedef struct ClassFile
 {
@@ -49,14 +39,18 @@ typedef struct ClassFile
   u2 minor_version;
   u2 major_version;
   u2 constant_pool_count;
-  cp_info *constant_pool;
+  ConstantPool* constant_pool;
   u2 access_flags;
   u2 this_class;
   u2 super_class;
-  u2 *interfaces;
-  // method_info *methods;
+  u2 interfaces_count;
+  Interfaces* interfaces;
+  u2 fields_count;
+  field_info *field_Info;
+  u2 methods_count;
+  method_info *method_Info;
   u2 attributes_count;
-  attribute_info **attributes;
+  attribute_info *attributes;
 } ClassFile;
 
 #endif

@@ -6,15 +6,19 @@
 // #include <stdlib.h>
 
 #include "../headers/definitions.h"
+#include "../headers/CpInfo.h"
 
 using namespace std;
 
 class ConstantPool {
   public:
     ConstantPool(FILE *fp, u2 cp_count);
+    ~ConstantPool();
 
   private:
-    // std::vector<Component*> components;
+    void AddCpInfo(CpInfo* cp_info);
+    std::vector<CpInfo*> cp_infos;
 };
+
 
 #endif

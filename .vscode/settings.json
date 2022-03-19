@@ -1,0 +1,21 @@
+{
+  "files.associations": {
+    "array": "cpp",
+    "*.tcc": "cpp",
+    "cmath": "cpp",
+    "compare": "cpp",
+    "concepts": "cpp",
+    "cstdlib": "cpp",
+    "unordered_map": "cpp",
+    "vector": "cpp",
+    "exception": "cpp",
+    "initializer_list": "cpp",
+    "limits": "cpp",
+    "new": "cpp",
+    "cstdint": "cpp",
+    "tuple": "cpp",
+    "type_traits": "cpp",
+    "typeinfo": "cpp",
+    "utility": "cpp"
+  }
+}

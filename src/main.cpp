@@ -1,5 +1,6 @@
 #include "../headers/classFile.h"
 #include "../headers/reader.h"
+#include "../headers/printer.h"
 
 #include <stdlib.h>
 #include <string.h>
@@ -16,6 +17,8 @@ int main(int argc, char *argv[]) {
   class_file = (ClassFile *) malloc(sizeof(struct ClassFile));
 
   class_file = lerArquivo(class_file, "nomeArquivo");
+
+  exibirArquivo(class_file);
 
   return 0;
 }

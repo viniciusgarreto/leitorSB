@@ -1,0 +1,24 @@
+#include <stdio.h>
+#include "../headers/classFile.h"
+
+void imprimirArquivo(ClassFile *cf)
+{
+  printf("Magic: %08x\n", cf->magic);
+  printf("Minor Version: %04x\n", cf->minor_version);
+  printf("Major Version: %04x\n", cf->major_version);
+  printf("Constant Pool Count: %04x\n", cf->constant_pool_count);
+  printf("Access Flags: %04x\n", cf->access_flags);
+  printf("This Class: %04x\n", cf->this_class);
+  printf("Super Class: %04x\n", cf->super_class);
+  printf("Interfaces Count: %04x\n", cf->interfaces_count);
+  printf("Fields Count: %04x\n", cf->fields_count);
+  
+  //TO DO:
+  // printf("Methods Count: %04x\n",cf->methods_count);
+  // printf("Atributes Count: %02x\n",cf->attributes_count);
+
+//   imprimeConstantPool(cf);
+//   imprimeFields(cf);
+//   imprimeMetodos(cf);
+//   imprimeAtributosClasse(cf);
+}
