@@ -1,11 +1,7 @@
 #ifndef CLASSFILE_INIT
 #define CLASSFILE_INIT
 
-#include <stdint.h>
-
-typedef uint8_t u1;
-typedef uint16_t u2;
-typedef uint32_t u4;
+#include "../headers/definitions.h"
 
 typedef struct attribute_info
 {

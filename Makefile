@@ -51,12 +51,12 @@ $(EXEC): $(OBJ_FILES)
  
 $(BIN_PATH)/%.o: $(SRC_PATH)/%.cpp
  
-ifeq ($(OS), Windows_NT)
-	@if not exist $(DEP_PATH) @mkdir $(DEP_PATH)
-	@if not exist $(BIN_PATH) @mkdir $(BIN_PATH)
-else
-	@mkdir -p $(DEP_PATH) $(BIN_PATH)
-endif
+# ifeq ($(OS), Windows_NT)
+# 	@if not exist $(DEP_PATH) @mkdir $(DEP_PATH)
+# 	@if not exist $(BIN_PATH) @mkdir $(BIN_PATH)
+# else
+# 	@mkdir -p $(DEP_PATH) $(BIN_PATH)
+# endif
  
 	$(CC) $(DEP_FLAGS) -c -o $@ $< $(DIRECTIVES)
  

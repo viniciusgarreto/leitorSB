@@ -19,6 +19,10 @@ ClassFile *lerArquivo(ClassFile *cf, char *nomeArquivo)
         exit(0);
     }
     cf->magic = u4READ(fp);
+    cf->minor_version = u2READ(fp);
+    cf->major_version = u2READ(fp);
+
+    cf->constant_pool_count = u2Read(fp);
 
     printf("Magic: %08x\n", cf->magic);
     
