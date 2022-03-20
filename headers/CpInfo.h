@@ -13,6 +13,8 @@ class CpInfo
   public:
     CpInfo(u1 tag);
     u1 tag;
+private:
+  friend std::ostream &operator<<(std::ostream &, const CpInfo &);
 };
 
 class CONSTANT_Utf8_info : public CpInfo

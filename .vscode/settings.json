@@ -25,6 +25,12 @@
     "numbers": "cpp",
     "string": "cpp",
     "string_view": "cpp",
-    "ostream": "cpp"
+    "ostream": "cpp",
+    "cwctype": "cpp",
+    "istream": "cpp",
+    "sstream": "cpp",
+    "stdexcept": "cpp",
+    "streambuf": "cpp",
+    "system_error": "cpp"
   }
 }

@@ -9,6 +9,7 @@ using namespace std;
 Methods::Methods(FILE *fp, ConstantPool& cp) {
   // if there are no methods, stop
   this->methods_count = u2READ(fp);
+  cout << "methods count " << this->methods_count << " " << (unsigned) this->methods_count<< endl;
   if (this->methods_count < 1) return;
 
   this->ReadMethodsFromFile(fp, cp);
@@ -23,7 +24,8 @@ Methods::~Methods() {
 }
 
 void Methods::ReadMethodsFromFile(FILE *fp, ConstantPool& cp) {
-  for (int i = 0; i < this->methods_count; i++) {
+  for (size_t i = 0; i < (size_t) this->methods_count; i++) {
+    cout << "reading method " << i << " of " << (size_t) this->methods_count << endl;
     this->AddMethod(new Method(fp, cp));
   }
 }

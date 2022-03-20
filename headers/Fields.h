@@ -11,7 +11,7 @@ class Fields {
   public:
     Fields(FILE* fp, ConstantPool& cp);
     ~Fields();
-
+    void printFields();
   private:
     std::vector<Field*> fields;
     void ReadFieldsFromFile(FILE* fp, ConstantPool& cp);

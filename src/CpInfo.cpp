@@ -184,3 +184,69 @@ ostream &operator<<(ostream &os, CONSTANT_InvokeDynamic_info const &m) {
   os << "name_and_type_index: " << (unsigned)m.name_and_type_index << endl;
   return os;
 };
+
+ostream &operator<<(ostream &os, CpInfo const& c) {
+  u1 tag = c.tag;
+  switch (tag) {
+  case CONSTANT_Utf8:
+    os <<(CONSTANT_Utf8_info const&) c << endl;
+    break;
+
+  case CONSTANT_Integer:
+    os << ( CONSTANT_Integer_info const&) c << endl;
+    break;
+
+  case CONSTANT_Float:
+    os << ( CONSTANT_Float_info const&) c << endl;
+    break;
+
+  case CONSTANT_Long:
+    os << ( CONSTANT_Long_info const&) c << endl;
+    break;
+
+  case CONSTANT_Double:
+    os << ( CONSTANT_Double_info const&) c << endl;
+    break;
+
+  case CONSTANT_Class:
+    os << ( CONSTANT_Class_info const&) c << endl;
+    break;
+
+  case CONSTANT_String:
+    os << ( CONSTANT_String_info const&) c << endl;
+    break;
+
+  case CONSTANT_Fieldref:
+    os << ( CONSTANT_Fieldref_info const&) c << endl;
+    break;
+
+  case CONSTANT_Methodref:
+    os << ( CONSTANT_Methodref_info const&) c << endl;
+    break;
+
+  case CONSTANT_InterfaceMethodref:
+    os << ( CONSTANT_InterfaceMethodref_info const&) c << endl;
+    break;
+
+  case CONSTANT_NameAndType:
+    os << ( CONSTANT_NameAndType_info const&) c << endl;
+    break;
+
+  case CONSTANT_MethodHandle:
+    os << ( CONSTANT_MethodHandle_info const&) c << endl;
+    break;
+
+  case CONSTANT_MethodType:
+    os << (CONSTANT_MethodType_info const&) c << endl;
+    break;
+
+  case CONSTANT_InvokeDynamic:
+    os << (CONSTANT_InvokeDynamic_info const&) c << endl;
+    break;
+
+  default:
+    os << "[ERROR] unidentified tag value \"" << tag << "\"." << endl;
+    break;
+  }
+  return os;
+};

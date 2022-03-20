@@ -18,8 +18,7 @@ ConstantPool::ConstantPool(FILE *fp)
 
 void ConstantPool::cp_info_to_ostream(CpInfo *const(c)) {
   u1 tag = c->tag;
-  switch (tag)
-  {
+  switch (tag) {
   case CONSTANT_Utf8:
     cout << *((CONSTANT_Utf8_info *)c) << endl;
     break;
@@ -81,14 +80,11 @@ void ConstantPool::cp_info_to_ostream(CpInfo *const(c)) {
     break;
   }
 }
-void ConstantPool::printConstantPool()
-{
-  // cout << "entrei"<< endl << endl;
+void ConstantPool::printConstantPool() {
   // imprime cpool count
-  // cout << "Constant Pool Count: " << (unsigned)this->count << endl;
+  cout << "Constant Pool Count: " << (unsigned)this->count << endl;
   // imprime coisas da constant pool
-  for (const auto cp_info : this->cp_infos)
-  {
+  for (const auto cp_info : this->cp_infos) {
     cp_info_to_ostream(cp_info);
   } 
 }
@@ -197,7 +193,7 @@ void ConstantPool::AddCpInfo(CpInfo *cp_info) {
 
 CpInfo* ConstantPool::getCpInfo(u2 index) {
   if (index > this->count) return NULL;
-  return this->cp_infos.at((size_t) index);
+  return this->cp_infos.at((size_t) index - 1);
 }
 
 string ConstantPool::getValueUTF8String(u2 index) {

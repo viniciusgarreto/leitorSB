@@ -42,7 +42,7 @@ typedef struct ClassFile
   u4 magic;
   u2 minor_version;
   u2 major_version;
-  u2 constant_pool_count;
+  // u2 constant_pool_count;
   ConstantPool* constant_pool;
   u2 access_flags;
   u2 this_class;

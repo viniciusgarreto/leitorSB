@@ -42,13 +42,14 @@ ClassFile *lerArquivo(string nomeArquivo) {
 
     // fields
     cf->fields = new Fields(fp, *cf->constant_pool);
+    // cf->fields->printFields();
 
     // methods
-    cf->methods = new Methods(fp, *cf->constant_pool);
+    // cf->methods = new Methods(fp, *cf->constant_pool);
 
     // attributes
     // cf->attributes_count = u2READ(fp);
-    // cf->attributes = new attributes(fp, cf->attributes_count);
+    // cf->attributes = new Attributes(fp, cf->attributes_count);
     
     fclose(fp);
 

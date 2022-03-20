@@ -23,7 +23,7 @@ int main(int argc, char *argv[]) {
   // read file
   class_file = lerArquivo(filename);
 
-  // imprimirArquivo(class_file);
+  imprimirArquivo(class_file);
 
   return 0;
 }

@@ -29,8 +29,10 @@ Method::~Method() {
 }
 
 void Method::ReadAttributesFromFile(FILE* fp, ConstantPool& cp) {
-  for (int i = 1; i < this->attributes_count; i++)
-    this->AddAttribute(new Attribute(fp, cp));
+  for (int i = 1; i < this->attributes_count; i++) {
+    // cout << "in method attb creation" << endl;
+    this->AddAttribute(Attribute::readAttribute(fp, cp));
+  }
 }
 
 void Method::AddAttribute(Attribute* attb) {

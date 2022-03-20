@@ -17,6 +17,8 @@ class Field {
     void ReadAttributesFromFile(FILE* fp, ConstantPool& cp);
     void AddAttribute(Attribute* attb);
 
+    friend ostream &operator<<(std::ostream &, const Field &);
+
     u2 access_flags;
     u2 name;
     u2 descriptor;
