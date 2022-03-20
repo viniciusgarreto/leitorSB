@@ -26,8 +26,7 @@ ClassFile *lerArquivo(string nomeArquivo) {
     cf->major_version = u2READ(fp);
 
     // constant pool
-    cf->constant_pool_count = u2READ(fp);
-    cf->constant_pool = new ConstantPool(fp, cf->constant_pool_count);
+    cf->constant_pool = new ConstantPool(fp);
 
     // stuff
     cf->access_flags = u2READ(fp);

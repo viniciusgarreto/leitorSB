@@ -12,12 +12,14 @@ using namespace std;
 
 class ConstantPool {
   public:
-    ConstantPool(FILE* fp, u2 cp_count);
+    ConstantPool(FILE* fp);
     ~ConstantPool();
+    void printConstantPool();
 
   private:
     void AddCpInfo(CpInfo* cp_info);
-    void ReadConstantPoolFromFile(FILE* fp, u2 cp_count);
+    void ReadConstantPoolFromFile(FILE* fp);
+    u2 count;
     std::vector<CpInfo*> cp_infos;
 };
 

@@ -7,12 +7,25 @@
 using namespace std;
 
 // constructor
-ConstantPool::ConstantPool(FILE *fp, u2 cp_count) {
-  this->ReadConstantPoolFromFile(fp, cp_count);
+ConstantPool::ConstantPool(FILE *fp) {
+  this->count = u2READ(fp);
+  this->ReadConstantPoolFromFile(fp);
 }
 
-void ConstantPool::ReadConstantPoolFromFile(FILE* fp, u2 cp_count) {
-  for (int i = 1; i < cp_count; i++) {
+// func que imprime cp_info
+// define como representa cp_info como string, e pode usar isso diretamente no cout
+
+void ConstantPool::printConstantPool() {  
+  // imprime cpool count
+  cout << "Constant Pool Count: " << (unsigned) this->count << endl;
+  // imprime coisas da constant pool
+  for (const auto cp_info : this->cp_infos) {
+    // cout << "  " << cp_info << endl;
+  }
+}
+
+void ConstantPool::ReadConstantPoolFromFile(FILE* fp) {
+  for (int i = 1; i < this->count; i++) {
     u1 tag = u1READ(fp);
     switch (tag) {
       // tag 1, type string (2+x bytes)
@@ -91,7 +104,7 @@ void ConstantPool::ReadConstantPoolFromFile(FILE* fp, u2 cp_count) {
 
       // tag 19, type module (2 bytes)
 
-      // tag 20, type module (2 bytes)
+      // tag 20, type package (2 bytes)
 
 			default:
         cout << "[ERROR] unidentified tag value \"" << tag << "\"."<< endl;
