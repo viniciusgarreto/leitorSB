@@ -12,9 +12,10 @@ using namespace std;
 ClassFile *lerArquivo(string nomeArquivo) {
     auto cf = new ClassFile();
     FILE *fp = fopen(nomeArquivo.c_str(), "rb");
+    // FILE *fp = fopen("nomeArquivo.c_str()", "rb");
 
-    if (!fp)
-    { // se nao encontrou arquivo ou nao conseguiu abrir, encerra o programa
+    if (!fp) {
+        // se nao encontrou arquivo ou nao conseguiu abrir, encerra o programa
         printf("Erro na abertura do arquivo .class, o programa sera encerrado...\n");
         exit(0);
     }
@@ -50,4 +51,6 @@ ClassFile *lerArquivo(string nomeArquivo) {
     // cf->attributes = new attributes(fp, cf->attributes_count);
     
     fclose(fp);
+
+    return cf;
 }

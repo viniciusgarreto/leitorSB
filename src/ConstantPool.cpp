@@ -92,7 +92,7 @@ ConstantPool::ConstantPool(FILE *fp, u2 cp_count) {
       // tag 20, type module (2 bytes)
 
 			default:
-        cout << "[ERROR] unidentified tag value" << tag << endl;
+        cout << "[ERROR] unidentified tag value \"" << tag << "\"."<< endl;
 				break;
     }
   }
