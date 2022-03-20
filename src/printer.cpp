@@ -14,8 +14,8 @@ void imprimirArquivo(ClassFile *cf) {
   printf("Access Flags: %04x\n", cf->access_flags);
   printf("This Class: %04x\n", cf->this_class);
   printf("Super Class: %04x\n", cf->super_class);
-  printf("Interfaces Count: %04x\n", cf->interfaces_count);
-  printf("Fields Count: %04x\n", cf->fields_count);
+  // printf("Interfaces Count: %04x\n", cf->interfaces_count);
+  // printf("Fields Count: %04x\n", cf->fields_count);
   
   //TO DO:
   // printf("Methods Count: %04x\n",cf->methods_count);
