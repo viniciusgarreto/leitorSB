@@ -14,8 +14,8 @@ class Interfaces {
     ~Interfaces();
   
   private:
-    void AddInterface(u2* interface);
-    std::vector<u2*> interfaces;
+    void AddInterface(u2 interface);
+    std::vector<u2> interfaces;
 };
 
 
