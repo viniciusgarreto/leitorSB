@@ -23,8 +23,9 @@ Fields::~Fields() {
 }
 
 void Fields::ReadFieldsFromFile(FILE *fp) {
-  for (int i = 1; i < this->fields_count; i++)
+  for (int i = 0; i < this->fields_count; i++) {
     this->AddField(new Field(fp));
+  }
 }
 
 void Fields::AddField(Field* field) {
