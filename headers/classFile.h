@@ -2,6 +2,8 @@
 #define classFile_h
 
 #include "../headers/definitions.h"
+#include "../headers/ConstantPool.h"
+#include "../headers/Interfaces.h"
 
 typedef struct attribute_info
 {

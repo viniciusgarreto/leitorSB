@@ -14,9 +14,9 @@ int main(int argc, char *argv[]) {
   //Copia file do argumento para file do código
   // strcpy("nomeArquivo", argv[1]);
 
-  class_file = lerArquivo("nomeArquivo");
+  class_file = lerArquivo(string("nomeArquivo"));
 
-  exibirArquivo(class_file);
+  imprimirArquivo(class_file);
 
   return 0;
 }

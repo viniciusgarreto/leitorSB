@@ -1,8 +1,7 @@
 #include <stdio.h>
 #include "../headers/classFile.h"
 
-void imprimirArquivo(ClassFile *cf)
-{
+void imprimirArquivo(ClassFile *cf) {
   printf("Magic: %08x\n", cf->magic);
   printf("Minor Version: %04x\n", cf->minor_version);
   printf("Major Version: %04x\n", cf->major_version);

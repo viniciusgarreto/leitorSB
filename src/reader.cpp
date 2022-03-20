@@ -1,14 +1,17 @@
 #include "../headers/reader.h"
+
 #include "../headers/ConstantPool.h"
 #include "../headers/Interfaces.h"
 #include "../headers/definitions.h"
+
 #include <stdio.h>
 #include <stdlib.h>
 
-ClassFile *lerArquivo(char *nomeArquivo)
-{
+using namespace std;
+
+ClassFile *lerArquivo(string nomeArquivo) {
     auto cf = new ClassFile();
-    FILE *fp = fopen(nomeArquivo, "rb");
+    FILE *fp = fopen(nomeArquivo.c_str(), "rb");
 
     if (!fp)
     { // se nao encontrou arquivo ou nao conseguiu abrir, encerra o programa

@@ -4,8 +4,6 @@
 using namespace std;
 
 Interfaces::Interfaces(FILE *fp, u2 interfaces_count) {
-
-
   for (int i = 1; i <= interfaces_count+1; i++) {
     this->AddInterface((u2*) fp);
   }
