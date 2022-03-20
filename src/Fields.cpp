@@ -6,12 +6,12 @@
 using namespace std;
 
 // constructor
-Fields::Fields(FILE *fp) {
+Fields::Fields(FILE *fp, ConstantPool& cp) {
   // if there are no fields, stop
   this->fields_count = u2READ(fp);
   if (this->fields_count < 1) return;
 
-  this->ReadFieldsFromFile(fp);
+  this->ReadFieldsFromFile(fp, cp);
 }
 // destructor
 Fields::~Fields() {
@@ -22,9 +22,10 @@ Fields::~Fields() {
   this->fields.clear();
 }
 
-void Fields::ReadFieldsFromFile(FILE *fp) {
+void Fields::ReadFieldsFromFile(FILE *fp, ConstantPool& cp) {
   for (int i = 0; i < this->fields_count; i++) {
-    this->AddField(new Field(fp));
+    // cout << "haha test" << endl;
+    this->AddField(new Field(fp, cp));
   }
 }
 

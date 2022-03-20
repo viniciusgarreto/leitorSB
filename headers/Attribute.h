@@ -4,14 +4,15 @@
 #include <stdio.h>
 
 #include "../headers/definitions.h"
+#include "../headers/ConstantPool.h"
 
 class Attribute {
   public:
-    Attribute(FILE* fp);
+    Attribute(FILE* fp, ConstantPool& cp);
     ~Attribute();
 
   private:
-    void readInfo(FILE* fp);
+    void readInfo(FILE* fp, ConstantPool& cp);
 
     u2 attribute_name;
     u4 attribute_length;

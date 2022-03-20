@@ -16,6 +16,9 @@ class ConstantPool {
     ~ConstantPool();
     void printConstantPool();
     void cp_info_to_ostream(CpInfo *const(c));
+
+    CpInfo* getCpInfo(u2 index);
+    string getValueUTF8String(u2 index);
   private:
     void AddCpInfo(CpInfo* cp_info);
     void ReadConstantPoolFromFile(FILE* fp);

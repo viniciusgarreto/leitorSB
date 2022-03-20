@@ -4,6 +4,7 @@
 #include "../headers/ConstantPool.h"
 #include "../headers/Interfaces.h"
 #include "../headers/Fields.h"
+#include "../headers/Methods.h"
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -28,6 +29,7 @@ ClassFile *lerArquivo(string nomeArquivo) {
 
     // constant pool
     cf->constant_pool = new ConstantPool(fp);
+    // cout << "aaaa |" << cf->constant_pool->getValueUTF8String((u2) 11) << "|...." << endl;
 
     // stuff
     cf->access_flags = u2READ(fp);
@@ -39,11 +41,10 @@ ClassFile *lerArquivo(string nomeArquivo) {
     cf->interfaces = new Interfaces(fp);
 
     // fields
-    cf->fields = new Fields(fp);
+    cf->fields = new Fields(fp, *cf->constant_pool);
 
     // methods
-    // cf->methods_count = u2READ(fp);
-    // cf->methods = new Methods(fp, cf->methods_count);
+    cf->methods = new Methods(fp, *cf->constant_pool);
 
     // attributes
     // cf->attributes_count = u2READ(fp);

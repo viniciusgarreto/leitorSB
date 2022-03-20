@@ -5,6 +5,7 @@
 #include "../headers/ConstantPool.h"
 #include "../headers/Interfaces.h"
 #include "../headers/Fields.h"
+#include "../headers/Methods.h"
 
 typedef struct attribute_info
 {
@@ -48,8 +49,7 @@ typedef struct ClassFile
   u2 super_class;
   Interfaces* interfaces;
   Fields *fields;
-  // u2 methods_count;
-  // method_info *method_Info;
+  Methods* methods;
   // u2 attributes_count;
   // attribute_info *attributes;
 } ClassFile;

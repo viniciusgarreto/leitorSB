@@ -6,18 +6,19 @@
 using namespace std;
 
 // constructor
-Attribute::Attribute(FILE* fp) {
+Attribute::Attribute(FILE* fp, ConstantPool& cp) {
   this->attribute_name = u2READ(fp);
   this->attribute_length = u4READ(fp);
 
-  this->readInfo(fp);
+  this->readInfo(fp, cp);
 }
 // destructor
 Attribute::~Attribute() {}
 
-void Attribute::readInfo(FILE* fp) {
-  if (this->attribute_length > 0) {
-			// string string_name = decodificaStringUTF8(cp + this->attribute_name-1);
+void Attribute::readInfo(FILE* fp, ConstantPool& cp) {
+	if (this->attribute_length > 0) {
+			string string_name = cp.getValueUTF8String(this->attribute_name);
+			// cout << "making attribute." << "index in cp is : " <<this->attribute_name << ", and value is |" << string_name << "|." << endl;
 
 			// if (strcmp(string_name, "SourceFile") == 0){
 			// 	source_file_attribute *SourceFile = NULL;//(code_attribute*) malloc(i->attributes_count*sizeof(code_attribute));

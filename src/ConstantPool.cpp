@@ -16,8 +16,7 @@ ConstantPool::ConstantPool(FILE *fp)
 // func que imprime cp_info
 // define como representa cp_info como string, e pode usar isso diretamente no cout
 
-void ConstantPool::cp_info_to_ostream(CpInfo *const(c))
-{
+void ConstantPool::cp_info_to_ostream(CpInfo *const(c)) {
   u1 tag = c->tag;
   switch (tag)
   {
@@ -94,13 +93,10 @@ void ConstantPool::printConstantPool()
   } 
 }
 
-void ConstantPool::ReadConstantPoolFromFile(FILE *fp)
-{
-  for (int i = 1; i < this->count; i++)
-  {
+void ConstantPool::ReadConstantPoolFromFile(FILE *fp) {
+  for (int i = 1; i < this->count; i++) {
     u1 tag = u1READ(fp);
-    switch (tag)
-    {
+    switch (tag) {
     // tag 1, type string (2+x bytes)
     case CONSTANT_Utf8:
       this->AddCpInfo((CpInfo *)new CONSTANT_Utf8_info(fp));
@@ -187,8 +183,7 @@ void ConstantPool::ReadConstantPoolFromFile(FILE *fp)
 }
 
 // destructor
-ConstantPool::~ConstantPool()
-{
+ConstantPool::~ConstantPool() {
   // delete all items from vector
   for (const auto cp_info : this->cp_infos)
     delete cp_info;
@@ -196,7 +191,21 @@ ConstantPool::~ConstantPool()
   this->cp_infos.clear();
 }
 
-void ConstantPool::AddCpInfo(CpInfo *cp_info)
-{
+void ConstantPool::AddCpInfo(CpInfo *cp_info) {
   this->cp_infos.push_back(cp_info);
+}
+
+CpInfo* ConstantPool::getCpInfo(u2 index) {
+  if (index > this->count) return NULL;
+  return this->cp_infos.at((size_t) index);
+}
+
+string ConstantPool::getValueUTF8String(u2 index) {
+  auto cpValue = this->getCpInfo(index);
+  if (!cpValue) return string("[ERROR] index out of range");
+
+  auto utf8Entry = (CONSTANT_Utf8_info*) this->getCpInfo(index);
+  auto bytes = (char*) utf8Entry->bytes;
+  auto length = (size_t) utf8Entry->length;
+  return string(bytes, length);
 }

@@ -1,26 +1,25 @@
-#ifndef field_h
-#define field_h
+#ifndef method_h
+#define method_h
 
-#include <vector>
 #include <stdio.h>
+#include <vector>
 
 #include "../headers/definitions.h"
 #include "../headers/Attribute.h"
 
-class Field {
+class Method {
   public:
-    Field(FILE* fp, ConstantPool& cp);
-    ~Field();
+    Method(FILE* fp, ConstantPool& cp);
+    ~Method();
 
   private:
-    std::vector<Attribute*> attributes;
     void ReadAttributesFromFile(FILE* fp, ConstantPool& cp);
     void AddAttribute(Attribute* attb);
-
     u2 access_flags;
     u2 name;
     u2 descriptor;
     u2 attributes_count;
+    std::vector<Attribute*> attributes;
 };
 
 #endif

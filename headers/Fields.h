@@ -9,12 +9,12 @@
 
 class Fields {
   public:
-    Fields(FILE* fp);
+    Fields(FILE* fp, ConstantPool& cp);
     ~Fields();
 
   private:
     std::vector<Field*> fields;
-    void ReadFieldsFromFile(FILE* fp);
+    void ReadFieldsFromFile(FILE* fp, ConstantPool& cp);
     void AddField(Field* field);
 
     u2 fields_count;
