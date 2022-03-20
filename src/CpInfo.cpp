@@ -7,7 +7,7 @@ CpInfo::CpInfo(u1 tag) {
 }
 
 CONSTANT_Utf8_info::CONSTANT_Utf8_info(FILE* fp): CpInfo(CONSTANT_Utf8) {
-  this->length = u4READ(fp);
+  this->length = u2READ(fp);
   this->bytes = (u1*) malloc(this->length * sizeof(u1));
     for (auto x = 0; x < this->length; x++)
       this->bytes[x] = u1READ(fp);

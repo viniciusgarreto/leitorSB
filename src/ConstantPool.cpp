@@ -9,9 +9,8 @@ using namespace std;
 // constructor
 ConstantPool::ConstantPool(FILE *fp, u2 cp_count) {
 
-  for (int i = 1; i <= cp_count+1; i++) {
+  for (int i = 1; i < cp_count; i++) {
     u1 tag = u1READ(fp);
-
     switch (tag) {
       // tag 1, type string (2+x bytes)
 			case CONSTANT_Utf8:
