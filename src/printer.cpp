@@ -1,13 +1,15 @@
 #include <stdio.h>
 #include <iostream>
 #include "../headers/classFile.h"
+using namespace std;
 
 void imprimirArquivo(ClassFile *cf) {
   printf("Magic: %08x\n", cf->magic);
   printf("Minor Version: %04x\n", cf->minor_version);
   printf("Major Version: %04x\n", cf->major_version);
-  // printf("Constant Pool Count: %04x\n", cf->constant_pool_count);
+  printf("Constant Pool Count: %04x\n", cf->constant_pool_count);
   printf("Constant Pool: \n");
+
   cf->constant_pool->printConstantPool();
   printf("Access Flags: %04x\n", cf->access_flags);
   printf("This Class: %04x\n", cf->this_class);

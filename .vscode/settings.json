@@ -17,6 +17,14 @@
     "type_traits": "cpp",
     "typeinfo": "cpp",
     "utility": "cpp",
-    "iostream": "cpp"
+    "iostream": "cpp",
+    "iosfwd": "cpp",
+    "cctype": "cpp",
+    "clocale": "cpp",
+    "cwchar": "cpp",
+    "numbers": "cpp",
+    "string": "cpp",
+    "string_view": "cpp",
+    "ostream": "cpp"
   }
 }
