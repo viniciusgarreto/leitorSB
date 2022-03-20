@@ -13,6 +13,14 @@ Field::Field(FILE* fp, ConstantPool& cp) {
 
   // if there are no attributes, stop
   this->attributes_count = u2READ(fp);
+  
+  cout << "[FIELD] creating field with" << endl
+    << "[FIELD]\tthis->access_flags: " << (unsigned) this->access_flags << endl
+    << "[FIELD]\tthis->name: " << (unsigned) this->name << endl
+    << "[FIELD]\tthis->descriptor: " << (unsigned) this->descriptor << endl
+    << "[FIELD]\tthis->attributes_count: " << (unsigned) this->attributes_count << endl
+  << endl;
+
   if (this->attributes_count < 1) return;
   // read attributes
   this->ReadAttributesFromFile(fp, cp);
@@ -39,14 +47,22 @@ void Field::AddAttribute(Attribute* attb) {
 }
 
 ostream& operator<<(std::ostream & os, const Field &field) {
-  os << "Field info: "<<endl;
-  os << "access_flags: " << field.access_flags << endl;
-  os << "name: " << field.name << endl;
-  os << "descriptor: " << field.descriptor << endl;
-  os << "attributes_count: " << field.attributes_count << endl;
+  // os << "Field info: " << endl;
+  // os << "access_flags: " << (unsigned) field.access_flags << endl;
+  // os << "name: " <<  (unsigned) field.name << endl;
+  // os << "descriptor: " <<  (unsigned) field.descriptor << endl;
+  // os << "attributes_count: " <<  (unsigned) field.attributes_count << endl;
 
   return os;
 };
+
+void Field::printField() {
+  cout << "access_flag: "<< (unsigned) this->access_flags << endl;
+  cout << "name: "<< (unsigned)  this->name << endl;
+  cout << "descriptor: "<< (unsigned)  this->descriptor << endl;
+  cout << "attributes_count: "<< (unsigned)  this->attributes_count << endl;
+}
+
 /*
     u2 access_flags;
     u2 name;

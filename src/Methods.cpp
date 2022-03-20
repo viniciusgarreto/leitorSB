@@ -25,7 +25,7 @@ Methods::~Methods() {
 
 void Methods::ReadMethodsFromFile(FILE *fp, ConstantPool& cp) {
   for (size_t i = 0; i < (size_t) this->methods_count; i++) {
-    cout << "reading method " << i << " of " << (size_t) this->methods_count << endl;
+    cout << "[METHODS] reading method " << i+1 << " of " << (size_t) this->methods_count << endl;
     this->AddMethod(new Method(fp, cp));
   }
 }

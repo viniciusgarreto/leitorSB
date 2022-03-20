@@ -11,6 +11,7 @@ class Field {
   public:
     Field(FILE* fp, ConstantPool& cp);
     ~Field();
+    void printField();
 
   private:
     std::vector<Attribute*> attributes;

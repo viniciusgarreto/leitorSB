@@ -5,6 +5,7 @@
 #include "../headers/Interfaces.h"
 #include "../headers/Fields.h"
 #include "../headers/Methods.h"
+#include "../headers/Attributes.h"
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -45,11 +46,10 @@ ClassFile *lerArquivo(string nomeArquivo) {
     // cf->fields->printFields();
 
     // methods
-    // cf->methods = new Methods(fp, *cf->constant_pool);
+    cf->methods = new Methods(fp, *cf->constant_pool);
 
     // attributes
-    // cf->attributes_count = u2READ(fp);
-    // cf->attributes = new Attributes(fp, cf->attributes_count);
+    cf->attributes = new Attributes(fp, *cf->constant_pool);
     
     fclose(fp);
 

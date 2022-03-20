@@ -30,9 +30,8 @@ string Interfaces::ToString(ConstantPool& cp) {
   os << "Interfaces Count: " << this->count << endl;
   os << "Interfaces: " << endl;
   for (int i = 0; i < this->count; i++) {
-    os << "Interface " << i << " { "  << endl;
+    os << "Interface " << i << endl;
     os << *cp.getCpInfo(this->interfaces[i]) << endl;
-    os << "}" << endl;
   }
   return os.str();
 }

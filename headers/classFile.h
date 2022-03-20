@@ -6,6 +6,7 @@
 #include "../headers/Interfaces.h"
 #include "../headers/Fields.h"
 #include "../headers/Methods.h"
+#include "../headers/Attributes.h"
 
 typedef struct attribute_info
 {
@@ -48,10 +49,9 @@ typedef struct ClassFile
   u2 this_class;
   u2 super_class;
   Interfaces* interfaces;
-  Fields *fields;
+  Fields* fields;
   Methods* methods;
-  // u2 attributes_count;
-  // attribute_info *attributes;
+  Attributes* attributes;
 } ClassFile;
 
 #endif

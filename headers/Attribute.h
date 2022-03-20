@@ -6,6 +6,7 @@
 #include "../headers/definitions.h"
 #include "../headers/ConstantPool.h"
 #include "../headers/Classes.h"
+#include "../headers/LineNumberTable.h"
 
 class Attribute {
   public:
@@ -59,8 +60,10 @@ class LineNumberTableAttribute : public Attribute {
     ~LineNumberTableAttribute();
 
   private:
-    u2 line_number;
-    u2 start_pc;
+    void AddLineNumberTable(LineNumberTable* table);
+
+    u2 line_number_table_length;
+    std::vector<LineNumberTable*> line_number_table;
 };
 
 class StackMapAttribute : public Attribute {
@@ -111,6 +114,8 @@ class ExceptionsAttribute : public Attribute {
     ~ExceptionsAttribute();
 
   private:
+    u2 num_exceptions;
+    u2* exceptions;
 };
 
 #endif

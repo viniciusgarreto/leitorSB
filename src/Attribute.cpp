@@ -8,9 +8,8 @@ using namespace std;
 Attribute* Attribute::readAttribute(FILE* fp, ConstantPool& cp) {
 	u2 attbName = u2READ(fp);
 	u4 attbLength = u4READ(fp);
+	cout << "[ATTRIBUTE] Reading attb for name " << (unsigned) attbName << " and len " << (unsigned) attbLength << endl;
 
-	// cout << "reading attb for name " << (unsigned) attbName << " and len " << (unsigned) attbLength << endl;
-	
 	// case attbLength 0
 	if (attbLength == 0)
 		return new Attribute(attbName, attbLength);
@@ -53,6 +52,7 @@ Attribute::~Attribute() {}
 // constructor
 SourceFileAttribute::SourceFileAttribute(FILE* fp, ConstantPool& cp, u2 attbName, u4 attbLength): Attribute(attbName, attbLength) {
   this->source_file = u2READ(fp);
+	// cout << "[SOURCE] source_file: " << this->source_file << endl;
 }
 // destructor
 SourceFileAttribute::~SourceFileAttribute() {}
@@ -64,7 +64,7 @@ CodeAttribute::CodeAttribute(FILE* fp, ConstantPool& cp, u2 attbName, u4 attbLen
 	this->code_length = u4READ(fp);
 
   this->code = (u1*) malloc(this->code_length * sizeof(u1));
-  for (auto i = 0; i < this->code_length; i++){
+  for (size_t i = 0; i < (size_t) this->code_length; i++){
     this->code[i] = u1READ(fp);
 	}
 
@@ -78,6 +78,7 @@ CodeAttribute::CodeAttribute(FILE* fp, ConstantPool& cp, u2 attbName, u4 attbLen
 	this->attributes_count = u2READ(fp);
 	if (this->attributes_count > 0) {
 		for (int i = 0; i < this->attributes_count; i++) {
+			cout << "[CODE ATTB] reading sub-attribute of code attb #" << i+1 << endl;
 			this->AddAttribute(Attribute::readAttribute(fp, cp));
 		}
 	}
@@ -92,20 +93,28 @@ CodeAttribute::~CodeAttribute() {
 
 // constructor
 LineNumberTableAttribute::LineNumberTableAttribute(FILE* fp, ConstantPool& cp, u2 attbName, u4 attbLength): Attribute(attbName, attbLength) {
-	cout << "TODO: implement LineNumberTableAttribute" << endl;
-	this->line_number = u2READ(fp);
+	this->line_number_table_length = u2READ(fp);
+	cout << "[LINE ATTB] reading line number table attribute." << endl
+		<< "[LINE ATTB]\tline_number_table_length: " << this->line_number_table_length
+	<< endl;
 	
-	if (this->line_number == 0) return;
-	
-
-	// this-> = (Line_number_info*) malloc(this->line_number_length*sizeof(struct line_number_info));
-	// for (Line_number_info *linfo = this->info; linfo < this->info+this->line_number_length; linfo++) {
-	// 	linfo->start_pc = u2READ(fp);
-	// 	linfo->line_number = u2READ(fp);
-	// }
+	if (this->line_number_table_length > 0) {
+		for (int posicao = 0; posicao < this->line_number_table_length; posicao++) {
+			cout << "[LINE ATTB] reading line " << posicao+1 << " of " << this->line_number_table_length << endl;
+			this->AddLineNumberTable(new LineNumberTable(fp));
+		}
+	}
+}
+void LineNumberTableAttribute::AddLineNumberTable(LineNumberTable* table) {
+  this->line_number_table.push_back(table);
 }
 // destructor
-LineNumberTableAttribute::~LineNumberTableAttribute() {}
+LineNumberTableAttribute::~LineNumberTableAttribute() {
+// delete all classes from vector
+  for (const auto table : this->line_number_table)
+    delete table;
+  this->line_number_table.clear();
+}
 
 // constructor
 StackMapAttribute::StackMapAttribute(FILE* fp, ConstantPool& cp, u2 attbName, u4 attbLength): Attribute(attbName, attbLength) {
@@ -167,10 +176,8 @@ void StackMapAttribute::readStackMapFrame(FILE* fp) {
 
 // constructor
 InnerClassesAttribute::InnerClassesAttribute(FILE* fp, ConstantPool& cp, u2 attbName, u4 attbLength): Attribute(attbName, attbLength) {
-	// cout << "TODO: implement InnerClassesAttribute" << endl;
 	this->num_classes = u2READ(fp);
 	if (this->num_classes > 0) {
-		// this->classes_array = (Classes**) malloc(this->num_classes*sizeof(Classes*));
 		for (int posicao = 0; posicao < this->num_classes; posicao++) {
 			this->AddClasses(new Classes(fp));
 		}
@@ -203,18 +210,16 @@ ConstantValueAttribute::~ConstantValueAttribute() {}
 
 // constructor
 ExceptionsAttribute::ExceptionsAttribute(FILE* fp, ConstantPool& cp, u2 attbName, u4 attbLength): Attribute(attbName, attbLength) {
-	cout << "TODO: implement ExceptionsAttribute" << endl;
-	// Exception_attribute *exceptions = (Exception_attribute*) malloc(sizeof(struct exception_attribute));
-	// exceptions->num_exceptions = u2READ(fp);
-	// exceptions->exception_info = NULL;
-	// if (exceptions->num_exceptions > 0) {
-	// 	exceptions->exception_info = (u2*) malloc(exceptions->num_exceptions*sizeof(u2));
-	// 	for (u2 *excpAux = exceptions->exception_info; excpAux < exceptions->exception_info + exceptions->num_exceptions; excpAux++) {
-	// 		*excpAux = u2READ(fp);
-	// 	}
-	// }
-	// return exceptions;
+	this->num_exceptions = u2READ(fp);
+	this->exceptions = nullptr;
+	if (this->num_exceptions > 0) {
+		this->exceptions = (u2*) malloc(this->num_exceptions*sizeof(u2));
+		for (u2* aux = this->exceptions; aux < this->exceptions + this->num_exceptions; aux++) {
+			*aux = u2READ(fp);
+		}
+	}
 }
-
 // destructor
-ExceptionsAttribute::~ExceptionsAttribute() {}
+ExceptionsAttribute::~ExceptionsAttribute() {
+	free(this->exceptions);
+}

@@ -12,8 +12,14 @@ Method::Method(FILE* fp, ConstantPool& cp) {
   this->descriptor = u2READ(fp);
   this->attributes_count = u2READ(fp);
 
+  cout << "[METHOD] creating method with" << endl
+    << "[METHOD]\tthis->access_flags: " << (unsigned) this->access_flags << endl
+    << "[METHOD]\tthis->name: " << (unsigned) this->name << endl
+    << "[METHOD]\tthis->descriptor: " << (unsigned) this->descriptor << endl
+    << "[METHOD]\tthis->attributes_count: " << (unsigned) this->attributes_count << endl
+    << endl;
+
   // if there are no attributes, stop
-  this->attributes_count = u2READ(fp);
   if (this->attributes_count < 1) return;
 
   // read attributes
@@ -24,13 +30,13 @@ Method::~Method() {
   // delete all attributes from vector
   for (const auto attribute : this->attributes)
     delete attribute;
-
   this->attributes.clear();
 }
 
 void Method::ReadAttributesFromFile(FILE* fp, ConstantPool& cp) {
-  for (int i = 1; i < this->attributes_count; i++) {
-    // cout << "in method attb creation" << endl;
+  cout << "[METHOD] reading attributes for method. total: " <<  this->attributes_count << endl;
+  for (int i = 0; i < this->attributes_count; i++) {
+    cout << "[METHOD]\t atribute " << i << "." << endl;
     this->AddAttribute(Attribute::readAttribute(fp, cp));
   }
 }
