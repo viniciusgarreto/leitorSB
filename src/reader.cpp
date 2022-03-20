@@ -1,8 +1,9 @@
 #include "../headers/reader.h"
 
+#include "../headers/definitions.h"
 #include "../headers/ConstantPool.h"
 #include "../headers/Interfaces.h"
-#include "../headers/definitions.h"
+#include "../headers/Fields.h"
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -34,19 +35,18 @@ ClassFile *lerArquivo(string nomeArquivo) {
     cf->super_class = u2READ(fp);
 
     // interfaces
-    cf->interfaces_count = u2READ(fp);
-    cf->interfaces = new Interfaces(fp, cf->interfaces_count);
+    // cf->interfaces_count = u2READ(fp);
+    cf->interfaces = new Interfaces(fp);
 
     // fields
-    cf->fields_count = u2READ(fp);
-    // cf->fields = new Fields(fp, cf->fields_count);
+    cf->fields = new Fields(fp);
 
     // methods
-    cf->methods_count = u2READ(fp);
+    // cf->methods_count = u2READ(fp);
     // cf->methods = new Methods(fp, cf->methods_count);
 
     // attributes
-    cf->attributes_count = u2READ(fp);
+    // cf->attributes_count = u2READ(fp);
     // cf->attributes = new attributes(fp, cf->attributes_count);
     
     fclose(fp);

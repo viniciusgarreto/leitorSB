@@ -3,8 +3,11 @@
 
 using namespace std;
 
-Interfaces::Interfaces(FILE *fp, u2 interfaces_count) {
-  for (int i = 1; i <= interfaces_count+1; i++) {
+Interfaces::Interfaces(FILE *fp) {
+  this->count = u2READ(fp);
+  if (this->count < 1) return;
+
+  for (int i = 1; i < this->count; i++) {
     this->AddInterface(u2READ(fp));
   }
 }

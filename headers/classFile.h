@@ -4,6 +4,7 @@
 #include "../headers/definitions.h"
 #include "../headers/ConstantPool.h"
 #include "../headers/Interfaces.h"
+#include "../headers/Fields.h"
 
 typedef struct attribute_info
 {
@@ -45,14 +46,12 @@ typedef struct ClassFile
   u2 access_flags;
   u2 this_class;
   u2 super_class;
-  u2 interfaces_count;
   Interfaces* interfaces;
-  u2 fields_count;
-  field_info *field_Info;
-  u2 methods_count;
-  method_info *method_Info;
-  u2 attributes_count;
-  attribute_info *attributes;
+  Fields *fields;
+  // u2 methods_count;
+  // method_info *method_Info;
+  // u2 attributes_count;
+  // attribute_info *attributes;
 } ClassFile;
 
 #endif

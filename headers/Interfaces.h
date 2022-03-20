@@ -10,12 +10,13 @@ using namespace std;
 
 class Interfaces {
   public:
-    Interfaces(FILE *fp, u2 interfaces_count);
+    Interfaces(FILE *fp);
     ~Interfaces();
   
   private:
     void AddInterface(u2 interface);
     std::vector<u2> interfaces;
+    u2 count;
 };
 
 
