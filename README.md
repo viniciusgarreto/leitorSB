@@ -1,15 +1,23 @@
-### Repositórios
+## Comando para execução:
 
-- https://github.com/ArturHugo/Projeto_JVM_C
-- https://github.com/glins97/SB-LE
+Obs: deve-se ter o make instalado.
 
-<!-- esse aqui -->
-- https://github.com/RafaelBatistaMenegassi/LeitorExibidorSB20192
+### Windows
+```
+make; .\LEITOR.exe ./java/<NomeDoArquivo>.class
+```
 
-- https://github.com/RafaelBatistaMenegassi/JVM_SB20192
-- https://github.com/vieirin/SB_JVM_2019_1
-- https://github.com/CS-UnB/JavaVirtualMachine
-- https://github.com/SkiaBr23/jvm-ladeira
-- https://github.com/gabrielmm1234/jvm-sb
-- https://github.com/allienson/jvm
-- https://github.com/ACSouzaJr/jvm8
+### Linux
+
+```
+make; .\LEITOR.exe ./java/<NomeDoArquivo>.class
+```
+
+### Autores
+
+- Caio Bernardon N. K. Massucato – 16/0115001
+- Rafael Gonçalves de Paulo - 17/0043959
+- José Vinícius Garreto Costa – 18/0123734
+- Alice da Costa Borges  - 18/0011855
+- Lucas Vinicius Magalhães Pinheiro - 17/0061001
+ 
