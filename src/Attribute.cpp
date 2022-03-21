@@ -131,47 +131,7 @@ StackMapAttribute::StackMapAttribute(FILE* fp, ConstantPool& cp, u2 attbName, u4
 StackMapAttribute::~StackMapAttribute() {}
 
 void StackMapAttribute::readStackMapFrame(FILE* fp) {
-	// Stack_map_frame *StackMapFrame = (Stack_map_frame*) malloc(sizeof(struct stack_map_frame));
-	// StackMapFrame->frame_type = u1READ(fp);
-	// if (StackMapFrame->frame_type >= 0 && StackMapFrame->frame_type <= 63) {
-	// } else if (StackMapFrame->frame_type >= 64 && StackMapFrame->frame_type <= 127) {
-	// 	StackMapFrame->map_frame_type.same_locals_1_stack_item_frame.stack = (Verification_type_info**)malloc(sizeof(Verification_type_info*));
-	// 	*(StackMapFrame->map_frame_type.same_locals_1_stack_item_frame.stack) = lerVerificationTypeInfo(fp);
-	// } else if (StackMapFrame->frame_type == 247) {
-	// 	StackMapFrame->map_frame_type.same_locals_1_stack_item_frame_extended.offset_delta = u2READ(fp);
-	// 	StackMapFrame->map_frame_type.same_locals_1_stack_item_frame_extended.stack = (Verification_type_info**)malloc(sizeof(Verification_type_info*));
-	// 	*(StackMapFrame->map_frame_type.same_locals_1_stack_item_frame_extended.stack) = lerVerificationTypeInfo(fp);
-	// } else if (StackMapFrame->frame_type >= 248 && StackMapFrame->frame_type <= 250) {
-	// 	StackMapFrame->map_frame_type.chop_frame.offset_delta = u2READ(fp);
-	// } else if (StackMapFrame->frame_type == 251) {
-	// 	StackMapFrame->map_frame_type.same_frame_extended.offset_delta = u2READ(fp);
-	// } else if (StackMapFrame->frame_type >= 252 && StackMapFrame->frame_type <= 254) {
-	// 	StackMapFrame->map_frame_type.append_frame.offset_delta = u2READ(fp);
-	// 	u2 sizeMalloc = (StackMapFrame->frame_type-251);
-	// 	StackMapFrame->map_frame_type.append_frame.locals = (Verification_type_info**)malloc(sizeMalloc*sizeof(Verification_type_info*));
-	// 	for (int posicao = 0; posicao < sizeMalloc; posicao++) {
-	// 		*(StackMapFrame->map_frame_type.append_frame.locals+posicao) = lerVerificationTypeInfo(fp);
-	// 	}
-	// } else if (StackMapFrame->frame_type == 255) {
-	// 	StackMapFrame->map_frame_type.full_frame.offset_delta = u2READ(fp);
-	// 	StackMapFrame->map_frame_type.full_frame.num_locals = u2READ(fp);
-	// 	if (StackMapFrame->map_frame_type.full_frame.num_locals > 0) {
-	// 		StackMapFrame->map_frame_type.full_frame.locals = (Verification_type_info**) malloc(StackMapFrame->map_frame_type.full_frame.num_locals*sizeof(Verification_type_info*));
-	// 		for (int posicao = 0; posicao < StackMapFrame->map_frame_type.full_frame.num_locals; posicao++) {
-	// 			*(StackMapFrame->map_frame_type.full_frame.locals+posicao) = lerVerificationTypeInfo(fp);
-	// 			if ((*(StackMapFrame->map_frame_type.full_frame.locals+posicao))->tag == 7) {
-	// 			}
-	// 		}
-	// 	}
-	// 	StackMapFrame->map_frame_type.full_frame.num_stack_items = u2READ(fp);
-	// 	if (StackMapFrame->map_frame_type.full_frame.num_stack_items > 0) {
-	// 		StackMapFrame->map_frame_type.full_frame.stack = (Verification_type_info**) malloc(StackMapFrame->map_frame_type.full_frame.num_stack_items*sizeof(Verification_type_info*));
-	// 		for (int posicao = 0; posicao < StackMapFrame->map_frame_type.full_frame.num_stack_items; posicao++) {
-	// 			*(StackMapFrame->map_frame_type.full_frame.stack+posicao) = lerVerificationTypeInfo(fp);
-	// 		}
-	// 	}
-	// }
-	// return StackMapFrame;
+	
 }
 
 // constructor

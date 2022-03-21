@@ -1,24 +1,14 @@
-## Comando para execução:
+# Como compilar
 
-Obs: deve-se ter o make instalado.
-
-### Windows
+### Para compilar os arquivos cpp, utilize a seguinte linha de código:
 ```
-make; .\LEITOR.exe ./java/<NomeDoArquivo>.class
+g++ Attribute.cpp Attributes.cpp Classes.cpp ConstantPool.cpp CpInfo.cpp definitions.cpp Field.cpp Fields.cpp Interfaces.cpp LineNumberTable.cpp main.cpp Method.cpp Methods.cpp printer.cpp reader.cpp
 ```
-
-### Linux
-
+### Para exercutar o arquivo compilado, e escolher um arquivo .class a ser lido, utilize a seguinte linha de código:
 ```
-make; .\LEITOR.exe ./java/<NomeDoArquivo>.class
+./a.out <Nome_do_Arquivo>
 ```
 
-### Usando g++:
-```
-g++ <nome_arquivo1.cpp> <nome_arquivo2.cpp> ... <nome_arquiboN.coo> -o leitorexibidor
-
-./leitorexibidor
-```
 ### Autores
 
 - Caio Bernardon N. K. Massucato – 16/0115001
