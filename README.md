@@ -13,6 +13,12 @@ make; .\LEITOR.exe ./java/<NomeDoArquivo>.class
 make; .\LEITOR.exe ./java/<NomeDoArquivo>.class
 ```
 
+### Usando g++:
+```
+g++ <nome_arquivo1.cpp> <nome_arquivo2.cpp> ... <nome_arquiboN.coo> -o leitorexibidor
+
+./leitorexibidor
+```
 ### Autores
 
 - Caio Bernardon N. K. Massucato – 16/0115001
