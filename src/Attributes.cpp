@@ -4,7 +4,7 @@
 Attributes::Attributes(FILE *fp, ConstantPool& cp) {
   // if there are no attributes, stop
   this->attributes_count = u2READ(fp);
-  cout << "[ATTRIBUTES] Reading attributes. count: " << (unsigned) this->attributes_count << endl;
+  // cout << "[ATTRIBUTES] Reading attributes. count: " << (unsigned) this->attributes_count << endl;
   if (this->attributes_count < 1) return;
 
   this->ReadAttributesFromFile(fp, cp);
@@ -29,3 +29,13 @@ void Attributes::AddAttribute(Attribute* attb) {
 }
 
 void AddAttribute(Attribute* attributes);
+
+void Attributes::printAttributes(ConstantPool& cp){
+  cout << "ATTRIBUTES COUNT: " << (unsigned) this->attributes_count << endl;
+  cout << endl;
+  for(const auto attribute : this->attributes){
+    cout<< "ATTRIBUTE INFO: " << endl;
+    attribute->printAttribute(cp);
+    cout << endl;
+  }
+}

@@ -9,7 +9,7 @@ using namespace std;
 Fields::Fields(FILE *fp, ConstantPool& cp) {
   // if there are no fields, stop
   this->fields_count = u2READ(fp);
-  cout << "fields count " << (unsigned) this->fields_count << endl;
+  // cout << "fields count " << (unsigned) this->fields_count << endl;
   if (this->fields_count < 1) return;
 
   this->ReadFieldsFromFile(fp, cp);
@@ -33,12 +33,12 @@ void Fields::AddField(Field* field) {
   this->fields.push_back(field);
 }
 
-void Fields::printFields(){
+void Fields::printFields(ConstantPool& cp){
   cout << "FIELDS COUNT: " << (unsigned) this->fields_count << endl;
   cout << endl;
   for(const auto field : this->fields){
     cout<< "FIELD INFO: " << endl;
-    field->printField();
+    field->printField(cp);
     cout << endl;
   }
 }

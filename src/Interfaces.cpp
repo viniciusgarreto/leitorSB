@@ -28,10 +28,12 @@ void Interfaces::AddInterface(u2 interface) {
 string Interfaces::ToString(ConstantPool& cp) {
   std::ostringstream os;
   os << "Interfaces Count: " << this->count << endl;
-  os << "Interfaces: " << endl;
-  for (int i = 0; i < this->count; i++) {
-    os << "Interface " << i << endl;
-    os << *cp.getCpInfo(this->interfaces[i]) << endl;
+  if(this->count > 0){
+    os << "Interfaces: " << endl;
+    for (int i = 0; i < this->count; i++) {
+      os << "Interface " << i << endl;
+      os << *cp.getCpInfo(this->interfaces[i]) << endl;
+    }
   }
   return os.str();
 }

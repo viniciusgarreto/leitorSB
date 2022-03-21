@@ -13,8 +13,9 @@ class Attribute {
     Attribute(u2 attbName, u4 attbLength);
     ~Attribute();
     static Attribute* readAttribute(FILE* fp, ConstantPool& cp);
+    void printAttribute(ConstantPool& cp, unsigned int indent = 0);
 
-  private:
+  protected:
     u2 attribute_name;
     u4 attribute_length;
     void *info;
@@ -26,6 +27,7 @@ class SourceFileAttribute : public Attribute {
   public:
     SourceFileAttribute(FILE* fp, ConstantPool& cp, u2 attbName, u4 attbLength);
     ~SourceFileAttribute();
+    void printAttribute(ConstantPool& cp, unsigned int indent);
 
   private:
     u2 source_file;
@@ -35,6 +37,7 @@ class CodeAttribute : public Attribute {
   public:
     CodeAttribute(FILE* fp, ConstantPool& cp, u2 attbName, u4 attbLength);
     ~CodeAttribute();
+    void printAttribute(ConstantPool& cp, unsigned int indent);
 
   private:
     void AddAttribute(Attribute* interface);
@@ -50,7 +53,6 @@ class CodeAttribute : public Attribute {
     u2 exception_info_length;
     ExceptionsAttribute* ex_info;
     
-
     /* Exception_info *ex_info; */
 };
 
@@ -58,6 +60,7 @@ class LineNumberTableAttribute : public Attribute {
   public:
     LineNumberTableAttribute(FILE* fp, ConstantPool& cp, u2 attbName, u4 attbLength);
     ~LineNumberTableAttribute();
+    void printAttribute(ConstantPool& cp, unsigned int indent);
 
   private:
     void AddLineNumberTable(LineNumberTable* table);
@@ -70,6 +73,7 @@ class StackMapAttribute : public Attribute {
   public:
     StackMapAttribute(FILE* fp, ConstantPool& cp, u2 attbName, u4 attbLength);
     ~StackMapAttribute();
+    void printAttribute(ConstantPool& cp, unsigned int indent);
 
   private:
     void readStackMapFrame(FILE* fp);
@@ -82,6 +86,7 @@ class InnerClassesAttribute : public Attribute {
   public:
     InnerClassesAttribute(FILE* fp, ConstantPool& cp, u2 attbName, u4 attbLength);
     ~InnerClassesAttribute();
+    void printAttribute(ConstantPool& cp, unsigned int indent);
 
   private:
     void AddClasses(Classes* c);
@@ -94,6 +99,7 @@ class SignatureAttribute : public Attribute {
   public:
     SignatureAttribute(FILE* fp, ConstantPool& cp, u2 attbName, u4 attbLength);
     ~SignatureAttribute();
+    void printAttribute(ConstantPool& cp, unsigned int indent);
 
   private:
     u2 signature;
@@ -103,6 +109,7 @@ class ConstantValueAttribute : public Attribute {
   public:
     ConstantValueAttribute(FILE* fp, ConstantPool& cp, u2 attbName, u4 attbLength);
     ~ConstantValueAttribute();
+    void printAttribute(ConstantPool& cp, unsigned int indent);
 
   private:
     u2 constantValue;
@@ -112,10 +119,13 @@ class ExceptionsAttribute : public Attribute {
   public:
     ExceptionsAttribute(FILE* fp, ConstantPool& cp, u2 attbName, u4 attbLength);
     ~ExceptionsAttribute();
+    void printAttribute(ConstantPool& cp,  unsigned int indent);
 
   private:
     u2 num_exceptions;
     u2* exceptions;
 };
+
+
 
 #endif

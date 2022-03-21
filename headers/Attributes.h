@@ -11,7 +11,7 @@ class Attributes {
   public:
     Attributes(FILE* fp, ConstantPool& cp);
     ~Attributes();
-    // void printAttributes();
+    void printAttributes(ConstantPool& cp);
 
   private:
     void ReadAttributesFromFile(FILE* fp, ConstantPool& cp);

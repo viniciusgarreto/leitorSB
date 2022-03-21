@@ -44,3 +44,5 @@ typedef uint32_t u4;
 #define u4READ(arq) (getc(arq) << 24) | (getc(arq) << 16 | getc(arq) << 8 | getc(arq))
 
 #endif
+
+void indentBy(unsigned int n);
