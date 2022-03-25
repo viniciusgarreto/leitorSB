@@ -14,8 +14,10 @@ class ConstantPool {
   public:
     ConstantPool(FILE* fp);
     ~ConstantPool();
-    void printConstantPool();
-    void cp_info_to_ostream(CpInfo *const(c));
+
+    // print methods
+    ostream& print(ostream& output = cout) const;
+    friend ostream& operator<<(ostream& out, const ConstantPool& cf);
 
     CpInfo* getCpInfo(u2 index);
     string getValueUTF8String(u2 index);

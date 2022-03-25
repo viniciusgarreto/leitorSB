@@ -48,21 +48,21 @@ ostream& ClassFile::print(ostream& output) const {
   output << "------------- EXIBIDOR -------------" << endl;
   output << endl;
 
-  printf("Magic Number: %08x\n", this->magic);
-  printf("Minor Version: %04x\n", this->minor_version);
-  printf("Major Version: %04x\n", this->major_version);
-  printf("Constant Pool: \n");
-  this->constant_pool->printConstantPool();
-  printf("Access Flags: %04x\n", this->access_flags);
-  printf("This Class: %04x\n", this->this_class);
-  printf("Super Class: %04x\n", this->super_class);
-  output << this->interfaces->ToString(*this->constant_pool) << endl;
+  output << "Magic Number: "  << this->magic      << endl
+    << "Minor Version: " << this->minor_version   << endl
+    << "Major Version: " << this->major_version   << endl
+    << "Constant Pool: " << *this->constant_pool  << endl
+    << "Access Flags: "  << this->access_flags    << endl
+    << "This Class: "    << this->this_class      << endl
+    << "Super Class: "   << this->super_class     << endl
+    // << this->interfaces->ToString(*this->constant_pool) << endl
+  ;
   
   //--fields
   output << endl;
-  this->fields->printFields(*this->constant_pool);
-  this->methods->printMethods(*this->constant_pool);
-  this->attributes->printAttributes(*this->constant_pool);
+  // this->fields->printFields(*this->constant_pool);
+  // this->methods->printMethods(*this->constant_pool);
+  // this->attributes->printAttributes(*this->constant_pool);
 
   return output;
 }
