@@ -9,8 +9,6 @@
 using namespace std;
 
 int main(int argc, char *argv[]) {
-  //Declara file
-  ClassFile *class_file;
 
   if (argc != 2) {
     cout << "Use this program as \"" << argv[0] << " fileName.java\"" << endl;
@@ -21,8 +19,9 @@ int main(int argc, char *argv[]) {
   string filename(argv[1]);
 
   // read file
-  class_file = lerArquivo(filename);
+  ClassFile *class_file = lerArquivo(filename);
 
+  // print file
   imprimirArquivo(class_file);
 
   return 0;

@@ -44,9 +44,9 @@ ostream& operator<<(ostream& out, const ClassFile& cf) {
 }
 ostream& ClassFile::print(ostream& output) const {
 
-  cout << endl;
-  cout << "------------- EXIBIDOR -------------" << endl;
-  cout << endl;
+  output << endl;
+  output << "------------- EXIBIDOR -------------" << endl;
+  output << endl;
 
   printf("Magic Number: %08x\n", this->magic);
   printf("Minor Version: %04x\n", this->minor_version);
@@ -56,13 +56,13 @@ ostream& ClassFile::print(ostream& output) const {
   printf("Access Flags: %04x\n", this->access_flags);
   printf("This Class: %04x\n", this->this_class);
   printf("Super Class: %04x\n", this->super_class);
-  cout << this->interfaces->ToString(*this->constant_pool) << endl;
+  output << this->interfaces->ToString(*this->constant_pool) << endl;
   
   //--fields
-  cout << endl;
+  output << endl;
   this->fields->printFields(*this->constant_pool);
   this->methods->printMethods(*this->constant_pool);
   this->attributes->printAttributes(*this->constant_pool);
 
-  return cout;
+  return output;
 }
