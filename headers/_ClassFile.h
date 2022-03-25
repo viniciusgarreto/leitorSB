@@ -18,7 +18,11 @@ class ClassFile {
     ClassFile(FILE* fp);
     ~ClassFile();
 
-  // private:
+    // print methods
+    ostream& print(ostream& output = cout) const;
+    friend ostream& operator<<(ostream& out, const ClassFile& cf);
+
+  private:
     u4 magic;
     u2 minor_version;
     u2 major_version;

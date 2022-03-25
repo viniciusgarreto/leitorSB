@@ -37,3 +37,32 @@ ClassFile::~ClassFile() {
   delete this->methods;
   delete this->attributes;
 }
+
+
+ostream& operator<<(ostream& out, const ClassFile& cf) {
+  return cf.print(out);
+}
+ostream& ClassFile::print(ostream& output) const {
+
+  cout << endl;
+  cout << "------------- EXIBIDOR -------------" << endl;
+  cout << endl;
+
+  printf("Magic Number: %08x\n", this->magic);
+  printf("Minor Version: %04x\n", this->minor_version);
+  printf("Major Version: %04x\n", this->major_version);
+  printf("Constant Pool: \n");
+  this->constant_pool->printConstantPool();
+  printf("Access Flags: %04x\n", this->access_flags);
+  printf("This Class: %04x\n", this->this_class);
+  printf("Super Class: %04x\n", this->super_class);
+  cout << this->interfaces->ToString(*this->constant_pool) << endl;
+  
+  //--fields
+  cout << endl;
+  this->fields->printFields(*this->constant_pool);
+  this->methods->printMethods(*this->constant_pool);
+  this->attributes->printAttributes(*this->constant_pool);
+
+  return cout;
+}
