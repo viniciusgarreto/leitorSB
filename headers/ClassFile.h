@@ -18,6 +18,9 @@ class ClassFile {
     ClassFile(FILE* fp);
     ~ClassFile();
 
+    // read .class file
+    static ClassFile* lerArquivo(string nomeArquivo);
+
     // print methods
     ostream& print(ostream& output = cout) const;
     friend ostream& operator<<(ostream& out, const ClassFile& cf);

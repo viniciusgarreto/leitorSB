@@ -66,3 +66,19 @@ ostream& ClassFile::print(ostream& output) const {
 
   return output;
 }
+
+ClassFile* ClassFile::lerArquivo(string nomeArquivo) {
+    FILE *fp = fopen(nomeArquivo.c_str(), "rb");
+
+    if (!fp) {
+      // se nao encontrou arquivo ou nao conseguiu abrir, encerra o programa
+      cout << "Erro na abertura do arquivo .class, o programa sera encerrado...\n";
+      exit(0);
+    }
+
+    auto cf = new ClassFile(fp);
+
+    fclose(fp);
+
+    return cf;
+}

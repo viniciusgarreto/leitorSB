@@ -1,5 +1,4 @@
 #include "../headers/classFile.h"
-#include "../headers/reader.h"
 #include "../headers/printer.h"
 
 #include <iostream>
@@ -19,7 +18,7 @@ int main(int argc, char *argv[]) {
   string filename(argv[1]);
 
   // read file
-  ClassFile *class_file = lerArquivo(filename);
+  auto class_file = ClassFile::lerArquivo(filename);
 
   // print file
   imprimirArquivo(class_file);
