@@ -15,8 +15,9 @@ class Interfaces {
   public:
     Interfaces(FILE *fp);
     ~Interfaces();
-    // friend ostream &operator<<(std::ostream &, const Interfaces &);
-    string ToString(ConstantPool& cp);
+
+    // print methods
+    ostream& print(ConstantPool& cp, ostream& output = cout) const;
 
   private:
     void AddInterface(u2 interface);

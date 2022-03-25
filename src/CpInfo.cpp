@@ -245,7 +245,7 @@ ostream &operator<<(ostream &os, CpInfo const& c) {
     break;
 
   default:
-    os << "[ERROR] unidentified tag value \"" << tag << "\"." << endl;
+    os << "[ERROR][CP-INFO] unidentified tag value \"" << tag << "\"." << endl;
     break;
   }
   return os;

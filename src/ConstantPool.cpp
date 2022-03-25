@@ -111,7 +111,7 @@ void ConstantPool::ReadConstantPoolFromFile(FILE *fp) {
       // tag 20, type package (2 bytes)
 
     default:
-      cout << "[ERROR] unidentified tag value \"" << tag << "\"." << endl;
+      cout << "[ERROR][CP] unidentified tag value \"" << (unsigned) tag << "\"." << endl;
       break;
     }
   }

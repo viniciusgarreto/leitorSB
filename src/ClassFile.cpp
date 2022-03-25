@@ -55,9 +55,10 @@ ostream& ClassFile::print(ostream& output) const {
     << "This Class: "    << this->this_class      << endl
     << "Super Class: "   << this->super_class     << endl
 
-    << "######### Constant Pool: " << endl << *this->constant_pool << endl
-    // << this->interfaces->ToString(*this->constant_pool) << endl
-  ;
+    << "######### Constant Pool: " << endl << *this->constant_pool << endl;
+
+  output << endl << "######### Interfaces: " << endl;
+  this->interfaces->print(*this->constant_pool, output) << endl;
   
   //--fields
   output << endl;
