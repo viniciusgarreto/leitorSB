@@ -51,10 +51,11 @@ ostream& ClassFile::print(ostream& output) const {
   output << "Magic Number: "  << this->magic      << endl
     << "Minor Version: " << this->minor_version   << endl
     << "Major Version: " << this->major_version   << endl
-    << "Constant Pool: " << *this->constant_pool  << endl
     << "Access Flags: "  << this->access_flags    << endl
     << "This Class: "    << this->this_class      << endl
     << "Super Class: "   << this->super_class     << endl
+
+    << "######### Constant Pool: " << endl << *this->constant_pool << endl
     // << this->interfaces->ToString(*this->constant_pool) << endl
   ;
   

@@ -13,85 +13,17 @@ ConstantPool::ConstantPool(FILE *fp)
   this->ReadConstantPoolFromFile(fp);
 }
 
-// void ConstantPool::cp_info_to_ostream(CpInfo *const(c)) {
-//   u1 tag = c->tag;
-//   switch (tag) {
-//   case CONSTANT_Utf8:
-//     cout << *((CONSTANT_Utf8_info *)c) << endl;
-//     break;
-
-//   case CONSTANT_Integer:
-//     cout << *((CONSTANT_Integer_info *)c) << endl;
-//     break;
-
-//   case CONSTANT_Float:
-//     cout << *((CONSTANT_Float_info *)c) << endl;
-//     break;
-
-//   case CONSTANT_Long:
-//     cout << *((CONSTANT_Long_info *)c) << endl;
-//     break;
-
-//   case CONSTANT_Double:
-//     cout << *((CONSTANT_Double_info *)c) << endl;
-//     break;
-
-//   case CONSTANT_Class:
-//     cout << *((CONSTANT_Class_info *)c) << endl;
-//     break;
-
-//   case CONSTANT_String:
-//     cout << *((CONSTANT_String_info *)c) << endl;
-//     break;
-
-//   case CONSTANT_Fieldref:
-//     cout << *((CONSTANT_Fieldref_info *)c) << endl;
-//     break;
-
-//   case CONSTANT_Methodref:
-//     cout << *((CONSTANT_Methodref_info *)c) << endl;
-//     break;
-
-//   case CONSTANT_InterfaceMethodref:
-//     cout << *((CONSTANT_InterfaceMethodref_info *)c) << endl;
-//     break;
-
-//   case CONSTANT_NameAndType:
-//     cout << *((CONSTANT_NameAndType_info *)c) << endl;
-//     break;
-
-//   case CONSTANT_MethodHandle:
-//     cout << *((CONSTANT_MethodHandle_info *)c) << endl;
-//     break;
-
-//   case CONSTANT_MethodType:
-//     cout << *((CONSTANT_MethodType_info *)c) << endl;
-//     break;
-
-//   case CONSTANT_InvokeDynamic:
-//     cout << *((CONSTANT_InvokeDynamic_info *)c) << endl;
-//     break;
-
-//   default:
-//     cout << "[ERROR] unidentified tag value \"" << tag << "\"." << endl;
-//     break;
-//   }
-// }
-// // void ConstantPool::printConstantPool() {}
-
-
 ostream& operator<<(ostream& output, const ConstantPool& cf) {
   return cf.print(output);
 }
 ostream& ConstantPool::print(ostream& output) const {
   // imprime cpool count
   output << endl 
-    << "####### CONSTANT POOL" << endl
     << "Constant Pool Count: " << (unsigned)this->count << endl;
+
   // imprime coisas da constant pool
-  for (const auto cp_info : this->cp_infos) {
+  for (const auto cp_info : this->cp_infos)
     output << *cp_info;
-  }
 
   return output;
 }

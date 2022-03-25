@@ -7,14 +7,13 @@
 
 using namespace std;
 
-class CpInfo
-{
+class CpInfo {
   // Byte de tag: indica qual o tipo de entrada na CP
   public:
     CpInfo(u1 tag);
     u1 tag;
-private:
-  friend std::ostream &operator<<(std::ostream &, const CpInfo &);
+
+    friend ostream& operator<<(ostream& out, const CpInfo& cf);
 };
 
 class CONSTANT_Utf8_info : public CpInfo
