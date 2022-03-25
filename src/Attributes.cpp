@@ -35,7 +35,7 @@ void Attributes::printAttributes(ConstantPool& cp){
   cout << endl;
   for(const auto attribute : this->attributes){
     cout<< "ATTRIBUTE INFO: " << endl;
-    attribute->printAttribute(cp);
+    // attribute->printAttribute(cp);
     cout << endl;
   }
 }

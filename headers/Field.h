@@ -11,7 +11,9 @@ class Field {
   public:
     Field(FILE* fp, ConstantPool& cp);
     ~Field();
-    void printField(ConstantPool& cp);
+
+    // print methods
+    ostream& print(ConstantPool& cp, ostream& output = cout) const;
 
   private:
     std::vector<Attribute*> attributes;

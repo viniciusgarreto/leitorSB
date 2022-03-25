@@ -62,7 +62,7 @@ ostream& ClassFile::print(ostream& output) const {
   
   //--fields
   output << endl;
-  // this->fields->printFields(*this->constant_pool);
+  this->fields->print(*this->constant_pool, output) << endl;
   // this->methods->printMethods(*this->constant_pool);
   // this->attributes->printAttributes(*this->constant_pool);
 

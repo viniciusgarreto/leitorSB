@@ -11,7 +11,10 @@ class Fields {
   public:
     Fields(FILE* fp, ConstantPool& cp);
     ~Fields();
-    void printFields(ConstantPool& cp);
+    
+    // print methods
+    ostream& print(ConstantPool& cp, ostream& output = cout) const;
+
   private:
     std::vector<Field*> fields;
     void ReadFieldsFromFile(FILE* fp, ConstantPool& cp);

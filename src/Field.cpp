@@ -56,18 +56,20 @@ ostream& operator<<(std::ostream & os, const Field &field) {
   return os;
 };
 
-void Field::printField(ConstantPool& cp) {
+ostream& Field::print(ConstantPool& cp, ostream& output) const {
   cout << "access_flag: "<< (unsigned) this->access_flags << endl;
   cout << "name: "<< (unsigned)  this->name << endl;
   cout << "descriptor: "<< (unsigned)  this->descriptor << endl;
   cout << "attributes_count: "<< (unsigned)  this->attributes_count << endl;
-  cout << "attributes" << endl;
+  cout << "attributes: " << endl;
 
   for(const auto atb : this->attributes){
     cout<< "FIELD INFO: " << endl;
-    atb->printAttribute(cp);
+    atb->print(cp, 1, output);
     cout << endl;
   }
+
+  return output;
 }
 
 /*

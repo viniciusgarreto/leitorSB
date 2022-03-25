@@ -51,6 +51,6 @@ void Method::printMethod(ConstantPool& cp) {
   cout << "descriptor: "<< (unsigned)  this->descriptor_index << endl;
   cout << "attributes_count: "<< (unsigned)  this->attributes_count << endl;
   
-	for (auto atb : this->attributes)
-		atb->printAttribute(cp);
+	for (auto atb : this->attributes);
+		// atb->printAttribute(cp);
 }
