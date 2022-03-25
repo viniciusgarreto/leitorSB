@@ -45,12 +45,12 @@ void Method::AddAttribute(Attribute* attb) {
   this->attributes.push_back(attb);
 }
 
-void Method::printMethod(ConstantPool& cp) {
-  cout << "access_flag: "<< (unsigned) this->access_flags << endl;
-  cout << "name: "<< (unsigned)  this->name_index << endl;
-  cout << "descriptor: "<< (unsigned)  this->descriptor_index << endl;
-  cout << "attributes_count: "<< (unsigned)  this->attributes_count << endl;
+ostream& Method::print(ConstantPool& cp, ostream& output) const {
+  output << "access_flag: "<< (unsigned) this->access_flags << endl;
+  output << "name: "<< (unsigned)  this->name_index << endl;
+  output << "descriptor: "<< (unsigned)  this->descriptor_index << endl;
+  output << "attributes_count: "<< (unsigned)  this->attributes_count << endl;
   
-	for (auto atb : this->attributes);
-		// atb->printAttribute(cp);
+	for (auto atb : this->attributes)
+		atb->print(cp, 1, output);
 }

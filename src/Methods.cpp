@@ -34,12 +34,11 @@ void Methods::AddMethod(Method* method) {
   this->methods.push_back(method);
 }
 
-void Methods::printMethods(ConstantPool& cp){
-  cout << "METHODS COUNT: " << (unsigned) this->methods_count << endl;
-  cout << endl;
+ostream& Methods::print(ConstantPool& cp, ostream& output) const {
+  output << "Methods Count: " << (unsigned) this->methods_count << endl;
   for(const auto method : this->methods){
-    cout<< "METHOD INFO: " << endl;
-    method->printMethod(cp);
-    cout << endl;
+    output << "METHOD INFO: " << endl;
+    method->print(cp, output);
+    output << endl;
   }
 }

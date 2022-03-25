@@ -54,8 +54,9 @@ ostream& ClassFile::print(ostream& output) const {
     << "Access Flags: "  << this->access_flags    << endl
     << "This Class: "    << this->this_class      << endl
     << "Super Class: "   << this->super_class     << endl
+  ;
 
-    << "######### Constant Pool: " << endl << *this->constant_pool << endl;
+  output << endl << "######### Constant Pool: " << endl << *this->constant_pool << endl;
 
   output << endl << "######### Interfaces: " << endl;
   this->interfaces->print(*this->constant_pool, output) << endl;
@@ -63,8 +64,8 @@ ostream& ClassFile::print(ostream& output) const {
   output << endl << "######### Fields: " << endl;
   this->fields->print(*this->constant_pool, output) << endl;
   
-  // output << endl << "######### Methods: " << endl;
-  // this->methods->printMethods(*this->constant_pool);
+  output << endl << "######### Methods: " << endl;
+  this->methods->print(*this->constant_pool, output) << endl;
 
   // output << endl << "######### Attributes: " << endl;
   // this->attributes->printAttributes(*this->constant_pool);

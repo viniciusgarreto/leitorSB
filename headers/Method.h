@@ -11,7 +11,9 @@ class Method {
   public:
     Method(FILE* fp, ConstantPool& cp);
     ~Method();
-    void printMethod(ConstantPool& cp);
+
+    // print methods
+    ostream& print(ConstantPool& cp, ostream& output = cout) const;
 
   private:
     void ReadAttributesFromFile(FILE* fp, ConstantPool& cp);

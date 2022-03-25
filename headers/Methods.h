@@ -11,7 +11,10 @@ class Methods {
   public:
     Methods(FILE* fp, ConstantPool& cp);
     ~Methods();
-    void printMethods(ConstantPool& cp);
+
+    // print methods
+    ostream& print(ConstantPool& cp, ostream& output = cout) const;
+
   private:
     void ReadMethodsFromFile(FILE* fp, ConstantPool& cp);
     void AddMethod(Method* method);
