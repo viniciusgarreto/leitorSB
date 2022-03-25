@@ -13,7 +13,6 @@
 using namespace std;
 
 ClassFile *lerArquivo(string nomeArquivo) {
-    auto cf = new ClassFile();
     FILE *fp = fopen(nomeArquivo.c_str(), "rb");
     // FILE *fp = fopen("nomeArquivo.c_str()", "rb");
 
@@ -23,33 +22,35 @@ ClassFile *lerArquivo(string nomeArquivo) {
         exit(0);
     }
 
-    // file general info
-    cf->magic = u4READ(fp);
-    cf->minor_version = u2READ(fp);
-    cf->major_version = u2READ(fp);
+    auto cf = new ClassFile(fp);
 
-    // constant pool
-    cf->constant_pool = new ConstantPool(fp);
-    // cout << "aaaa |" << cf->constant_pool->getValueUTF8String((u2) 11) << "|...." << endl;
+    // // file general info
+    // cf->magic = u4READ(fp);
+    // cf->minor_version = u2READ(fp);
+    // cf->major_version = u2READ(fp);
 
-    // stuff
-    cf->access_flags = u2READ(fp);
-    cf->this_class = u2READ(fp);
-    cf->super_class = u2READ(fp);
+    // // constant pool
+    // cf->constant_pool = new ConstantPool(fp);
+    // // cout << "aaaa |" << cf->constant_pool->getValueUTF8String((u2) 11) << "|...." << endl;
 
-    // interfaces
-    // cf->interfaces_count = u2READ(fp);
-    cf->interfaces = new Interfaces(fp);
+    // // stuff
+    // cf->access_flags = u2READ(fp);
+    // cf->this_class = u2READ(fp);
+    // cf->super_class = u2READ(fp);
 
-    // fields
-    cf->fields = new Fields(fp, *cf->constant_pool);
-    // cf->fields->printFields();
+    // // interfaces
+    // // cf->interfaces_count = u2READ(fp);
+    // cf->interfaces = new Interfaces(fp);
 
-    // methods
-    cf->methods = new Methods(fp, *cf->constant_pool);
+    // // fields
+    // cf->fields = new Fields(fp, *cf->constant_pool);
+    // // cf->fields->printFields();
 
-    // attributes
-    cf->attributes = new Attributes(fp, *cf->constant_pool);
+    // // methods
+    // cf->methods = new Methods(fp, *cf->constant_pool);
+
+    // // attributes
+    // cf->attributes = new Attributes(fp, *cf->constant_pool);
     
     fclose(fp);
 
