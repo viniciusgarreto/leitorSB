@@ -2,6 +2,7 @@
 
 using namespace std;
 
-void indentBy(unsigned int n) {
-	for (int i = 0; i < n; i++) cout << "\t";
+ostream& indentBy(unsigned int n, ostream& out) {
+	for (int i = 0; i < n; i++) out << "\t";
+	return out;
 }

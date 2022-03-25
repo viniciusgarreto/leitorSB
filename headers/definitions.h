@@ -2,6 +2,7 @@
 #define definitions_h
 
 #include <stdint.h>
+#include <iostream>
 
 typedef uint8_t u1;
 typedef uint16_t u2;
@@ -43,6 +44,6 @@ typedef uint32_t u4;
 /*Macro para leitura de um tipo u4 do arquivo .class*/
 #define u4READ(arq) (getc(arq) << 24) | (getc(arq) << 16 | getc(arq) << 8 | getc(arq))
 
-#endif
+std::ostream& indentBy(unsigned int n, std::ostream& out = std::cout);
 
-void indentBy(unsigned int n);
+#endif
