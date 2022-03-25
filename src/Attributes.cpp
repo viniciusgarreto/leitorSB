@@ -30,12 +30,12 @@ void Attributes::AddAttribute(Attribute* attb) {
 
 void AddAttribute(Attribute* attributes);
 
-void Attributes::printAttributes(ConstantPool& cp){
-  cout << "ATTRIBUTES COUNT: " << (unsigned) this->attributes_count << endl;
-  cout << endl;
-  for(const auto attribute : this->attributes){
-    cout<< "ATTRIBUTE INFO: " << endl;
-    // attribute->printAttribute(cp);
-    cout << endl;
+ostream& Attributes::print(ConstantPool& cp, ostream& output) const {
+  output << "Attributes Count: " << (unsigned) this->attributes_count << endl;
+  output << endl;
+  for (const auto attribute : this->attributes) {
+    output << "ATTRIBUTE INFO: " << endl;
+    attribute->print(cp, 1, output);
+    output << endl;
   }
 }

@@ -11,7 +11,9 @@ class Attributes {
   public:
     Attributes(FILE* fp, ConstantPool& cp);
     ~Attributes();
-    void printAttributes(ConstantPool& cp);
+    
+    // print methods
+    ostream& print(ConstantPool& cp, ostream& output = cout) const;
 
   private:
     void ReadAttributesFromFile(FILE* fp, ConstantPool& cp);
