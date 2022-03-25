@@ -23,8 +23,7 @@ void Interfaces::AddInterface(u2 interface) {
 }
 
 ostream& Interfaces::print(ConstantPool& cp, ostream& output) const {
-  output << endl 
-    << "Interfaces Count: " << this->count << endl;
+  output << "Interfaces Count: " << this->count << endl;
 
   if (this->count > 0) {
     output << "Interfaces: " << endl;

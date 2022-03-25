@@ -35,29 +35,11 @@ void Fields::AddField(Field* field) {
 
 // print methods
 ostream& Fields::print(ConstantPool& cp, ostream& output) const {
-  cout << "FIELDS COUNT: " << (unsigned) this->fields_count << endl;
-  cout << endl;
+  output << "Fields Count: " << (unsigned) this->fields_count << endl;
+  output << endl;
   for(const auto field : this->fields){
-    cout<< "FIELD INFO: " << endl;
+    output << "Field Info: " << endl;
     field->print(cp, output);
-    cout << endl;
+    output << endl;
   }
 }
-// void Fields::printFields(ConstantPool& cp){
-//   cout << "FIELDS COUNT: " << (unsigned) this->fields_count << endl;
-//   cout << endl;
-//   for(const auto field : this->fields){
-//     cout<< "FIELD INFO: " << endl;
-//     field->printField(cp);
-//     cout << endl;
-//   }
-// }
-// ostream& operator<<(std::ostream & os, const Fields &field) {
-//   os << "Fields: ";
-//   for (size_t i = 0; i < field.fields_count; i++)
-//   {
-//     os << field.fields->name;
-//   }
-//   return os;
-  
-// }

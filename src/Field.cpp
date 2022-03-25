@@ -46,34 +46,18 @@ void Field::AddAttribute(Attribute* attb) {
   this->attributes.push_back(attb);
 }
 
-ostream& operator<<(std::ostream & os, const Field &field) {
-  // os << "Field info: " << endl;
-  // os << "access_flags: " << (unsigned) field.access_flags << endl;
-  // os << "name: " <<  (unsigned) field.name << endl;
-  // os << "descriptor: " <<  (unsigned) field.descriptor << endl;
-  // os << "attributes_count: " <<  (unsigned) field.attributes_count << endl;
-
-  return os;
-};
-
 ostream& Field::print(ConstantPool& cp, ostream& output) const {
-  cout << "access_flag: "<< (unsigned) this->access_flags << endl;
-  cout << "name: "<< (unsigned)  this->name << endl;
-  cout << "descriptor: "<< (unsigned)  this->descriptor << endl;
-  cout << "attributes_count: "<< (unsigned)  this->attributes_count << endl;
-  cout << "attributes: " << endl;
+  output << "access_flag: "<< (unsigned) this->access_flags << endl;
+  output << "name: "<< (unsigned)  this->name << endl;
+  output << "descriptor: "<< (unsigned)  this->descriptor << endl;
+  output << "attributes_count: "<< (unsigned)  this->attributes_count << endl;
+  output << "attributes: " << endl;
 
   for(const auto atb : this->attributes){
-    cout<< "FIELD INFO: " << endl;
+    output << "FIELD INFO: " << endl;
     atb->print(cp, 1, output);
-    cout << endl;
+    output << endl;
   }
 
   return output;
 }
-
-/*
-    u2 access_flags;
-    u2 name;
-    u2 descriptor;
-    u2 attributes_count;*/
