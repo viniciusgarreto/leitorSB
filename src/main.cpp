@@ -2,6 +2,7 @@
 #include "../headers/printer.h"
 
 #include <iostream>
+#include <fstream>
 #include <stdlib.h>
 #include <string.h>
 
@@ -20,8 +21,13 @@ int main(int argc, char *argv[]) {
   // read file
   auto class_file = ClassFile::lerArquivo(filename);
 
-  // print file
-  imprimirArquivo(class_file);
+  // print classfile
+  ofstream myfile("./example.txt");
+  imprimirArquivo(class_file, myfile);
+  myfile.close();
+
+  // para mandar pro terminal é só deixar o segundo parâmetro vazio ou mandar o cout explicitamente
+  // imprimirArquivo(class_file, cout);
 
   return 0;
 }
