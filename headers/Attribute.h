@@ -27,11 +27,11 @@ class ExceptionsAttribute;
 
 class SourceFileAttribute : public Attribute {
   public:
-    SourceFileAttribute(FILE* fp, ConstantPool& cp, u2 attbName, u4 attbLength);
+    SourceFileAttribute(FILE* fp, u2 attbName, u4 attbLength);
     ~SourceFileAttribute();
     
     // print methods
-    ostream& print(ConstantPool& cp, unsigned int indent = 0, ostream& output = cout) const;
+    ostream& print(unsigned int indent = 0, ostream& output = cout) const;
 
   private:
     u2 source_file;
@@ -62,11 +62,11 @@ class CodeAttribute : public Attribute {
 
 class LineNumberTableAttribute : public Attribute {
   public:
-    LineNumberTableAttribute(FILE* fp, ConstantPool& cp, u2 attbName, u4 attbLength);
+    LineNumberTableAttribute(FILE* fp, u2 attbName, u4 attbLength);
     ~LineNumberTableAttribute();
     
     // print methods
-    ostream& print(ConstantPool& cp, unsigned int indent = 0, ostream& output = cout) const;
+    ostream& print(unsigned int indent = 0, ostream& output = cout) const;
 
   private:
     void AddLineNumberTable(LineNumberTable* table);
@@ -77,7 +77,7 @@ class LineNumberTableAttribute : public Attribute {
 
 class StackMapAttribute : public Attribute {
   public:
-    StackMapAttribute(FILE* fp, ConstantPool& cp, u2 attbName, u4 attbLength);
+    StackMapAttribute(FILE* fp, u2 attbName, u4 attbLength);
     ~StackMapAttribute();
     
     // print methods
@@ -92,7 +92,7 @@ class StackMapAttribute : public Attribute {
 
 class InnerClassesAttribute : public Attribute {
   public:
-    InnerClassesAttribute(FILE* fp, ConstantPool& cp, u2 attbName, u4 attbLength);
+    InnerClassesAttribute(FILE* fp, u2 attbName, u4 attbLength);
     ~InnerClassesAttribute();
     
     // print methods
@@ -107,11 +107,11 @@ class InnerClassesAttribute : public Attribute {
 
 class SignatureAttribute : public Attribute {
   public:
-    SignatureAttribute(FILE* fp, ConstantPool& cp, u2 attbName, u4 attbLength);
+    SignatureAttribute(FILE* fp, u2 attbName, u4 attbLength);
     ~SignatureAttribute();
     
     // print methods
-    ostream& print(ConstantPool& cp, unsigned int indent = 0, ostream& output = cout) const;
+    ostream& print(unsigned int indent = 0, ostream& output = cout) const;
 
   private:
     u2 signature;
@@ -119,11 +119,11 @@ class SignatureAttribute : public Attribute {
 
 class ConstantValueAttribute : public Attribute {
   public:
-    ConstantValueAttribute(FILE* fp, ConstantPool& cp, u2 attbName, u4 attbLength);
+    ConstantValueAttribute(FILE* fp, u2 attbName, u4 attbLength);
     ~ConstantValueAttribute();
     
     // print methods
-    ostream& print(ConstantPool& cp, unsigned int indent = 0, ostream& output = cout) const;
+    ostream& print(unsigned int indent = 0, ostream& output = cout) const;
 
   private:
     u2 constantValue;
@@ -131,11 +131,11 @@ class ConstantValueAttribute : public Attribute {
 
 class ExceptionsAttribute : public Attribute {
   public:
-    ExceptionsAttribute(FILE* fp, ConstantPool& cp, u2 attbName, u4 attbLength);
+    ExceptionsAttribute(FILE* fp, u2 attbName, u4 attbLength);
     ~ExceptionsAttribute();
 
     // print methods
-    ostream& print(ConstantPool& cp, unsigned int indent = 0, ostream& output = cout) const;
+    ostream& print(unsigned int indent = 0, ostream& output = cout) const;
 
   private:
     u2 num_exceptions;

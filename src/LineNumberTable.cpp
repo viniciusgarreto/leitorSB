@@ -6,9 +6,9 @@ LineNumberTable::LineNumberTable(FILE* fp) {
 	this->line_number = u2READ(fp);
 }
 
-void LineNumberTable::print(ConstantPool& cp, unsigned int indent) {
-	indentBy(indent);
-  cout << "start_pc: "<< (unsigned) this->start_pc << endl;
-	indentBy(indent);
-  cout << "line_number: "<< (unsigned)  this->line_number << endl;
+ostream& LineNumberTable::print(unsigned int indent, ostream& output) const {
+	indentBy(indent, output) << "start_pc: "<< (unsigned) this->start_pc << endl;
+	indentBy(indent, output) << "line_number: "<< (unsigned)  this->line_number << endl;
+
+	return output;
 }

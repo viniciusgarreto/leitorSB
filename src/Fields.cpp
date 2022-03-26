@@ -42,4 +42,6 @@ ostream& Fields::print(ConstantPool& cp, ostream& output) const {
     field->print(cp, output);
     output << endl;
   }
+
+  return output;
 }

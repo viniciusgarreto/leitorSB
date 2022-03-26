@@ -11,7 +11,9 @@ class LineNumberTable {
     LineNumberTable(FILE* fp);
     u2 start_pc;
     u2 line_number;
-    void print(ConstantPool& cp, unsigned int indent);
+
+    // print methods
+    ostream& print(unsigned int indent = 0, ostream& output = cout) const;
 };
 
 #endif

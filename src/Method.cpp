@@ -53,4 +53,6 @@ ostream& Method::print(ConstantPool& cp, ostream& output) const {
   
 	for (auto atb : this->attributes)
 		atb->print(cp, 1, output);
+
+  return output;
 }

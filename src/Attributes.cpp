@@ -38,4 +38,6 @@ ostream& Attributes::print(ConstantPool& cp, ostream& output) const {
     attribute->print(cp, 1, output);
     output << endl;
   }
+
+  return output;
 }

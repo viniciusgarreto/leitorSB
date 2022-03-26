@@ -41,4 +41,5 @@ ostream& Methods::print(ConstantPool& cp, ostream& output) const {
     method->print(cp, output);
     output << endl;
   }
+  return output;
 }
