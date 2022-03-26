@@ -56,8 +56,8 @@ CONSTANT_Long_info::~CONSTANT_Long_info() {}
 
 ostream &operator<<(ostream &os, CONSTANT_Long_info const &m) {
   os << "CONSTANT_Long_info: " << endl;
-  os << "high_bytes: " << (unsigned)m.high_bytes << endl;
-  os << "low_bytes: " << (unsigned)m.low_bytes << endl;
+  os << "high_bytes: 0x" << hex << m.high_bytes << dec << endl;
+  os << "low_bytes: 0x" << hex << m.low_bytes << dec << endl;
   return os;
 };
 
@@ -69,8 +69,8 @@ CONSTANT_Double_info::~CONSTANT_Double_info() {}
 
 ostream &operator<<(ostream &os, CONSTANT_Double_info const &m) {
   os << "CONSTANT_Double_info: " << endl;
-  os << "high_bytes: " << (unsigned)m.high_bytes << endl;
-  os << "low_bytes: " << (unsigned)m.low_bytes << endl;
+  os << "high_bytes: 0x" << hex << m.high_bytes << dec << endl;
+  os << "low_bytes: 0x" << hex << m.low_bytes << dec << endl;
   return os;
 };
 
@@ -245,7 +245,7 @@ ostream &operator<<(ostream &os, CpInfo const& c) {
     break;
 
   default:
-    os << "[ERROR][CP-INFO] unidentified tag value \"" << tag << "\"." << endl;
+    os << "[ERROR][CP-INFO] unidentified tag value \"" << (unsigned) tag << "\". " << (unsigned) c.tag << endl;
     break;
   }
   return os;
