@@ -136,7 +136,7 @@ ConstantPool::~ConstantPool() {
 
 CpInfo* ConstantPool::getCpInfo(u2 index) {
   if (index > this->count) return NULL;
-  return this->cp_infos[(size_t) index - 1];
+  return this->cp_infos[(size_t) index];
 }
 
 string ConstantPool::getValueUTF8String(u2 index) {

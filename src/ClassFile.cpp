@@ -20,7 +20,6 @@ ClassFile::ClassFile(FILE* fp) {
 
   // fields
   this->fields = new Fields(fp, *this->constant_pool);
-  // this->fields->printFields();
 
   // methods
   this->methods = new Methods(fp, *this->constant_pool);

@@ -12,12 +12,6 @@ Method::Method(FILE* fp, ConstantPool& cp) {
   this->descriptor_index = u2READ(fp);
   this->attributes_count = u2READ(fp);
 
-  // cout << "[METHOD] creating method with" << endl
-  //   << "[METHOD]\tthis->access_flags: " << (unsigned) this->access_flags << endl
-  //   << "[METHOD]\tthis->name: " << (unsigned) this->name_index << endl
-  //   << "[METHOD]\tthis->descriptor: " << (unsigned) this->descriptor_index << endl
-  //   << "[METHOD]\tthis->attributes_count: " << (unsigned) this->attributes_count << endl
-  //   << endl;
 
   // if there are no attributes, stop
   if (this->attributes_count < 1) return;

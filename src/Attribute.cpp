@@ -72,7 +72,8 @@ CodeAttribute::CodeAttribute(FILE* fp, ConstantPool& cp, u2 attbName, u4 attbLen
 
 	this->exception_info_length = u2READ(fp);
 	if (this->exception_info_length > 0) {
-		cout << "[UNINPLEMENTED ERROR] read and instantiate exception attribute";
+		cout << "TODO: implement " << endl;
+		cout << "[UNINPLEMENTED ERROR] read and instantiate exception attribute" << endl;
 		exit(1);
 		// this->ex_info = lerExceptionTable(fp, this->exception_info_length);
 	}
