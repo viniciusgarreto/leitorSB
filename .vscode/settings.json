@@ -33,6 +33,7 @@
     "streambuf": "cpp",
     "system_error": "cpp",
     "xlocale": "cpp",
-    "fstream": "cpp"
+    "fstream": "cpp",
+    "xstring": "cpp"
   }
 }

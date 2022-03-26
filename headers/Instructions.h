@@ -7,19 +7,20 @@
 using namespace std;
 
 class Instruction {
-   public:
-    Instruction *setInstructions();
+  public:
+    void setInstructions();
 
     // print methods
     ostream& print(ostream& output = cout) const;
     friend ostream& operator<<(ostream& out, const Instruction& cf);
 
-   private:
+  private:
+    Instruction* instruc;
     char name[40];
-    u1 opcode;
-    u1 argnum;
-    u1 opnum;
-    u1 instruct_pc;
+    int opcode;
+    int argnum;
+    int opnum;
+    int instruct_pc;
     int EnumCheck = 200;
 };
 #endif

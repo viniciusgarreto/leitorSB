@@ -28,6 +28,7 @@ int main(int argc, char *argv[]) {
   // myfile.close();
 
   Instruction instruc;
+
   instruc.setInstructions();
 
   instruc.print();
