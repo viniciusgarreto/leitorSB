@@ -3,6 +3,12 @@
 
 #include "definitions.h"
 
+/*
+* TODO: transformar as instruções em classe
+*
+*
+*/
+
 typedef struct Instruction{
   char name[40];
   u1 opcode;
