@@ -17,7 +17,7 @@ typedef struct Instruction{
   u1 instruct_pc;
 } Instruction;
 
-typedef enum Instructions_op {
+/* typedef enum Instructions_op {
   nop = 0x00, aconst_null = 0x01, iconst_m1 = 0x02, iconst_0 = 0x03, iconst_1 = 0x04, iconst_2 = 0x05, 
   iconst_3 = 0x06, iconst_4 = 0x07,  iconst_5 = 0x08, lconst_0 = 0x09, lconst_1 = 0x0a, fconst_0 = 0x0b, 
   fconst_1 = 0x0c, fconst_2 = 0x0d, dconst_0 = 0x0e, dconst_1 = 0x0f,  bipush = 0x10, sipush = 0x11, 
@@ -47,7 +47,7 @@ typedef enum Instructions_op {
   invokestatic = 0xb8, invokeinterface = 0xb9, inst_new = 0xbb, newarray = 0xbc, anewarray = 0xbd,
   arraylength = 0xbe, athrow = 0xbf, checkcast = 0xc0, instanceof = 0xc1, monitorenter = 0xc2, monitorexit = 0xc3, 
   wide = 0xc4, multianewarray = 0xc5, ifnull = 0xc6, ifnonnull = 0xc7, goto_w = 0xc8, jsr_w = 0xc9
-} Instructions_op;
+} Instructions_op; */
 
 extern const int EnumCheck;
 
