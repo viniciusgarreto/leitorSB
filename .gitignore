@@ -40,5 +40,6 @@ testes
 
 LEITOR
 *.exe
+*.txt
 
 README.md
