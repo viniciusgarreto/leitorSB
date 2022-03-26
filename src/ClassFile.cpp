@@ -67,7 +67,7 @@ ostream& ClassFile::print(ostream& output) const {
   this->methods->print(*this->constant_pool, output) << endl;
 
   output << endl << "######### Attributes: " << endl;
-  this->attributes->print(*this->constant_pool) << endl;
+  this->attributes->print(*this->constant_pool, output) << endl;
 
   return output;
 }
