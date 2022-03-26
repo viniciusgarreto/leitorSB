@@ -31,6 +31,8 @@
     "sstream": "cpp",
     "stdexcept": "cpp",
     "streambuf": "cpp",
-    "system_error": "cpp"
+    "system_error": "cpp",
+    "xlocale": "cpp",
+    "fstream": "cpp"
   }
 }

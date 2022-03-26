@@ -142,7 +142,7 @@ std::ostream& indentBy(unsigned int n, std::ostream& out = std::cout);
 #define dup2 0x5c
 #define dup2_x1 0x5d
 #define dup2_x2 0x5e
-#define swap 0x5f
+#define swapSwap 0x5f
 #define iadd 0x60
 #define ladd 0x61
 #define fadd 0x62
@@ -154,7 +154,7 @@ std::ostream& indentBy(unsigned int n, std::ostream& out = std::cout);
 #define imul 0x68
 #define lmul 0x69
 #define fmul 0x6a
-#define dmul= 0x6b
+#define dmul 0x6b
 #define idiv 0x6c
 #define inst_ldiv 0x6d
 #define fdiv 0x6e
@@ -211,7 +211,7 @@ std::ostream& indentBy(unsigned int n, std::ostream& out = std::cout);
 #define if_icmplt 0xa1
 #define if_icmpge 0xa2
 #define if_icmpgt 0xa3
-#define if_icmple =0xa4
+#define if_icmple 0xa4
 #define if_acmpeq 0xa5
 #define if_acmpne 0xa6
 #define inst_goto 0xa7
