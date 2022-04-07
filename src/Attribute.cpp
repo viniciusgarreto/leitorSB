@@ -121,7 +121,6 @@ LineNumberTableAttribute::~LineNumberTableAttribute() {
 
 // constructor
 StackMapAttribute::StackMapAttribute(FILE* fp, u2 attbName, u4 attbLength): Attribute(attbName, attbLength) {
-	cout << "TODO: implement StackMapAttribute" << endl;
 	this->num_entries = u2READ(fp);
 	this->entries = (StackMapFrame**) malloc(sizeof(StackMapFrame*) * (unsigned) this->num_entries);
 
@@ -202,7 +201,7 @@ ostream& Attribute::print(ConstantPool& cp, unsigned int i, ostream& output) con
 		((LineNumberTableAttribute*) this)->print(i, output);
 
 	if (string_name.compare(string("StackMapTable")) == 0)
-		((StackMapAttribute*) this)->print(cp, i, output);
+		((StackMapAttribute*) this)->print(i, output);
 
 	if (string_name.compare(string("InnerClasses")) == 0)
 		((InnerClassesAttribute*) this)->print(cp, i, output);
@@ -265,7 +264,7 @@ ostream& LineNumberTableAttribute::print(unsigned int i, ostream& out) const {
 	return out;
 }
 
-ostream& StackMapAttribute::print(ConstantPool& cp, unsigned int i, ostream& out) const {
+ostream& StackMapAttribute::print(unsigned int i, ostream& out) const {
 	indentBy(i, out) << "attribute_name: " << (unsigned) this->attribute_name << endl;
 	indentBy(i, out) << "attribute_length: " << (unsigned)  this->attribute_length << endl;
 	indentBy(i, out) << "attributes_num: " << (unsigned)  this->num_entries << endl;

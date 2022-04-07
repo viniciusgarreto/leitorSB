@@ -82,7 +82,7 @@ class StackMapAttribute : public Attribute {
     ~StackMapAttribute();
     
     // print methods
-    ostream& print(ConstantPool& cp, unsigned int indent = 0, ostream& output = cout) const;
+    ostream& print(unsigned int indent = 0, ostream& output = cout) const;
 
   private:
     void readStackMapFrame(FILE* fp);
