@@ -17,7 +17,7 @@ class VerificationTypeInfo {
 
     static VerificationTypeInfo* readVerificationTypeInfo(FILE* fp);
 
-  protected:
+  public:
     u1 tag;
 };
 

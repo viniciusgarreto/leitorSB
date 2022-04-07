@@ -34,7 +34,7 @@ VerificationTypeInfo::VerificationTypeInfo(u1 tag) {
   this->tag = tag;
 }
 VerificationTypeInfo::~VerificationTypeInfo() {}
-ostream& VerificationTypeInfo::print(unsigned int indent = 0, ostream& output = cout) const {
+ostream& VerificationTypeInfo::print(unsigned int indent, ostream& output) const {
   switch (this->tag) {
     case 0:
       return ((TopVariableInfo*) this)->print(indent, output);

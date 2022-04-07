@@ -123,22 +123,20 @@ LineNumberTableAttribute::~LineNumberTableAttribute() {
 StackMapAttribute::StackMapAttribute(FILE* fp, u2 attbName, u4 attbLength): Attribute(attbName, attbLength) {
 	cout << "TODO: implement StackMapAttribute" << endl;
 	this->num_entries = u2READ(fp);
+	this->entries = (StackMapFrame**) malloc(sizeof(StackMapFrame*) * (unsigned) this->num_entries);
+
 	if (this->num_entries > 0) {
-		// this->entries = (Stack_map_frame**) malloc(this->num_entries*sizeof(Stack_map_frame*));
 		for (int i = 0; i < this->num_entries; i++) {
-			// *(this->entries + i) = lerStackMapFrame(fp);
+			this->entries[i] = StackMapFrame::readStackMapFrame(fp);
 		}
 	}
 }
 // destructor
-StackMapAttribute::~StackMapAttribute() {}
-
-void StackMapAttribute::readStackMapFrame(FILE* fp) {
-	// TODO: implement
-	cout << "TODO: implement...";
-	if (!fp) {
-		cout << "no warnings";
+StackMapAttribute::~StackMapAttribute() {
+	for (int i = 0; i < this->num_entries; i++) {
+		delete this->entries[i];
 	}
+	delete this->entries;
 }
 
 // constructor
@@ -272,8 +270,10 @@ ostream& StackMapAttribute::print(ConstantPool& cp, unsigned int i, ostream& out
 	indentBy(i, out) << "attribute_length: " << (unsigned)  this->attribute_length << endl;
 	indentBy(i, out) << "attributes_num: " << (unsigned)  this->num_entries << endl;
 	indentBy(i, out) << "Attributes: " << endl;
-	for (auto atb : this->attributes)
-		atb->print(cp, i + 1, out);
+
+	for (int i = 0; i < this->num_entries; i++)
+		// this->entries[i]->print(cp, i + 1, out);
+		this->entries[i]->print(i + 1, out);
 
 	return out;
 }

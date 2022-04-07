@@ -7,6 +7,7 @@
 #include "../headers/ConstantPool.h"
 #include "../headers/Classes.h"
 #include "../headers/LineNumberTable.h"
+#include "../headers/StackMapFrame.h"
 
 class Attribute {
   public:
@@ -87,7 +88,7 @@ class StackMapAttribute : public Attribute {
     void readStackMapFrame(FILE* fp);
 
     u2 num_entries;
-    std::vector<Attribute*> attributes;
+    StackMapFrame** entries;
 };
 
 class InnerClassesAttribute : public Attribute {
