@@ -175,17 +175,14 @@ ConstantValueAttribute::~ConstantValueAttribute() {}
 // constructor
 ExceptionsAttribute::ExceptionsAttribute(FILE* fp, u2 attbName, u4 attbLength): Attribute(attbName, attbLength) {
 	this->num_exceptions = u2READ(fp);
-	this->exceptions = nullptr;
-	if (this->num_exceptions > 0) {
-		this->exceptions = (u2*) malloc(this->num_exceptions*sizeof(u2));
-		for (u2* aux = this->exceptions; aux < this->exceptions + this->num_exceptions; aux++) {
-			*aux = u2READ(fp);
-		}
+	for (int i = 0; i < this->num_exceptions; i++){
+		this->exception_index_table.push_back(u2READ(fp));
 	}
+	
 }
 // destructor
 ExceptionsAttribute::~ExceptionsAttribute() {
-	free(this->exceptions);
+	this->exception_index_table.clear();
 }
 
 ostream& Attribute::print(ConstantPool& cp, unsigned int i, ostream& output) const {	
@@ -213,7 +210,7 @@ ostream& Attribute::print(ConstantPool& cp, unsigned int i, ostream& output) con
 		((ConstantValueAttribute*) this)->print(i, output);
 
 	if (string_name.compare(string("Exceptions")) == 0)
-		((ExceptionsAttribute*) this)->print(i, output);
+		((ExceptionsAttribute*) this)->print(cp, i, output);
 
 	return output;
 }
@@ -242,7 +239,7 @@ ostream& CodeAttribute::print(ConstantPool& cp, unsigned int tab, ostream& out) 
 	indentBy(tab, out) << "exception_length: " << (unsigned) this->exception_info_length << endl;
 	indentBy(tab, out) << "exceptions: " << endl; 
 	for (size_t i = 0; i < this->exception_info_length; i++) {
-		this->ex_info[i].print(i+1, out);
+		this->ex_info[i].print(cp, i+1, out);
 	}
 
 	indentBy(tab, out) << "attributes: " << endl;
@@ -306,15 +303,17 @@ ostream& ConstantValueAttribute::print(unsigned int i, ostream& out) const {
 	return out;
 }
 
-ostream& ExceptionsAttribute::print(unsigned int i, ostream& out) const {
+ostream& ExceptionsAttribute::print(ConstantPool& cp, unsigned int i, ostream& out) const {
 	indentBy(i, out) << "attribute_name: " << (unsigned) this->attribute_name << endl;
 	indentBy(i, out) << "attribute_length: " << (unsigned) this->attribute_length << endl;
 	indentBy(i, out) << "Exceptions Attribute: " << endl;
 	indentBy(i, out) << "num_exceptions: " << (unsigned) this->num_exceptions << endl;
 	indentBy(i, out) << "exceptions: " << endl;
-	for (size_t i = 0; i < (size_t) this->num_exceptions; i++) {
-		indentBy(i+1, out) << i+1 << ") " << (unsigned) this->exceptions[i] << endl;
+	for (int n = 0; n < this->num_exceptions; n++){
+		indentBy(i + 1, out) << "Exception Table: " << i << endl;
+		indentBy(i + 1, out) << *cp.getCpInfo(this->exception_index_table[n]) << endl;
 	}
+	
 
 	return out;
 }

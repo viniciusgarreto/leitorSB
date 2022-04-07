@@ -136,11 +136,11 @@ class ExceptionsAttribute : public Attribute {
     ~ExceptionsAttribute();
 
     // print methods
-    ostream& print(unsigned int indent = 0, ostream& output = cout) const;
+    ostream& print(ConstantPool& cp, unsigned int indent = 0, ostream& output = cout) const;
 
   private:
     u2 num_exceptions;
-    u2* exceptions;
+    std::vector<u2> exception_index_table;
 };
 
 

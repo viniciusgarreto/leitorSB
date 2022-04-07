@@ -1,4 +1,4 @@
-#include "../headers/classFile.h"
+#include "../headers/ClassFile.h"
 #include "../headers/printer.h"
 
 #include <iostream>

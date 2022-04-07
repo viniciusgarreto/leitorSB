@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <iostream>
-#include "../headers/classFile.h"
+#include "../headers/ClassFile.h"
 using namespace std;
 
 void imprimirArquivo(ClassFile *cf, ostream& output) {
