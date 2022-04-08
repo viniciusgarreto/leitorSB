@@ -7,6 +7,7 @@
 #include "../headers/ConstantPool.h"
 #include "../headers/Classes.h"
 #include "../headers/LineNumberTable.h"
+#include "../headers/StackMapFrame.h"
 
 class Attribute {
   public:
@@ -81,13 +82,13 @@ class StackMapAttribute : public Attribute {
     ~StackMapAttribute();
     
     // print methods
-    ostream& print(ConstantPool& cp, unsigned int indent = 0, ostream& output = cout) const;
+    ostream& print(unsigned int indent = 0, ostream& output = cout) const;
 
   private:
     void readStackMapFrame(FILE* fp);
 
     u2 num_entries;
-    std::vector<Attribute*> attributes;
+    StackMapFrame** entries;
 };
 
 class InnerClassesAttribute : public Attribute {
@@ -135,11 +136,11 @@ class ExceptionsAttribute : public Attribute {
     ~ExceptionsAttribute();
 
     // print methods
-    ostream& print(unsigned int indent = 0, ostream& output = cout) const;
+    ostream& print(ConstantPool& cp, unsigned int indent = 0, ostream& output = cout) const;
 
   private:
     u2 num_exceptions;
-    u2* exceptions;
+    std::vector<u2> exception_index_table;
 };
 
 
