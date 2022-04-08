@@ -2,12 +2,22 @@
 #define jvm_h
 
 #include "definitions.h"
+#include <vector>
+#include "Frame.h"
+
+using namespace std;
+
+typedef struct frameStack {
+  list<frame> frames;
+} FrameStack;
 
 /*
 * TODO: implementar as classes ClassesJVM, FramesPile e ObjectList
 *       Criar método construtor de JVM
 *
 */
+
+
 
 class JVM {
   public:
@@ -18,7 +28,7 @@ class JVM {
     // at the same time as the thread.
 
     //ClassesJVM* classes;
-    // FramesPile* frames;
+    vector<FrameStack> frame_stack;
     //ObjectList* object;
     u4 pc;
     u2 exception;

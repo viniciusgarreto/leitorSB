@@ -34,6 +34,8 @@
     "system_error": "cpp",
     "xlocale": "cpp",
     "fstream": "cpp",
-    "xstring": "cpp"
+    "xstring": "cpp",
+    "list": "cpp",
+    "xutility": "cpp"
   }
 }

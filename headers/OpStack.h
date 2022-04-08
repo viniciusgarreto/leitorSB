@@ -1,7 +1,7 @@
-
-
-
+#include <list>
+using namespace std;
 
 class OpStack{
-	struct lista_operandos *topo; /**< Ponteiro para o topo da pilha de operandos */
+
+	list<int> OpList; /**< Ponteiro para o topo da pilha de operandos */
 };
