@@ -16,3 +16,11 @@ JVM::~JVM() {
 
   delete this->exception_name;
 }
+
+void JVM::ReadClassFile(string classfile_name) {
+  this->classes.push_back(ClassFile::lerArquivo(classfile_name));
+}
+
+void JVM::execute() {
+  cout << "TODO: implement";
+}

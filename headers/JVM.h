@@ -11,6 +11,8 @@ using namespace std;
 class JVM {
   public:
     JVM();
+    void ReadClassFile(string classfile_name);
+    void execute();
     ~JVM();
 
   private:
