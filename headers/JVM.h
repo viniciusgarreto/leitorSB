@@ -18,7 +18,9 @@ class JVM {
     u2 exception;
     char *exception_name;
     StackFrame* frame_stack;
-    vector<ClassFile>* classes;
+    vector<ClassFile*> classes;
+
+    // static Instructions instructions; // idk ?????
     // TODO: incluir lista de objetos
 };
 
