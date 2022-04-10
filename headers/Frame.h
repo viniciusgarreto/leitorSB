@@ -1,25 +1,34 @@
-#include "./definitions.h"
+#ifndef frame_h
+#define frame_h
+
 #include <vector>
 #include <list>
-#include "CpInfo.h"
+
+#include "../headers/definitions.h"
+#include "../headers/CpInfo.h"
+
 using namespace std;
 
 struct Op {
-    i4 operand;
-    u1 operand_type;
+  i4 operand;
+  u1 operand_type;
 };
 
 struct OpList {
-    list<Op> OpList;
+  list<Op> OpList;
 };
 
-typedef struct vetor_locais
-{
+typedef struct vetor_locais {
   u4 *variavel;
   u1 tipo_variavel;
 } Vetor_locais;
 
-class frame {
+class Frame {
+  public:
+    Frame();
+    ~Frame();
+
+  private:
     u4 end_retorno;  // Verificar se é realmente endereço de retorno
     vector<OpList> OpStack; //pilha de operandos
     Vetor_locais *v;
@@ -27,3 +36,5 @@ class frame {
     CpInfo *cp;
     char *classeCorrente;
 };
+
+#endif

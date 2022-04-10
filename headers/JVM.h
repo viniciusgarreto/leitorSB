@@ -20,7 +20,6 @@ class JVM {
     StackFrame* frame_stack;
     vector<ClassFile>* classes;
     // TODO: incluir lista de objetos
-    
 };
 
 #endif
