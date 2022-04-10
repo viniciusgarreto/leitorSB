@@ -25,7 +25,7 @@ typedef struct vetor_locais {
 
 class Frame {
   public:
-    Frame();
+    Frame(string currentClass, u2 max_locals);
     ~Frame();
 
   private:

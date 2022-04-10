@@ -1,5 +1,7 @@
 #include "../headers/JVM.h"
 
+JVM* JVM::instance = nullptr;
+
 JVM::JVM() {
   this->frame_stack = new StackFrame();
 
@@ -16,6 +18,19 @@ JVM::~JVM() {
 
   delete this->exception_name;
 }
+
+JVM& JVM::getInstance() {
+  if (JVM::instance = nullptr) {
+    // cout << "instantiating new JVM instance";
+    JVM::instance = new JVM();
+  }
+
+  return *JVM::instance;
+}
+void JVM::removeInstance() {
+  delete JVM::instance;
+}
+
 
 void JVM::ReadClassFile(string classfile_name) {
   this->classes.push_back(ClassFile::lerArquivo(classfile_name));

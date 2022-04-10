@@ -11,11 +11,18 @@ using namespace std;
 class JVM {
   public:
     JVM();
+    ~JVM();
     void ReadClassFile(string classfile_name);
     void execute();
-    ~JVM();
+
+    // deal with instance (we're using a singleton model)
+    static JVM& getInstance();
+    static void removeInstance();
 
   private:
+    // singleton instance
+    static JVM* instance;
+
     u4 pc;
     u2 exception;
     char *exception_name;

@@ -29,6 +29,6 @@ int main(int argc, char *argv[]) {
   // execute JVM
   jvm->execute();
 
-  delete jvm;
+  JVM::removeInstance();
   return 0;
 }
