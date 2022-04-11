@@ -1,8 +1,6 @@
 #include "../headers/StackFrame.h"
 
-StackFrame::StackFrame() {
-  cout << "TODO: implement StackFrame::StackFrame" << endl;
-}
+StackFrame::StackFrame() {}
 StackFrame::~StackFrame() {
   for (auto frame : this->frames)
     delete frame;
