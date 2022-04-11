@@ -18,10 +18,10 @@ struct OpList {
   list<Op> OpList;
 };
 
-typedef struct vetor_locais {
+typedef struct local {
   u4 *variavel;
   u1 tipo_variavel;
-} Vetor_locais;
+} Local;
 
 class Frame {
   public:
@@ -29,12 +29,12 @@ class Frame {
     ~Frame();
 
   private:
-    u4 end_retorno;  // Verificar se é realmente endereço de retorno
-    vector<OpList> OpStack; //pilha de operandos
-    Vetor_locais *v;
+    u4 end_retorno;
+    vector<OpList> OpStack;
+    vector<Local> local_vector;
     u2 vetor_length;
     CpInfo *cp;
-    char *classeCorrente;
+    string classeCorrente;
 };
 
 #endif

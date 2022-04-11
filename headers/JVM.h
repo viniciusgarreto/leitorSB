@@ -12,23 +12,24 @@ class JVM {
   public:
     JVM();
     ~JVM();
-    void ReadClassFile(string classfile_name);
-    void execute();
 
     // deal with instance (we're using a singleton model)
     static JVM& getInstance();
     static void removeInstance();
 
-  private:
-    // singleton instance
-    static JVM* instance;
+    void ReadClassFile(string classfile_name);
+    void execute();
+    ClassFile& getClassFileByName(string classfile_name);
 
     u4 pc;
     u2 exception;
+
+  private:
+    // singleton instance
+    static JVM* instance;
     char *exception_name;
     StackFrame* frame_stack;
     vector<ClassFile*> classes;
-
     // static Instructions instructions; // idk ?????
     // TODO: incluir lista de objetos
 };
