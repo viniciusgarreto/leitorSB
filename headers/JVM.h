@@ -5,6 +5,7 @@
 #include "../headers/definitions.h"
 #include "../headers/StackFrame.h"
 #include "../headers/ClassFile.h"
+#include "../headers/Object.h"
 
 using namespace std;
 
@@ -25,6 +26,13 @@ class JVM {
     u2 exception;
 
   private:
+    // singleton instance
+    static JVM* instance;
+    char exception_name;
+    StackFrame frame_stack;
+    vector<ClassFile*> classes;
+    vector<Object> objects;
+    // static Instructions instructions; // idk ?????
     // TODO: incluir lista de objetos
 };
 
