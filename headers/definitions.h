@@ -264,4 +264,13 @@ std::ostream& indentBy(unsigned int n, std::ostream& out = std::cout);
 #define INIT_NOME "<init>"
 #define DESCRIPTOR_INIT "()V"
 
+#define SOURCE_FILE_ATTRIBUTE "SourceFile"
+#define CODE_ATTRIBUTE "Code"
+#define LINE_NUMBER_ATTRIBUTE "LineNumberTable"
+#define STACK_MAP_ATTRIBUTE "StackMapTable"
+#define INNER_CLASS_ATTRIBUTE "InnerClasses"
+#define SIGNATURE_ATTRIBUTE "Signature"
+#define CONSTANT_ATTRIBUTE "ConstantValue"
+#define EXCEPTIONS_ATTRIBUTE "Exceptions"
+
 #endif
