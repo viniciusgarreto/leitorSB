@@ -58,13 +58,17 @@ void JVM::execute() {
 
   // execute clint and main methods, if they exist.
   auto clInit = exec_class->getCLinit();
-  if (clInit) clInit->execute();
+  if (clInit) clInit->execute(*this, *exec_class, true);
 
   auto main = exec_class->getMain();
-  if (main) main->execute();
+  if (main) main->execute(*this, *exec_class, true);
 
   if (!main && !clInit) {
     cout << "[ERROR] tried to execute jvm, but loaded class has no clinit or main method" << endl;
     exit(1);
   }
+}
+
+void JVM::pushFrame(ClassFile& current_class, u2 max_locals) {
+  cout << "TODO: implement JVM::pushFrame" << endl;
 }

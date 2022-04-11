@@ -59,6 +59,23 @@ string Method::getDescriptor(ConstantPool& cp) {
   return cp.getValueUTF8String(this->descriptor_index);
 }
 
-void Method::execute() {
-  cout << "TODO: implement Method::execute" << endl;
+CodeAttribute* Method::GetCodeAttb(ConstantPool& cp) {
+  for (auto attb : this->attributes)
+  if (attb->getName(cp).compare(string(CODE_ATTRIBUTE)))
+    return (CodeAttribute*) attb;
+
+  return nullptr;
+}
+
+void Method::execute(JVM& jvm, ClassFile& current_class, bool createFrame) {
+  auto code = this->GetCodeAttb(current_class.getConstantPool());
+  if (code == nullptr) {
+    cout << "ERROR: tried to execute method but no Code attribute found" << endl;
+    exit(1);
+  }
+
+  if (createFrame)
+    jvm.pushFrame(current_class, code->max_locals);
+  
+
 }
