@@ -5,7 +5,7 @@
 #include <list>
 
 #include "../headers/definitions.h"
-#include "../headers/CpInfo.h"
+#include "../headers/ConstantPool.h"
 
 using namespace std;
 
@@ -30,11 +30,11 @@ class Frame {
 
   private:
     u4 end_retorno;
+    u2 vetor_length;
+    string classeCorrente;
+    ConstantPool& constant_pool;
     vector<OpList> OpStack;
     vector<Local> local_vector;
-    u2 vetor_length;
-    CpInfo *cp;
-    string classeCorrente;
 };
 
 #endif
