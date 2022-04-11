@@ -4,10 +4,11 @@
 #include <limits.h>
 
 #include "../headers/definitions.h"
-#include "../headers/OpQueue.h"
+#include "../headers/OpStack.h"
 
-std::vector<OpQueue> InserirInicio_operandos(std::vector<OpQueue> lis, i4 op, void *ref, u1 opType){
-  OpQueue atual;
+
+std::vector<OpStack> InserirInicio_operandos(std::vector<OpStack> lis, i4 op, void *ref, u1 opType){
+  OpStack atual;
   if(opType <= 8){
     atual.operand = op;
     atual.operand_ref = NULL; 
@@ -22,8 +23,8 @@ std::vector<OpQueue> InserirInicio_operandos(std::vector<OpQueue> lis, i4 op, vo
   return lis;
 }
 
-std::vector<OpQueue> InserirFim_operandos(std::vector<OpQueue> lis, i4 op, void *ref, u1 opType){
-  OpQueue atual;
+std::vector<OpStack> InserirFim_operandos(std::vector<OpStack> lis, i4 op, void *ref, u1 opType){
+  OpStack atual;
   if(opType <= 8){
     atual.operand = op;
     atual.operand_ref = NULL; 
@@ -38,17 +39,17 @@ std::vector<OpQueue> InserirFim_operandos(std::vector<OpQueue> lis, i4 op, void 
   return lis;
 }
 
-std::vector<OpQueue> RemoverInicio_operandos(std::vector<OpQueue> lis){
+std::vector<OpStack> RemoverInicio_operandos(std::vector<OpStack> lis){
   lis.erase(lis.begin());
   return lis;
 }
 
-std::vector<OpQueue> RemoverFim_operandos(std::vector<OpQueue> lis){
+std::vector<OpStack> RemoverFim_operandos(std::vector<OpStack> lis){
   lis.erase(lis.end());
   return lis;
 }
 
-void ImprimirOpQueue(std::vector<OpQueue> lis){
+void ImprimirOpStack(std::vector<OpStack> lis){
   for(int i = 0; i < lis.size(); i++){
     if(lis[i].operand_type <= 8){
       printf("Operando: 0x%08x\n\n", lis[i].operand_type);
@@ -92,16 +93,16 @@ void ImprimirOpQueue(std::vector<OpQueue> lis){
   }
 }
 
-void LiberarOpQueue(std::vector<OpQueue> lis);
+void LiberarOpStack(std::vector<OpStack> lis);
 
-std::vector<OpQueue> BuscarElemento_operandos(std::vector<OpQueue> lis, i4 op, u1 opType);
+std::vector<OpStack> BuscarElemento_operandos(std::vector<OpStack> lis, i4 op, u1 opType);
 
-OpQueue BuscarPosicao_operandos(std::vector<OpQueue> lis, int posicao){
+OpStack BuscarPosicao_operandos(std::vector<OpStack> lis, int posicao){
   return lis[posicao];
 };
 
-std::vector<OpQueue> InserirPosicao_operandos(std::vector<OpQueue> lis, i4 op, u1 opType, int posicao){
-  OpQueue atual;
+std::vector<OpStack> InserirPosicao_operandos(std::vector<OpStack> lis, i4 op, u1 opType, int posicao){
+  OpStack atual;
   atual.operand = op;
   atual.operand_ref = NULL; 
   atual.operand_type = opType;
@@ -109,6 +110,6 @@ std::vector<OpQueue> InserirPosicao_operandos(std::vector<OpQueue> lis, i4 op, u
   lis.insert(lis.begin()+posicao, atual);
 }
 
-std::vector<OpQueue> RemoverPosicao_operandos(std::vector<OpQueue> lis, int posicao){
+std::vector<OpStack> RemoverPosicao_operandos(std::vector<OpStack> lis, int posicao){
   lis.erase(lis.begin()+posicao);
 }
