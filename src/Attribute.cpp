@@ -72,7 +72,7 @@ CodeAttribute::CodeAttribute(FILE* fp, ConstantPool& cp, u2 attbName, u4 attbLen
 
 	this->exception_info_length = u2READ(fp);
 	if (this->exception_info_length > 0) {
-		cout << "TODO: implement " << endl;
+		cout << "TODO: implement CodeAttribute::CodeAttribute" << endl;
 		cout << "[UNINPLEMENTED ERROR] read and instantiate exception attribute" << endl;
 		exit(1);
 		// this->ex_info = lerExceptionTable(fp, this->exception_info_length);
@@ -201,7 +201,7 @@ ostream& Attribute::print(ConstantPool& cp, unsigned int i, ostream& output) con
 		((StackMapAttribute*) this)->print(i, output);
 
 	if (string_name.compare(string("InnerClasses")) == 0)
-		((InnerClassesAttribute*) this)->print(cp, i, output);
+		((InnerClassesAttribute*) this)->print(i, output);
 
 	if (string_name.compare(string("Signature")) == 0)
 		((SignatureAttribute*) this)->print(i, output);
@@ -274,13 +274,13 @@ ostream& StackMapAttribute::print(unsigned int i, ostream& out) const {
 	return out;
 }
 
-ostream& InnerClassesAttribute::print(ConstantPool& cp, unsigned int i, ostream& out) const {
+ostream& InnerClassesAttribute::print(unsigned int i, ostream& out) const {
 	indentBy(i, out) << "attribute_name: " << (unsigned) this->attribute_name << endl;
 	indentBy(i, out) << "attribute_length: " << (unsigned)  this->attribute_length << endl;
 	indentBy(i, out) << "Inner Classes Attributes: " << endl;
 	indentBy(i, out) << "num_class: " << (unsigned) this->num_classes << endl;
 	for (auto c : this->classes)
-		c->print(cp, i + 1);
+		c->print(i + 1);
 
 	return out;
 }

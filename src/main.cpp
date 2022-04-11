@@ -1,3 +1,4 @@
+#include "../headers/JVM.h"
 #include "../headers/ClassFile.h"
 #include "../headers/printer.h"
 #include "../headers/Instructions.h"
@@ -11,30 +12,23 @@ using namespace std;
 
 int main(int argc, char *argv[]) {
 
-  // if (argc != 2) {
-  //   cout << "Use this program as \"" << argv[0] << " fileName.java\"" << endl;
-  //   return 1;
-  // }
+  if (argc != 2) {
+    cout << "Use this program as \"" << argv[0] << " fileName.java\"" << endl;
+    return 1;
+  }
 
-  // // get command argument
-  // string filename(argv[1]);
+  // get command argument
+  string filename(argv[1]);
 
-  // // read file
-  // auto class_file = ClassFile::lerArquivo(filename);
+  // initialize JVM
+  auto jvm = new JVM();
 
-  // // print classfile
-  // ofstream myfile("./example.txt");
-  // imprimirArquivo(class_file, myfile);
-  // myfile.close();
+  // read file
+  jvm->ReadClassFile(filename);
 
-  Instruction instruc;
+  // execute JVM
+  jvm->execute();
 
-  instruc.setInstructions();
-
-  instruc.print();
-
-  // para mandar pro terminal é só deixar o segundo parâmetro vazio ou mandar o cout explicitamente
-  // imprimirArquivo(class_file, cout);
-
+  JVM::removeInstance();
   return 0;
 }

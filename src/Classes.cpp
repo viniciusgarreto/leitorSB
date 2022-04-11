@@ -20,7 +20,7 @@ Classes::Classes(FILE* fp) {
 	<< endl;
 }
 
-void Classes::print(ConstantPool& cp, unsigned int indent) {
+void Classes::print(unsigned int indent) {
 	indentBy(indent);
   cout << "inner_class_info: "<< (unsigned) this->inner_class_info << endl;
 	indentBy(indent);

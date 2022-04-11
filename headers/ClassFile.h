@@ -20,6 +20,9 @@ class ClassFile {
     // read .class file
     static ClassFile* lerArquivo(string nomeArquivo);
 
+    string getName();
+    ConstantPool& getConstantPool();
+
     // print methods
     ostream& print(ostream& output = cout) const;
     friend ostream& operator<<(ostream& out, const ClassFile& cf);

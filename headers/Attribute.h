@@ -97,7 +97,7 @@ class InnerClassesAttribute : public Attribute {
     ~InnerClassesAttribute();
     
     // print methods
-    ostream& print(ConstantPool& cp, unsigned int indent = 0, ostream& output = cout) const;
+    ostream& print(unsigned int indent = 0, ostream& output = cout) const;
 
   private:
     void AddClasses(Classes* c);

@@ -87,3 +87,11 @@ ClassFile* ClassFile::lerArquivo(string nomeArquivo) {
 
     return cf;
 }
+
+string ClassFile::getName() {
+  return this->constant_pool->getValueUTF8String(this->this_class);
+}
+
+ConstantPool& ClassFile::getConstantPool() {
+  return *this->constant_pool;
+}
