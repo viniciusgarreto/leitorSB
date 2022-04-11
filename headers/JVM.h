@@ -18,7 +18,7 @@ class JVM {
     // at the same time as the thread.
 
     //ClassesJVM* classes;
-    // FramesPile* frames;
+    //FramesPile* frames;
     //ObjectList* object;
     u4 pc;
     u2 exception;

@@ -1,36 +1,28 @@
+#ifndef opQueue_h
+#define opQueue_h
+
 #include "./definitions.h"
+#include <vector>
 
 class OpQueue {
   public:
     i4 operand;  //< Caso o operando seja um valor, eh armazenado nesta variavel
-
-    void *operand_ref;  //< Caso o operando seja uma referencia, eh armazenada
-                        // nesta variavel
-    u1 operand_type;    //< Tipo do operando armazenado na estrutura. A lista de
-                        // opcoes esta definida na enumeracao \c tipos_operandos
-    struct OpQueue *prox; /**< Ponteiro de acesso ao proximo no da lista*/
-    struct OpQueue *ant;  /**< Ponteiro de acesso ao no anterior da lista */
+    void *operand_ref;  //< Caso o operando seja uma referencia, eh armazenada nesta variavel
+    u1 operand_type;    //< Tipo do operando armazenado na estrutura. A lista de opcoes esta definida na enumeracao \c tipos_operandos
+  
   private:
-    OpQueue *CriarOpQueue();
-    OpQueue *InserirInicio_operandos();
-    OpQueue *InserirFim_operandos();
-    OpQueue *RemoverInicio_operandos(OpQueue *lis);
-    OpQueue *RemoverFim_operandos(OpQueue *lis);
-    void ImprimirOpQueue(OpQueue *lis);
-    void LiberarOpQueue(OpQueue *lis);
+    std::vector<OpQueue> InserirInicio_operandos(std::vector<OpQueue> lis, i4 op, void *ref, u1 opType);
+    std::vector<OpQueue> InserirFim_operandos(std::vector<OpQueue> lis, i4 op, void *ref, u1 opType);
+    std::vector<OpQueue> RemoverInicio_operandos(std::vector<OpQueue> lis);
+    std::vector<OpQueue> RemoverFim_operandos(std::vector<OpQueue> lis);
+  
+    void ImprimirOpQueue(std::vector<OpQueue> lis);
+    void LiberarOpQueue(std::vector<OpQueue> lis);
 
-    OpQueue *RemoverElemento_operandos(OpQueue *lis, i4 operando,
-                                       u1 tipo_operando);
-
-    OpQueue *BuscarElemento_operandos(OpQueue *lis, i4 operando,
-                                      u1 tipo_operando);
-
-    OpQueue *BuscarPosicao_operandos(OpQueue *lis, int posicao);
-
-    OpQueue *InserirPosicao_operandos(OpQueue *lis, i4 operando,
-                                      u1 tipo_operando, int posicao);
-
-    OpQueue *RemoverPosicao_operandos(OpQueue *lis, int posicao);
+    std::vector<OpQueue> BuscarElemento_operandos(std::vector<OpQueue> lis, i4 op, u1 opType);
+    OpQueue BuscarPosicao_operandos(std::vector<OpQueue> lis, int posicao);
+    std::vector<OpQueue> InserirPosicao_operandos(std::vector<OpQueue> lis, i4 op, u1 opType, int posicao);
+    std::vector<OpQueue> RemoverPosicao_operandos(std::vector<OpQueue> lis, int posicao);
 };
 
 enum tipos_operandos {
@@ -54,3 +46,5 @@ enum tipos_operandos {
     REFERENCE_ARRAY_LONG_OP,
     REFERENCE_STRING_OP,
 };
+
+#endif
