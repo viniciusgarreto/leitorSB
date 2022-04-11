@@ -15,6 +15,8 @@ class Attribute {
     ~Attribute();
     static Attribute* readAttribute(FILE* fp, ConstantPool& cp);
 
+    string getName(ConstantPool& cp);
+
     // print methods
     ostream& print(ConstantPool& cp, unsigned int indent = 0, ostream& output = cout) const;
 
@@ -46,10 +48,11 @@ class CodeAttribute : public Attribute {
     // print methods
     ostream& print(ConstantPool& cp, unsigned int indent = 0, ostream& output = cout) const;
 
+    u2 max_locals;
+
   private:
     void AddAttribute(Attribute* interface);
 
-    u2 max_locals;
     u2 max_stack;
     u4 code_length;
     u1 *code;

@@ -9,6 +9,9 @@
 
 using namespace std;
 
+class ClassFile;
+class Object;
+
 class JVM {
   public:
     JVM();
@@ -18,9 +21,11 @@ class JVM {
     static JVM& getInstance();
     static void removeInstance();
 
-    void ReadClassFile(string classfile_name);
-    void execute();
     ClassFile& getClassFileByName(string classfile_name);
+    void ReadClassFile(string classfile_name);
+
+    void execute();
+    void pushFrame(ClassFile& current_class, u2 max_locals);
 
     u4 pc;
     u2 exception;

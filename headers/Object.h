@@ -1,8 +1,10 @@
 #ifndef object_h
 #define object_h
 
-#include "definitions.h"
-#include "ClassFile.h"
+#include "../headers/definitions.h"
+#include "../headers/ClassFile.h"
+
+class ClassFile;
 
 class Object {
 private:

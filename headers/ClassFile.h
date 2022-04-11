@@ -10,8 +10,10 @@
 #include "../headers/Methods.h"
 #include "../headers/Attributes.h"
 
-using namespace std;
+class Method;
+class Methods;
 
+using namespace std;
 class ClassFile {
   public:
     ClassFile(FILE* fp);

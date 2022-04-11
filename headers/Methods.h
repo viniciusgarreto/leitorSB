@@ -7,6 +7,8 @@
 #include "../headers/definitions.h"
 #include "../headers/Method.h"
 
+class Method;
+
 class Methods {
   public:
     Methods(FILE* fp, ConstantPool& cp);
