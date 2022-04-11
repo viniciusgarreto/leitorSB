@@ -35,6 +35,7 @@
     "xlocale": "cpp",
     "fstream": "cpp",
     "xstring": "cpp",
+<<<<<<< HEAD
     "atomic": "cpp",
     "bitset": "cpp",
     "cfenv": "cpp",
@@ -75,5 +76,9 @@
     "thread": "cpp",
     "typeindex": "cpp",
     "valarray": "cpp"
+=======
+    "list": "cpp",
+    "xutility": "cpp"
+>>>>>>> b56ce15899633a9628cc0eff70df224f768e591e
   }
 }

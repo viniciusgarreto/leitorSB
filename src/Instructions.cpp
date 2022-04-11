@@ -22,7 +22,7 @@ void Instruction::setInstructions() {
   // instruc[1].argnum = 0;
   // instruc[1].opnum = 0;
 
-  for (int i = 0; i < EnumCheck; i++) {
+  for (int i = 0; i <= EnumCheck; i++) {
       switch (i) {
           case nop:
               strcpy(instruc[i].name, "nop");
@@ -1430,7 +1430,7 @@ ostream& Instruction::print(ostream& output) const {
     output << "------------- INSTRUCTIONS -------------" << endl;
     output << endl;
 
-    for (int i = 0; i < 200; i++) {
+    for (int i = 0; i <= 200; i++) {
         output << "Name: " << instruc[i].name << endl;
         output << "Opcode: " << instruc[i].opcode << endl;
         output << "Argum: " << instruc[i].argnum << endl;
