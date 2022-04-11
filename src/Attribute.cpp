@@ -90,12 +90,15 @@ CodeAttribute::CodeAttribute(FILE* fp, ConstantPool& cp, u2 attbName, u4 attbLen
 		}
 	}
 }
-void CodeAttribute::AddAttribute(Attribute* interface) {
-  this->attributes.push_back(interface);
-}
 // destructor
 CodeAttribute::~CodeAttribute() {
 	free(this->code);
+}
+void CodeAttribute::AddAttribute(Attribute* interface) {
+  this->attributes.push_back(interface);
+}
+void CodeAttribute::interpret(JVM& jvm, Method& method) {
+	cout << "TODO: implement CodeAttribute::interpret" << endl;
 }
 
 // constructor
@@ -318,6 +321,5 @@ ostream& ExceptionsAttribute::print(ConstantPool& cp, unsigned int i, ostream& o
 		indentBy(i + 1, out) << *cp.getCpInfo(this->exception_index_table[n]) << endl;
 	}
 	
-
 	return out;
 }

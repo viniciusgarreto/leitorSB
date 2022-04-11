@@ -8,6 +8,7 @@
 #include "../headers/Classes.h"
 #include "../headers/LineNumberTable.h"
 #include "../headers/StackMapFrame.h"
+#include "../headers/JVM.h"
 
 class Attribute {
   public:
@@ -47,6 +48,9 @@ class CodeAttribute : public Attribute {
     
     // print methods
     ostream& print(ConstantPool& cp, unsigned int indent = 0, ostream& output = cout) const;
+
+    // the method that actually interprets the code.
+    void interpret(JVM& jvm, Method& method);
 
     u2 max_locals;
 

@@ -76,6 +76,10 @@ void Method::execute(JVM& jvm, ClassFile& current_class, bool createFrame) {
     exit(1);
   }
 
+  // push a new frame
   if (createFrame)
     jvm.pushFrame(current_class, code->max_locals);
+
+  // run the code
+  code->interpret(jvm, *this);
 }
