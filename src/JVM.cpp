@@ -16,6 +16,7 @@ JVM::~JVM() {
   for (auto classFile : this->classes)
     delete classFile;
   this->classes.clear();
+  this->objects.clear();
 
   delete this->exception_name;
 }

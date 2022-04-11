@@ -28,12 +28,11 @@ class JVM {
   private:
     // singleton instance
     static JVM* instance;
-    char exception_name;
-    StackFrame frame_stack;
+    char* exception_name;
+    StackFrame* frame_stack;
     vector<ClassFile*> classes;
     vector<Object> objects;
     // static Instructions instructions; // idk ?????
-    // TODO: incluir lista de objetos
 };
 
 #endif

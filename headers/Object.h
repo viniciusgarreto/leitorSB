@@ -1,5 +1,5 @@
-#ifndef object.h
-#define object.h
+#ifndef object_h
+#define object_h
 
 #include "definitions.h"
 #include "ClassFile.h"
