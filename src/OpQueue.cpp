@@ -8,8 +8,7 @@ OpQueue *CriarOpQueue(){
 }
 
 OpQueue *InserirInicio_operandos(){
-  OpQueue *newQueue = malloc(sizeof(OpQueue));
-
+  OpQueue *newQueue = (OpQueue*) malloc(sizeof(OpQueue));
 }
 OpQueue *InserirFim_operandos();
 OpQueue *RemoverInicio_operandos(OpQueue *lis);
