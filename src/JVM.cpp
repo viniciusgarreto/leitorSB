@@ -48,5 +48,23 @@ ClassFile& JVM::getClassFileByName(string classfile_name) {
 
 
 void JVM::execute() {
-  cout << "TODO: implement JVM::execute" << endl;
+  if (this->classes.empty()) {
+    cout << "[ERROR] tried to execute jvm, but no classfiles loaded" << endl;
+    exit(1);
+  }
+
+  // class being executed
+  auto exec_class = this->classes.at(0);
+
+  // execute clint and main methods, if they exist.
+  auto clInit = exec_class->getCLinit();
+  if (clInit) clInit->execute();
+
+  auto main = exec_class->getMain();
+  if (main) main->execute();
+
+  if (!main && !clInit) {
+    cout << "[ERROR] tried to execute jvm, but loaded class has no clinit or main method" << endl;
+    exit(1);
+  }
 }

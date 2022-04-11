@@ -12,6 +12,12 @@ class Method {
     Method(FILE* fp, ConstantPool& cp);
     ~Method();
 
+    // run method
+    void execute();
+
+    string getName(ConstantPool& cp);
+    string getDescriptor(ConstantPool& cp);
+
     // print methods
     ostream& print(ConstantPool& cp, ostream& output = cout) const;
 

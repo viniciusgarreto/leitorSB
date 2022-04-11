@@ -95,3 +95,11 @@ string ClassFile::getName() {
 ConstantPool& ClassFile::getConstantPool() {
   return *this->constant_pool;
 }
+
+Method* ClassFile::getMain() {
+  return this->methods->getMain(*this->constant_pool);
+}
+
+Method* ClassFile::getCLinit() {
+  return this->methods->getCLinit(*this->constant_pool);
+}

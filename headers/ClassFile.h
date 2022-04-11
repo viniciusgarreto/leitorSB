@@ -22,6 +22,8 @@ class ClassFile {
 
     string getName();
     ConstantPool& getConstantPool();
+    Method* getMain();
+    Method* getCLinit();
 
     // print methods
     ostream& print(ostream& output = cout) const;

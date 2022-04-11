@@ -254,4 +254,14 @@ std::ostream& indentBy(unsigned int n, std::ostream& out = std::cout);
 #define goto_w 0xc8
 #define jsr_w 0xc9
 
+/* Definição de algumas macros relativas aos nomes e descritores de métodos main, init e clinit */
+#define MAIN_NOME "main"
+#define DESCRIPTOR_MAIN "([Ljava/lang/String;)V"
+#define PUBLIC_STATIC 0x0009
+#define CLINIT_NOME "<clinit>"
+#define DESCRIPTOR_CLINIT "()V"
+#define STATICCLINIT 0x0008
+#define INIT_NOME "<init>"
+#define DESCRIPTOR_INIT "()V"
+
 #endif

@@ -12,6 +12,9 @@ class Methods {
     Methods(FILE* fp, ConstantPool& cp);
     ~Methods();
 
+    Method* getMain(ConstantPool& cp);
+    Method* getCLinit(ConstantPool& cp);
+
     // print methods
     ostream& print(ConstantPool& cp, ostream& output = cout) const;
 

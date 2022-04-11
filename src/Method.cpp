@@ -50,3 +50,15 @@ ostream& Method::print(ConstantPool& cp, ostream& output) const {
 
   return output;
 }
+
+string Method::getName(ConstantPool& cp) {
+  return cp.getValueUTF8String(this->name_index);
+}
+
+string Method::getDescriptor(ConstantPool& cp) {
+  return cp.getValueUTF8String(this->descriptor_index);
+}
+
+void Method::execute() {
+  cout << "TODO: implement Method::execute" << endl;
+}

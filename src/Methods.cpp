@@ -36,10 +36,34 @@ void Methods::AddMethod(Method* method) {
 
 ostream& Methods::print(ConstantPool& cp, ostream& output) const {
   output << "Methods Count: " << (unsigned) this->methods_count << endl;
-  for(const auto method : this->methods){
+  for (const auto method : this->methods) {
     output << "METHOD INFO: " << endl;
     method->print(cp, output);
     output << endl;
   }
   return output;
+}
+
+Method* Methods::getMain(ConstantPool& cp) {  
+  for (const auto method : this->methods) {
+    if (
+      method->getName(cp).compare(string(MAIN_NOME)) &&
+      method->getDescriptor(cp).compare(string(DESCRIPTOR_MAIN))
+    ) return method;
+  }
+
+  // in case no main found
+  return nullptr;
+}
+
+Method* Methods::getCLinit(ConstantPool& cp) {
+  for (const auto method : this->methods) {
+    if (
+      method->getName(cp).compare(string(CLINIT_NOME)) &&
+      method->getDescriptor(cp).compare(string(DESCRIPTOR_CLINIT))
+    ) return method;
+  }
+
+  // in case no clinit found
+  return nullptr;
 }

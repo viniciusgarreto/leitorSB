@@ -3,7 +3,7 @@
 StackMapFrame* StackMapFrame::readStackMapFrame(FILE* fp) {
   u1 tag = u1READ(fp);
 
-  if (tag >= 0 && tag <= 63)
+  if (tag <= 63)
     return new SameFrame(tag, fp);
 
   if (tag >= 64 && tag <= 127)
