@@ -4,7 +4,7 @@ StackMapFrame* StackMapFrame::readStackMapFrame(FILE* fp) {
   u1 tag = u1READ(fp);
 
   if (tag <= 63)
-    return new SameFrame(tag, fp);
+    return new SameFrame(tag);
 
   if (tag >= 64 && tag <= 127)
     return new SameLocals1StackItemFrame(tag, fp);
@@ -23,6 +23,8 @@ StackMapFrame* StackMapFrame::readStackMapFrame(FILE* fp) {
 	}
   if (tag == 255)
     return new FullFrame(tag, fp);
+
+  return nullptr;
 }
 
 StackMapFrame::StackMapFrame(u1 tag) {
@@ -30,7 +32,7 @@ StackMapFrame::StackMapFrame(u1 tag) {
 }
 StackMapFrame::~StackMapFrame() {}
 ostream& StackMapFrame::print(unsigned int indent, ostream& output) const {
-  if (this->frame_type >= 0 && this->frame_type <= 63)
+  if (this->frame_type <= 63)
     return ((SameFrame*) this)->print(indent, output);
 
   if (this->frame_type >= 64 && this->frame_type <= 127)
@@ -50,9 +52,11 @@ ostream& StackMapFrame::print(unsigned int indent, ostream& output) const {
 	}
   if (this->frame_type == 255)
     return ((FullFrame*) this)->print(indent, output);
+
+  return output;
 }
 
-SameFrame::SameFrame(u1 tag, FILE* fp): StackMapFrame(tag) {}
+SameFrame::SameFrame(u1 tag): StackMapFrame(tag) {}
 ostream& SameFrame::print(unsigned int indent, ostream& output) const {
   indentBy(indent, output) << "SameFrame: " << endl;
   indentBy(indent+1, output) << "frame_type: " << (unsigned) this->frame_type << endl;
@@ -110,6 +114,8 @@ ostream& ChopFrame::print(unsigned int indent, ostream& output) const {
   indentBy(indent, output) << "ChopFrame: " << endl;
   indentBy(indent+1, output) << "frame_type: " << (unsigned) this->frame_type << endl;
   indentBy(indent+1, output) << "offset_delta: " << (unsigned) this->offset_delta << endl;
+
+  return output;
 }
 ChopFrame::~ChopFrame() {}
 

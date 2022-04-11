@@ -25,7 +25,7 @@ class StackMapFrame {
 
 class SameFrame : public StackMapFrame {
   public:
-    SameFrame(u1 tag, FILE* fp);
+    SameFrame(u1 tag);
     ~SameFrame();
 
     // print methods

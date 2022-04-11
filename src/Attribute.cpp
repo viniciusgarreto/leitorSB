@@ -51,6 +51,10 @@ Attribute::Attribute(u2 attbName, u4 attbLength) {
 // destructor
 Attribute::~Attribute() {}
 
+string Attribute::getName(ConstantPool& cp) {
+	return cp.getValueUTF8String(this->attribute_name);
+}
+
 // constructor
 SourceFileAttribute::SourceFileAttribute(FILE* fp, u2 attbName, u4 attbLength): Attribute(attbName, attbLength) {
   this->source_file = u2READ(fp);
