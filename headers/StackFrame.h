@@ -9,6 +9,10 @@ class StackFrame {
     StackFrame();
     ~StackFrame();
 
+    void pushFrame(Frame* frame);
+    Frame& topFrame();
+    void popFrame();
+
   private:
     vector<Frame*> frames;
 };
