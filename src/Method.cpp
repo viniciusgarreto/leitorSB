@@ -61,8 +61,10 @@ string Method::getDescriptor(ConstantPool& cp) {
 
 CodeAttribute* Method::GetCodeAttb(ConstantPool& cp) {
   for (auto attb : this->attributes)
-  if (attb->getName(cp).compare(string(CODE_ATTRIBUTE)))
+  if (attb->getName(cp) == string(CODE_ATTRIBUTE)) {
+
     return (CodeAttribute*) attb;
+  }
 
   return nullptr;
 }
@@ -76,6 +78,4 @@ void Method::execute(JVM& jvm, ClassFile& current_class, bool createFrame) {
 
   if (createFrame)
     jvm.pushFrame(current_class, code->max_locals);
-  
-
 }

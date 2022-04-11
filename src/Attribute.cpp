@@ -16,28 +16,28 @@ Attribute* Attribute::readAttribute(FILE* fp, ConstantPool& cp) {
 	
 	string string_name = cp.getValueUTF8String(attbName);
 	
-	if (string_name.compare(string(SOURCE_FILE_ATTRIBUTE)) == 0)
+	if (string_name == string(SOURCE_FILE_ATTRIBUTE))
 		return new SourceFileAttribute(fp, attbName, attbLength);
 
-	if (string_name.compare(string(CODE_ATTRIBUTE)) == 0)
+	if (string_name == string(CODE_ATTRIBUTE))
 		return new CodeAttribute(fp, cp, attbName, attbLength);
 
-	if (string_name.compare(string(LINE_NUMBER_ATTRIBUTE)) == 0)
+	if (string_name == string(LINE_NUMBER_ATTRIBUTE))
 		return new LineNumberTableAttribute(fp, attbName, attbLength);
 
-	if (string_name.compare(string(STACK_MAP_ATTRIBUTE)) == 0)
+	if (string_name == string(STACK_MAP_ATTRIBUTE))
 		return new StackMapAttribute(fp, attbName, attbLength);
 
-	if (string_name.compare(string(INNER_CLASS_ATTRIBUTE)) == 0)
+	if (string_name == string(INNER_CLASS_ATTRIBUTE))
 		return new InnerClassesAttribute(fp, attbName, attbLength);
 
-	if (string_name.compare(string(SIGNATURE_ATTRIBUTE)) == 0)
+	if (string_name == string(SIGNATURE_ATTRIBUTE))
 		return new SignatureAttribute(fp, attbName, attbLength);
 
-	if (string_name.compare(string(CONSTANT_ATTRIBUTE)) == 0)
+	if (string_name == string(CONSTANT_ATTRIBUTE))
 		return new ConstantValueAttribute(fp, attbName, attbLength);
 
-	if (string_name.compare(string(EXCEPTIONS_ATTRIBUTE)) == 0)
+	if (string_name == string(EXCEPTIONS_ATTRIBUTE))
 		return new ExceptionsAttribute(fp, attbName, attbLength);
 
 	return nullptr;
@@ -192,28 +192,28 @@ ExceptionsAttribute::~ExceptionsAttribute() {
 ostream& Attribute::print(ConstantPool& cp, unsigned int i, ostream& output) const {	
 	string string_name = cp.getValueUTF8String(this->attribute_name);
 
-	if (string_name.compare(string(SOURCE_FILE_ATTRIBUTE)) == 0)
+	if (string_name == string(SOURCE_FILE_ATTRIBUTE))
 		return ((SourceFileAttribute*) this)->print(i, output);
 
-	if (string_name.compare(string(CODE_ATTRIBUTE)) == 0)
+	if (string_name == string(CODE_ATTRIBUTE))
 		return ((CodeAttribute*) this)->print(cp, i, output);
 
-	if (string_name.compare(string(LINE_NUMBER_ATTRIBUTE)) == 0)
+	if (string_name == string(LINE_NUMBER_ATTRIBUTE))
 		return ((LineNumberTableAttribute*) this)->print(i, output);
 
-	if (string_name.compare(string(STACK_MAP_ATTRIBUTE)) == 0)
+	if (string_name == string(STACK_MAP_ATTRIBUTE))
 		return ((StackMapAttribute*) this)->print(i, output);
 
-	if (string_name.compare(string(INNER_CLASS_ATTRIBUTE)) == 0)
+	if (string_name == string(INNER_CLASS_ATTRIBUTE))
 		return ((InnerClassesAttribute*) this)->print(i, output);
 
-	if (string_name.compare(string(SIGNATURE_ATTRIBUTE)) == 0)
+	if (string_name == string(SIGNATURE_ATTRIBUTE))
 		return ((SignatureAttribute*) this)->print(i, output);
 
-	if (string_name.compare(string(CONSTANT_ATTRIBUTE)) == 0)
+	if (string_name == string(CONSTANT_ATTRIBUTE))
 		return ((ConstantValueAttribute*) this)->print(i, output);
 
-	if (string_name.compare(string(EXCEPTIONS_ATTRIBUTE)) == 0)
+	if (string_name == string(EXCEPTIONS_ATTRIBUTE))
 		return ((ExceptionsAttribute*) this)->print(cp, i, output);
 
 	return output;

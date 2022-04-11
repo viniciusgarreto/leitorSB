@@ -39,7 +39,7 @@ void JVM::ReadClassFile(string classfile_name) {
 
 ClassFile& JVM::getClassFileByName(string classfile_name) {
   for (auto classFile : this->classes)
-  if (classfile_name.compare(classFile->getName()) == 0)
+  if (classfile_name == classFile->getName())
     return *classFile;
 
   cout << "ERROR: tried to search for class \"" << classfile_name << "\" but couldn't find a match";
