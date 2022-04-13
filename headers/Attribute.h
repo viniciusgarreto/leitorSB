@@ -99,6 +99,8 @@ class CodeAttribute : public Attribute {
      */
     void interpret(JVM& jvm, Method& method);
     /// numero maximo de variaveis locais no code array 
+    vector<ExceptionTable*> getExceptionTable();
+
     u2 max_locals;
 
   private:
