@@ -12,13 +12,9 @@ void StackFrame::pushFrame(Frame* frame) {
   this->frames.push_back(frame);
 }
 
-Frame& StackFrame::topFrame() {
-  if (this->frames.empty()) {
-    cout << "[ERROR] tried to access the top frame, but frame stack is empty" << endl;
-    exit(1);
-  }
-
-  return *this->frames.back();
+Frame* StackFrame::topFrame() {
+  if (this->frames.empty()) return nullptr;
+  return this->frames.back();
 }
 void StackFrame::popFrame() {
   if (this->frames.empty()) {
