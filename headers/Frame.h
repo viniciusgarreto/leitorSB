@@ -17,10 +17,6 @@ struct Op {
   u1 operand_type;
 };
 
-struct OpList {
-  list<Op> OpList;
-};
-
 typedef struct local {
   u4 *variavel;
   u1 tipo_variavel;
@@ -38,7 +34,7 @@ class Frame {
     u2 vetor_length;
     string classeCorrente;
     ConstantPool& constant_pool;
-    vector<OpList> OpStack;
+    vector<Op> OpStack;
     vector<Local> local_vector;
 };
 
