@@ -12,7 +12,7 @@ class StackFrame {
     ~StackFrame();
 
     void pushFrame(Frame* frame);
-    Frame& topFrame();
+    Frame* topFrame();
     void popFrame();
 
   private:
