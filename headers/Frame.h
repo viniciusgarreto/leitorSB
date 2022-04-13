@@ -35,8 +35,7 @@ typedef struct local {
 
 class Frame {
   public:
-    /// construtor
-    Frame(string currentClass, u2 max_locals);
+    Frame(ClassFile& currentClass, u2 max_locals);
     ~Frame();
 
   private:
