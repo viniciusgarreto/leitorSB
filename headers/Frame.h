@@ -1,10 +1,13 @@
 #ifndef frame_h
 #define frame_h
 
+class Frame;
+
 #include <vector>
 #include <list>
 
 #include "../headers/definitions.h"
+#include "../headers/ClassFile.h"
 #include "../headers/ConstantPool.h"
 
 using namespace std;
@@ -27,6 +30,8 @@ class Frame {
   public:
     Frame(ClassFile& currentClass, u2 max_locals);
     ~Frame();
+
+    string getClassName();
 
   private:
     u4 end_retorno;

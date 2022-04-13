@@ -88,12 +88,6 @@ CodeAttribute::CodeAttribute(FILE* fp, ConstantPool& cp, u2 attbName, u4 attbLen
 		}
 	}
 }
-void CodeAttribute::AddAttribute(Attribute* interface) {
-  this->attributes.push_back(interface);
-}
-void CodeAttribute::AddExceptionTable(ExceptionTable* table) {
-  this->exception_table.push_back(table);
-}
 // destructor
 CodeAttribute::~CodeAttribute() {
 	free(this->code);
@@ -101,6 +95,10 @@ CodeAttribute::~CodeAttribute() {
 void CodeAttribute::AddAttribute(Attribute* interface) {
   this->attributes.push_back(interface);
 }
+void CodeAttribute::AddExceptionTable(ExceptionTable* table) {
+  this->exception_table.push_back(table);
+}
+
 void CodeAttribute::interpret(JVM& jvm, Method& method) {
 	cout << "TODO: implement CodeAttribute::interpret" << endl;
 }
