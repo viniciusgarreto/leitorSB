@@ -1,6 +1,8 @@
 #ifndef classFile_h
 #define classFile_h
 
+class ClassFile;
+
 #include <stdio.h>
 
 #include "../headers/definitions.h"
@@ -9,9 +11,6 @@
 #include "../headers/Fields.h"
 #include "../headers/Methods.h"
 #include "../headers/Attributes.h"
-
-class Method;
-class Methods;
 
 using namespace std;
 class ClassFile {

@@ -1,13 +1,13 @@
 #ifndef methods_h
 #define methods_h
 
+class Methods;
+
 #include <vector>
 #include <stdio.h>
 
 #include "../headers/definitions.h"
 #include "../headers/Method.h"
-
-class Method;
 
 class Methods {
   public:

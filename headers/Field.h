@@ -1,6 +1,8 @@
 #ifndef field_h
 #define field_h
 
+class Field;
+
 #include <vector>
 #include <stdio.h>
 

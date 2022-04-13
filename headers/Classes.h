@@ -1,6 +1,8 @@
 #ifndef classes_h
 #define classes_h
 
+class Classes;
+
 #include <stdio.h>
 
 #include "../headers/definitions.h"

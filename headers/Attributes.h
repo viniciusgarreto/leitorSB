@@ -1,6 +1,8 @@
 #ifndef attributes_h
 #define attributes_h
 
+class Attributes;
+
 #include <vector>
 #include <stdio.h>
 

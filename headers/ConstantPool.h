@@ -1,6 +1,8 @@
 #ifndef constant_pool_h
 #define constant_pool_h
 
+class ConstantPool;
+
 #include <vector>
 #include <stdio.h>
 // #include <stdlib.h>

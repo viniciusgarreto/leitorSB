@@ -1,15 +1,14 @@
 #ifndef method_h
 #define method_h
 
+class Method;
+
 #include <stdio.h>
 #include <vector>
 
 #include "../headers/JVM.h"
 #include "../headers/definitions.h"
 #include "../headers/Attribute.h"
-
-class ClassFile;
-class JVM;
 
 class Method {
   public:

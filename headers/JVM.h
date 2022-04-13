@@ -1,6 +1,8 @@
 #ifndef jvm_h
 #define jvm_h
 
+class JVM;
+
 #include <vector>
 #include "../headers/definitions.h"
 #include "../headers/StackFrame.h"
@@ -8,9 +10,6 @@
 #include "../headers/Object.h"
 
 using namespace std;
-
-class ClassFile;
-class Object;
 
 class JVM {
   public:

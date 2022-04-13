@@ -1,10 +1,10 @@
 #ifndef object_h
 #define object_h
 
+class Object;
+
 #include "../headers/definitions.h"
 #include "../headers/ClassFile.h"
-
-class ClassFile;
 
 class Object {
 private:

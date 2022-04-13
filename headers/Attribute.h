@@ -3,12 +3,24 @@
 
 #include <stdio.h>
 
+class Attribute;
+class ExceptionsAttribute;
+class SourceFileAttribute;
+class CodeAttribute;
+class LineNumberTableAttribute;
+class StackMapAttribute;
+class InnerClassesAttribute;
+class SignatureAttribute;
+class ConstantValueAttribute;
+class ExceptionsAttribute;
+
 #include "../headers/definitions.h"
 #include "../headers/ConstantPool.h"
 #include "../headers/Classes.h"
 #include "../headers/LineNumberTable.h"
 #include "../headers/StackMapFrame.h"
 #include "../headers/JVM.h"
+#include "../headers/Method.h"
 
 class Attribute {
   public:
