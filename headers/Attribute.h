@@ -21,6 +21,7 @@ class ExceptionsAttribute;
 #include "../headers/StackMapFrame.h"
 #include "../headers/JVM.h"
 #include "../headers/Method.h"
+#include "../headers/ExceptionTable.h"
 
 class Attribute {
   public:
@@ -68,6 +69,7 @@ class CodeAttribute : public Attribute {
 
   private:
     void AddAttribute(Attribute* interface);
+    void AddExceptionTable(ExceptionTable* table);
 
     u2 max_stack;
     u4 code_length;
@@ -77,7 +79,7 @@ class CodeAttribute : public Attribute {
     std::vector<Attribute*> attributes;
 
     u2 exception_info_length;
-    ExceptionsAttribute* ex_info;
+    std::vector<ExceptionTable*> exception_table;
 };
 
 class LineNumberTableAttribute : public Attribute {

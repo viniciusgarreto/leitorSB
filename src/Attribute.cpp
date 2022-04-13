@@ -2,6 +2,7 @@
 
 #include "../headers/Attribute.h"
 #include "../headers/definitions.h"
+#include "../headers/ExceptionTable.h"
 
 using namespace std;
 
@@ -75,11 +76,8 @@ CodeAttribute::CodeAttribute(FILE* fp, ConstantPool& cp, u2 attbName, u4 attbLen
 	}
 
 	this->exception_info_length = u2READ(fp);
-	if (this->exception_info_length > 0) {
-		cout << "TODO: implement CodeAttribute::CodeAttribute" << endl;
-		cout << "[UNINPLEMENTED ERROR] read and instantiate exception attribute" << endl;
-		exit(1);
-		// this->ex_info = lerExceptionTable(fp, this->exception_info_length);
+	for (int i = 0; i < exception_info_length; i++){
+		this->AddExceptionTable(new ExceptionTable(fp));
 	}
 
 	this->attributes_count = u2READ(fp);
@@ -89,6 +87,12 @@ CodeAttribute::CodeAttribute(FILE* fp, ConstantPool& cp, u2 attbName, u4 attbLen
 			this->AddAttribute(Attribute::readAttribute(fp, cp));
 		}
 	}
+}
+void CodeAttribute::AddAttribute(Attribute* interface) {
+  this->attributes.push_back(interface);
+}
+void CodeAttribute::AddExceptionTable(ExceptionTable* table) {
+  this->exception_table.push_back(table);
 }
 // destructor
 CodeAttribute::~CodeAttribute() {
@@ -245,8 +249,8 @@ ostream& CodeAttribute::print(ConstantPool& cp, unsigned int tab, ostream& out) 
 	
 	indentBy(tab, out) << "exception_length: " << (unsigned) this->exception_info_length << endl;
 	indentBy(tab, out) << "exceptions: " << endl; 
-	for (size_t i = 0; i < this->exception_info_length; i++) {
-		this->ex_info[i].print(cp, i+1, out);
+	for(auto table : this->exception_table) {
+		table->print(tab + 1, out);
 	}
 
 	indentBy(tab, out) << "attributes: " << endl;
