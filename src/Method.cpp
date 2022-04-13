@@ -59,7 +59,7 @@ string Method::getDescriptor(ConstantPool& cp) {
   return cp.getValueUTF8String(this->descriptor_index);
 }
 
-CodeAttribute* Method::GetCodeAttb(ConstantPool& cp) {
+CodeAttribute* Method::getCodeAttb(ConstantPool& cp) {
   for (auto attb : this->attributes)
   if (attb->getName(cp) == string(CODE_ATTRIBUTE)) {
 
@@ -70,7 +70,7 @@ CodeAttribute* Method::GetCodeAttb(ConstantPool& cp) {
 }
 
 void Method::execute(JVM& jvm, ClassFile& current_class, bool createFrame) {
-  auto code = this->GetCodeAttb(current_class.getConstantPool());
+  auto code = this->getCodeAttb(current_class.getConstantPool());
   if (code == nullptr) {
     cout << "ERROR: tried to execute method but no Code attribute found" << endl;
     exit(1);

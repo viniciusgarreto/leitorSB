@@ -73,3 +73,26 @@ void JVM::execute() {
 void JVM::pushFrame(ClassFile& current_class, u2 max_locals) {
   this->frame_stack->pushFrame(new Frame(current_class, max_locals));
 }
+
+u2 JVM::findHandlerMethod(Method& method) {
+	// Procurar no método corrente se existe um handler para a exceção que foi lançada
+	auto classeAtual = this->getClassFileByName(this->frame_stack->topFrame()->getClassName());
+  auto code = method.getCodeAttb(classeAtual.getConstantPool());
+
+  // auto* auxmetodo;
+
+  Frame* curFrame;
+	while (nullptr != (curFrame = this->frame_stack->topFrame())) {
+    for (auto except : code->getExceptionTable()){
+      auto nomeexcecao = classeAtual.getConstantPool().getValueUTF8String(except->catch_type);
+      if (nomeexcecao == this->exception_name)
+        return except->handler_pc;
+    }
+
+		// Se não encontrar o handler, pop o frameatual
+    this->frame_stack->popFrame();
+	}
+
+	// Retornar USHRT_MAX para indicar que o handler não foi encontrado
+	return USHRT_MAX;
+}

@@ -98,6 +98,10 @@ void CodeAttribute::AddAttribute(Attribute* interface) {
 void CodeAttribute::AddExceptionTable(ExceptionTable* table) {
   this->exception_table.push_back(table);
 }
+vector<ExceptionTable*> CodeAttribute::getExceptionTable() {
+	return this->exception_table;
+}
+
 
 void CodeAttribute::interpret(JVM& jvm, Method& method) {
 	cout << "TODO: implement CodeAttribute::interpret" << endl;

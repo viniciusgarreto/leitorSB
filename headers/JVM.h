@@ -25,6 +25,7 @@ class JVM {
 
     void execute();
     void pushFrame(ClassFile& current_class, u2 max_locals);
+    u2 findHandlerMethod(Method& method);
 
     u4 pc;
     u2 exception;
@@ -32,7 +33,7 @@ class JVM {
   private:
     // singleton instance
     static JVM* instance;
-    char* exception_name;
+    string exception_name;
     StackFrame* frame_stack;
     vector<ClassFile*> classes;
     vector<Object> objects;

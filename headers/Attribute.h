@@ -65,6 +65,8 @@ class CodeAttribute : public Attribute {
     // the method that actually interprets the code.
     void interpret(JVM& jvm, Method& method);
 
+    vector<ExceptionTable*> getExceptionTable();
+
     u2 max_locals;
 
   private:
