@@ -1,4 +1,5 @@
 #include "../headers/JVM.h"
+#include "../headers/Frame.h"
 #include <string>
 
 JVM* JVM::instance = nullptr;
@@ -70,5 +71,5 @@ void JVM::execute() {
 }
 
 void JVM::pushFrame(ClassFile& current_class, u2 max_locals) {
-  cout << "TODO: implement JVM::pushFrame" << endl;
+  this->frame_stack->pushFrame(new Frame(current_class, max_locals));
 }
