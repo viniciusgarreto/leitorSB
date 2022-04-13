@@ -16,7 +16,7 @@ class Instruction {
 
   private:
     Instruction* instruc;
-    char name[40];
+    string name;
     int opcode;
     int argnum;
     int opnum;
