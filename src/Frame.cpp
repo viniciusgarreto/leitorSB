@@ -9,3 +9,4 @@ Frame::Frame(ClassFile& currentClass, u2 max_locals):
   this->classeCorrente = currentClass.getName();
 }
 Frame::~Frame() {}
+string Frame::getClassName() { return this->classeCorrente; }
