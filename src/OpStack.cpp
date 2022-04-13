@@ -49,44 +49,44 @@ std::vector<OpStack> RemoverFim_operandos(std::vector<OpStack> lis){
   return lis;
 }
 
-void ImprimirOpStack(std::vector<OpStack> lis){
-  for(int i = 0; i < lis.size(); i++){
-    if(lis[i].operand_type <= 8){
-      printf("Operando: 0x%08x\n\n", lis[i].operand_type);
+void ImprimirOpStack(std::vector<OpStack> opList){
+  for(auto op : opList){
+    if(op.operand_type <= 8){
+      printf("Operando: 0x%08x\n\n", op.operand_type);
     } else {
-      switch(lis[i].operand_type){
+      switch(op.operand_type){
 				case RETURN_ADDRESS_OP:
-					printf("Operando: %s\n\n",(char*) lis[i].operand_ref);
+					printf("Operando: %s\n\n",(char*) op.operand_ref);
 				  break;
 				case REFERENCE_ARRAY_BOOLEAN_OP:
-					printf("[Z@%p\n",(u4*) lis[i].operand_ref);
+					printf("[Z@%p\n",(u4*) op.operand_ref);
 				  break;
 				case REFERENCE_ARRAY_CHAR_OP:
-					printf("Operando: %s\n\n",(char*) lis[i].operand_ref);
+					printf("Operando: %s\n\n",(char*) op.operand_ref);
 				  break;
 				case REFERENCE_ARRAY_FLOAT_OP:
-					printf("[F@%p\n",(u4*) lis[i].operand_ref);
+					printf("[F@%p\n",(u4*) op.operand_ref);
 				  break;
 				case REFERENCE_ARRAY_DOUBLE_OP:
-					printf("[D@%p\n",(u4*) lis[i].operand_ref);
+					printf("[D@%p\n",(u4*) op.operand_ref);
 				  break;
 				case REFERENCE_ARRAY_BYTE_OP:
-					printf("[B@%p\n",(u4*) lis[i].operand_ref);
+					printf("[B@%p\n",(u4*) op.operand_ref);
 				  break;
 				case REFERENCE_ARRAY_SHORT_OP:
-					printf("[S@%p\n",(u4*) lis[i].operand_ref);
+					printf("[S@%p\n",(u4*) op.operand_ref);
 				  break;
 				case REFERENCE_ARRAY_INT_OP:
-					printf("[I@%p\n",(u4*) lis[i].operand_ref);
+					printf("[I@%p\n",(u4*) op.operand_ref);
 				  break;
 				case REFERENCE_ARRAY_LONG_OP:
-					printf("[J@%p\n",(u4*) lis[i].operand_ref);
+					printf("[J@%p\n",(u4*) op.operand_ref);
 				  break;
 				case REFERENCE_STRING_OP:
-					printf("String: %s\n", (char *) lis[i].operand_ref);
+					printf("String: %s\n", (char *) op.operand_ref);
 				  break;
 				case REFERENCE_OP:
-					printf("Operando: 0x%p\n\n", (u4*) lis[i].operand_ref);
+					printf("Operando: 0x%p\n\n", (u4*) op.operand_ref);
 				  break;
 			}
     }
