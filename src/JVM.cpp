@@ -9,7 +9,7 @@ JVM::JVM() {
 
   this->pc = 0;
   this->exception = 0;
-  this->exception_name = (char*) malloc(100 * sizeof(char));
+  this->exception_name = string("");
 }
 
 JVM::~JVM() {
@@ -18,8 +18,6 @@ JVM::~JVM() {
     delete classFile;
   this->classes.clear();
   this->objects.clear();
-
-  delete this->exception_name;
 }
 
 JVM& JVM::getInstance() {
