@@ -3,6 +3,8 @@
 #include <stdlib.h>
 #include <string.h>
 
+Instruction** Instruction::instruc = nullptr;
+
 // constructor
 Instruction::Instruction(string name, int opcode, int argnum, int opnum) {
     this->name = name;
