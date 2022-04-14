@@ -4,6 +4,7 @@
 #include "definitions.h"
 #include <stdio.h>
 
+
 using namespace std;
 
 class Instruction {
@@ -13,8 +14,6 @@ class Instruction {
     // print methods
     ostream& print(ostream& output = cout) const;
     friend ostream& operator<<(ostream& out, const Instruction& cf);
-
-  private:
     Instruction* instruc;
     char name[40];
     int opcode;
@@ -22,5 +21,7 @@ class Instruction {
     int opnum;
     int instruct_pc;
     int EnumCheck = 200;
+
+  private:
 };
 #endif

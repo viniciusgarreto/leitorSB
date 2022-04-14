@@ -7,7 +7,7 @@
 /** Macro para normalizar indice do pool de constantes */
 #define normaliza_indice(x,y) (x << 8) | y
 
-Classfile* resolverClasse(char *nome_classe); 
+ClassFile* resolverClasse(char *nome_classe); 
 
 /**
  * @brief Função para resolver (analisar parâmetros, nome e descriptor) método
@@ -17,7 +17,7 @@ Classfile* resolverClasse(char *nome_classe);
  * @param interface Flag para sinalizar método de interface
  * @return Valor booleano representando o sucesso da execucção da resolução
  */
-bool resolverMetodo(Cp_info *cp, u2 indice_cp, u1 interface);
+bool resolverMetodo(CpInfo *cp, u2 indice_cp, u1 interface);
 
 /**
  * @brief Função para obter o nome de um método na constant pool
@@ -27,7 +27,7 @@ bool resolverMetodo(Cp_info *cp, u2 indice_cp, u1 interface);
  * @param interface Flag para sinalizar método de interface
  * @return Ponteiro de char representando a string contendo o nome do método
  */
-char* obterNomeMetodo(Cp_info *cp, u2 indice_cp, u1 interface);
+char* obterNomeMetodo(CpInfo *cp, u2 indice_cp, u1 interface);
 
 /**
  * @brief Função para obter o descriptor de um método
@@ -37,7 +37,7 @@ char* obterNomeMetodo(Cp_info *cp, u2 indice_cp, u1 interface);
  * @param interface Flag para sinalizar método de interface
  * @return Ponteiro de char representando a string contendo o descriptor do método
  */
-char* obterDescriptorMetodo(Cp_info *cp, u2 indice_cp, u1 interface);
+char* obterDescriptorMetodo(CpInfo *cp, u2 indice_cp, u1 interface);
 
 /**
  * @brief Função para obter o tipo do descriptor do método
@@ -55,7 +55,7 @@ int descriptorFieldValidate (char * descriptor);
  *
  * @return Ponteiro de char representando a string contendo o nome da classe de um método
  */
-char* obterClasseDoMetodo(Cp_info *cp, u2 indice_cp);
+char* obterClasseDoMetodo(CpInfo *cp, u2 indice_cp);
 
 /**
  * @brief Função para transferir os valores da pilha de operandos de um Frame para o vetor de variáveis locais do próximo Frame
@@ -101,7 +101,7 @@ long decodificaLongValor (u4 high, u4 low);
  * @param classe Ponteiro para a classe alocada
  * @return Valor inteiro com a quantidade de campos que não são do tipo static
  */
-int getParametrosNaoStatic (Classfile *classe);
+int getParametrosNaoStatic (ClassFile *classe);
 
 /**
  * @brief Função para inserir um objeto novo na lista de objetos
@@ -111,7 +111,7 @@ int getParametrosNaoStatic (Classfile *classe);
  * @param parametrosNaoStatic Quantidade de parâmetros que não são static
  * @return Ponteiro para a lista de objetos atualizado com a inserção do novo objeto
  */
-Lista_Objetos *InsereObjeto (Lista_Objetos *lis, Classfile *classe, int parametrosNaoStatic);
+Lista_Objetos *InsereObjeto (Lista_Objetos *lis, ClassFile *classe, int parametrosNaoStatic);
 
 /**
  * @brief Função para verificar se um método ou field é do tipo static
@@ -135,7 +135,7 @@ int getParametrosCount (char *descriptor);
  * @param p Ponteiro de classe contendo a referência ao objeto
  * @return Retorna um ponteiro para a lista de objetos
  */
-Lista_Objetos * buscaObjetoViaReferencia (Classfile *p);
+Lista_Objetos * buscaObjetoViaReferencia (ClassFile *p);
 
 /**
  * @brief Função para obter a posição do field no array de dados de instância (dados não estáticos)
@@ -145,7 +145,7 @@ Lista_Objetos * buscaObjetoViaReferencia (Classfile *p);
  *
  * @return Posição do field no array de dados não estáticos
  */
-int getPositionField (Classfile *obj, char *nomeField);
+int getPositionField (ClassFile *obj, char *nomeField);
 
 /**
  * @brief Função para instanciar um objeto novo
@@ -153,7 +153,7 @@ int getPositionField (Classfile *obj, char *nomeField);
  * @param nomeClasse Ponteiro para char contendo a string do nome da classe
  * @return Ponteiro para o objeto alocado
  */
-Classfile * instanciarClasse (char *nomeClasse);
+ClassFile * instanciarClasse (char *nomeClasse);
 
 /**
  * @brief Função para obter o tipo do operando a ser alocado na pilha de operandos

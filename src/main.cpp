@@ -2,7 +2,7 @@
 #include "../headers/ClassFile.h"
 #include "../headers/printer.h"
 #include "../headers/Instructions.h"
-
+#include ",,/headers/Attribute.h"
 #include <iostream>
 #include <fstream>
 #include <stdlib.h>
@@ -22,7 +22,10 @@ int main(int argc, char *argv[]) {
 
   // initialize JVM
   auto jvm = new JVM();
+  //FILE* fp, ConstantPool& cp, u2 attbName, u4 attbLength
+  auto teste = new CodeAttribute();
 
+  teste->interpret();
   // read file
   jvm->ReadClassFile(filename);
 

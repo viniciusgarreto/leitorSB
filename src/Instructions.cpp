@@ -3,15 +3,11 @@
 #include <stdlib.h>
 #include <string.h>
 
-
-
-
 void Instruction::setInstructions() {
   /* Instruction* instruc =
       (Instruction*)malloc(this->EnumCheck * sizeof(struct Instruction)); */
 
-  this->instruc = (Instruction*)malloc(this->EnumCheck * sizeof(struct Instruction)); 
-
+    this->instruc = (Instruction*)malloc(this->EnumCheck * sizeof(struct Instruction)); 
   // strcpy(instruc[0].name, "nop");
   // instruc[0].opcode = nop;
   // instruc[0].argnum = 0;
@@ -21,6 +17,7 @@ void Instruction::setInstructions() {
   // instruc[1].opcode = aconst_null;
   // instruc[1].argnum = 0;
   // instruc[1].opnum = 0;
+  // vector<Instruction> instruc;
 
   for (int i = 0; i <= EnumCheck; i++) {
       switch (i) {
@@ -1419,6 +1416,7 @@ void Instruction::setInstructions() {
       }
       instruc[i].instruct_pc = instruc[i].argnum + 1;
   }
+  //return instruc;
 }
 
 ostream& operator<<(ostream& out, const Instruction& cf) {

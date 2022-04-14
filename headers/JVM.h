@@ -30,11 +30,11 @@ class JVM {
     u4 pc;
     u2 exception;
 
+    StackFrame* frame_stack;
+    char* exception_name;
   private:
     // singleton instance
     static JVM* instance;
-    char* exception_name;
-    StackFrame* frame_stack;
     vector<ClassFile*> classes;
     vector<Object> objects;
     // static Instructions instructions; // idk ?????
