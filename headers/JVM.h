@@ -7,6 +7,7 @@ class JVM;
 #include "../headers/definitions.h"
 #include "../headers/StackFrame.h"
 #include "../headers/ClassFile.h"
+#include "../headers/Method.h"
 #include "../headers/Object.h"
 
 using namespace std;
