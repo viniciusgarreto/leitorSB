@@ -41,8 +41,8 @@ void Method::AddAttribute(Attribute* attb) {
 
 ostream& Method::print(ConstantPool& cp, ostream& output) const {
   output << "access_flag: "<< (unsigned) this->access_flags << endl;
-  output << "name: "<< (unsigned)  this->name_index << endl;
-  output << "descriptor: "<< (unsigned)  this->descriptor_index << endl;
+  output << "name: ("<< (unsigned) this->name_index << ") " << cp.getValueUTF8String(this->name_index) << endl;
+  output << "descriptor: ("<< (unsigned) this->descriptor_index << ") " << cp.getValueUTF8String(this->descriptor_index) << endl;
   output << "attributes_count: "<< (unsigned)  this->attributes_count << endl;
   
 	for (auto atb : this->attributes)
