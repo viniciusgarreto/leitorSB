@@ -103,9 +103,10 @@ vector<ExceptionTable*> CodeAttribute::getExceptionTable() {
 	return this->exception_table;
 }
 
-
 void CodeAttribute::interpret(JVM& jvm, Method& method) {
 	cout << "TODO: implement CodeAttribute::interpret" << endl;
+	if (jvm.pc) {}
+	if (&method == &method) {}
 }
 
 // constructor

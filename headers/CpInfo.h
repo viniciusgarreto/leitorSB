@@ -30,7 +30,7 @@ public:
   ~CONSTANT_Utf8_info();
   u2 length;
   u1 *bytes;
-  ostream& print(ostream& out, const ConstantPool& cp);
+  ostream& print(ostream& out);
 };
 
 class CONSTANT_Integer_info : public CpInfo
@@ -40,7 +40,7 @@ public:
   CONSTANT_Integer_info(FILE *fp);
   ~CONSTANT_Integer_info();
   u4 bytes;
-  ostream& print(ostream& out, const ConstantPool& cp);
+  ostream& print(ostream& out);
 };
 
 class CONSTANT_Float_info : public CpInfo
@@ -50,7 +50,7 @@ public:
   CONSTANT_Float_info(FILE *fp);
   ~CONSTANT_Float_info();
   u4 bytes;
-  ostream& print(ostream& out, const ConstantPool& cp);
+  ostream& print(ostream& out);
 };
 
 class CONSTANT_Long_info : public CpInfo
@@ -61,7 +61,7 @@ public:
   ~CONSTANT_Long_info();
   u4 high_bytes;
   u4 low_bytes;
-  ostream& print(ostream& out, const ConstantPool& cp);
+  ostream& print(ostream& out);
 };
 
 class CONSTANT_Double_info : public CpInfo
@@ -72,7 +72,7 @@ public:
   ~CONSTANT_Double_info();
   u4 high_bytes;
   u4 low_bytes;
-  ostream& print(ostream& out, const ConstantPool& cp);
+  ostream& print(ostream& out);
 };
 
 class CONSTANT_Class_info : public CpInfo

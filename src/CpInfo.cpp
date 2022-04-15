@@ -15,7 +15,7 @@ CONSTANT_Utf8_info::~CONSTANT_Utf8_info() {
   free(this->bytes);
 }
 
-ostream& CONSTANT_Utf8_info::print(ostream& os, const ConstantPool& cp) {
+ostream& CONSTANT_Utf8_info::print(ostream& os) {
   os << "CONSTANT_Utf8_info: " << endl;
   os << "length: " << (unsigned) this->length << endl;
   os << "bytes: ";
@@ -31,7 +31,7 @@ CONSTANT_Integer_info::CONSTANT_Integer_info(FILE *fp) : CpInfo(CONSTANT_Integer
 }
 CONSTANT_Integer_info::~CONSTANT_Integer_info() {}
 
-ostream& CONSTANT_Integer_info::print(ostream& os, const ConstantPool& cp) {
+ostream& CONSTANT_Integer_info::print(ostream& os) {
   os << "CONSTANT_Integer_info: " << endl;
   os << "bytes: 0x" << hex << (unsigned) this->bytes << dec << endl;
   return os;
@@ -42,7 +42,7 @@ CONSTANT_Float_info::CONSTANT_Float_info(FILE *fp) : CpInfo(CONSTANT_Float) {
 }
 CONSTANT_Float_info::~CONSTANT_Float_info() {}
 
-ostream& CONSTANT_Float_info::print(ostream& os, const ConstantPool& cp) {
+ostream& CONSTANT_Float_info::print(ostream& os) {
   os << "CONSTANT_Float_info: " << endl;
   os << "bytes: 0x" << hex << (unsigned) this->bytes << dec << endl;
   return os;
@@ -54,7 +54,7 @@ CONSTANT_Long_info::CONSTANT_Long_info(FILE *fp) : CpInfo(CONSTANT_Long) {
 }
 CONSTANT_Long_info::~CONSTANT_Long_info() {}
 
-ostream& CONSTANT_Long_info::print(ostream& os, const ConstantPool& cp) {
+ostream& CONSTANT_Long_info::print(ostream& os) {
   os << "CONSTANT_Long_info: " << endl;
   os << "high_bytes: 0x" << hex << this->high_bytes << dec << endl;
   os << "low_bytes: 0x" << hex << this->low_bytes << dec << endl;
@@ -67,7 +67,7 @@ CONSTANT_Double_info::CONSTANT_Double_info(FILE *fp) : CpInfo(CONSTANT_Double) {
 }
 CONSTANT_Double_info::~CONSTANT_Double_info() {}
 
-ostream& CONSTANT_Double_info::print(ostream& os, const ConstantPool& cp) {
+ostream& CONSTANT_Double_info::print(ostream& os) {
   os << "CONSTANT_Double_info: " << endl;
   os << "high_bytes: 0x" << hex << this->high_bytes << dec << endl;
   os << "low_bytes: 0x" << hex << this->low_bytes << dec << endl;
@@ -157,7 +157,7 @@ CONSTANT_MethodHandle_info::~CONSTANT_MethodHandle_info() {}
 ostream& CONSTANT_MethodHandle_info::print(ostream& os, const ConstantPool& cp) {
   os << "CONSTANT_MethodHandle_info: " << endl;
   os << "reference_kind: " << (unsigned) this->reference_kind << endl;
-  os << "reference_index: " << (unsigned) this->reference_index << endl;
+  os << "reference_index: (" << (unsigned) this->reference_index << ") " << cp.getValueUTF8String(this->reference_index) << endl;
   return os;
 };
 
@@ -189,23 +189,23 @@ ostream& CpInfo::print(ostream& os, const ConstantPool& cp) {
   u1 tag = this->tag;
   switch (tag) {
   case CONSTANT_Utf8:
-    ((CONSTANT_Utf8_info*) this)->print(os, cp) << endl;
+    ((CONSTANT_Utf8_info*) this)->print(os) << endl;
     break;
 
   case CONSTANT_Integer:
-    ((CONSTANT_Integer_info*) this)->print(os, cp) << endl;
+    ((CONSTANT_Integer_info*) this)->print(os) << endl;
     break;
 
   case CONSTANT_Float:
-    ((CONSTANT_Float_info*) this)->print(os, cp) << endl;
+    ((CONSTANT_Float_info*) this)->print(os) << endl;
     break;
 
   case CONSTANT_Long:
-    ((CONSTANT_Long_info*) this)->print(os, cp) << endl;
+    ((CONSTANT_Long_info*) this)->print(os) << endl;
     break;
 
   case CONSTANT_Double:
-    ((CONSTANT_Double_info*) this)->print(os, cp) << endl;
+    ((CONSTANT_Double_info*) this)->print(os) << endl;
     break;
 
   case CONSTANT_Class:
