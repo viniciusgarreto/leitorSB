@@ -1,5 +1,6 @@
 #include "../headers/JVM.h"
 #include "../headers/Frame.h"
+#include <climits>
 #include <string>
 
 JVM* JVM::instance = nullptr;

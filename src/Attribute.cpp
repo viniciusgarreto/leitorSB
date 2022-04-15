@@ -258,7 +258,7 @@ ostream& CodeAttribute::print(ConstantPool& cp, unsigned int tab, ostream& out) 
 	
 	indentBy(tab, out) << "exception_length: " << (unsigned) this->exception_info_length << endl;
 	indentBy(tab, out) << "exceptions: " << endl; 
-	for(auto table : this->exception_table) {
+	for (auto table : this->exception_table) {
 		table->print(tab + 1, out);
 	}
 

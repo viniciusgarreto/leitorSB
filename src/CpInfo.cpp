@@ -1,17 +1,20 @@
 #include "../headers/CpInfo.h"
 #include <stdlib.h>
 
-CpInfo::CpInfo(u1 tag) {
+CpInfo::CpInfo(u1 tag)
+{
   this->tag = tag;
 }
 
-CONSTANT_Utf8_info::CONSTANT_Utf8_info(FILE *fp) : CpInfo(CONSTANT_Utf8) {
+CONSTANT_Utf8_info::CONSTANT_Utf8_info(FILE *fp) : CpInfo(CONSTANT_Utf8)
+{
   this->length = u2READ(fp);
   this->bytes = (u1 *)malloc(this->length * sizeof(u1));
   for (auto x = 0; x < this->length; x++)
     this->bytes[x] = u1READ(fp);
 }
-CONSTANT_Utf8_info::~CONSTANT_Utf8_info() {
+CONSTANT_Utf8_info::~CONSTANT_Utf8_info()
+{
   free(this->bytes);
 }
 
@@ -26,7 +29,8 @@ ostream& CONSTANT_Utf8_info::print(ostream& os) {
   return os;
 };
 
-CONSTANT_Integer_info::CONSTANT_Integer_info(FILE *fp) : CpInfo(CONSTANT_Integer) {
+CONSTANT_Integer_info::CONSTANT_Integer_info(FILE *fp) : CpInfo(CONSTANT_Integer)
+{
   this->bytes = u4READ(fp);
 }
 CONSTANT_Integer_info::~CONSTANT_Integer_info() {}
@@ -37,7 +41,8 @@ ostream& CONSTANT_Integer_info::print(ostream& os) {
   return os;
 };
 
-CONSTANT_Float_info::CONSTANT_Float_info(FILE *fp) : CpInfo(CONSTANT_Float) {
+CONSTANT_Float_info::CONSTANT_Float_info(FILE *fp) : CpInfo(CONSTANT_Float)
+{
   this->bytes = u4READ(fp);
 }
 CONSTANT_Float_info::~CONSTANT_Float_info() {}
@@ -48,7 +53,8 @@ ostream& CONSTANT_Float_info::print(ostream& os) {
   return os;
 };
 
-CONSTANT_Long_info::CONSTANT_Long_info(FILE *fp) : CpInfo(CONSTANT_Long) {
+CONSTANT_Long_info::CONSTANT_Long_info(FILE *fp) : CpInfo(CONSTANT_Long)
+{
   this->high_bytes = u4READ(fp);
   this->low_bytes = u4READ(fp);
 }
@@ -61,7 +67,8 @@ ostream& CONSTANT_Long_info::print(ostream& os) {
   return os;
 };
 
-CONSTANT_Double_info::CONSTANT_Double_info(FILE *fp) : CpInfo(CONSTANT_Double) {
+CONSTANT_Double_info::CONSTANT_Double_info(FILE *fp) : CpInfo(CONSTANT_Double)
+{
   this->high_bytes = u4READ(fp);
   this->low_bytes = u4READ(fp);
 }
@@ -74,7 +81,8 @@ ostream& CONSTANT_Double_info::print(ostream& os) {
   return os;
 };
 
-CONSTANT_Class_info::CONSTANT_Class_info(FILE *fp) : CpInfo(CONSTANT_Class) {
+CONSTANT_Class_info::CONSTANT_Class_info(FILE *fp) : CpInfo(CONSTANT_Class)
+{
   this->name_index = u2READ(fp);
 }
 CONSTANT_Class_info::~CONSTANT_Class_info() {}
@@ -85,7 +93,8 @@ ostream& CONSTANT_Class_info::print(ostream& os, const ConstantPool& cp) {
   return os;
 };
 
-CONSTANT_String_info::CONSTANT_String_info(FILE *fp) : CpInfo(CONSTANT_String) {
+CONSTANT_String_info::CONSTANT_String_info(FILE *fp) : CpInfo(CONSTANT_String)
+{
   this->string_index = u2READ(fp);
 }
 CONSTANT_String_info::~CONSTANT_String_info() {}
@@ -96,7 +105,8 @@ ostream& CONSTANT_String_info::print(ostream& os, const ConstantPool& cp) {
   return os;
 };
 
-CONSTANT_Fieldref_info::CONSTANT_Fieldref_info(FILE *fp) : CpInfo(CONSTANT_Fieldref) {
+CONSTANT_Fieldref_info::CONSTANT_Fieldref_info(FILE *fp) : CpInfo(CONSTANT_Fieldref)
+{
   this->class_index = u2READ(fp);
   this->name_and_type_index = u2READ(fp);
 }
@@ -109,7 +119,8 @@ ostream& CONSTANT_Fieldref_info::print(ostream& os, const ConstantPool& cp) {
   return os;
 };
 
-CONSTANT_Methodref_info::CONSTANT_Methodref_info(FILE *fp) : CpInfo(CONSTANT_Methodref) {
+CONSTANT_Methodref_info::CONSTANT_Methodref_info(FILE *fp) : CpInfo(CONSTANT_Methodref)
+{
   this->class_index = u2READ(fp);
   this->name_and_type_index = u2READ(fp);
 }
@@ -122,7 +133,8 @@ ostream& CONSTANT_Methodref_info::print(ostream& os, const ConstantPool& cp) {
   return os;
 };
 
-CONSTANT_InterfaceMethodref_info::CONSTANT_InterfaceMethodref_info(FILE *fp) : CpInfo(CONSTANT_InterfaceMethodref) {
+CONSTANT_InterfaceMethodref_info::CONSTANT_InterfaceMethodref_info(FILE *fp) : CpInfo(CONSTANT_InterfaceMethodref)
+{
   this->class_index = u2READ(fp);
   this->name_and_type_index = u2READ(fp);
 }
@@ -135,7 +147,8 @@ ostream& CONSTANT_InterfaceMethodref_info::print(ostream& os, const ConstantPool
   return os;
 };
 
-CONSTANT_NameAndType_info::CONSTANT_NameAndType_info(FILE *fp) : CpInfo(CONSTANT_NameAndType) {
+CONSTANT_NameAndType_info::CONSTANT_NameAndType_info(FILE *fp) : CpInfo(CONSTANT_NameAndType)
+{
   this->name_index = u2READ(fp);
   this->descriptor_index = u2READ(fp);
 }
@@ -148,7 +161,8 @@ ostream& CONSTANT_NameAndType_info::print(ostream& os, const ConstantPool& cp) {
   return os;
 };
 
-CONSTANT_MethodHandle_info::CONSTANT_MethodHandle_info(FILE *fp) : CpInfo(CONSTANT_MethodHandle) {
+CONSTANT_MethodHandle_info::CONSTANT_MethodHandle_info(FILE *fp) : CpInfo(CONSTANT_MethodHandle)
+{
   this->reference_kind = u1READ(fp);
   this->reference_index = u2READ(fp);
 }
@@ -161,7 +175,8 @@ ostream& CONSTANT_MethodHandle_info::print(ostream& os, const ConstantPool& cp) 
   return os;
 };
 
-CONSTANT_MethodType_info::CONSTANT_MethodType_info(FILE *fp) : CpInfo(CONSTANT_MethodType) {
+CONSTANT_MethodType_info::CONSTANT_MethodType_info(FILE *fp) : CpInfo(CONSTANT_MethodType)
+{
   this->descriptor_index = u2READ(fp);
 }
 CONSTANT_MethodType_info::~CONSTANT_MethodType_info() {}
@@ -172,7 +187,8 @@ ostream& CONSTANT_MethodType_info::print(ostream& os, const ConstantPool& cp) {
   return os;
 };
 
-CONSTANT_InvokeDynamic_info::CONSTANT_InvokeDynamic_info(FILE *fp) : CpInfo(CONSTANT_InvokeDynamic) {
+CONSTANT_InvokeDynamic_info::CONSTANT_InvokeDynamic_info(FILE *fp) : CpInfo(CONSTANT_InvokeDynamic)
+{
   this->bootstrap_method_attr_index = u2READ(fp);
   this->name_and_type_index = u2READ(fp);
 }
