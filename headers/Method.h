@@ -22,12 +22,21 @@ class Method {
     ~Method();
 
     // run method
+    /**
+     * @brief Executa o método
+     * @param jvm - jvm usada para interpretação do code attribute
+     * @param current_class - class file atual 
+     * @param createFrame - flag para criação de u novo frame na jvm: se for 1 cria um frame com a classe atual
+     * @return void
+     */
     void execute(JVM& jvm, ClassFile& current_class, bool createFrame);
 
+    /// pega o nome do metodo a partir da constant pool
     string getName(ConstantPool& cp);
+    /// pega o descriptor a partir da constrant pool
     string getDescriptor(ConstantPool& cp);
 
-    // print methods
+    /// print methods
     ostream& print(ConstantPool& cp, ostream& output = cout) const;
 
   private:

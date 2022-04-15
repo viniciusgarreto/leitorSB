@@ -14,6 +14,7 @@ using namespace std;
 
 class ConstantPool {
   public:
+    //Construtor
     ConstantPool(FILE* fp);
     ~ConstantPool();
 
@@ -21,9 +22,25 @@ class ConstantPool {
     ostream& print(ostream& output = cout) const;
     friend ostream& operator<<(ostream& out, const ConstantPool& cf);
 
+    /**
+     * @brief Retorna Constant Pool Info
+     * @param index - index valido da tabela de constant pool
+     * @return Contant Pool Info
+     */
     CpInfo* getCpInfo(u2 index);
+
+    /**
+     * @brief Retorna valor UTF8 em string
+     * @param index - index valido de valor UTF8
+     * @return string UTF8
+     */
     string getValueUTF8String(u2 index);
   private:
+
+    /**
+     * @brief Lê constant pool de algum arquivo .class
+     * @param fp - Arquivo .class a ser lido
+     */
     void ReadConstantPoolFromFile(FILE* fp);
     u2 count;
     CpInfo** cp_infos;

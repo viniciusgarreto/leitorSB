@@ -9,6 +9,7 @@
 class ExceptionTable {
   public:
     ExceptionTable(FILE* fp);
+    // Informações sobre Exceções
     u2 start_pc;
     u2 end_pc;
     u2 handler_pc;
