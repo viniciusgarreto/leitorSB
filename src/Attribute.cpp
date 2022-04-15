@@ -342,7 +342,8 @@ ostream& ExceptionsAttribute::print(ConstantPool& cp, unsigned int i, ostream& o
 	indentBy(i, out) << "exceptions: " << endl;
 	for (int n = 0; n < this->num_exceptions; n++){
 		indentBy(i + 1, out) << "Exception Table: " << i << endl;
-		indentBy(i + 1, out) << *cp.getCpInfo(this->exception_index_table[n]) << endl;
+		indentBy(i + 1, out);
+		cp.getCpInfo(this->exception_index_table[n])->print(out, cp) << endl;
 	}
 	
 	return out;

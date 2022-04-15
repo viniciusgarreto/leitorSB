@@ -13,7 +13,10 @@ Alunos:
 #ifndef cpInfo_h
 #define cpInfo_h
 
+class CpInfo;
+
 #include "../headers/definitions.h"
+#include "../headers/ConstantPool.h"
 #include <stdio.h>
 #include <iostream>
 
@@ -32,7 +35,7 @@ class CpInfo {
     /// indica qual o tipo de entrada na CP
     u1 tag;
 
-    friend ostream& operator<<(ostream& out, const CpInfo& cf);
+    ostream& print(ostream& out, const ConstantPool& cp);
 };
 
 /// Constant pool tags - tipos de entrada da CP
@@ -45,9 +48,7 @@ public:
   ~CONSTANT_Utf8_info();
   u2 length;
   u1 *bytes;
-
-private:
-  friend std::ostream &operator<<(std::ostream &, const CONSTANT_Utf8_info &);
+  ostream& print(ostream& out, const ConstantPool& cp);
 };
 
 /**
@@ -62,9 +63,7 @@ public:
   CONSTANT_Integer_info(FILE *fp);
   ~CONSTANT_Integer_info();
   u4 bytes;
-
-private:
-  friend std::ostream &operator<<(std::ostream &, const CONSTANT_Integer_info &);
+  ostream& print(ostream& out, const ConstantPool& cp);
 };
 /**
 * As classes CONSTANT_Integer_info e CONSTANT_Float_info representam 4-byte numerico (int e float) constantes
@@ -78,9 +77,7 @@ public:
   CONSTANT_Float_info(FILE *fp);
   ~CONSTANT_Float_info();
   u4 bytes;
-
-private:
-  friend std::ostream &operator<<(std::ostream &, const CONSTANT_Float_info &);
+  ostream& print(ostream& out, const ConstantPool& cp);
 };
 
 /**
@@ -96,9 +93,7 @@ public:
   ~CONSTANT_Long_info();
   u4 high_bytes;
   u4 low_bytes;
-
-private:
-  friend std::ostream &operator<<(std::ostream &, const CONSTANT_Long_info &);
+  ostream& print(ostream& out, const ConstantPool& cp);
 };
 /**
 *  As classes CONSTANT_Long_info e CONSTANT_Double_info representam 8-byte numerico (long e double) constantes
@@ -113,9 +108,7 @@ public:
   ~CONSTANT_Double_info();
   u4 high_bytes;
   u4 low_bytes;
-
-private:
-  friend std::ostream &operator<<(std::ostream &, const CONSTANT_Double_info &);
+  ostream& print(ostream& out, const ConstantPool& cp);
 };
 
 ///Classe usada para representar uma classe ou interface
@@ -126,9 +119,7 @@ public:
   CONSTANT_Class_info(FILE *fp);
   ~CONSTANT_Class_info();
   u2 name_index;
-
-private:
-  friend std::ostream &operator<<(std::ostream &, const CONSTANT_Class_info &);
+  ostream& print(ostream& out, const ConstantPool& cp);
 };
 
 ///Classe usada para representar objetos constantes do tipo String
@@ -139,9 +130,7 @@ public:
   CONSTANT_String_info(FILE *fp);
   ~CONSTANT_String_info();
   u2 string_index;
-
-private:
-  friend std::ostream &operator<<(std::ostream &, const CONSTANT_String_info &);
+  ostream& print(ostream& out, const ConstantPool& cp);
 };
 
 /**
@@ -158,9 +147,7 @@ public:
   ~CONSTANT_Fieldref_info();
   u2 class_index;
   u2 name_and_type_index;
-
-private:
-  friend std::ostream &operator<<(std::ostream &, const CONSTANT_Fieldref_info &);
+  ostream& print(ostream& out, const ConstantPool& cp);
 };
 
 
@@ -179,9 +166,7 @@ public:
   ~CONSTANT_Methodref_info();
   u2 class_index;
   u2 name_and_type_index;
-
-private:
-  friend std::ostream &operator<<(std::ostream &, const CONSTANT_Methodref_info &);
+  ostream& print(ostream& out, const ConstantPool& cp);
 };
 
 /**
@@ -198,9 +183,7 @@ public:
   ~CONSTANT_InterfaceMethodref_info();
   u2 class_index;
   u2 name_and_type_index;
-
-private:
-  friend std::ostream &operator<<(std::ostream &, const CONSTANT_InterfaceMethodref_info &);
+  ostream& print(ostream& out, const ConstantPool& cp);
 };
 
 /// A classe CONSTANT_NameAndType_info é utilizada para representar um field ou method, sem indicar qual tipo de classe ou interface ela pertence
@@ -212,9 +195,7 @@ public:
   ~CONSTANT_NameAndType_info();
   u2 name_index;
   u2 descriptor_index;
-
-private:
-  friend std::ostream &operator<<(std::ostream &, const CONSTANT_NameAndType_info &);
+  ostream& print(ostream& out, const ConstantPool& cp);
 };
 
 /* Classe utilizada para representar o Method handle */
@@ -227,9 +208,7 @@ public:
   ///Deve ser de1 to 9. O valor denota o tipo do method handle que caracteriza o comportamento do bytecode
   u1 reference_kind;
   u2 reference_index;
-
-private:
-  friend std::ostream &operator<<(std::ostream &, const CONSTANT_MethodHandle_info &);
+  ostream& print(ostream& out, const ConstantPool& cp);
 };
 
 class CONSTANT_MethodType_info : public CpInfo
@@ -239,9 +218,7 @@ public:
   CONSTANT_MethodType_info(FILE *fp);
   ~CONSTANT_MethodType_info();
   u2 descriptor_index;
-
-private:
-  friend std::ostream &operator<<(std::ostream &, const CONSTANT_MethodType_info &);
+  ostream& print(ostream& out, const ConstantPool& cp);
 };
 
 /*Classe utilizada pela instrução invokedynamic para especificar um método bootstrap, o dynamic invocation name, o argumento e os tipos de retorno da chamada,
@@ -254,8 +231,6 @@ public:
   ~CONSTANT_InvokeDynamic_info();
   u2 bootstrap_method_attr_index;
   u2 name_and_type_index;
-
-private:
-  friend std::ostream &operator<<(std::ostream &, const CONSTANT_InvokeDynamic_info &);
+  ostream& print(ostream& out, const ConstantPool& cp);
 };
 #endif

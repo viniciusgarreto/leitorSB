@@ -43,14 +43,14 @@ class ConstantPool {
      * @param index - index valido da tabela de constant pool
      * @return Contant Pool Info
      */
-    CpInfo* getCpInfo(u2 index);
+    CpInfo* getCpInfo(u2 index) const;
 
     /**
      * @brief Retorna valor UTF8 em string
      * @param index - index valido de valor UTF8
      * @return string UTF8
      */
-    string getValueUTF8String(u2 index);
+    string getValueUTF8String(u2 index) const;
   private:
 
     /**

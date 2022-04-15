@@ -35,8 +35,10 @@ ostream& ConstantPool::print(ostream& output) const {
 
   // imprime coisas da constant pool
   for (size_t i = 0; i < this->count; i++)
-  if (this->cp_infos[i] != nullptr)
-    output << i << ") " << *(this->cp_infos[i]);
+  if (this->cp_infos[i] != nullptr) {
+    output << i << ") ";
+    this->cp_infos[i]->print(output, *this);
+  }
 
   return output;
 }
@@ -146,12 +148,12 @@ ConstantPool::~ConstantPool() {
   delete this->cp_infos;
 }
 
-CpInfo* ConstantPool::getCpInfo(u2 index) {
+CpInfo* ConstantPool::getCpInfo(u2 index) const {
   if (index > this->count) return NULL;
   return this->cp_infos[(size_t) index];
 }
 
-string ConstantPool::getValueUTF8String(u2 index) {
+string ConstantPool::getValueUTF8String(u2 index) const {
   auto cpValue = this->getCpInfo(index);
   if (!cpValue) return string("[ERROR] index out of range");
 
@@ -170,14 +172,14 @@ string ConstantPool::getValueUTF8String(u2 index) {
 
     case CONSTANT_Long:
       {
-        long result = (long) (((CONSTANT_Double_info*)cpInfo)->high_bytes << 32) | (long) (((CONSTANT_Double_info*)cpInfo)->low_bytes);
+        long result = ((unsigned long long) ((CONSTANT_Double_info*)cpInfo)->high_bytes << 32) | (unsigned long long) (((CONSTANT_Double_info*)cpInfo)->low_bytes);
         return to_string(result);
       }
       break;
 
     case CONSTANT_Double: 
       {
-        double buffer = ((long) ((CONSTANT_Double_info*)cpInfo)->high_bytes << 32) | (long) (((CONSTANT_Double_info*)cpInfo)->low_bytes);
+        double buffer = ((unsigned long long) ((CONSTANT_Double_info*)cpInfo)->high_bytes << 32) | (unsigned long long) (((CONSTANT_Double_info*)cpInfo)->low_bytes);
         return string("0x") + to_string((double) buffer);
       }
 

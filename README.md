@@ -1,18 +1,27 @@
-# Como compilar
+## Comando para execução:
 
-### Para compilar os arquivos cpp, utilize a seguinte linha de código dentro da pasta src:
+Obs: deve-se ter o make e g++ instalado no sistema.
+
+### Windows
+Para chamar o leitor-exibidor:
 ```
-g++ Attribute.cpp Attributes.cpp Classes.cpp ConstantPool.cpp CpInfo.cpp definitions.cpp Field.cpp Fields.cpp Interfaces.cpp LineNumberTable.cpp main.cpp Method.cpp Methods.cpp printer.cpp reader.cpp
+make; .\JVM.exe read .\java\<NomeDoArquivo>.class argumento_opcional_com_nome_arquivo_output.txt
 ```
-### No Linux, ainda na pasta src, para exercutar o arquivo compilado, e escolher um arquivo .class a ser lido, utilize a seguinte linha de código:
+
+Para executar a jvm:
 ```
-./a.out ../java/<Nome_do_Arquivo>
+make; .\JVM.exe exec .\java\<NomeDoArquivo>.class
 ```
-### No Windows, ainda na pasta src, para exercutar o arquivo compilado, e escolher um arquivo .class a ser lido, utilize a seguinte linha de código:
+
+### Linux
+Para chamar o leitor-exibidor:
 ```
-./a.exe ../java/<Nome_do_Arquivo>
+make; .\JVM read ./java/<NomeDoArquivo>.class argumento_opcional_com_nome_arquivo_output.txt
 ```
-./a.out <Nome_do_Arquivo>
+
+Para executar a jvm:
+```
+make; .\JVM exec ./java/<NomeDoArquivo>.class
 ```
 
 ### Autores
