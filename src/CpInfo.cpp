@@ -15,12 +15,12 @@ CONSTANT_Utf8_info::~CONSTANT_Utf8_info() {
   free(this->bytes);
 }
 
-ostream &operator<<(ostream &os, CONSTANT_Utf8_info const &m) {
+ostream& CONSTANT_Utf8_info::print(ostream& os, const ConstantPool& cp) {
   os << "CONSTANT_Utf8_info: " << endl;
-  os << "length: " << (unsigned)m.length << endl;
+  os << "length: " << (unsigned) this->length << endl;
   os << "bytes: ";
-  for (int i = 0; i < m.length; i++)
-    os << m.bytes[i];
+  for (int i = 0; i < this->length; i++)
+    os << this->bytes[i];
   os << endl;
 
   return os;
@@ -31,9 +31,9 @@ CONSTANT_Integer_info::CONSTANT_Integer_info(FILE *fp) : CpInfo(CONSTANT_Integer
 }
 CONSTANT_Integer_info::~CONSTANT_Integer_info() {}
 
-ostream &operator<<(ostream &os, CONSTANT_Integer_info const &m) {
+ostream& CONSTANT_Integer_info::print(ostream& os, const ConstantPool& cp) {
   os << "CONSTANT_Integer_info: " << endl;
-  os << "bytes: 0x" << hex << (unsigned)m.bytes << dec << endl;
+  os << "bytes: 0x" << hex << (unsigned) this->bytes << dec << endl;
   return os;
 };
 
@@ -42,9 +42,9 @@ CONSTANT_Float_info::CONSTANT_Float_info(FILE *fp) : CpInfo(CONSTANT_Float) {
 }
 CONSTANT_Float_info::~CONSTANT_Float_info() {}
 
-ostream &operator<<(ostream &os, CONSTANT_Float_info const &m) {
+ostream& CONSTANT_Float_info::print(ostream& os, const ConstantPool& cp) {
   os << "CONSTANT_Float_info: " << endl;
-  os << "bytes: 0x" << hex << (unsigned)m.bytes << dec << endl;
+  os << "bytes: 0x" << hex << (unsigned) this->bytes << dec << endl;
   return os;
 };
 
@@ -54,10 +54,10 @@ CONSTANT_Long_info::CONSTANT_Long_info(FILE *fp) : CpInfo(CONSTANT_Long) {
 }
 CONSTANT_Long_info::~CONSTANT_Long_info() {}
 
-ostream &operator<<(ostream &os, CONSTANT_Long_info const &m) {
+ostream& CONSTANT_Long_info::print(ostream& os, const ConstantPool& cp) {
   os << "CONSTANT_Long_info: " << endl;
-  os << "high_bytes: 0x" << hex << m.high_bytes << dec << endl;
-  os << "low_bytes: 0x" << hex << m.low_bytes << dec << endl;
+  os << "high_bytes: 0x" << hex << this->high_bytes << dec << endl;
+  os << "low_bytes: 0x" << hex << this->low_bytes << dec << endl;
   return os;
 };
 
@@ -67,10 +67,10 @@ CONSTANT_Double_info::CONSTANT_Double_info(FILE *fp) : CpInfo(CONSTANT_Double) {
 }
 CONSTANT_Double_info::~CONSTANT_Double_info() {}
 
-ostream &operator<<(ostream &os, CONSTANT_Double_info const &m) {
+ostream& CONSTANT_Double_info::print(ostream& os, const ConstantPool& cp) {
   os << "CONSTANT_Double_info: " << endl;
-  os << "high_bytes: 0x" << hex << m.high_bytes << dec << endl;
-  os << "low_bytes: 0x" << hex << m.low_bytes << dec << endl;
+  os << "high_bytes: 0x" << hex << this->high_bytes << dec << endl;
+  os << "low_bytes: 0x" << hex << this->low_bytes << dec << endl;
   return os;
 };
 
@@ -79,9 +79,9 @@ CONSTANT_Class_info::CONSTANT_Class_info(FILE *fp) : CpInfo(CONSTANT_Class) {
 }
 CONSTANT_Class_info::~CONSTANT_Class_info() {}
 
-ostream &operator<<(ostream &os, CONSTANT_Class_info const &m) {
+ostream& CONSTANT_Class_info::print(ostream& os, const ConstantPool& cp) {
   os << "CONSTANT_Class_info: " << endl;
-  os << "name_index: " << m.name_index << endl;
+  os << "name_index: (" << (unsigned) this->name_index << ") " << cp.getValueUTF8String(this->name_index) << endl;
   return os;
 };
 
@@ -90,9 +90,9 @@ CONSTANT_String_info::CONSTANT_String_info(FILE *fp) : CpInfo(CONSTANT_String) {
 }
 CONSTANT_String_info::~CONSTANT_String_info() {}
 
-ostream &operator<<(ostream &os, CONSTANT_String_info const &m) {
+ostream& CONSTANT_String_info::print(ostream& os, const ConstantPool& cp) {
   os << "CONSTANT_String_info: " << endl;
-  os << "string_index: " << (unsigned)m.string_index << endl;
+  os << "string_index: (" << (unsigned) this->string_index << ") " << cp.getValueUTF8String(this->string_index) << endl;
   return os;
 };
 
@@ -102,10 +102,10 @@ CONSTANT_Fieldref_info::CONSTANT_Fieldref_info(FILE *fp) : CpInfo(CONSTANT_Field
 }
 CONSTANT_Fieldref_info::~CONSTANT_Fieldref_info() {}
 
-ostream &operator<<(ostream &os, CONSTANT_Fieldref_info const &m) {
+ostream& CONSTANT_Fieldref_info::print(ostream& os, const ConstantPool& cp) {
   os << "CONSTANT_Fieldref_info: " << endl;
-  os << "class_index: " << (unsigned)m.class_index << endl;
-  os << "name_and_type_index: " << (unsigned)m.name_and_type_index << endl;
+  os << "class_index: (" << (unsigned) this->class_index << ") " << cp.getValueUTF8String(this->class_index) << endl;
+  os << "name_and_type_index: (" << (unsigned) this->name_and_type_index << ") " << cp.getValueUTF8String(this->name_and_type_index) << endl;
   return os;
 };
 
@@ -115,10 +115,10 @@ CONSTANT_Methodref_info::CONSTANT_Methodref_info(FILE *fp) : CpInfo(CONSTANT_Met
 }
 CONSTANT_Methodref_info::~CONSTANT_Methodref_info() {}
 
-ostream &operator<<(ostream &os, CONSTANT_Methodref_info const &m) {
+ostream& CONSTANT_Methodref_info::print(ostream& os, const ConstantPool& cp) {
   os << "CONSTANT_Methodref_info: " << endl;
-  os << "class_index: " << (unsigned)m.class_index << endl;
-  os << "name_and_type_index: " << (unsigned)m.name_and_type_index << endl;
+  os << "class_index: (" << (unsigned) this->class_index << ") " << cp.getValueUTF8String(this->class_index) << endl;
+  os << "name_and_type_index: (" << (unsigned) this->name_and_type_index << ") " << cp.getValueUTF8String(this->name_and_type_index) << endl;
   return os;
 };
 
@@ -128,10 +128,10 @@ CONSTANT_InterfaceMethodref_info::CONSTANT_InterfaceMethodref_info(FILE *fp) : C
 }
 CONSTANT_InterfaceMethodref_info::~CONSTANT_InterfaceMethodref_info() {}
 
-ostream &operator<<(ostream &os, CONSTANT_InterfaceMethodref_info const &m) {
+ostream& CONSTANT_InterfaceMethodref_info::print(ostream& os, const ConstantPool& cp) {
   os << "CONSTANT_InterfaceMethodref_info: " << endl;
-  os << "class_index: " << (unsigned)m.class_index << endl;
-  os << "name_and_type_index: " << (unsigned)m.name_and_type_index << endl;
+  os << "class_index: (" << (unsigned) this->class_index << ") " << cp.getValueUTF8String(this->class_index) << endl;
+  os << "name_and_type_index: (" << (unsigned) this->name_and_type_index << ") " << cp.getValueUTF8String(this->name_and_type_index) << endl;
   return os;
 };
 
@@ -141,10 +141,10 @@ CONSTANT_NameAndType_info::CONSTANT_NameAndType_info(FILE *fp) : CpInfo(CONSTANT
 }
 CONSTANT_NameAndType_info::~CONSTANT_NameAndType_info() {}
 
-ostream &operator<<(ostream &os, CONSTANT_NameAndType_info const &m) {
+ostream& CONSTANT_NameAndType_info::print(ostream& os, const ConstantPool& cp) {
   os << "CONSTANT_NameAndType_info: " << endl;
-  os << "name_index: " << m.name_index << endl;
-  os << "descriptor_index: " << (unsigned)m.descriptor_index << endl;
+  os << "name_index: (" << (unsigned) this->name_index << ") " << cp.getValueUTF8String(this->name_index) << endl;
+  os << "descriptor_index: (" << (unsigned) this->descriptor_index << ") " << cp.getValueUTF8String(this->descriptor_index) << endl;
   return os;
 };
 
@@ -154,10 +154,10 @@ CONSTANT_MethodHandle_info::CONSTANT_MethodHandle_info(FILE *fp) : CpInfo(CONSTA
 }
 CONSTANT_MethodHandle_info::~CONSTANT_MethodHandle_info() {}
 
-ostream &operator<<(ostream &os, CONSTANT_MethodHandle_info const &m) {
+ostream& CONSTANT_MethodHandle_info::print(ostream& os, const ConstantPool& cp) {
   os << "CONSTANT_MethodHandle_info: " << endl;
-  os << "reference_kind: " << (unsigned)m.reference_kind << endl;
-  os << "reference_index: " << (unsigned)m.reference_index << endl;
+  os << "reference_kind: " << (unsigned) this->reference_kind << endl;
+  os << "reference_index: " << (unsigned) this->reference_index << endl;
   return os;
 };
 
@@ -166,9 +166,9 @@ CONSTANT_MethodType_info::CONSTANT_MethodType_info(FILE *fp) : CpInfo(CONSTANT_M
 }
 CONSTANT_MethodType_info::~CONSTANT_MethodType_info() {}
 
-ostream &operator<<(ostream &os, CONSTANT_MethodType_info const &m) {
+ostream& CONSTANT_MethodType_info::print(ostream& os, const ConstantPool& cp) {
   os << "CONSTANT_MethodType_info: " << endl;
-  os << "descriptor_index: " << (unsigned)m.descriptor_index << endl;
+  os << "descriptor_index: (" << (unsigned) this->descriptor_index << ") " << cp.getValueUTF8String(this->descriptor_index) << endl;
   return os;
 };
 
@@ -178,74 +178,74 @@ CONSTANT_InvokeDynamic_info::CONSTANT_InvokeDynamic_info(FILE *fp) : CpInfo(CONS
 }
 CONSTANT_InvokeDynamic_info::~CONSTANT_InvokeDynamic_info() {}
 
-ostream &operator<<(ostream &os, CONSTANT_InvokeDynamic_info const &m) {
+ostream& CONSTANT_InvokeDynamic_info::print(ostream& os, const ConstantPool& cp) {
   os << "CONSTANT_InvokeDynamic_info: " << endl;
-  os << "bootstrap_method_attr_index: " << (unsigned)m.bootstrap_method_attr_index << endl;
-  os << "name_and_type_index: " << (unsigned)m.name_and_type_index << endl;
+  os << "bootstrap_method_attr_index: " << (unsigned) this->bootstrap_method_attr_index << endl;
+  os << "name_and_type_index: (" << (unsigned) this->name_and_type_index << ") " << cp.getValueUTF8String(this->name_and_type_index) << endl;
   return os;
 };
 
-ostream &operator<<(ostream &os, CpInfo const& c) {
-  u1 tag = c.tag;
+ostream& CpInfo::print(ostream& os, const ConstantPool& cp) {
+  u1 tag = this->tag;
   switch (tag) {
   case CONSTANT_Utf8:
-    os <<(CONSTANT_Utf8_info const&) c << endl;
+    ((CONSTANT_Utf8_info*) this)->print(os, cp) << endl;
     break;
 
   case CONSTANT_Integer:
-    os << ( CONSTANT_Integer_info const&) c << endl;
+    ((CONSTANT_Integer_info*) this)->print(os, cp) << endl;
     break;
 
   case CONSTANT_Float:
-    os << ( CONSTANT_Float_info const&) c << endl;
+    ((CONSTANT_Float_info*) this)->print(os, cp) << endl;
     break;
 
   case CONSTANT_Long:
-    os << ( CONSTANT_Long_info const&) c << endl;
+    ((CONSTANT_Long_info*) this)->print(os, cp) << endl;
     break;
 
   case CONSTANT_Double:
-    os << ( CONSTANT_Double_info const&) c << endl;
+    ((CONSTANT_Double_info*) this)->print(os, cp) << endl;
     break;
 
   case CONSTANT_Class:
-    os << ( CONSTANT_Class_info const&) c << endl;
+    ((CONSTANT_Class_info*) this)->print(os, cp) << endl;
     break;
 
   case CONSTANT_String:
-    os << ( CONSTANT_String_info const&) c << endl;
+    ((CONSTANT_String_info*) this)->print(os, cp) << endl;
     break;
 
   case CONSTANT_Fieldref:
-    os << ( CONSTANT_Fieldref_info const&) c << endl;
+    ((CONSTANT_Fieldref_info*) this)->print(os, cp) << endl;
     break;
 
   case CONSTANT_Methodref:
-    os << ( CONSTANT_Methodref_info const&) c << endl;
+    ((CONSTANT_Methodref_info*) this)->print(os, cp) << endl;
     break;
 
   case CONSTANT_InterfaceMethodref:
-    os << ( CONSTANT_InterfaceMethodref_info const&) c << endl;
+    ((CONSTANT_InterfaceMethodref_info*) this)->print(os, cp) << endl;
     break;
 
   case CONSTANT_NameAndType:
-    os << ( CONSTANT_NameAndType_info const&) c << endl;
+    ((CONSTANT_NameAndType_info*) this)->print(os, cp) << endl;
     break;
 
   case CONSTANT_MethodHandle:
-    os << ( CONSTANT_MethodHandle_info const&) c << endl;
+    ((CONSTANT_MethodHandle_info*) this)->print(os, cp) << endl;
     break;
 
   case CONSTANT_MethodType:
-    os << (CONSTANT_MethodType_info const&) c << endl;
+    ((CONSTANT_MethodType_info*) this)->print(os, cp) << endl;
     break;
 
   case CONSTANT_InvokeDynamic:
-    os << (CONSTANT_InvokeDynamic_info const&) c << endl;
+    ((CONSTANT_InvokeDynamic_info*) this)->print(os, cp) << endl;
     break;
 
   default:
-    os << "[ERROR][CP-INFO] unidentified tag value \"" << (unsigned) tag << "\". " << (unsigned) c.tag << endl;
+    os << "[ERROR][CP-INFO] unidentified tag value \"" << (unsigned) tag << "\". " << (unsigned) this->tag << endl;
     break;
   }
   return os;

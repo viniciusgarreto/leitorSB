@@ -28,9 +28,8 @@ ostream& Interfaces::print(ConstantPool& cp, ostream& output) const {
   if (this->count > 0) {
     output << "Interfaces: " << endl;
     for (int i = 0; i < this->count; i++) {
-      output << "Interface " << i << ": " << endl
-        << *cp.getCpInfo(this->interfaces[i]) << endl
-      ;
+      output << "Interface " << i << ": " << endl;
+      cp.getCpInfo(this->interfaces[i])->print(output, cp) << endl;
     }
   }
   return output;
