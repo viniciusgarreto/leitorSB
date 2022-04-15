@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.3"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Grupo 06 -  JVM 2021/2: Como compilar</title>
+<title>Grupo 06 -  JVM 2021/2: Comando para execução:</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -62,20 +62,19 @@ $(function() {
 
 </div><!-- top -->
 <div><div class="header">
-  <div class="headertitle"><div class="title">Como compilar </div></div>
+  <div class="headertitle"><div class="title">Comando para execução: </div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><h2><a class="anchor" id="autotoc_md1"></a>
-Para compilar os arquivos cpp, utilize a seguinte linha de código dentro da pasta src:</h2>
-<div class="fragment"><div class="line">g++ Attribute.cpp Attributes.cpp Classes.cpp ConstantPool.cpp CpInfo.cpp definitions.cpp Field.cpp Fields.cpp Interfaces.cpp LineNumberTable.cpp main.cpp Method.cpp Methods.cpp printer.cpp reader.cpp</div>
-</div><!-- fragment --> <h2><a class="anchor" id="autotoc_md2"></a>
-No Linux, ainda na pasta src, para exercutar o arquivo compilado, e escolher um arquivo .class a ser lido, utilize a seguinte linha de código:</h2>
-<div class="fragment"><div class="line">./a.out ../java/&lt;Nome_do_Arquivo&gt;</div>
-</div><!-- fragment --> <h2><a class="anchor" id="autotoc_md3"></a>
-No Windows, ainda na pasta src, para exercutar o arquivo compilado, e escolher um arquivo .class a ser lido, utilize a seguinte linha de código:</h2>
-<div class="fragment"><div class="line">./a.exe ../java/&lt;Nome_do_Arquivo&gt;</div>
-</div><!-- fragment --><p> ./a.out &lt;Nome_do_Arquivo&gt; ```</p>
-<h2><a class="anchor" id="autotoc_md4"></a>
+<div class="textblock"><p >Obs: deve-se ter o make e g++ instalado no sistema.</p>
+<h2><a class="anchor" id="autotoc_md1"></a>
+Windows</h2>
+<p >Para chamar o leitor-exibidor: </p><div class="fragment"><div class="line">make; .\JVM.exe read .\java&lt;NomeDoArquivo&gt;.class argumento_opcional_com_nome_arquivo_output.txt</div>
+</div><!-- fragment --><p >Para executar a jvm: </p><div class="fragment"><div class="line">make; .\JVM.exe exec .\java&lt;NomeDoArquivo&gt;.class</div>
+</div><!-- fragment --><h2><a class="anchor" id="autotoc_md2"></a>
+Linux</h2>
+<p >Para chamar o leitor-exibidor: </p><div class="fragment"><div class="line">make; .\JVM read ./java/&lt;NomeDoArquivo&gt;.class argumento_opcional_com_nome_arquivo_output.txt</div>
+</div><!-- fragment --><p >Para executar a jvm: </p><div class="fragment"><div class="line">make; .\JVM exec ./java/&lt;NomeDoArquivo&gt;.class</div>
+</div><!-- fragment --><h2><a class="anchor" id="autotoc_md3"></a>
 Autores</h2>
 <ul>
 <li>Caio Bernardon N. K. Massucato – 16/0115001</li>

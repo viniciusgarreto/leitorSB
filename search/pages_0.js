@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['como_20compilar_0',['Como compilar',['../md_README.html',1,'']]]
+  ['comando_20para_20execução_3a_0',['Comando para execução:',['../md_README.html',1,'']]]
 ];
