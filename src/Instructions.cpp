@@ -229,24 +229,26 @@ void Instruction::setInstructions() {
     instruc[ifnull] = new Instruction(string("ifnull"), ifnull, 2, 1);
     instruc[ifnonnull] = new Instruction(string("ifnonnull"), ifnonnull, 2, 1);
     instruc[goto_w] = new Instruction(string("goto_w"), goto_w, 4, 0);
-    instruc[jsr_w] = new Instruction(string("jrs_w"),jsr_w,4,0);
+    instruc[jsr_w] = new Instruction(string("jrs_w"), jsr_w, 4, 0);
 }
 
-ostream& operator<<(ostream& out, const Instruction& cf) {
-    return cf.print(out);
-}
+ostream& Instruction::print(ostream& output, u1* code, ConstantPool& cp) const {
+    output << this->name;
 
-ostream& Instruction::print(ostream& output) const {
-    output << endl;
-    output << "------------- INSTRUCTIONS -------------" << endl;
-    output << endl;
-
-    for (int i = 0; i <= 200; i++) {
-        output << "Name: " << instruc[i]->name << endl;
-        output << "Opcode: " << instruc[i]->opcode << endl;
-        output << "Argum: " << instruc[i]->argnum << endl;
-        output << "Opnum: " << instruc[i]->opnum << endl;
-        output << "Instruct_pc: " << instruc[i]->instruct_pc << endl;
+    if (this->opcode == ldc_w || this->opcode == ldc2_w || this->opcode == getstatic || this->opcode == putstatic
+        || this->opcode == getfield || this->opcode == putfield || this->opcode == invokevirtual || this->opcode == invokespecial
+        || this->opcode == invokestatic || this->opcode == invokeinterface || this->opcode == inst_new || this->opcode == anewarray
+        || this->opcode == checkcast || this->opcode == instanceof || this->opcode == multianewarray) {
+        u2 cpIndex = (u2) code[0] << 8 | code[1];
+        output << " #" << (unsigned) cpIndex << " <" << cp.getValueUTF8String(cpIndex) << ">";
+        // fazer tratamento especial de argumentos
+        return output;
+    }
+ 
+    // caso base 
+    for (size_t arg = 0; arg < (size_t) this->argnum; arg++) {
+        if (arg > 0) output << ",";
+        output << " arg " << arg << ": " << (unsigned) code[arg];
     }
 
     return output;
