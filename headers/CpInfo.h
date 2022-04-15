@@ -14,7 +14,6 @@ class CpInfo {
     CpInfo(u1 tag);
     /// indica qual o tipo de entrada na CP
     u1 tag;
-
     friend ostream& operator<<(ostream& out, const CpInfo& cf);
 };
 
