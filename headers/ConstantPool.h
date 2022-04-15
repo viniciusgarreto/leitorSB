@@ -1,3 +1,15 @@
+/*
+Universidade de Brasília - 2021/2
+Software Básico - Turma A
+Trabalho: JVM
+Alunos:
+            Caio Bernardon N. K. Massucato – 16/0115001
+            Rafael Gonçalves de Paulo - 17/0043959
+            José Vinícius Garreto Costa – 18/0123734
+            Alice da Costa Borges  - 18/0011855
+            Lucas Vinicius Magalhães Pinheiro - 17/0061001
+*/
+
 #ifndef constant_pool_h
 #define constant_pool_h
 
@@ -10,15 +22,19 @@ class ConstantPool;
 #include "../headers/definitions.h"
 #include "../headers/CpInfo.h"
 
+/**
+* @file ConstantPool.h
+* @brief Define a estrutura da Constant Pool
+*/
 using namespace std;
 
 class ConstantPool {
   public:
-    //Construtor
+    ///Construtor
     ConstantPool(FILE* fp);
     ~ConstantPool();
 
-    // print methods
+    /// print methods
     ostream& print(ostream& output = cout) const;
     friend ostream& operator<<(ostream& out, const ConstantPool& cf);
 

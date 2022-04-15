@@ -1,0 +1,65 @@
+\hypertarget{OpStack_8h_source}{}\doxysection{Op\+Stack.\+h}
+\label{OpStack_8h_source}\index{headers/OpStack.h@{headers/OpStack.h}}
+\mbox{\hyperlink{OpStack_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{/*}}
+\DoxyCodeLine{2 \textcolor{comment}{Universidade de Brasília -\/ 2021/2}}
+\DoxyCodeLine{3 \textcolor{comment}{Software Básico -\/ Turma A}}
+\DoxyCodeLine{4 \textcolor{comment}{Trabalho: JVM}}
+\DoxyCodeLine{5 \textcolor{comment}{Alunos:}}
+\DoxyCodeLine{6 \textcolor{comment}{            Caio Bernardon N. K. Massucato – 16/0115001}}
+\DoxyCodeLine{7 \textcolor{comment}{            Rafael Gonçalves de Paulo -\/ 17/0043959}}
+\DoxyCodeLine{8 \textcolor{comment}{            José Vinícius Garreto Costa – 18/0123734}}
+\DoxyCodeLine{9 \textcolor{comment}{            Alice da Costa Borges  -\/ 18/0011855}}
+\DoxyCodeLine{10 \textcolor{comment}{            Lucas Vinicius Magalhães Pinheiro -\/ 17/0061001}}
+\DoxyCodeLine{11 \textcolor{comment}{*/}}
+\DoxyCodeLine{12 }
+\DoxyCodeLine{13 \textcolor{preprocessor}{\#ifndef opStack\_h}}
+\DoxyCodeLine{14 \textcolor{preprocessor}{\#define opStack\_h}}
+\DoxyCodeLine{15 }
+\DoxyCodeLine{16 \textcolor{preprocessor}{\#include "{}./definitions.h"{}}}
+\DoxyCodeLine{17 \textcolor{preprocessor}{\#include <vector>}}
+\DoxyCodeLine{18 }
+\DoxyCodeLine{23 \textcolor{keyword}{class }\mbox{\hyperlink{classOpStack}{OpStack}} \{}
+\DoxyCodeLine{24   \textcolor{keyword}{public}:}
+\DoxyCodeLine{26     i4 \mbox{\hyperlink{classOpStack_a5bd5ea347d407177aec6763fc5185525}{operand}};  }
+\DoxyCodeLine{28     \textcolor{keywordtype}{void} *\mbox{\hyperlink{classOpStack_a318e6fa32f076ca683f9695f3365df64}{operand\_ref}};  }
+\DoxyCodeLine{30     u1 \mbox{\hyperlink{classOpStack_a5288a40a222a59401352c1fffc3d40d4}{operand\_type}};    }
+\DoxyCodeLine{31   }
+\DoxyCodeLine{32   \textcolor{keyword}{private}:}
+\DoxyCodeLine{40     std::vector<OpStack> InserirInicio\_operandos(std::vector<OpStack> lis, i4 op, \textcolor{keywordtype}{void} *ref, u1 opType);}
+\DoxyCodeLine{48     std::vector<OpStack> InserirFim\_operandos(std::vector<OpStack> lis, i4 op, \textcolor{keywordtype}{void} *ref, u1 opType);}
+\DoxyCodeLine{53     std::vector<OpStack> RemoverInicio\_operandos(std::vector<OpStack> lis);}
+\DoxyCodeLine{58     std::vector<OpStack> RemoverFim\_operandos(std::vector<OpStack> lis);}
+\DoxyCodeLine{63     \textcolor{keywordtype}{void} ImprimirOpStack(std::vector<OpStack> lis);}
+\DoxyCodeLine{68     \textcolor{keywordtype}{void} LiberarOpStack(std::vector<OpStack> lis);}
+\DoxyCodeLine{69 }
+\DoxyCodeLine{76     std::vector<OpStack> BuscarElemento\_operandos(std::vector<OpStack> lis, i4 op, u1 opType);}
+\DoxyCodeLine{82     \mbox{\hyperlink{classOpStack}{OpStack}} BuscarPosicao\_operandos(std::vector<OpStack> lis, \textcolor{keywordtype}{int} posicao);}
+\DoxyCodeLine{83     std::vector<OpStack> InserirPosicao\_operandos(std::vector<OpStack> lis, i4 op, u1 opType, \textcolor{keywordtype}{int} posicao);}
+\DoxyCodeLine{84     std::vector<OpStack> RemoverPosicao\_operandos(std::vector<OpStack> lis, \textcolor{keywordtype}{int} posicao);}
+\DoxyCodeLine{85 \};}
+\DoxyCodeLine{88 \textcolor{keyword}{enum} \mbox{\hyperlink{OpStack_8h_a4e4626fe04fb7e693e4747300a58f31f}{tipos\_operandos}} \{}
+\DoxyCodeLine{89     BOOLEAN\_OP = 1,}
+\DoxyCodeLine{90     BYTE\_OP,}
+\DoxyCodeLine{91     CHAR\_OP,}
+\DoxyCodeLine{92     SHORT\_OP,}
+\DoxyCodeLine{93     INTEGER\_OP,}
+\DoxyCodeLine{94     FLOAT\_OP,}
+\DoxyCodeLine{95     LONG\_OP,}
+\DoxyCodeLine{96     DOUBLE\_OP,}
+\DoxyCodeLine{97     RETURN\_ADDRESS\_OP,}
+\DoxyCodeLine{98     REFERENCE\_OP,}
+\DoxyCodeLine{99     REFERENCE\_ARRAY\_BOOLEAN\_OP,}
+\DoxyCodeLine{100     REFERENCE\_ARRAY\_CHAR\_OP,}
+\DoxyCodeLine{101     REFERENCE\_ARRAY\_FLOAT\_OP,}
+\DoxyCodeLine{102     REFERENCE\_ARRAY\_DOUBLE\_OP,}
+\DoxyCodeLine{103     REFERENCE\_ARRAY\_BYTE\_OP,}
+\DoxyCodeLine{104     REFERENCE\_ARRAY\_SHORT\_OP,}
+\DoxyCodeLine{105     REFERENCE\_ARRAY\_INT\_OP,}
+\DoxyCodeLine{106     REFERENCE\_ARRAY\_LONG\_OP,}
+\DoxyCodeLine{107     REFERENCE\_STRING\_OP,}
+\DoxyCodeLine{108 \};}
+\DoxyCodeLine{110 \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

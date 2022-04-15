@@ -1,0 +1,112 @@
+\hypertarget{classClassFile}{}\doxysection{Class\+File Class Reference}
+\label{classClassFile}\index{ClassFile@{ClassFile}}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classClassFile_aed7c4bc94d4d7aff8785a262befa19fc}\label{classClassFile_aed7c4bc94d4d7aff8785a262befa19fc}} 
+{\bfseries Class\+File} (FILE $\ast$fp)
+\begin{DoxyCompactList}\small\item\em construtor \end{DoxyCompactList}\item 
+string \mbox{\hyperlink{classClassFile_aa2d252ccff84c96af1e582ab07ff551d}{get\+Name}} ()
+\begin{DoxyCompactList}\small\item\em Pega na constant pool o nome do class file. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classConstantPool}{Constant\+Pool}} \& \mbox{\hyperlink{classClassFile_a5d6bd37c7a0e52eb052b4b732b843fbb}{get\+Constant\+Pool}} ()
+\begin{DoxyCompactList}\small\item\em Pega a constant pool desse arquivo. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classMethod}{Method}} $\ast$ \mbox{\hyperlink{classClassFile_a4281c17a7f05e4a90a31223b26a45a75}{get\+Main}} ()
+\begin{DoxyCompactList}\small\item\em Pega o metodo main no class file. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classMethod}{Method}} $\ast$ \mbox{\hyperlink{classClassFile_ab295d2a578c0589d05ee6476b0f63753}{get\+CLinit}} ()
+\begin{DoxyCompactList}\small\item\em Se hover, pega o metodo que é executado antes da main, o CL init. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classClassFile_ac5a02c78b20db225967ba027739367d0}\label{classClassFile_ac5a02c78b20db225967ba027739367d0}} 
+ostream \& {\bfseries print} (ostream \&output=cout) const
+\begin{DoxyCompactList}\small\item\em print methods \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{classClassFile}{Class\+File}} $\ast$ \mbox{\hyperlink{classClassFile_a8a7d28163dba39e564fd52c89cc2a0ce}{ler\+Arquivo}} (string nome\+Arquivo)
+\begin{DoxyCompactList}\small\item\em read .class file \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classClassFile_abae26485b559fdd13a7ce2c6ea3930a8}\label{classClassFile_abae26485b559fdd13a7ce2c6ea3930a8}} 
+ostream \& {\bfseries operator$<$$<$} (ostream \&out, const \mbox{\hyperlink{classClassFile}{Class\+File}} \&cf)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classClassFile_ab295d2a578c0589d05ee6476b0f63753}\label{classClassFile_ab295d2a578c0589d05ee6476b0f63753}} 
+\index{ClassFile@{ClassFile}!getCLinit@{getCLinit}}
+\index{getCLinit@{getCLinit}!ClassFile@{ClassFile}}
+\doxysubsubsection{\texorpdfstring{getCLinit()}{getCLinit()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classMethod}{Method}} $\ast$ Class\+File\+::get\+CLinit (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Se hover, pega o metodo que é executado antes da main, o CL init. 
+
+\begin{DoxyReturn}{Returns}
+Mathod -\/ metodo CL init 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classClassFile_a5d6bd37c7a0e52eb052b4b732b843fbb}\label{classClassFile_a5d6bd37c7a0e52eb052b4b732b843fbb}} 
+\index{ClassFile@{ClassFile}!getConstantPool@{getConstantPool}}
+\index{getConstantPool@{getConstantPool}!ClassFile@{ClassFile}}
+\doxysubsubsection{\texorpdfstring{getConstantPool()}{getConstantPool()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classConstantPool}{Constant\+Pool}} \& Class\+File\+::get\+Constant\+Pool (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Pega a constant pool desse arquivo. 
+
+\begin{DoxyReturn}{Returns}
+COnstat Pool 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classClassFile_a4281c17a7f05e4a90a31223b26a45a75}\label{classClassFile_a4281c17a7f05e4a90a31223b26a45a75}} 
+\index{ClassFile@{ClassFile}!getMain@{getMain}}
+\index{getMain@{getMain}!ClassFile@{ClassFile}}
+\doxysubsubsection{\texorpdfstring{getMain()}{getMain()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classMethod}{Method}} $\ast$ Class\+File\+::get\+Main (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Pega o metodo main no class file. 
+
+\begin{DoxyReturn}{Returns}
+Mathod -\/ Matodo Main. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classClassFile_aa2d252ccff84c96af1e582ab07ff551d}\label{classClassFile_aa2d252ccff84c96af1e582ab07ff551d}} 
+\index{ClassFile@{ClassFile}!getName@{getName}}
+\index{getName@{getName}!ClassFile@{ClassFile}}
+\doxysubsubsection{\texorpdfstring{getName()}{getName()}}
+{\footnotesize\ttfamily string Class\+File\+::get\+Name (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Pega na constant pool o nome do class file. 
+
+\begin{DoxyReturn}{Returns}
+string -\/ nome do class file 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classClassFile_a8a7d28163dba39e564fd52c89cc2a0ce}\label{classClassFile_a8a7d28163dba39e564fd52c89cc2a0ce}} 
+\index{ClassFile@{ClassFile}!lerArquivo@{lerArquivo}}
+\index{lerArquivo@{lerArquivo}!ClassFile@{ClassFile}}
+\doxysubsubsection{\texorpdfstring{lerArquivo()}{lerArquivo()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classClassFile}{Class\+File}} $\ast$ Class\+File\+::ler\+Arquivo (\begin{DoxyParamCaption}\item[{string}]{nome\+Arquivo }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+read .class file 
+
+lê arquivo .class 
+\begin{DoxyParams}{Parameters}
+{\em nome\+Arquivo} & -\/ nome do arquivo a ser lido \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{classClassFile}{Class\+File}} -\/ 
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{classClassFile}{Class\+File}} 
+\end{DoxySeeAlso}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+headers/\mbox{\hyperlink{ClassFile_8h}{Class\+File.\+h}}\item 
+src/Class\+File.\+cpp\end{DoxyCompactItemize}

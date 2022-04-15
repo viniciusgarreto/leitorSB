@@ -1,0 +1,39 @@
+\hypertarget{ExceptionTable_8h_source}{}\doxysection{Exception\+Table.\+h}
+\label{ExceptionTable_8h_source}\index{headers/ExceptionTable.h@{headers/ExceptionTable.h}}
+\mbox{\hyperlink{ExceptionTable_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{/*}}
+\DoxyCodeLine{2 \textcolor{comment}{Universidade de Brasília -\/ 2021/2}}
+\DoxyCodeLine{3 \textcolor{comment}{Software Básico -\/ Turma A}}
+\DoxyCodeLine{4 \textcolor{comment}{Trabalho: JVM}}
+\DoxyCodeLine{5 \textcolor{comment}{Alunos:}}
+\DoxyCodeLine{6 \textcolor{comment}{            Caio Bernardon N. K. Massucato – 16/0115001}}
+\DoxyCodeLine{7 \textcolor{comment}{            Rafael Gonçalves de Paulo -\/ 17/0043959}}
+\DoxyCodeLine{8 \textcolor{comment}{            José Vinícius Garreto Costa – 18/0123734}}
+\DoxyCodeLine{9 \textcolor{comment}{            Alice da Costa Borges  -\/ 18/0011855}}
+\DoxyCodeLine{10 \textcolor{comment}{            Lucas Vinicius Magalhães Pinheiro -\/ 17/0061001}}
+\DoxyCodeLine{11 \textcolor{comment}{*/}}
+\DoxyCodeLine{12 }
+\DoxyCodeLine{13 \textcolor{preprocessor}{\#ifndef exception\_table\_h}}
+\DoxyCodeLine{14 \textcolor{preprocessor}{\#define exception\_table\_h}}
+\DoxyCodeLine{15 }
+\DoxyCodeLine{16 \textcolor{preprocessor}{\#include <stdio.h>}}
+\DoxyCodeLine{17 }
+\DoxyCodeLine{18 \textcolor{preprocessor}{\#include "{}../headers/definitions.h"{}}}
+\DoxyCodeLine{19 \textcolor{preprocessor}{\#include "{}../headers/ConstantPool.h"{}}}
+\DoxyCodeLine{20 }
+\DoxyCodeLine{25 \textcolor{keyword}{class }\mbox{\hyperlink{classExceptionTable}{ExceptionTable}} \{}
+\DoxyCodeLine{26   \textcolor{keyword}{public}:}
+\DoxyCodeLine{27     \mbox{\hyperlink{classExceptionTable}{ExceptionTable}}(FILE* fp);}
+\DoxyCodeLine{29 }
+\DoxyCodeLine{30     u2 \mbox{\hyperlink{classExceptionTable_af137b3a966825f91146039797d3b1ba5}{start\_pc}};}
+\DoxyCodeLine{31     u2 end\_pc;}
+\DoxyCodeLine{32     u2 handler\_pc;}
+\DoxyCodeLine{33     u2 catch\_type;}
+\DoxyCodeLine{35 }
+\DoxyCodeLine{37     ostream\& \mbox{\hyperlink{classExceptionTable_ae293d3135f6a72afe6b123ee7d576288}{print}}(\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} indent = 0, ostream\& output = cout) \textcolor{keyword}{const};}
+\DoxyCodeLine{38 \};}
+\DoxyCodeLine{39 }
+\DoxyCodeLine{40 \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}
