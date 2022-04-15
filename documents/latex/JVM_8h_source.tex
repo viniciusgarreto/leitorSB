@@ -1,0 +1,52 @@
+\hypertarget{JVM_8h_source}{}\doxysection{JVM.\+h}
+\label{JVM_8h_source}\index{headers/JVM.h@{headers/JVM.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#ifndef jvm\_h}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#define jvm\_h}}
+\DoxyCodeLine{3 }
+\DoxyCodeLine{4 \textcolor{keyword}{class }\mbox{\hyperlink{classJVM}{JVM}};}
+\DoxyCodeLine{5 }
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#include <vector>}}
+\DoxyCodeLine{7 \textcolor{preprocessor}{\#include "{}../headers/definitions.h"{}}}
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#include "{}../headers/StackFrame.h"{}}}
+\DoxyCodeLine{9 \textcolor{preprocessor}{\#include "{}../headers/ClassFile.h"{}}}
+\DoxyCodeLine{10 \textcolor{preprocessor}{\#include "{}../headers/Object.h"{}}}
+\DoxyCodeLine{11 }
+\DoxyCodeLine{12 \textcolor{keyword}{using namespace }std;}
+\DoxyCodeLine{13 \textcolor{comment}{/*}}
+\DoxyCodeLine{14 \textcolor{comment}{Define a classe JVM }}
+\DoxyCodeLine{15 \textcolor{comment}{possui um exceprion name, uma pila de frames, uma lista de objetos e uma lista de classes. Também pssui o program counter e exception.}}
+\DoxyCodeLine{16 \textcolor{comment}{}}
+\DoxyCodeLine{17 \textcolor{comment}{*/}}
+\DoxyCodeLine{18 \textcolor{keyword}{class }\mbox{\hyperlink{classJVM}{JVM}} \{}
+\DoxyCodeLine{19   \textcolor{keyword}{public}:}
+\DoxyCodeLine{20     \mbox{\hyperlink{classJVM}{JVM}}();}
+\DoxyCodeLine{21     \mbox{\hyperlink{classJVM}{\string~JVM}}();}
+\DoxyCodeLine{22 }
+\DoxyCodeLine{23     \textcolor{comment}{// deal with instance (we're using a singleton model)}}
+\DoxyCodeLine{24     \textcolor{keyword}{static} \mbox{\hyperlink{classJVM}{JVM}}\& getInstance();}
+\DoxyCodeLine{25     \textcolor{keyword}{static} \textcolor{keywordtype}{void} removeInstance();}
+\DoxyCodeLine{26 }
+\DoxyCodeLine{27     \mbox{\hyperlink{classClassFile}{ClassFile}}\& getClassFileByName(\textcolor{keywordtype}{string} classfile\_name); \textcolor{comment}{//métorod para pegar uma classe pelo nome}}
+\DoxyCodeLine{28     \textcolor{keywordtype}{void} ReadClassFile(\textcolor{keywordtype}{string} classfile\_name);}
+\DoxyCodeLine{29 }
+\DoxyCodeLine{30     \textcolor{keywordtype}{void} execute();}
+\DoxyCodeLine{31     \textcolor{keywordtype}{void} pushFrame(\mbox{\hyperlink{classClassFile}{ClassFile}}\& current\_class, u2 max\_locals);}
+\DoxyCodeLine{32 }
+\DoxyCodeLine{33     u4 pc;}
+\DoxyCodeLine{34     u2 exception;}
+\DoxyCodeLine{35 }
+\DoxyCodeLine{36   \textcolor{keyword}{private}:}
+\DoxyCodeLine{37     \textcolor{comment}{// singleton instance}}
+\DoxyCodeLine{38     \textcolor{keyword}{static} \mbox{\hyperlink{classJVM}{JVM}}* instance;}
+\DoxyCodeLine{39     \textcolor{keywordtype}{char}* exception\_name;}
+\DoxyCodeLine{40     \mbox{\hyperlink{classStackFrame}{StackFrame}}* frame\_stack;}
+\DoxyCodeLine{41     vector<ClassFile*> classes;}
+\DoxyCodeLine{42     vector<Object> objects;}
+\DoxyCodeLine{43     \textcolor{comment}{// static Instructions instructions; // idk ?????}}
+\DoxyCodeLine{44 \};}
+\DoxyCodeLine{45 }
+\DoxyCodeLine{46 \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

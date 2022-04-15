@@ -1,0 +1,32 @@
+\hypertarget{Exceptions_8h_source}{}\doxysection{Exceptions.\+h}
+\label{Exceptions_8h_source}\index{headers/Exceptions.h@{headers/Exceptions.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#ifndef interfaces\_h}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#define interfaces\_h}}
+\DoxyCodeLine{3 }
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include <vector>}}
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include <stdio.h>}}
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#include <iostream>}}
+\DoxyCodeLine{7 \textcolor{preprocessor}{\#include <sstream>}}
+\DoxyCodeLine{8 }
+\DoxyCodeLine{9 \textcolor{preprocessor}{\#include "{}../headers/definitions.h"{}}}
+\DoxyCodeLine{10 \textcolor{preprocessor}{\#include "{}../headers/ConstantPool.h"{}}}
+\DoxyCodeLine{11 }
+\DoxyCodeLine{12 \textcolor{keyword}{using namespace }std;}
+\DoxyCodeLine{13 }
+\DoxyCodeLine{14 \textcolor{keyword}{class }\mbox{\hyperlink{classExceptions}{Exceptions}} \{}
+\DoxyCodeLine{15   \textcolor{keyword}{public}:}
+\DoxyCodeLine{16     \mbox{\hyperlink{classExceptions}{Exceptions}}(FILE *fp);}
+\DoxyCodeLine{17     \mbox{\hyperlink{classExceptions}{\string~Exceptions}}();}
+\DoxyCodeLine{18     \textcolor{keywordtype}{string} ToString(\mbox{\hyperlink{classConstantPool}{ConstantPool}}\& cp);}
+\DoxyCodeLine{19 }
+\DoxyCodeLine{20   \textcolor{keyword}{private}:}
+\DoxyCodeLine{21     std::vector<u2> exceptions;}
+\DoxyCodeLine{22     u2 count;}
+\DoxyCodeLine{23 \};}
+\DoxyCodeLine{24 }
+\DoxyCodeLine{25 }
+\DoxyCodeLine{26 \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

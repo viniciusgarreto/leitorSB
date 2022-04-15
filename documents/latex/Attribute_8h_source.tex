@@ -1,0 +1,160 @@
+\hypertarget{Attribute_8h_source}{}\doxysection{Attribute.\+h}
+\label{Attribute_8h_source}\index{headers/Attribute.h@{headers/Attribute.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#ifndef attribute\_h}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#define attribute\_h}}
+\DoxyCodeLine{3 }
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include <stdio.h>}}
+\DoxyCodeLine{5 }
+\DoxyCodeLine{6 \textcolor{keyword}{class }\mbox{\hyperlink{classAttribute}{Attribute}};}
+\DoxyCodeLine{7 \textcolor{keyword}{class }\mbox{\hyperlink{classExceptionsAttribute}{ExceptionsAttribute}};}
+\DoxyCodeLine{8 \textcolor{keyword}{class }\mbox{\hyperlink{classSourceFileAttribute}{SourceFileAttribute}};}
+\DoxyCodeLine{9 \textcolor{keyword}{class }\mbox{\hyperlink{classCodeAttribute}{CodeAttribute}};}
+\DoxyCodeLine{10 \textcolor{keyword}{class }\mbox{\hyperlink{classLineNumberTableAttribute}{LineNumberTableAttribute}};}
+\DoxyCodeLine{11 \textcolor{keyword}{class }\mbox{\hyperlink{classStackMapAttribute}{StackMapAttribute}};}
+\DoxyCodeLine{12 \textcolor{keyword}{class }\mbox{\hyperlink{classInnerClassesAttribute}{InnerClassesAttribute}};}
+\DoxyCodeLine{13 \textcolor{keyword}{class }\mbox{\hyperlink{classSignatureAttribute}{SignatureAttribute}};}
+\DoxyCodeLine{14 \textcolor{keyword}{class }\mbox{\hyperlink{classConstantValueAttribute}{ConstantValueAttribute}};}
+\DoxyCodeLine{15 \textcolor{keyword}{class }\mbox{\hyperlink{classExceptionsAttribute}{ExceptionsAttribute}};}
+\DoxyCodeLine{16 }
+\DoxyCodeLine{17 \textcolor{preprocessor}{\#include "{}../headers/definitions.h"{}}}
+\DoxyCodeLine{18 \textcolor{preprocessor}{\#include "{}../headers/ConstantPool.h"{}}}
+\DoxyCodeLine{19 \textcolor{preprocessor}{\#include "{}../headers/Classes.h"{}}}
+\DoxyCodeLine{20 \textcolor{preprocessor}{\#include "{}../headers/LineNumberTable.h"{}}}
+\DoxyCodeLine{21 \textcolor{preprocessor}{\#include "{}../headers/StackMapFrame.h"{}}}
+\DoxyCodeLine{22 \textcolor{preprocessor}{\#include "{}../headers/JVM.h"{}}}
+\DoxyCodeLine{23 \textcolor{preprocessor}{\#include "{}../headers/Method.h"{}}}
+\DoxyCodeLine{24 \textcolor{preprocessor}{\#include "{}../headers/ExceptionTable.h"{}}}
+\DoxyCodeLine{25 }
+\DoxyCodeLine{33 \textcolor{keyword}{class }\mbox{\hyperlink{classAttribute}{Attribute}} \{}
+\DoxyCodeLine{34   \textcolor{keyword}{public}:}
+\DoxyCodeLine{36     \mbox{\hyperlink{classAttribute_a868b2d7aec5c96de38db7724636c7164}{Attribute}}(u2 attbName, u4 attbLength);}
+\DoxyCodeLine{37     \mbox{\hyperlink{classAttribute}{\string~Attribute}}();}
+\DoxyCodeLine{47     \textcolor{keyword}{static} \mbox{\hyperlink{classAttribute}{Attribute}}* \mbox{\hyperlink{classAttribute_a30f568192e8ba2a28011b3f3c47684c7}{readAttribute}}(FILE* fp, \mbox{\hyperlink{classConstantPool}{ConstantPool}}\& cp);}
+\DoxyCodeLine{51     \textcolor{keywordtype}{string} \mbox{\hyperlink{classAttribute_a1e3fa3c9bdf195cfce19647ce16f07f1}{getName}}(\mbox{\hyperlink{classConstantPool}{ConstantPool}}\& cp);}
+\DoxyCodeLine{52 }
+\DoxyCodeLine{54     ostream\& \mbox{\hyperlink{classAttribute_a18a61a174bc156434c65cc0603318c5d}{print}}(\mbox{\hyperlink{classConstantPool}{ConstantPool}}\& cp, \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} indent = 0, ostream\& output = cout) \textcolor{keyword}{const};}
+\DoxyCodeLine{55 }
+\DoxyCodeLine{56   \textcolor{keyword}{protected}:}
+\DoxyCodeLine{58     u2 \mbox{\hyperlink{classAttribute_a870797773d2fb3ddcafcc7cf39204b0f}{attribute\_name}};}
+\DoxyCodeLine{60     u4 \mbox{\hyperlink{classAttribute_a1b70db4101c7f8fcf32ea74548de21e8}{attribute\_length}};}
+\DoxyCodeLine{61     \textcolor{keywordtype}{void} *info;   }
+\DoxyCodeLine{62 \};}
+\DoxyCodeLine{63 }
+\DoxyCodeLine{66 \textcolor{keyword}{class }\mbox{\hyperlink{classExceptionsAttribute}{ExceptionsAttribute}};}
+\DoxyCodeLine{67 }
+\DoxyCodeLine{69 \textcolor{keyword}{class }\mbox{\hyperlink{classSourceFileAttribute}{SourceFileAttribute}} : \textcolor{keyword}{public} \mbox{\hyperlink{classAttribute}{Attribute}} \{}
+\DoxyCodeLine{70   \textcolor{keyword}{public}:}
+\DoxyCodeLine{72     \mbox{\hyperlink{classSourceFileAttribute_a58b077cf5f81d937718ff90f32dd945a}{SourceFileAttribute}}(FILE* fp, u2 attbName, u4 attbLength);}
+\DoxyCodeLine{73     \mbox{\hyperlink{classSourceFileAttribute}{\string~SourceFileAttribute}}();}
+\DoxyCodeLine{74     }
+\DoxyCodeLine{76     ostream\& \mbox{\hyperlink{classSourceFileAttribute_a881e1d9560b298cb2ac4022a8d387d7c}{print}}(\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} indent = 0, ostream\& output = cout) \textcolor{keyword}{const};}
+\DoxyCodeLine{77 }
+\DoxyCodeLine{78   \textcolor{keyword}{private}:}
+\DoxyCodeLine{80     u2 source\_file;}
+\DoxyCodeLine{81 \};}
+\DoxyCodeLine{82 }
+\DoxyCodeLine{84 \textcolor{keyword}{class }\mbox{\hyperlink{classCodeAttribute}{CodeAttribute}} : \textcolor{keyword}{public} \mbox{\hyperlink{classAttribute}{Attribute}} \{}
+\DoxyCodeLine{85   \textcolor{keyword}{public}:}
+\DoxyCodeLine{87     \mbox{\hyperlink{classCodeAttribute_ab147957969cb1026131769661cbf1cdc}{CodeAttribute}}(FILE* fp, \mbox{\hyperlink{classConstantPool}{ConstantPool}}\& cp, u2 attbName, u4 attbLength);}
+\DoxyCodeLine{88     \mbox{\hyperlink{classCodeAttribute}{\string~CodeAttribute}}();}
+\DoxyCodeLine{89     }
+\DoxyCodeLine{90     \textcolor{comment}{// print methods}}
+\DoxyCodeLine{91     ostream\& print(\mbox{\hyperlink{classConstantPool}{ConstantPool}}\& cp, \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} indent = 0, ostream\& output = cout) \textcolor{keyword}{const};}
+\DoxyCodeLine{92 }
+\DoxyCodeLine{93 }
+\DoxyCodeLine{100     \textcolor{keywordtype}{void} \mbox{\hyperlink{classCodeAttribute_ad840f467b497935bfd37cd85cc19bd01}{interpret}}(\mbox{\hyperlink{classJVM}{JVM}}\& jvm, \mbox{\hyperlink{classMethod}{Method}}\& method);}
+\DoxyCodeLine{102     u2 \mbox{\hyperlink{classCodeAttribute_a1407b9bddee5eca9e0b0b20fbf1a8f1f}{max\_locals}};}
+\DoxyCodeLine{103 }
+\DoxyCodeLine{104   \textcolor{keyword}{private}:}
+\DoxyCodeLine{110     \textcolor{keywordtype}{void} AddAttribute(\mbox{\hyperlink{classAttribute}{Attribute}}* interface);}
+\DoxyCodeLine{116     \textcolor{keywordtype}{void} AddExceptionTable(\mbox{\hyperlink{classExceptionTable}{ExceptionTable}}* table);}
+\DoxyCodeLine{118     u2 max\_stack;}
+\DoxyCodeLine{120     u4 code\_length;}
+\DoxyCodeLine{122     u1 *code;}
+\DoxyCodeLine{124     u2 attributes\_count;}
+\DoxyCodeLine{126     std::vector<Attribute*> attributes;}
+\DoxyCodeLine{128     u2 exception\_info\_length;}
+\DoxyCodeLine{130     std::vector<ExceptionTable*> exception\_table;}
+\DoxyCodeLine{131 \};}
+\DoxyCodeLine{132 }
+\DoxyCodeLine{134 \textcolor{keyword}{class }\mbox{\hyperlink{classLineNumberTableAttribute}{LineNumberTableAttribute}} : \textcolor{keyword}{public} \mbox{\hyperlink{classAttribute}{Attribute}} \{}
+\DoxyCodeLine{135   \textcolor{keyword}{public}:}
+\DoxyCodeLine{137     \mbox{\hyperlink{classLineNumberTableAttribute_a99685258f622553eb3f33d83805e2027}{LineNumberTableAttribute}}(FILE* fp, u2 attbName, u4 attbLength);}
+\DoxyCodeLine{138     \mbox{\hyperlink{classLineNumberTableAttribute}{\string~LineNumberTableAttribute}}();}
+\DoxyCodeLine{139     }
+\DoxyCodeLine{141     ostream\& \mbox{\hyperlink{classLineNumberTableAttribute_a56336869e713a483be0001882248240d}{print}}(\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} indent = 0, ostream\& output = cout) \textcolor{keyword}{const};}
+\DoxyCodeLine{142 }
+\DoxyCodeLine{143   \textcolor{keyword}{private}:}
+\DoxyCodeLine{149     \textcolor{keywordtype}{void} AddLineNumberTable(\mbox{\hyperlink{classLineNumberTable}{LineNumberTable}}* table);}
+\DoxyCodeLine{151     u2 line\_number\_table\_length;}
+\DoxyCodeLine{153     std::vector<LineNumberTable*> line\_number\_table;}
+\DoxyCodeLine{154 \};}
+\DoxyCodeLine{155 }
+\DoxyCodeLine{156 }
+\DoxyCodeLine{157 }
+\DoxyCodeLine{158 \textcolor{keyword}{class }\mbox{\hyperlink{classStackMapAttribute}{StackMapAttribute}} : \textcolor{keyword}{public} \mbox{\hyperlink{classAttribute}{Attribute}} \{}
+\DoxyCodeLine{159   \textcolor{keyword}{public}:}
+\DoxyCodeLine{161     \mbox{\hyperlink{classStackMapAttribute_a1d38a4220e3d281f115678a1b7c24cea}{StackMapAttribute}}(FILE* fp, u2 attbName, u4 attbLength);}
+\DoxyCodeLine{162     \mbox{\hyperlink{classStackMapAttribute}{\string~StackMapAttribute}}();}
+\DoxyCodeLine{163     }
+\DoxyCodeLine{165     ostream\& \mbox{\hyperlink{classStackMapAttribute_a221855f2d4e915914ed737827ea99303}{print}}(\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} indent = 0, ostream\& output = cout) \textcolor{keyword}{const};}
+\DoxyCodeLine{166 }
+\DoxyCodeLine{167   \textcolor{keyword}{private}:}
+\DoxyCodeLine{173     \textcolor{keywordtype}{void} readStackMapFrame(FILE* fp);}
+\DoxyCodeLine{175     u2 num\_entries;}
+\DoxyCodeLine{177     \mbox{\hyperlink{classStackMapFrame}{StackMapFrame}}** entries;}
+\DoxyCodeLine{178 \};}
+\DoxyCodeLine{179 }
+\DoxyCodeLine{181 \textcolor{keyword}{class }\mbox{\hyperlink{classInnerClassesAttribute}{InnerClassesAttribute}} : \textcolor{keyword}{public} \mbox{\hyperlink{classAttribute}{Attribute}} \{}
+\DoxyCodeLine{182   \textcolor{keyword}{public}:}
+\DoxyCodeLine{184     \mbox{\hyperlink{classInnerClassesAttribute_aa502c22caef1d15ba90ac6bff9cc151e}{InnerClassesAttribute}}(FILE* fp, u2 attbName, u4 attbLength);}
+\DoxyCodeLine{185     \mbox{\hyperlink{classInnerClassesAttribute}{\string~InnerClassesAttribute}}();}
+\DoxyCodeLine{186     }
+\DoxyCodeLine{188     ostream\& \mbox{\hyperlink{classInnerClassesAttribute_a09d655db5564b76e33a0329fe30f0278}{print}}(\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} indent = 0, ostream\& output = cout) \textcolor{keyword}{const};}
+\DoxyCodeLine{189 }
+\DoxyCodeLine{190   \textcolor{keyword}{private}:}
+\DoxyCodeLine{196     \textcolor{keywordtype}{void} AddClasses(\mbox{\hyperlink{classClasses}{Classes}}* c);}
+\DoxyCodeLine{198     u2 num\_classes;}
+\DoxyCodeLine{200     std::vector<Classes*> classes;}
+\DoxyCodeLine{201 \};}
+\DoxyCodeLine{202 }
+\DoxyCodeLine{204 \textcolor{keyword}{class }\mbox{\hyperlink{classSignatureAttribute}{SignatureAttribute}} : \textcolor{keyword}{public} \mbox{\hyperlink{classAttribute}{Attribute}} \{}
+\DoxyCodeLine{205   \textcolor{keyword}{public}:}
+\DoxyCodeLine{207     \mbox{\hyperlink{classSignatureAttribute_a4fe9cf71bbc3398b0eec16149f2ff15f}{SignatureAttribute}}(FILE* fp, u2 attbName, u4 attbLength);}
+\DoxyCodeLine{208     \mbox{\hyperlink{classSignatureAttribute}{\string~SignatureAttribute}}();}
+\DoxyCodeLine{209     }
+\DoxyCodeLine{211     ostream\& \mbox{\hyperlink{classSignatureAttribute_aa66a1633cfdf08681d78886de2917930}{print}}(\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} indent = 0, ostream\& output = cout) \textcolor{keyword}{const};}
+\DoxyCodeLine{212 }
+\DoxyCodeLine{213   \textcolor{keyword}{private}:}
+\DoxyCodeLine{215     u2 signature;}
+\DoxyCodeLine{216 \};}
+\DoxyCodeLine{217 }
+\DoxyCodeLine{219 \textcolor{keyword}{class }\mbox{\hyperlink{classConstantValueAttribute}{ConstantValueAttribute}} : \textcolor{keyword}{public} \mbox{\hyperlink{classAttribute}{Attribute}} \{}
+\DoxyCodeLine{220   \textcolor{keyword}{public}:}
+\DoxyCodeLine{222     \mbox{\hyperlink{classConstantValueAttribute_aafbae286deee5c87e35ee92c3bdb6f1c}{ConstantValueAttribute}}(FILE* fp, u2 attbName, u4 attbLength);}
+\DoxyCodeLine{223     \mbox{\hyperlink{classConstantValueAttribute}{\string~ConstantValueAttribute}}();}
+\DoxyCodeLine{224     }
+\DoxyCodeLine{226     ostream\& \mbox{\hyperlink{classConstantValueAttribute_afcd9373492786d47573aa14303001722}{print}}(\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} indent = 0, ostream\& output = cout) \textcolor{keyword}{const};}
+\DoxyCodeLine{227 }
+\DoxyCodeLine{228   \textcolor{keyword}{private}:}
+\DoxyCodeLine{230     u2 constantValue;}
+\DoxyCodeLine{231 \};}
+\DoxyCodeLine{232 }
+\DoxyCodeLine{234 \textcolor{keyword}{class }\mbox{\hyperlink{classExceptionsAttribute}{ExceptionsAttribute}} : \textcolor{keyword}{public} \mbox{\hyperlink{classAttribute}{Attribute}} \{}
+\DoxyCodeLine{235   \textcolor{keyword}{public}:}
+\DoxyCodeLine{237     \mbox{\hyperlink{classExceptionsAttribute_ab1fa3333431862f1b335474cf7a9ac26}{ExceptionsAttribute}}(FILE* fp, u2 attbName, u4 attbLength);}
+\DoxyCodeLine{238     \mbox{\hyperlink{classExceptionsAttribute}{\string~ExceptionsAttribute}}();}
+\DoxyCodeLine{239 }
+\DoxyCodeLine{241     ostream\& \mbox{\hyperlink{classExceptionsAttribute_a060a81c7b5dc474471560d4c082b6a77}{print}}(\mbox{\hyperlink{classConstantPool}{ConstantPool}}\& cp, \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} indent = 0, ostream\& output = cout) \textcolor{keyword}{const};}
+\DoxyCodeLine{242 }
+\DoxyCodeLine{243   \textcolor{keyword}{private}:}
+\DoxyCodeLine{245     u2 num\_exceptions;}
+\DoxyCodeLine{247     std::vector<u2> exception\_index\_table;}
+\DoxyCodeLine{248 \};}
+\DoxyCodeLine{249 }
+\DoxyCodeLine{251 }
+\DoxyCodeLine{252 \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

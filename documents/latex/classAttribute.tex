@@ -1,0 +1,74 @@
+\hypertarget{classAttribute}{}\doxysection{Attribute Class Reference}
+\label{classAttribute}\index{Attribute@{Attribute}}
+
+
+{\ttfamily \#include $<$Attribute.\+h$>$}
+
+Inheritance diagram for Attribute\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=9.000000cm]{classAttribute}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classAttribute_a868b2d7aec5c96de38db7724636c7164}\label{classAttribute_a868b2d7aec5c96de38db7724636c7164}} 
+{\bfseries Attribute} (u2 attb\+Name, u4 attb\+Length)
+\begin{DoxyCompactList}\small\item\em construtor \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classAttribute_a1e3fa3c9bdf195cfce19647ce16f07f1}\label{classAttribute_a1e3fa3c9bdf195cfce19647ce16f07f1}} 
+string {\bfseries get\+Name} (\mbox{\hyperlink{classConstantPool}{Constant\+Pool}} \&cp)
+\begin{DoxyCompactList}\small\item\em pega o nome da classe no constant pool \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classAttribute_a18a61a174bc156434c65cc0603318c5d}\label{classAttribute_a18a61a174bc156434c65cc0603318c5d}} 
+ostream \& {\bfseries print} (\mbox{\hyperlink{classConstantPool}{Constant\+Pool}} \&cp, unsigned int indent=0, ostream \&output=cout) const
+\begin{DoxyCompactList}\small\item\em print methods \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{classAttribute}{Attribute}} $\ast$ \mbox{\hyperlink{classAttribute_a30f568192e8ba2a28011b3f3c47684c7}{read\+Attribute}} (FILE $\ast$fp, \mbox{\hyperlink{classConstantPool}{Constant\+Pool}} \&cp)
+\begin{DoxyCompactList}\small\item\em Le o array de atributos do arquivo fonte. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classAttribute_a870797773d2fb3ddcafcc7cf39204b0f}\label{classAttribute_a870797773d2fb3ddcafcc7cf39204b0f}} 
+u2 {\bfseries attribute\+\_\+name}
+\begin{DoxyCompactList}\small\item\em nome do atributo \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classAttribute_a1b70db4101c7f8fcf32ea74548de21e8}\label{classAttribute_a1b70db4101c7f8fcf32ea74548de21e8}} 
+u4 {\bfseries attribute\+\_\+length}
+\begin{DoxyCompactList}\small\item\em tamanho do atributo \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classAttribute_aa8bfcab4f8f4fa2718384ba52f8a5691}\label{classAttribute_aa8bfcab4f8f4fa2718384ba52f8a5691}} 
+void $\ast$ {\bfseries info}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Classe Atributo 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classAttribute_a30f568192e8ba2a28011b3f3c47684c7}\label{classAttribute_a30f568192e8ba2a28011b3f3c47684c7}} 
+\index{Attribute@{Attribute}!readAttribute@{readAttribute}}
+\index{readAttribute@{readAttribute}!Attribute@{Attribute}}
+\doxysubsubsection{\texorpdfstring{readAttribute()}{readAttribute()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classAttribute}{Attribute}} $\ast$ Attribute\+::read\+Attribute (\begin{DoxyParamCaption}\item[{FILE $\ast$}]{fp,  }\item[{\mbox{\hyperlink{classConstantPool}{Constant\+Pool}} \&}]{cp }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Le o array de atributos do arquivo fonte. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em fp} & -\/ referência a um File que tem o conteúdo do arquivo de classe carregado nele. O File seek deve ser o primeiro atributo. \\
+\hline
+{\em cp} & -\/ referencia para o atual class file na constant pool\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+attributo -\/ array de \mbox{\hyperlink{classAttribute}{Attribute}} ~\newline
+ 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+headers/Attribute.\+h\item 
+src/Attribute.\+cpp\end{DoxyCompactItemize}

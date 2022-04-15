@@ -1,0 +1,27 @@
+\hypertarget{ExceptionTable_8h_source}{}\doxysection{Exception\+Table.\+h}
+\label{ExceptionTable_8h_source}\index{headers/ExceptionTable.h@{headers/ExceptionTable.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#ifndef exception\_table\_h}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#define exception\_table\_h}}
+\DoxyCodeLine{3 }
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include <stdio.h>}}
+\DoxyCodeLine{5 }
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#include "{}../headers/definitions.h"{}}}
+\DoxyCodeLine{7 \textcolor{preprocessor}{\#include "{}../headers/ConstantPool.h"{}}}
+\DoxyCodeLine{8 }
+\DoxyCodeLine{9 \textcolor{keyword}{class }\mbox{\hyperlink{classExceptionTable}{ExceptionTable}} \{}
+\DoxyCodeLine{10   \textcolor{keyword}{public}:}
+\DoxyCodeLine{11     \mbox{\hyperlink{classExceptionTable}{ExceptionTable}}(FILE* fp);}
+\DoxyCodeLine{12     u2 start\_pc;}
+\DoxyCodeLine{13     u2 end\_pc;}
+\DoxyCodeLine{14     u2 handler\_pc;}
+\DoxyCodeLine{15     u2 catch\_type;}
+\DoxyCodeLine{16 }
+\DoxyCodeLine{17     \textcolor{comment}{// print methods}}
+\DoxyCodeLine{18     ostream\& print(\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} indent = 0, ostream\& output = cout) \textcolor{keyword}{const};}
+\DoxyCodeLine{19 \};}
+\DoxyCodeLine{20 }
+\DoxyCodeLine{21 \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

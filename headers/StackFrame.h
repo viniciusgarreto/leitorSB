@@ -4,6 +4,11 @@
 #include <vector>
 #include "../headers/Frame.h"
 
+/*
+Clsse Stack Frame
+define uma pilha de frames.
+*/
+
 class StackFrame {
   public:
     StackFrame();

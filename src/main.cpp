@@ -1,3 +1,16 @@
+/*
+Universidade de Brasília - 2021/2
+Software Básico - Turma A
+Trabalho: JVM
+Alunos:
+            Caio Bernardon N. K. Massucato – 16/0115001
+            Rafael Gonçalves de Paulo - 17/0043959
+            José Vinícius Garreto Costa – 18/0123734
+            Alice da Costa Borges  - 18/0011855
+            Lucas Vinicius Magalhães Pinheiro - 17/0061001
+*/
+
+
 #include "../headers/JVM.h"
 #include "../headers/ClassFile.h"
 #include "../headers/printer.h"
@@ -10,9 +23,16 @@
 
 using namespace std;
 
+/*
+* Modos de execução: modo de leitura e exibição ou execução.
+*/
 string readMode = string("read");
 string execMode = string("exec");
 
+/**
+ * argc: Número de argumentos do programa
+ * argv: Argumentos recebidos na linha de comando
+ */
 int main(int argc, char *argv[]) {
 
   if (argc < 3) {

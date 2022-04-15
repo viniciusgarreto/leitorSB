@@ -1,0 +1,119 @@
+\hypertarget{StackMapFrame_8h_source}{}\doxysection{Stack\+Map\+Frame.\+h}
+\label{StackMapFrame_8h_source}\index{headers/StackMapFrame.h@{headers/StackMapFrame.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#ifndef stack\_map\_frame\_h}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#define stack\_map\_frame\_h}}
+\DoxyCodeLine{3 }
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include <stdio.h>}}
+\DoxyCodeLine{5 }
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#include "{}../headers/definitions.h"{}}}
+\DoxyCodeLine{7 \textcolor{preprocessor}{\#include "{}../headers/ConstantPool.h"{}}}
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#include "{}../headers/Classes.h"{}}}
+\DoxyCodeLine{9 \textcolor{preprocessor}{\#include "{}../headers/LineNumberTable.h"{}}}
+\DoxyCodeLine{10 \textcolor{preprocessor}{\#include "{}../headers/VerificationTypeInfo.h"{}}}
+\DoxyCodeLine{11 }
+\DoxyCodeLine{12 \textcolor{keyword}{class }\mbox{\hyperlink{classStackMapFrame}{StackMapFrame}} \{}
+\DoxyCodeLine{13   \textcolor{keyword}{public}:}
+\DoxyCodeLine{14     \mbox{\hyperlink{classStackMapFrame}{StackMapFrame}}(u1 tag);}
+\DoxyCodeLine{15     \mbox{\hyperlink{classStackMapFrame}{\string~StackMapFrame}}();}
+\DoxyCodeLine{16 }
+\DoxyCodeLine{17     \textcolor{comment}{// print methods}}
+\DoxyCodeLine{18     ostream\& print(\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} indent = 0, ostream\& output = cout) \textcolor{keyword}{const};}
+\DoxyCodeLine{19 }
+\DoxyCodeLine{20     \textcolor{keyword}{static} \mbox{\hyperlink{classStackMapFrame}{StackMapFrame}}* readStackMapFrame(FILE* fp);}
+\DoxyCodeLine{21 }
+\DoxyCodeLine{22   \textcolor{keyword}{protected}:}
+\DoxyCodeLine{23     u1 frame\_type;}
+\DoxyCodeLine{24 \};}
+\DoxyCodeLine{25 }
+\DoxyCodeLine{26 \textcolor{keyword}{class }\mbox{\hyperlink{classSameFrame}{SameFrame}} : \textcolor{keyword}{public} \mbox{\hyperlink{classStackMapFrame}{StackMapFrame}} \{}
+\DoxyCodeLine{27   \textcolor{keyword}{public}:}
+\DoxyCodeLine{28     \mbox{\hyperlink{classSameFrame}{SameFrame}}(u1 tag);}
+\DoxyCodeLine{29     \mbox{\hyperlink{classSameFrame}{\string~SameFrame}}();}
+\DoxyCodeLine{30 }
+\DoxyCodeLine{31     \textcolor{comment}{// print methods}}
+\DoxyCodeLine{32     ostream\& print(\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} indent = 0, ostream\& output = cout) \textcolor{keyword}{const};}
+\DoxyCodeLine{33 \};}
+\DoxyCodeLine{34 }
+\DoxyCodeLine{35 \textcolor{keyword}{class }\mbox{\hyperlink{classSameFrameExtended}{SameFrameExtended}} : \textcolor{keyword}{public} \mbox{\hyperlink{classStackMapFrame}{StackMapFrame}} \{}
+\DoxyCodeLine{36   \textcolor{keyword}{public}:}
+\DoxyCodeLine{37     \mbox{\hyperlink{classSameFrameExtended}{SameFrameExtended}}(u1 tag, FILE* fp);}
+\DoxyCodeLine{38     \mbox{\hyperlink{classSameFrameExtended}{\string~SameFrameExtended}}();}
+\DoxyCodeLine{39 }
+\DoxyCodeLine{40     \textcolor{comment}{// print methods}}
+\DoxyCodeLine{41     ostream\& print(\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} indent = 0, ostream\& output = cout) \textcolor{keyword}{const};}
+\DoxyCodeLine{42 }
+\DoxyCodeLine{43   \textcolor{keyword}{protected}:}
+\DoxyCodeLine{44     u2 offset\_delta;}
+\DoxyCodeLine{45 \};}
+\DoxyCodeLine{46 }
+\DoxyCodeLine{47 \textcolor{keyword}{class }\mbox{\hyperlink{classSameLocals1StackItemFrame}{SameLocals1StackItemFrame}} : \textcolor{keyword}{public} \mbox{\hyperlink{classStackMapFrame}{StackMapFrame}} \{}
+\DoxyCodeLine{48   \textcolor{keyword}{public}:}
+\DoxyCodeLine{49     \mbox{\hyperlink{classSameLocals1StackItemFrame}{SameLocals1StackItemFrame}}(u1 tag, FILE* fp);}
+\DoxyCodeLine{50     \mbox{\hyperlink{classSameLocals1StackItemFrame}{\string~SameLocals1StackItemFrame}}();}
+\DoxyCodeLine{51 }
+\DoxyCodeLine{52     \textcolor{comment}{// print methods}}
+\DoxyCodeLine{53     ostream\& print(\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} indent = 0, ostream\& output = cout) \textcolor{keyword}{const};}
+\DoxyCodeLine{54 }
+\DoxyCodeLine{55   \textcolor{keyword}{protected}:}
+\DoxyCodeLine{56     \mbox{\hyperlink{classVerificationTypeInfo}{VerificationTypeInfo}}* item;}
+\DoxyCodeLine{57 \};}
+\DoxyCodeLine{58 }
+\DoxyCodeLine{59 \textcolor{keyword}{class }\mbox{\hyperlink{classSameLocals1StackItemFrameExtended}{SameLocals1StackItemFrameExtended}} : \textcolor{keyword}{public} \mbox{\hyperlink{classStackMapFrame}{StackMapFrame}} \{}
+\DoxyCodeLine{60   \textcolor{keyword}{public}:}
+\DoxyCodeLine{61     \mbox{\hyperlink{classSameLocals1StackItemFrameExtended}{SameLocals1StackItemFrameExtended}}(u1 tag, FILE* fp);}
+\DoxyCodeLine{62     \mbox{\hyperlink{classSameLocals1StackItemFrameExtended}{\string~SameLocals1StackItemFrameExtended}}();}
+\DoxyCodeLine{63 }
+\DoxyCodeLine{64     \textcolor{comment}{// print methods}}
+\DoxyCodeLine{65     ostream\& print(\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} indent = 0, ostream\& output = cout) \textcolor{keyword}{const};}
+\DoxyCodeLine{66 }
+\DoxyCodeLine{67   \textcolor{keyword}{protected}:}
+\DoxyCodeLine{68     u2 offset\_delta;}
+\DoxyCodeLine{69     \mbox{\hyperlink{classVerificationTypeInfo}{VerificationTypeInfo}}* item;}
+\DoxyCodeLine{70 \};}
+\DoxyCodeLine{71 }
+\DoxyCodeLine{72 \textcolor{keyword}{class }\mbox{\hyperlink{classChopFrame}{ChopFrame}} : \textcolor{keyword}{public} \mbox{\hyperlink{classStackMapFrame}{StackMapFrame}} \{}
+\DoxyCodeLine{73   \textcolor{keyword}{public}:}
+\DoxyCodeLine{74     \mbox{\hyperlink{classChopFrame}{ChopFrame}}(u1 tag, FILE* fp);}
+\DoxyCodeLine{75     \mbox{\hyperlink{classChopFrame}{\string~ChopFrame}}();}
+\DoxyCodeLine{76 }
+\DoxyCodeLine{77     \textcolor{comment}{// print methods}}
+\DoxyCodeLine{78     ostream\& print(\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} indent = 0, ostream\& output = cout) \textcolor{keyword}{const};}
+\DoxyCodeLine{79 }
+\DoxyCodeLine{80   \textcolor{keyword}{protected}:}
+\DoxyCodeLine{81     u2 offset\_delta;}
+\DoxyCodeLine{82 \};}
+\DoxyCodeLine{83 }
+\DoxyCodeLine{84 \textcolor{keyword}{class }\mbox{\hyperlink{classAppendFrame}{AppendFrame}} : \textcolor{keyword}{public} \mbox{\hyperlink{classStackMapFrame}{StackMapFrame}} \{}
+\DoxyCodeLine{85   \textcolor{keyword}{public}:}
+\DoxyCodeLine{86     \mbox{\hyperlink{classAppendFrame}{AppendFrame}}(u1 tag, FILE* fp);}
+\DoxyCodeLine{87     \mbox{\hyperlink{classAppendFrame}{\string~AppendFrame}}();}
+\DoxyCodeLine{88 }
+\DoxyCodeLine{89     \textcolor{comment}{// print methods}}
+\DoxyCodeLine{90     ostream\& print(\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} indent = 0, ostream\& output = cout) \textcolor{keyword}{const};}
+\DoxyCodeLine{91 }
+\DoxyCodeLine{92   \textcolor{keyword}{protected}:}
+\DoxyCodeLine{93     u2 offset\_delta;}
+\DoxyCodeLine{94     vector<VerificationTypeInfo*> stack;}
+\DoxyCodeLine{95 \};}
+\DoxyCodeLine{96 }
+\DoxyCodeLine{97 \textcolor{keyword}{class }\mbox{\hyperlink{classFullFrame}{FullFrame}} : \textcolor{keyword}{public} \mbox{\hyperlink{classStackMapFrame}{StackMapFrame}} \{}
+\DoxyCodeLine{98   \textcolor{keyword}{public}:}
+\DoxyCodeLine{99     \mbox{\hyperlink{classFullFrame}{FullFrame}}(u1 tag, FILE* fp);}
+\DoxyCodeLine{100     \mbox{\hyperlink{classFullFrame}{\string~FullFrame}}();}
+\DoxyCodeLine{101 }
+\DoxyCodeLine{102     \textcolor{comment}{// print methods}}
+\DoxyCodeLine{103     ostream\& print(\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} indent = 0, ostream\& output = cout) \textcolor{keyword}{const};}
+\DoxyCodeLine{104 }
+\DoxyCodeLine{105   \textcolor{keyword}{protected}:}
+\DoxyCodeLine{106     u2 offset\_delta;}
+\DoxyCodeLine{107     u2 number\_of\_locals;}
+\DoxyCodeLine{108     u2 number\_of\_stack\_items;}
+\DoxyCodeLine{109     vector<VerificationTypeInfo*> locals;}
+\DoxyCodeLine{110     vector<VerificationTypeInfo*> stack;}
+\DoxyCodeLine{111 \};}
+\DoxyCodeLine{112 }
+\DoxyCodeLine{113 \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

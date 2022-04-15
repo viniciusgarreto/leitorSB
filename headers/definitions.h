@@ -1,9 +1,14 @@
 #ifndef definitions_h
 #define definitions_h
 
+/*
+Definitions.h: arquivo destinado a definições de macros usadas no projeto.
+*/
+
 #include <stdint.h>
 #include <iostream>
 
+//tipos de dados utilizados
 typedef uint8_t u1;
 typedef uint16_t u2;
 typedef uint32_t u4;
@@ -42,16 +47,16 @@ typedef int64_t i8;
 #define ACC_SYNTHETIC 0x1000 
 
 
-/*Macro para leitura de um tipo u1 do arquivo .class*/
+/** Macro para leitura de um tipo u1 do arquivo .class*/
 #define u1READ(arq) getc(arq)
-/*Macro para leitura de um tipo u2 do arquivo .class*/
+/** Macro para leitura de um tipo u2 do arquivo .class*/
 #define u2READ(arq) (getc(arq) << 8) | getc(arq)
-/*Macro para leitura de um tipo u4 do arquivo .class*/
+/** Macro para leitura de um tipo u4 do arquivo .class*/
 #define u4READ(arq) (getc(arq) << 24) | (getc(arq) << 16 | getc(arq) << 8 | getc(arq))
 
 std::ostream& indentBy(unsigned int n, std::ostream& out = std::cout);
 
-// opcode de instrucoes 
+/// opcode de instrucoes 
 #define nop 0x00
 #define aconst_null 0x01
 #define iconst_m1 0x02
@@ -254,7 +259,7 @@ std::ostream& indentBy(unsigned int n, std::ostream& out = std::cout);
 #define goto_w 0xc8
 #define jsr_w 0xc9
 
-/* Definição de algumas macros relativas aos nomes e descritores de métodos main, init e clinit */
+/** Definição de algumas macros relativas aos nomes e descritores de métodos main, init e clinit */
 #define MAIN_NOME "main"
 #define DESCRIPTOR_MAIN "([Ljava/lang/String;)V"
 #define PUBLIC_STATIC 0x0009

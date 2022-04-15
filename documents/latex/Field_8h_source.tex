@@ -1,0 +1,39 @@
+\hypertarget{Field_8h_source}{}\doxysection{Field.\+h}
+\label{Field_8h_source}\index{headers/Field.h@{headers/Field.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#ifndef field\_h}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#define field\_h}}
+\DoxyCodeLine{3 }
+\DoxyCodeLine{4 \textcolor{keyword}{class }\mbox{\hyperlink{classField}{Field}};}
+\DoxyCodeLine{5 }
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#include <vector>}}
+\DoxyCodeLine{7 \textcolor{preprocessor}{\#include <stdio.h>}}
+\DoxyCodeLine{8 }
+\DoxyCodeLine{9 \textcolor{preprocessor}{\#include "{}../headers/definitions.h"{}}}
+\DoxyCodeLine{10 \textcolor{preprocessor}{\#include "{}../headers/Attribute.h"{}}}
+\DoxyCodeLine{11 }
+\DoxyCodeLine{12 \textcolor{keyword}{class }\mbox{\hyperlink{classField}{Field}} \{}
+\DoxyCodeLine{13   \textcolor{keyword}{public}:}
+\DoxyCodeLine{14     \mbox{\hyperlink{classField}{Field}}(FILE* fp, \mbox{\hyperlink{classConstantPool}{ConstantPool}}\& cp);}
+\DoxyCodeLine{15     \mbox{\hyperlink{classField}{\string~Field}}();}
+\DoxyCodeLine{16 }
+\DoxyCodeLine{17     \textcolor{comment}{// print methods}}
+\DoxyCodeLine{18     ostream\& print(\mbox{\hyperlink{classConstantPool}{ConstantPool}}\& cp, ostream\& output = cout) \textcolor{keyword}{const};}
+\DoxyCodeLine{19 }
+\DoxyCodeLine{20   \textcolor{keyword}{private}:}
+\DoxyCodeLine{21     std::vector<Attribute*> attributes;}
+\DoxyCodeLine{22     \textcolor{keywordtype}{void} ReadAttributesFromFile(FILE* fp, \mbox{\hyperlink{classConstantPool}{ConstantPool}}\& cp);}
+\DoxyCodeLine{23     \textcolor{keywordtype}{void} AddAttribute(\mbox{\hyperlink{classAttribute}{Attribute}}* attb);}
+\DoxyCodeLine{24 }
+\DoxyCodeLine{25     \textcolor{keyword}{friend} ostream \&operator<<(std::ostream \&, \textcolor{keyword}{const} \mbox{\hyperlink{classField}{Field}} \&);}
+\DoxyCodeLine{26 }
+\DoxyCodeLine{27     u2 access\_flags;}
+\DoxyCodeLine{28     u2 name;}
+\DoxyCodeLine{29     u2 descriptor;}
+\DoxyCodeLine{30     u2 attributes\_count;}
+\DoxyCodeLine{31 \};}
+\DoxyCodeLine{32 }
+\DoxyCodeLine{33 \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

@@ -1,0 +1,39 @@
+\hypertarget{ConstantPool_8h_source}{}\doxysection{Constant\+Pool.\+h}
+\label{ConstantPool_8h_source}\index{headers/ConstantPool.h@{headers/ConstantPool.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#ifndef constant\_pool\_h}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#define constant\_pool\_h}}
+\DoxyCodeLine{3 }
+\DoxyCodeLine{4 \textcolor{keyword}{class }\mbox{\hyperlink{classConstantPool}{ConstantPool}};}
+\DoxyCodeLine{5 }
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#include <vector>}}
+\DoxyCodeLine{7 \textcolor{preprocessor}{\#include <stdio.h>}}
+\DoxyCodeLine{8 \textcolor{comment}{// \#include <stdlib.h>}}
+\DoxyCodeLine{9 }
+\DoxyCodeLine{10 \textcolor{preprocessor}{\#include "{}../headers/definitions.h"{}}}
+\DoxyCodeLine{11 \textcolor{preprocessor}{\#include "{}../headers/CpInfo.h"{}}}
+\DoxyCodeLine{12 }
+\DoxyCodeLine{13 \textcolor{keyword}{using namespace }std;}
+\DoxyCodeLine{14 }
+\DoxyCodeLine{15 \textcolor{keyword}{class }\mbox{\hyperlink{classConstantPool}{ConstantPool}} \{}
+\DoxyCodeLine{16   \textcolor{keyword}{public}:}
+\DoxyCodeLine{17     \mbox{\hyperlink{classConstantPool}{ConstantPool}}(FILE* fp);}
+\DoxyCodeLine{18     \mbox{\hyperlink{classConstantPool}{\string~ConstantPool}}();}
+\DoxyCodeLine{19 }
+\DoxyCodeLine{20     \textcolor{comment}{// print methods}}
+\DoxyCodeLine{21     ostream\& print(ostream\& output = cout) \textcolor{keyword}{const};}
+\DoxyCodeLine{22     \textcolor{keyword}{friend} ostream\& operator<<(ostream\& out, \textcolor{keyword}{const} \mbox{\hyperlink{classConstantPool}{ConstantPool}}\& cf);}
+\DoxyCodeLine{23 }
+\DoxyCodeLine{24     \mbox{\hyperlink{classCpInfo}{CpInfo}}* getCpInfo(u2 index);}
+\DoxyCodeLine{25     \textcolor{keywordtype}{string} getValueUTF8String(u2 index);}
+\DoxyCodeLine{26   \textcolor{keyword}{private}:}
+\DoxyCodeLine{27     \textcolor{keywordtype}{void} ReadConstantPoolFromFile(FILE* fp);}
+\DoxyCodeLine{28     u2 count;}
+\DoxyCodeLine{29     \mbox{\hyperlink{classCpInfo}{CpInfo}}** cp\_infos;}
+\DoxyCodeLine{30 \};}
+\DoxyCodeLine{31 }
+\DoxyCodeLine{32 }
+\DoxyCodeLine{33 \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

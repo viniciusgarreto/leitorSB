@@ -6,6 +6,11 @@
 
 using namespace std;
 
+/*
+Classe de Instruções
+
+define a estrutura de uma instrução.
+*/
 class Instruction {
   public:
     void setInstructions();

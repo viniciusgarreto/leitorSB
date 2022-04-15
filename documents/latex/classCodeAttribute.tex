@@ -1,0 +1,59 @@
+\hypertarget{classCodeAttribute}{}\doxysection{Code\+Attribute Class Reference}
+\label{classCodeAttribute}\index{CodeAttribute@{CodeAttribute}}
+
+
+{\ttfamily \#include $<$Attribute.\+h$>$}
+
+Inheritance diagram for Code\+Attribute\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classCodeAttribute}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classCodeAttribute_ab147957969cb1026131769661cbf1cdc}\label{classCodeAttribute_ab147957969cb1026131769661cbf1cdc}} 
+{\bfseries Code\+Attribute} (FILE $\ast$fp, \mbox{\hyperlink{classConstantPool}{Constant\+Pool}} \&cp, u2 attb\+Name, u4 attb\+Length)
+\begin{DoxyCompactList}\small\item\em construtor \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classCodeAttribute_a3c99c72c6b4635ae5e5d73fd099109f6}\label{classCodeAttribute_a3c99c72c6b4635ae5e5d73fd099109f6}} 
+ostream \& {\bfseries print} (\mbox{\hyperlink{classConstantPool}{Constant\+Pool}} \&cp, unsigned int indent=0, ostream \&output=cout) const
+\item 
+void \mbox{\hyperlink{classCodeAttribute_ad840f467b497935bfd37cd85cc19bd01}{interpret}} (\mbox{\hyperlink{classJVM}{JVM}} \&jvm, \mbox{\hyperlink{classMethod}{Method}} \&method)
+\begin{DoxyCompactList}\small\item\em metodo que interpreta o code atualmente. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classCodeAttribute_a1407b9bddee5eca9e0b0b20fbf1a8f1f}\label{classCodeAttribute_a1407b9bddee5eca9e0b0b20fbf1a8f1f}} 
+u2 {\bfseries max\+\_\+locals}
+\begin{DoxyCompactList}\small\item\em numero maximo de variaveis locais no code array \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+Atributo de codigo 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classCodeAttribute_ad840f467b497935bfd37cd85cc19bd01}\label{classCodeAttribute_ad840f467b497935bfd37cd85cc19bd01}} 
+\index{CodeAttribute@{CodeAttribute}!interpret@{interpret}}
+\index{interpret@{interpret}!CodeAttribute@{CodeAttribute}}
+\doxysubsubsection{\texorpdfstring{interpret()}{interpret()}}
+{\footnotesize\ttfamily void Code\+Attribute\+::interpret (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classJVM}{JVM}} \&}]{jvm,  }\item[{\mbox{\hyperlink{classMethod}{Method}} \&}]{method }\end{DoxyParamCaption})}
+
+
+
+metodo que interpreta o code atualmente. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em jvm} & -\/ referencia para a jvm e utilizar a pilha de frames e colocar as instruções \\
+\hline
+{\em method} & -\/ metodo a qual esse atributo pertence. nao possui retorno \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+headers/Attribute.\+h\item 
+src/Attribute.\+cpp\end{DoxyCompactItemize}

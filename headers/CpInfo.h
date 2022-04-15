@@ -8,17 +8,21 @@
 using namespace std;
 
 class CpInfo {
-  // Byte de tag: indica qual o tipo de entrada na CP
+  
   public:
+    /// construtor
     CpInfo(u1 tag);
+    /// indica qual o tipo de entrada na CP
     u1 tag;
 
     friend ostream& operator<<(ostream& out, const CpInfo& cf);
 };
 
+
 class CONSTANT_Utf8_info : public CpInfo
 {
 public:
+  /// construtor
   CONSTANT_Utf8_info(FILE *fp);
   ~CONSTANT_Utf8_info();
   u2 length;
