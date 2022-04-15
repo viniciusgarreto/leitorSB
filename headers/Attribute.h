@@ -72,8 +72,8 @@ class SourceFileAttribute : public Attribute {
     SourceFileAttribute(FILE* fp, u2 attbName, u4 attbLength);
     ~SourceFileAttribute();
     
-    /// print methods
-    ostream& print(unsigned int indent = 0, ostream& output = cout) const;
+    // print methods
+    ostream& print(ConstantPool& cp, unsigned int indent = 0, ostream& output = cout) const;
 
   private:
     /// arquivo fonte
@@ -140,8 +140,8 @@ class LineNumberTableAttribute : public Attribute {
     LineNumberTableAttribute(FILE* fp, u2 attbName, u4 attbLength);
     ~LineNumberTableAttribute();
     
-    /// print methods
-    ostream& print(unsigned int indent = 0, ostream& output = cout) const;
+    // print methods
+    ostream& print(ConstantPool& cp, unsigned int indent = 0, ostream& output = cout) const;
 
   private:
     /**
@@ -164,8 +164,8 @@ class StackMapAttribute : public Attribute {
     StackMapAttribute(FILE* fp, u2 attbName, u4 attbLength);
     ~StackMapAttribute();
     
-    /// print methods
-    ostream& print(unsigned int indent = 0, ostream& output = cout) const;
+    // print methods
+    ostream& print(ConstantPool& cp, unsigned int indent = 0, ostream& output = cout) const;
 
   private:
     /**
@@ -187,8 +187,8 @@ class InnerClassesAttribute : public Attribute {
     InnerClassesAttribute(FILE* fp, u2 attbName, u4 attbLength);
     ~InnerClassesAttribute();
     
-    /// print methods
-    ostream& print(unsigned int indent = 0, ostream& output = cout) const;
+    // print methods
+    ostream& print(ConstantPool& cp, unsigned int indent = 0, ostream& output = cout) const;
 
   private:
     /**
@@ -210,8 +210,8 @@ class SignatureAttribute : public Attribute {
     SignatureAttribute(FILE* fp, u2 attbName, u4 attbLength);
     ~SignatureAttribute();
     
-    /// print methods
-    ostream& print(unsigned int indent = 0, ostream& output = cout) const;
+    // print methods
+    ostream& print(ConstantPool& cp, unsigned int indent = 0, ostream& output = cout) const;
 
   private:
     /// assinatura
@@ -225,8 +225,8 @@ class ConstantValueAttribute : public Attribute {
     ConstantValueAttribute(FILE* fp, u2 attbName, u4 attbLength);
     ~ConstantValueAttribute();
     
-    /// print methods
-    ostream& print(unsigned int indent = 0, ostream& output = cout) const;
+    // print methods
+    ostream& print(ConstantPool& cp, unsigned int indent = 0, ostream& output = cout) const;
 
   private:
     /// Index na constant pool para o Cnstant Value
