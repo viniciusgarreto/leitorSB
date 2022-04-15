@@ -48,7 +48,7 @@ class SourceFileAttribute : public Attribute {
     ~SourceFileAttribute();
     
     // print methods
-    ostream& print(unsigned int indent = 0, ostream& output = cout) const;
+    ostream& print(ConstantPool& cp, unsigned int indent = 0, ostream& output = cout) const;
 
   private:
     u2 source_file;
@@ -65,7 +65,6 @@ class CodeAttribute : public Attribute {
     // the method that actually interprets the code.
     void interpret(JVM& jvm, Method& method);
 
-    string bytecodeToString(u1 bytecode) const;
     vector<ExceptionTable*> getExceptionTable();
 
     u2 max_locals;
@@ -91,7 +90,7 @@ class LineNumberTableAttribute : public Attribute {
     ~LineNumberTableAttribute();
     
     // print methods
-    ostream& print(unsigned int indent = 0, ostream& output = cout) const;
+    ostream& print(ConstantPool& cp, unsigned int indent = 0, ostream& output = cout) const;
 
   private:
     void AddLineNumberTable(LineNumberTable* table);
@@ -106,7 +105,7 @@ class StackMapAttribute : public Attribute {
     ~StackMapAttribute();
     
     // print methods
-    ostream& print(unsigned int indent = 0, ostream& output = cout) const;
+    ostream& print(ConstantPool& cp, unsigned int indent = 0, ostream& output = cout) const;
 
   private:
     void readStackMapFrame(FILE* fp);
@@ -121,7 +120,7 @@ class InnerClassesAttribute : public Attribute {
     ~InnerClassesAttribute();
     
     // print methods
-    ostream& print(unsigned int indent = 0, ostream& output = cout) const;
+    ostream& print(ConstantPool& cp, unsigned int indent = 0, ostream& output = cout) const;
 
   private:
     void AddClasses(Classes* c);
@@ -136,7 +135,7 @@ class SignatureAttribute : public Attribute {
     ~SignatureAttribute();
     
     // print methods
-    ostream& print(unsigned int indent = 0, ostream& output = cout) const;
+    ostream& print(ConstantPool& cp, unsigned int indent = 0, ostream& output = cout) const;
 
   private:
     u2 signature;
@@ -148,7 +147,7 @@ class ConstantValueAttribute : public Attribute {
     ~ConstantValueAttribute();
     
     // print methods
-    ostream& print(unsigned int indent = 0, ostream& output = cout) const;
+    ostream& print(ConstantPool& cp, unsigned int indent = 0, ostream& output = cout) const;
 
   private:
     u2 constantValue;
