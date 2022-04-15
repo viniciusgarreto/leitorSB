@@ -10,8 +10,14 @@ class Method;
 #include "../headers/definitions.h"
 #include "../headers/Attribute.h"
 
+/**
+* @file Method.h
+* @brief Descreve todos os metodos do arquivo .class
+*/
+
 class Method {
   public:
+   ///cosntrutor
     Method(FILE* fp, ConstantPool& cp);
     ~Method();
 

@@ -1,0 +1,45 @@
+\hypertarget{Method_8h_source}{}\doxysection{Method.\+h}
+\label{Method_8h_source}\index{headers/Method.h@{headers/Method.h}}
+\mbox{\hyperlink{Method_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#ifndef method\_h}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#define method\_h}}
+\DoxyCodeLine{3 }
+\DoxyCodeLine{4 \textcolor{keyword}{class }\mbox{\hyperlink{classMethod}{Method}};}
+\DoxyCodeLine{5 }
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#include <stdio.h>}}
+\DoxyCodeLine{7 \textcolor{preprocessor}{\#include <vector>}}
+\DoxyCodeLine{8 }
+\DoxyCodeLine{9 \textcolor{preprocessor}{\#include "{}../headers/JVM.h"{}}}
+\DoxyCodeLine{10 \textcolor{preprocessor}{\#include "{}../headers/definitions.h"{}}}
+\DoxyCodeLine{11 \textcolor{preprocessor}{\#include "{}../headers/Attribute.h"{}}}
+\DoxyCodeLine{12 }
+\DoxyCodeLine{18 \textcolor{keyword}{class }\mbox{\hyperlink{classMethod}{Method}} \{}
+\DoxyCodeLine{19   \textcolor{keyword}{public}:}
+\DoxyCodeLine{21     \mbox{\hyperlink{classMethod_ac7484f7dfbed93b2671bc2da313d2f48}{Method}}(FILE* fp, \mbox{\hyperlink{classConstantPool}{ConstantPool}}\& cp);}
+\DoxyCodeLine{22     \mbox{\hyperlink{classMethod}{\string~Method}}();}
+\DoxyCodeLine{23 }
+\DoxyCodeLine{24     \textcolor{comment}{// run method}}
+\DoxyCodeLine{25     \textcolor{keywordtype}{void} execute(\mbox{\hyperlink{classJVM}{JVM}}\& jvm, \mbox{\hyperlink{classClassFile}{ClassFile}}\& current\_class, \textcolor{keywordtype}{bool} createFrame);}
+\DoxyCodeLine{26 }
+\DoxyCodeLine{27     \textcolor{keywordtype}{string} getName(\mbox{\hyperlink{classConstantPool}{ConstantPool}}\& cp);}
+\DoxyCodeLine{28     \textcolor{keywordtype}{string} getDescriptor(\mbox{\hyperlink{classConstantPool}{ConstantPool}}\& cp);}
+\DoxyCodeLine{29 }
+\DoxyCodeLine{30     \textcolor{comment}{// print methods}}
+\DoxyCodeLine{31     ostream\& print(\mbox{\hyperlink{classConstantPool}{ConstantPool}}\& cp, ostream\& output = cout) \textcolor{keyword}{const};}
+\DoxyCodeLine{32 }
+\DoxyCodeLine{33   \textcolor{keyword}{private}:}
+\DoxyCodeLine{34     \textcolor{keywordtype}{void} ReadAttributesFromFile(FILE* fp, \mbox{\hyperlink{classConstantPool}{ConstantPool}}\& cp);}
+\DoxyCodeLine{35     \textcolor{keywordtype}{void} AddAttribute(\mbox{\hyperlink{classAttribute}{Attribute}}* attb);}
+\DoxyCodeLine{36     \mbox{\hyperlink{classCodeAttribute}{CodeAttribute}}* GetCodeAttb(\mbox{\hyperlink{classConstantPool}{ConstantPool}}\& cp);}
+\DoxyCodeLine{37 }
+\DoxyCodeLine{38     u2 access\_flags;}
+\DoxyCodeLine{39     u2 name\_index;}
+\DoxyCodeLine{40     u2 descriptor\_index;}
+\DoxyCodeLine{41     u2 attributes\_count;}
+\DoxyCodeLine{42     std::vector<Attribute*> attributes;}
+\DoxyCodeLine{43 \};}
+\DoxyCodeLine{44 }
+\DoxyCodeLine{45 \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

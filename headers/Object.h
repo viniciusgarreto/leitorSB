@@ -6,6 +6,10 @@ class Object;
 #include "../headers/definitions.h"
 #include "../headers/ClassFile.h"
 
+/*
+Classe Object
+*/
+
 class Object {
 private:
 	ClassFile * obj;
