@@ -3,6 +3,8 @@
 Obs: deve-se ter o make e g++ instalado no sistema.
 
 ### Windows
+Garanta que existam pastas vazias dep/ e bin/, nesse diretório (root do projeto).
+
 Para chamar o leitor-exibidor:
 ```
 make; .\JVM.exe read .\java\<NomeDoArquivo>.class argumento_opcional_com_nome_arquivo_output.txt
@@ -14,6 +16,8 @@ make; .\JVM.exe exec .\java\<NomeDoArquivo>.class
 ```
 
 ### Linux
+Garanta que existam pastas vazias dep/ e bin/, nesse diretório (root do projeto).
+
 Para chamar o leitor-exibidor:
 ```
 make; .\JVM read ./java/<NomeDoArquivo>.class argumento_opcional_com_nome_arquivo_output.txt
