@@ -40,11 +40,17 @@ class Frame {
     ~Frame();
 
   private:
-    u4 end_retorno;                         
+    /// endereço de retorno
+    u4 end_retorno;        
+    /// tamanho do vetor                 
     u2 vetor_length;
+    /// nome da classe atual
     string classeCorrente;
+    /// constant pool
     ConstantPool& constant_pool;
+    /// pilha de operandos
     vector<OpList> OpStack;
+    /// vetor de variaveis local
     vector<Local> local_vector;
 };
 
