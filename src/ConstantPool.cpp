@@ -146,5 +146,11 @@ string ConstantPool::getValueUTF8String(u2 index) {
   auto utf8Entry = (CONSTANT_Utf8_info*) this->getCpInfo(index);
   auto bytes = (char*) utf8Entry->bytes;
   auto length = (size_t) utf8Entry->length;
+
+  // if class tag, "dereference" twice
+  if (utf8Entry->tag == CONSTANT_Class) {
+    return this->getValueUTF8String(((CONSTANT_Class_info*) utf8Entry)->name_index);
+  }
+
   return string(bytes, length);
 }

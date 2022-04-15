@@ -49,10 +49,10 @@ ostream& ClassFile::print(ostream& output) const {
 
   output << "Magic Number: "  << this->magic      << endl
     << "Minor Version: " << this->minor_version   << endl
-    << "Major Version: " << this->major_version   << endl
+    << "Major Version: " << this->major_version   << " [1." << this->major_version-44 << "]" << endl
     << "Access Flags: "  << this->access_flags    << endl
-    << "This Class: "    << this->this_class      << endl
-    << "Super Class: "   << this->super_class     << endl
+    << "This Class: <"    << this->constant_pool->getValueUTF8String(this->this_class)  << ">" << endl
+    << "Super Class: <"   << this->constant_pool->getValueUTF8String(this->super_class) << ">" << endl
   ;
 
   output << endl << "######### Constant Pool: " << endl << *this->constant_pool << endl;
