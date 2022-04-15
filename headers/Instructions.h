@@ -10,7 +10,7 @@ class Instruction {
   public:
     Instruction(string name, int opcode, int argnum, int opnum);
     ~Instruction();
-    void setInstructions();
+    static void setInstructions();
     static Instruction& getInstruction(int opcode);
 
     // print methods
@@ -19,11 +19,12 @@ class Instruction {
 
   private:
     static Instruction** instruc;
+    static bool isBuilt;
+    static int EnumCheck;
     string name;
     int opcode;
     int argnum;
     int opnum;
     int instruct_pc;
-    int EnumCheck = 200;
 };
 #endif
