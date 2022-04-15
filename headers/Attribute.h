@@ -100,7 +100,6 @@ class CodeAttribute : public Attribute {
     void interpret(JVM& jvm, Method& method);
     /// numero maximo de variaveis locais no code array 
     string bytecodeToString(u1 bytecode) const;
-    vector<ExceptionTable*> getExceptionTable();
 
     /**
      * @brief pega a tabela de exceções 
@@ -233,100 +232,6 @@ class ConstantValueAttribute : public Attribute {
     ~ConstantValueAttribute();
     
     // print methods
-    ostream& print(ConstantPool& cp, unsigned int indent = 0, ostream& output = cout) const;
-
-  private:
-    /// Index na constant pool para o Cnstant Value
-    u2 constantValue;
-};
-
-/**Exceções que um metodo pode lançar (throw)*/
-class ExceptionsAttribute : public Attribute {
-  public:
-    /// construtor
-    ExceptionsAttribute(FILE* fp, u2 attbName, u4 attbLength);
-    ~ExceptionsAttribute();
-
-    /// print methods
-    ostream& print(ConstantPool& cp, unsigned int indent = 0, ostream& output = cout) const;
-
-  private:
-    /// numero de exceções
-    u2 num_exceptions;
-    /// table of indexes in the constant pool to CONSTANT_Class_info
-    std::vector<u2> exception_index_table;
-};
-
-///@}
-
-class StackMapAttribute : public Attribute {
-  public:
-    /// construtor
-    StackMapAttribute(FILE* fp, u2 attbName, u4 attbLength);
-    ~StackMapAttribute();
-    
-    /// print methods
-    ostream& print(ConstantPool& cp, unsigned int indent = 0, ostream& output = cout) const;
-
-  private:
-    /**
-     * @brief le pilha de frames???
-     *
-     * @param fp - referencia para o arquivo fonte
-     */
-    void readStackMapFrame(FILE* fp);
-    /// numero de entradas do frame
-    u2 num_entries;
-    /// @see StackMapFrame
-    StackMapFrame** entries;
-};
-
-/** Array de inner classes*/
-class InnerClassesAttribute : public Attribute {
-  public:
-    /// construtor
-    InnerClassesAttribute(FILE* fp, u2 attbName, u4 attbLength);
-    ~InnerClassesAttribute();
-    
-    /// print methods
-    ostream& print(ConstantPool& cp, unsigned int indent = 0, ostream& output = cout) const;
-
-  private:
-    /**
-     * @brief Adiciona as classes internas ao vetor de classes
-     * @param c- classe a ser adicionada ao vetor classes. @see Classes
-     * retorno void
-     */
-    void AddClasses(Classes* c);
-    /// numero de classes
-    u2 num_classes;
-    /// array de classes. @see Classes
-    std::vector<Classes*> classes;
-};
-
-/** Atributo de Assinatura*/
-class SignatureAttribute : public Attribute {
-  public:
-    /// construtor
-    SignatureAttribute(FILE* fp, u2 attbName, u4 attbLength);
-    ~SignatureAttribute();
-    
-    /// print methods
-    ostream& print(ConstantPool& cp, unsigned int indent = 0, ostream& output = cout) const;
-
-  private:
-    /// assinatura
-    u2 signature;
-};
-
-/** Atributo Valor Constante*/
-class ConstantValueAttribute : public Attribute {
-  public:
-    /// construtor
-    ConstantValueAttribute(FILE* fp, u2 attbName, u4 attbLength);
-    ~ConstantValueAttribute();
-    
-    /// print methods
     ostream& print(ConstantPool& cp, unsigned int indent = 0, ostream& output = cout) const;
 
   private:
