@@ -73,7 +73,7 @@ class SourceFileAttribute : public Attribute {
     ~SourceFileAttribute();
     
     /// print methods
-    ostream& print(unsigned int indent = 0, ostream& output = cout) const;
+    ostream& print(ConstantPool& cp, unsigned int indent = 0, ostream& output = cout) const;
 
   private:
     /// arquivo fonte
@@ -98,6 +98,13 @@ class CodeAttribute : public Attribute {
      * nao possui retorno
      */
     void interpret(JVM& jvm, Method& method);
+
+    /**
+     * @brief pega a tabela de exceções 
+     * @return vetor de exception table
+     */
+    vector<ExceptionTable*> getExceptionTable();
+
     /// numero maximo de variaveis locais no code array 
     u2 max_locals;
 
@@ -138,7 +145,7 @@ class LineNumberTableAttribute : public Attribute {
     ~LineNumberTableAttribute();
     
     /// print methods
-    ostream& print(unsigned int indent = 0, ostream& output = cout) const;
+    ostream& print(ConstantPool& cp, unsigned int indent = 0, ostream& output = cout) const;
 
   private:
     /**
@@ -162,7 +169,7 @@ class StackMapAttribute : public Attribute {
     ~StackMapAttribute();
     
     /// print methods
-    ostream& print(unsigned int indent = 0, ostream& output = cout) const;
+    ostream& print(ConstantPool& cp, unsigned int indent = 0, ostream& output = cout) const;
 
   private:
     /**
@@ -185,7 +192,7 @@ class InnerClassesAttribute : public Attribute {
     ~InnerClassesAttribute();
     
     /// print methods
-    ostream& print(unsigned int indent = 0, ostream& output = cout) const;
+    ostream& print(ConstantPool& cp, unsigned int indent = 0, ostream& output = cout) const;
 
   private:
     /**
@@ -208,7 +215,7 @@ class SignatureAttribute : public Attribute {
     ~SignatureAttribute();
     
     /// print methods
-    ostream& print(unsigned int indent = 0, ostream& output = cout) const;
+    ostream& print(ConstantPool& cp, unsigned int indent = 0, ostream& output = cout) const;
 
   private:
     /// assinatura
@@ -223,7 +230,7 @@ class ConstantValueAttribute : public Attribute {
     ~ConstantValueAttribute();
     
     /// print methods
-    ostream& print(unsigned int indent = 0, ostream& output = cout) const;
+    ostream& print(ConstantPool& cp, unsigned int indent = 0, ostream& output = cout) const;
 
   private:
     /// Index na constant pool para o Cnstant Value

@@ -48,9 +48,9 @@ void Field::AddAttribute(Attribute* attb) {
 
 ostream& Field::print(ConstantPool& cp, ostream& output) const {
   output << "access_flag: "<< (unsigned) this->access_flags << endl;
-  output << "name: "<< (unsigned)  this->name << endl;
-  output << "descriptor: "<< (unsigned)  this->descriptor << endl;
-  output << "attributes_count: "<< (unsigned)  this->attributes_count << endl;
+  output << "name: (" << name << ") " << cp.getValueUTF8String(name) << endl;
+  output << "descriptor: (" << (unsigned) this->descriptor << ") " << cp.getValueUTF8String(this->descriptor) << endl;
+  output << "attributes_count: "<< (unsigned) this->attributes_count << endl;
   output << "attributes: " << endl;
 
   for(const auto atb : this->attributes){

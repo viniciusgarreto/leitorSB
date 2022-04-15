@@ -7,6 +7,7 @@ class JVM;
 #include "../headers/definitions.h"
 #include "../headers/StackFrame.h"
 #include "../headers/ClassFile.h"
+#include "../headers/Method.h"
 #include "../headers/Object.h"
 
 using namespace std;
@@ -55,6 +56,7 @@ class JVM {
     * @param max_locals
     */
     void pushFrame(ClassFile& current_class, u2 max_locals);
+    u2 findHandlerMethod(Method& method);
 
     u4 pc;
     u2 exception;
@@ -62,7 +64,7 @@ class JVM {
   private:
     // singleton instance
     static JVM* instance;
-    char* exception_name;
+    string exception_name;
     StackFrame* frame_stack;
     vector<ClassFile*> classes;
     vector<Object> objects;

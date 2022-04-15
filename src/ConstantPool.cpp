@@ -143,8 +143,60 @@ string ConstantPool::getValueUTF8String(u2 index) {
   auto cpValue = this->getCpInfo(index);
   if (!cpValue) return string("[ERROR] index out of range");
 
-  auto utf8Entry = (CONSTANT_Utf8_info*) this->getCpInfo(index);
-  auto bytes = (char*) utf8Entry->bytes;
-  auto length = (size_t) utf8Entry->length;
-  return string(bytes, length);
+  auto cpInfo = (CONSTANT_Utf8_info*) this->getCpInfo(index);
+
+  // take care of special cases
+  switch (cpInfo->tag) {
+    case CONSTANT_Utf8:
+      return string((char*) cpInfo->bytes, (size_t) cpInfo->length);
+
+    case CONSTANT_Integer:
+      return to_string((int) ((CONSTANT_Integer_info*)cpInfo)->bytes);
+
+    case CONSTANT_Float:
+      return to_string((float) ((CONSTANT_Float_info*)cpInfo)->bytes);
+
+    case CONSTANT_Long:
+      {
+        long result = (long) (((CONSTANT_Double_info*)cpInfo)->high_bytes << 32) | (long) (((CONSTANT_Double_info*)cpInfo)->low_bytes);
+        return to_string(result);
+      }
+      break;
+
+    case CONSTANT_Double: 
+      {
+        double buffer = ((long) ((CONSTANT_Double_info*)cpInfo)->high_bytes << 32) | (long) (((CONSTANT_Double_info*)cpInfo)->low_bytes);
+        return string("0x") + to_string((double) buffer);
+      }
+
+    case CONSTANT_Class:
+      return this->getValueUTF8String(((CONSTANT_Class_info*) cpInfo)->name_index);
+
+    case CONSTANT_String:
+      return this->getValueUTF8String(((CONSTANT_String_info*)cpInfo)->string_index);
+
+    case CONSTANT_Fieldref:
+      return this->getValueUTF8String(((CONSTANT_Fieldref_info*) cpInfo)->class_index) + string(" ") + this->getValueUTF8String(((CONSTANT_Fieldref_info*) cpInfo)->name_and_type_index);
+
+    case CONSTANT_Methodref:
+      return this->getValueUTF8String(((CONSTANT_Methodref_info*) cpInfo)->class_index) + string(".") + (this->getValueUTF8String(((CONSTANT_Methodref_info*) cpInfo)->name_and_type_index));
+
+    case CONSTANT_InterfaceMethodref:
+      return this->getValueUTF8String(((CONSTANT_InterfaceMethodref_info*) cpInfo)->class_index) + string(" ") + this->getValueUTF8String(((CONSTANT_InterfaceMethodref_info*) cpInfo)->name_and_type_index);
+
+    case CONSTANT_NameAndType:
+      return this->getValueUTF8String(((CONSTANT_NameAndType_info*) cpInfo)->name_index) + string(" : ") + this->getValueUTF8String(((CONSTANT_NameAndType_info*) cpInfo)->descriptor_index);
+
+    case CONSTANT_MethodHandle:
+      return this->getValueUTF8String(((CONSTANT_MethodHandle_info*) cpInfo)->reference_index);
+
+    case CONSTANT_MethodType:
+      return this->getValueUTF8String(((CONSTANT_MethodType_info*) cpInfo)->descriptor_index);
+
+    case CONSTANT_InvokeDynamic:
+      return this->getValueUTF8String(((CONSTANT_InvokeDynamic_info*) cpInfo)->name_and_type_index) + string(" ") + this->getValueUTF8String(((CONSTANT_InvokeDynamic_info*) cpInfo)->bootstrap_method_attr_index);
+
+    default:
+      return string("");
+  }
 }

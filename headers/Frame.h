@@ -1,10 +1,13 @@
 #ifndef frame_h
 #define frame_h
 
+class Frame;
+
 #include <vector>
 #include <list>
 
 #include "../headers/definitions.h"
+#include "../headers/ClassFile.h"
 #include "../headers/ConstantPool.h"
 
 using namespace std;
@@ -14,7 +17,7 @@ using namespace std;
 * @brief Define a estrutura de um único Frame 
 */
 
-/// Operando e seu tipo
+/// Estrutura do Operando
 struct Op {
   /// Operando
   i4 operand;
@@ -22,22 +25,21 @@ struct Op {
   u1 operand_type;
 };
 
-struct OpList {
-  /// Lista de operandos
-  list<Op> OpList;
-};
-
-/// Variaveis locais
+/// estrutura de variaveis locais
 typedef struct local {
+  /// variavel - ponteiro para a variável
   u4 *variavel;
+  /// tipo da variavel
   u1 tipo_variavel;
 } Local;
 
 class Frame {
   public:
     /// construtor
-    Frame(string currentClass, u2 max_locals);
+    Frame(ClassFile& currentClass, u2 max_locals);
     ~Frame();
+
+    string getClassName();
 
   private:
     /// endereço de retorno
@@ -49,8 +51,8 @@ class Frame {
     /// constant pool
     ConstantPool& constant_pool;
     /// pilha de operandos
-    vector<OpList> OpStack;
-    /// vetor de variaveis local
+    vector<Op> OpStack;
+    /// vetor de variaveis locais
     vector<Local> local_vector;
 };
 

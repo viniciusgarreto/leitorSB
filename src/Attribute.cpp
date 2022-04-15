@@ -3,6 +3,7 @@
 #include "../headers/Attribute.h"
 #include "../headers/definitions.h"
 #include "../headers/ExceptionTable.h"
+#include "../headers/Instructions.h"
 
 using namespace std;
 
@@ -88,12 +89,6 @@ CodeAttribute::CodeAttribute(FILE* fp, ConstantPool& cp, u2 attbName, u4 attbLen
 		}
 	}
 }
-void CodeAttribute::AddAttribute(Attribute* interface) {
-  this->attributes.push_back(interface);
-}
-void CodeAttribute::AddExceptionTable(ExceptionTable* table) {
-  this->exception_table.push_back(table);
-}
 // destructor
 CodeAttribute::~CodeAttribute() {
 	free(this->code);
@@ -101,6 +96,14 @@ CodeAttribute::~CodeAttribute() {
 void CodeAttribute::AddAttribute(Attribute* interface) {
   this->attributes.push_back(interface);
 }
+void CodeAttribute::AddExceptionTable(ExceptionTable* table) {
+  this->exception_table.push_back(table);
+}
+vector<ExceptionTable*> CodeAttribute::getExceptionTable() {
+	return this->exception_table;
+}
+
+
 void CodeAttribute::interpret(JVM& jvm, Method& method) {
 	cout << "TODO: implement CodeAttribute::interpret" << endl;
 }
@@ -200,25 +203,25 @@ ostream& Attribute::print(ConstantPool& cp, unsigned int i, ostream& output) con
 	string string_name = cp.getValueUTF8String(this->attribute_name);
 
 	if (string_name == string(SOURCE_FILE_ATTRIBUTE))
-		return ((SourceFileAttribute*) this)->print(i, output);
+		return ((SourceFileAttribute*) this)->print(cp, i, output);
 
 	if (string_name == string(CODE_ATTRIBUTE))
 		return ((CodeAttribute*) this)->print(cp, i, output);
 
 	if (string_name == string(LINE_NUMBER_ATTRIBUTE))
-		return ((LineNumberTableAttribute*) this)->print(i, output);
+		return ((LineNumberTableAttribute*) this)->print(cp, i, output);
 
 	if (string_name == string(STACK_MAP_ATTRIBUTE))
-		return ((StackMapAttribute*) this)->print(i, output);
+		return ((StackMapAttribute*) this)->print(cp, i, output);
 
 	if (string_name == string(INNER_CLASS_ATTRIBUTE))
-		return ((InnerClassesAttribute*) this)->print(i, output);
+		return ((InnerClassesAttribute*) this)->print(cp, i, output);
 
 	if (string_name == string(SIGNATURE_ATTRIBUTE))
-		return ((SignatureAttribute*) this)->print(i, output);
+		return ((SignatureAttribute*) this)->print(cp, i, output);
 
 	if (string_name == string(CONSTANT_ATTRIBUTE))
-		return ((ConstantValueAttribute*) this)->print(i, output);
+		return ((ConstantValueAttribute*) this)->print(cp, i, output);
 
 	if (string_name == string(EXCEPTIONS_ATTRIBUTE))
 		return ((ExceptionsAttribute*) this)->print(cp, i, output);
@@ -226,25 +229,30 @@ ostream& Attribute::print(ConstantPool& cp, unsigned int i, ostream& output) con
 	return output;
 }
 
-ostream& SourceFileAttribute::print(unsigned int i, ostream& out) const {
-	indentBy(i, out) << "attribute_name: " << (unsigned) this->attribute_name << endl;
-	indentBy(i, out) << "attribute_length: " << (unsigned)  this->attribute_length << endl;
-	indentBy(i, out) << "source_file: " << (unsigned)  this->source_file << endl;
+ostream& SourceFileAttribute::print(ConstantPool& cp, unsigned int i, ostream& out) const {
+	indentBy(i, out) << "attribute_name: (" << this->attribute_name << ") " << cp.getValueUTF8String(this->attribute_name) << endl;
+	indentBy(i, out) << "attribute_length: " << (unsigned) this->attribute_length << endl;
+	indentBy(i, out) << "source_file: (" << this->source_file << ") " << cp.getValueUTF8String(this->source_file) << endl;
 
 	return out;
 }
 
 ostream& CodeAttribute::print(ConstantPool& cp, unsigned int tab, ostream& out) const {
 	indentBy(tab, out) << "Code Attribute: " << endl;
-	indentBy(tab, out) << "attribute_name: " << (unsigned) this->attribute_name << endl;
+	indentBy(tab, out) << "attribute_name: (" << this->attribute_name << ") " << cp.getValueUTF8String(this->attribute_name) << endl;
 	indentBy(tab, out) << "attribute_length: " << (unsigned) this->attribute_length << endl;
 	indentBy(tab, out) << "max_locals: " << (unsigned) this->max_locals << endl;
 	indentBy(tab, out) << "max_stack: " << (unsigned) this->max_stack << endl;
 
 	indentBy(tab, out) << "code_length: " << (unsigned) this->code_length << endl;
 	indentBy(tab, out) << "code: " << endl; 
-	for (size_t i = 0; i < this->code_length; i++) {
-		indentBy(tab+1, out) << i+1 << ") " << (unsigned) this->code[i] << endl;
+	int instructionCount = 1;
+	for (size_t i = 0; i < this->code_length; i++, instructionCount++) {
+		auto instruction = Instruction::getInstruction(this->code[i]);
+		
+		indentBy(tab+1, out) << instructionCount << ") [" << i << "] ";
+		instruction.print(out, this->code+i+1, cp) << endl;
+		i += instruction.argnum;
 	}
 	
 	indentBy(tab, out) << "exception_length: " << (unsigned) this->exception_info_length << endl;
@@ -261,8 +269,8 @@ ostream& CodeAttribute::print(ConstantPool& cp, unsigned int tab, ostream& out) 
 	return out;
 }
 
-ostream& LineNumberTableAttribute::print(unsigned int i, ostream& out) const {
-	indentBy(i, out) << "attribute_name: " << (unsigned) this->attribute_name << endl;
+ostream& LineNumberTableAttribute::print(ConstantPool& cp, unsigned int i, ostream& out) const {
+	indentBy(i, out) << "attribute_name: (" << this->attribute_name << ") " << cp.getValueUTF8String(this->attribute_name) << endl;
 	indentBy(i, out) << "attribute_length: " << (unsigned)  this->attribute_length << endl;
 	indentBy(i, out) << "line_number_table_length: " << (unsigned)  this->line_number_table_length << endl;
 	for (auto table : this->line_number_table) {
@@ -272,10 +280,10 @@ ostream& LineNumberTableAttribute::print(unsigned int i, ostream& out) const {
 	return out;
 }
 
-ostream& StackMapAttribute::print(unsigned int i, ostream& out) const {
-	indentBy(i, out) << "attribute_name: " << (unsigned) this->attribute_name << endl;
-	indentBy(i, out) << "attribute_length: " << (unsigned)  this->attribute_length << endl;
-	indentBy(i, out) << "attributes_num: " << (unsigned)  this->num_entries << endl;
+ostream& StackMapAttribute::print(ConstantPool& cp, unsigned int i, ostream& out) const {
+	indentBy(i, out) << "attribute_name: (" << this->attribute_name << ") " << cp.getValueUTF8String(this->attribute_name) << endl;
+	indentBy(i, out) << "attribute_length: " << (unsigned) this->attribute_length << endl;
+	indentBy(i, out) << "attributes_num: " << (unsigned) this->num_entries << endl;
 	indentBy(i, out) << "Attributes: " << endl;
 
 	for (int i = 0; i < this->num_entries; i++)
@@ -285,9 +293,9 @@ ostream& StackMapAttribute::print(unsigned int i, ostream& out) const {
 	return out;
 }
 
-ostream& InnerClassesAttribute::print(unsigned int i, ostream& out) const {
-	indentBy(i, out) << "attribute_name: " << (unsigned) this->attribute_name << endl;
-	indentBy(i, out) << "attribute_length: " << (unsigned)  this->attribute_length << endl;
+ostream& InnerClassesAttribute::print(ConstantPool& cp, unsigned int i, ostream& out) const {
+	indentBy(i, out) << "attribute_name: (" << this->attribute_name << ") " << cp.getValueUTF8String(this->attribute_name) << endl;
+	indentBy(i, out) << "attribute_length: " << (unsigned) this->attribute_length << endl;
 	indentBy(i, out) << "Inner Classes Attributes: " << endl;
 	indentBy(i, out) << "num_class: " << (unsigned) this->num_classes << endl;
 	for (auto c : this->classes)
@@ -296,26 +304,26 @@ ostream& InnerClassesAttribute::print(unsigned int i, ostream& out) const {
 	return out;
 }
 
-ostream& SignatureAttribute::print(unsigned int i, ostream& out) const {
-	indentBy(i, out) << "attribute_name: " << (unsigned) this->attribute_name << endl;
+ostream& SignatureAttribute::print(ConstantPool& cp, unsigned int i, ostream& out) const {
+	indentBy(i, out) << "attribute_name: (" << this->attribute_name << ") " << cp.getValueUTF8String(this->attribute_name) << endl;
 	indentBy(i, out) << "attribute_length: " << (unsigned)  this->attribute_length << endl;
 	indentBy(i, out) << "Signature Attribute: " << endl;
-	indentBy(i, out) << "signature: " << (unsigned) this->signature << endl;
+	indentBy(i, out) << "signature: (" << this->signature << ") " << cp.getValueUTF8String(this->signature) << endl;
 
 	return out;
 }
 
-ostream& ConstantValueAttribute::print(unsigned int i, ostream& out) const {
-	indentBy(i, out) << "attribute_name: " << (unsigned) this->attribute_name << endl;
+ostream& ConstantValueAttribute::print(ConstantPool& cp, unsigned int i, ostream& out) const {
+	indentBy(i, out) << "attribute_name: (" << this->attribute_name << ") " << cp.getValueUTF8String(this->attribute_name) << endl;
 	indentBy(i, out) << "attribute_length: " << (unsigned)  this->attribute_length << endl;
 	indentBy(i, out) << "Constant Value Attribute: " << endl;
-	indentBy(i, out) << "constant_value: " << (unsigned) this->constantValue << endl;
+	indentBy(i, out) << "constant_value: (" << this->constantValue << ") " << cp.getValueUTF8String(this->constantValue) << endl;
 
 	return out;
 }
 
 ostream& ExceptionsAttribute::print(ConstantPool& cp, unsigned int i, ostream& out) const {
-	indentBy(i, out) << "attribute_name: " << (unsigned) this->attribute_name << endl;
+	indentBy(i, out) << "attribute_name: (" << this->attribute_name << ") " << cp.getValueUTF8String(this->attribute_name) << endl;
 	indentBy(i, out) << "attribute_length: " << (unsigned) this->attribute_length << endl;
 	indentBy(i, out) << "Exceptions Attribute: " << endl;
 	indentBy(i, out) << "num_exceptions: " << (unsigned) this->num_exceptions << endl;

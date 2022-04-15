@@ -33,7 +33,7 @@ CONSTANT_Integer_info::~CONSTANT_Integer_info() {}
 
 ostream &operator<<(ostream &os, CONSTANT_Integer_info const &m) {
   os << "CONSTANT_Integer_info: " << endl;
-  os << "bytes: " << (unsigned)m.bytes << endl;
+  os << "bytes: 0x" << hex << (unsigned)m.bytes << dec << endl;
   return os;
 };
 
@@ -44,7 +44,7 @@ CONSTANT_Float_info::~CONSTANT_Float_info() {}
 
 ostream &operator<<(ostream &os, CONSTANT_Float_info const &m) {
   os << "CONSTANT_Float_info: " << endl;
-  os << "bytes: " << (unsigned)m.bytes << endl;
+  os << "bytes: 0x" << hex << (unsigned)m.bytes << dec << endl;
   return os;
 };
 

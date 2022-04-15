@@ -35,6 +35,7 @@ class Method {
     string getName(ConstantPool& cp);
     /// pega o descriptor a partir da constrant pool
     string getDescriptor(ConstantPool& cp);
+    CodeAttribute* getCodeAttb(ConstantPool& cp);
 
     /// print methods
     ostream& print(ConstantPool& cp, ostream& output = cout) const;
@@ -42,7 +43,6 @@ class Method {
   private:
     void ReadAttributesFromFile(FILE* fp, ConstantPool& cp);
     void AddAttribute(Attribute* attb);
-    CodeAttribute* GetCodeAttb(ConstantPool& cp);
 
     u2 access_flags;
     u2 name_index;
