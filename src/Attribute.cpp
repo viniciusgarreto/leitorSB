@@ -3,6 +3,7 @@
 #include "../headers/Attribute.h"
 #include "../headers/definitions.h"
 #include "../headers/ExceptionTable.h"
+#include "../headers/Instructions.h"
 
 using namespace std;
 
@@ -236,6 +237,17 @@ ostream& SourceFileAttribute::print(unsigned int i, ostream& out) const {
 	return out;
 }
 
+string CodeAttribute::bytecodeToString(u1 bytecode) const {
+	// Instructions inst.setInstructions();
+	// auto inst =
+	// Instruction::getInstruction(bytecode).name;
+	// inst.argnum;
+	// inst.name;
+	// inst.opcode;
+	// inst.opnum;
+	// inst.instruct_pc;
+}
+
 ostream& CodeAttribute::print(ConstantPool& cp, unsigned int tab, ostream& out) const {
 	indentBy(tab, out) << "Code Attribute: " << endl;
 	indentBy(tab, out) << "attribute_name: " << (unsigned) this->attribute_name << endl;
@@ -245,8 +257,13 @@ ostream& CodeAttribute::print(ConstantPool& cp, unsigned int tab, ostream& out) 
 
 	indentBy(tab, out) << "code_length: " << (unsigned) this->code_length << endl;
 	indentBy(tab, out) << "code: " << endl; 
-	for (size_t i = 0; i < this->code_length; i++) {
-		indentBy(tab+1, out) << i+1 << ") " << (unsigned) this->code[i] << endl;
+	int instructionCount = 1;
+	for (size_t i = 0; i < this->code_length; i++, instructionCount++) {
+		auto instruction = Instruction::getInstruction(this->code[i]);
+		
+		indentBy(tab+1, out) << instructionCount << ") [" << i << "] ";
+		instruction.print(out, this->code+i+1, cp) << endl;
+		i += instruction.argnum;
 	}
 	
 	indentBy(tab, out) << "exception_length: " << (unsigned) this->exception_info_length << endl;
