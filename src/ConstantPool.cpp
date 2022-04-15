@@ -158,7 +158,7 @@ string ConstantPool::getValueUTF8String(u2 index) {
 
     case CONSTANT_Long:
       {
-        long result = (long) (((CONSTANT_Double_info*)cpInfo)->high_bytes << 32) | (long) (((CONSTANT_Double_info*)cpInfo)->low_bytes);
+        long result = ((long) ((CONSTANT_Double_info*)cpInfo)->high_bytes << 32) | (long) (((CONSTANT_Double_info*)cpInfo)->low_bytes);
         return to_string(result);
       }
       break;
