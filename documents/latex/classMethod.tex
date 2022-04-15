@@ -1,0 +1,53 @@
+\hypertarget{classMethod}{}\doxysection{Method Class Reference}
+\label{classMethod}\index{Method@{Method}}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classMethod_ac7484f7dfbed93b2671bc2da313d2f48}\label{classMethod_ac7484f7dfbed93b2671bc2da313d2f48}} 
+{\bfseries Method} (FILE $\ast$fp, \mbox{\hyperlink{classConstantPool}{Constant\+Pool}} \&cp)
+\begin{DoxyCompactList}\small\item\em cosntrutor \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classMethod_a937a6d923221068d0a1239ccd3758b95}{execute}} (\mbox{\hyperlink{classJVM}{JVM}} \&jvm, \mbox{\hyperlink{classClassFile}{Class\+File}} \&current\+\_\+class, bool create\+Frame)
+\begin{DoxyCompactList}\small\item\em Executa o método. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classMethod_a0ce2f7dceca675dfb73694f9255c2a6b}\label{classMethod_a0ce2f7dceca675dfb73694f9255c2a6b}} 
+string {\bfseries get\+Name} (\mbox{\hyperlink{classConstantPool}{Constant\+Pool}} \&cp)
+\begin{DoxyCompactList}\small\item\em pega o nome do metodo a partir da constant pool \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classMethod_ad57dcace8c5ea1b10335c259d3c92685}\label{classMethod_ad57dcace8c5ea1b10335c259d3c92685}} 
+string {\bfseries get\+Descriptor} (\mbox{\hyperlink{classConstantPool}{Constant\+Pool}} \&cp)
+\begin{DoxyCompactList}\small\item\em pega o descriptor a partir da constrant pool \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classMethod_aa784e6a88164abe8cf7ffd3036302194}\label{classMethod_aa784e6a88164abe8cf7ffd3036302194}} 
+\mbox{\hyperlink{classCodeAttribute}{Code\+Attribute}} $\ast$ {\bfseries get\+Code\+Attb} (\mbox{\hyperlink{classConstantPool}{Constant\+Pool}} \&cp)
+\item 
+\mbox{\Hypertarget{classMethod_abdcec89c4ee6b9d04d8afafa53ae22a6}\label{classMethod_abdcec89c4ee6b9d04d8afafa53ae22a6}} 
+ostream \& {\bfseries print} (\mbox{\hyperlink{classConstantPool}{Constant\+Pool}} \&cp, ostream \&output=cout) const
+\begin{DoxyCompactList}\small\item\em print methods \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classMethod_a937a6d923221068d0a1239ccd3758b95}\label{classMethod_a937a6d923221068d0a1239ccd3758b95}} 
+\index{Method@{Method}!execute@{execute}}
+\index{execute@{execute}!Method@{Method}}
+\doxysubsubsection{\texorpdfstring{execute()}{execute()}}
+{\footnotesize\ttfamily void Method\+::execute (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classJVM}{JVM}} \&}]{jvm,  }\item[{\mbox{\hyperlink{classClassFile}{Class\+File}} \&}]{current\+\_\+class,  }\item[{bool}]{create\+Frame }\end{DoxyParamCaption})}
+
+
+
+Executa o método. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em jvm} & -\/ jvm usada para interpretação do code attribute \\
+\hline
+{\em current\+\_\+class} & -\/ class file atual \\
+\hline
+{\em create\+Frame} & -\/ flag para criação de u novo frame na jvm\+: se for 1 cria um frame com a classe atual \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+headers/\mbox{\hyperlink{Method_8h}{Method.\+h}}\item 
+src/Method.\+cpp\end{DoxyCompactItemize}

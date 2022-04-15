@@ -1,0 +1,44 @@
+\hypertarget{Fields_8h_source}{}\doxysection{Fields.\+h}
+\label{Fields_8h_source}\index{headers/Fields.h@{headers/Fields.h}}
+\mbox{\hyperlink{Fields_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{/*}}
+\DoxyCodeLine{2 \textcolor{comment}{Universidade de Brasília -\/ 2021/2}}
+\DoxyCodeLine{3 \textcolor{comment}{Software Básico -\/ Turma A}}
+\DoxyCodeLine{4 \textcolor{comment}{Trabalho: JVM}}
+\DoxyCodeLine{5 \textcolor{comment}{Alunos:}}
+\DoxyCodeLine{6 \textcolor{comment}{            Caio Bernardon N. K. Massucato – 16/0115001}}
+\DoxyCodeLine{7 \textcolor{comment}{            Rafael Gonçalves de Paulo -\/ 17/0043959}}
+\DoxyCodeLine{8 \textcolor{comment}{            José Vinícius Garreto Costa – 18/0123734}}
+\DoxyCodeLine{9 \textcolor{comment}{            Alice da Costa Borges  -\/ 18/0011855}}
+\DoxyCodeLine{10 \textcolor{comment}{            Lucas Vinicius Magalhães Pinheiro -\/ 17/0061001}}
+\DoxyCodeLine{11 \textcolor{comment}{*/}}
+\DoxyCodeLine{12 }
+\DoxyCodeLine{13 \textcolor{preprocessor}{\#ifndef fields\_h}}
+\DoxyCodeLine{14 \textcolor{preprocessor}{\#define fields\_h}}
+\DoxyCodeLine{15 }
+\DoxyCodeLine{16 \textcolor{keyword}{class }\mbox{\hyperlink{classFields}{Fields}};}
+\DoxyCodeLine{17 }
+\DoxyCodeLine{18 \textcolor{preprocessor}{\#include <vector>}}
+\DoxyCodeLine{19 \textcolor{preprocessor}{\#include <stdio.h>}}
+\DoxyCodeLine{20 }
+\DoxyCodeLine{21 \textcolor{preprocessor}{\#include "{}../headers/definitions.h"{}}}
+\DoxyCodeLine{22 \textcolor{preprocessor}{\#include "{}../headers/Field.h"{}}}
+\DoxyCodeLine{23 }
+\DoxyCodeLine{28 \textcolor{keyword}{class }\mbox{\hyperlink{classFields}{Fields}} \{}
+\DoxyCodeLine{29   \textcolor{keyword}{public}:}
+\DoxyCodeLine{30     \mbox{\hyperlink{classFields}{Fields}}(FILE* fp, \mbox{\hyperlink{classConstantPool}{ConstantPool}}\& cp);}
+\DoxyCodeLine{31     \mbox{\hyperlink{classFields}{\string~Fields}}();}
+\DoxyCodeLine{32     }
+\DoxyCodeLine{34     ostream\& \mbox{\hyperlink{classFields_aca09d35715b37aed8b293a3e1680fca8}{print}}(\mbox{\hyperlink{classConstantPool}{ConstantPool}}\& cp, ostream\& output = cout) \textcolor{keyword}{const};}
+\DoxyCodeLine{35 }
+\DoxyCodeLine{36   \textcolor{keyword}{private}:}
+\DoxyCodeLine{38     std::vector<Field*> fields;}
+\DoxyCodeLine{39     \textcolor{keywordtype}{void} ReadFieldsFromFile(FILE* fp, \mbox{\hyperlink{classConstantPool}{ConstantPool}}\& cp);}
+\DoxyCodeLine{40     \textcolor{keywordtype}{void} AddField(\mbox{\hyperlink{classField}{Field}}* field);}
+\DoxyCodeLine{42     u2 fields\_count;}
+\DoxyCodeLine{43 \};}
+\DoxyCodeLine{44 }
+\DoxyCodeLine{45 \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

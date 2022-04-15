@@ -1,0 +1,59 @@
+\hypertarget{Frame_8h_source}{}\doxysection{Frame.\+h}
+\label{Frame_8h_source}\index{headers/Frame.h@{headers/Frame.h}}
+\mbox{\hyperlink{Frame_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{/*}}
+\DoxyCodeLine{2 \textcolor{comment}{Universidade de Brasília -\/ 2021/2}}
+\DoxyCodeLine{3 \textcolor{comment}{Software Básico -\/ Turma A}}
+\DoxyCodeLine{4 \textcolor{comment}{Trabalho: JVM}}
+\DoxyCodeLine{5 \textcolor{comment}{Alunos:}}
+\DoxyCodeLine{6 \textcolor{comment}{            Caio Bernardon N. K. Massucato – 16/0115001}}
+\DoxyCodeLine{7 \textcolor{comment}{            Rafael Gonçalves de Paulo -\/ 17/0043959}}
+\DoxyCodeLine{8 \textcolor{comment}{            José Vinícius Garreto Costa – 18/0123734}}
+\DoxyCodeLine{9 \textcolor{comment}{            Alice da Costa Borges  -\/ 18/0011855}}
+\DoxyCodeLine{10 \textcolor{comment}{            Lucas Vinicius Magalhães Pinheiro -\/ 17/0061001}}
+\DoxyCodeLine{11 \textcolor{comment}{*/}}
+\DoxyCodeLine{12 }
+\DoxyCodeLine{13 \textcolor{preprocessor}{\#ifndef frame\_h}}
+\DoxyCodeLine{14 \textcolor{preprocessor}{\#define frame\_h}}
+\DoxyCodeLine{15 }
+\DoxyCodeLine{16 \textcolor{keyword}{class }\mbox{\hyperlink{classFrame}{Frame}};}
+\DoxyCodeLine{17 }
+\DoxyCodeLine{18 \textcolor{preprocessor}{\#include <vector>}}
+\DoxyCodeLine{19 \textcolor{preprocessor}{\#include <list>}}
+\DoxyCodeLine{20 }
+\DoxyCodeLine{21 \textcolor{preprocessor}{\#include "{}../headers/definitions.h"{}}}
+\DoxyCodeLine{22 \textcolor{preprocessor}{\#include "{}../headers/ClassFile.h"{}}}
+\DoxyCodeLine{23 \textcolor{preprocessor}{\#include "{}../headers/ConstantPool.h"{}}}
+\DoxyCodeLine{24 }
+\DoxyCodeLine{25 \textcolor{keyword}{using namespace }std;}
+\DoxyCodeLine{26 }
+\DoxyCodeLine{33 \textcolor{keyword}{struct }\mbox{\hyperlink{structOp}{Op}} \{}
+\DoxyCodeLine{35   i4 \mbox{\hyperlink{structOp_a544dd6a5e702b9e99f1ea0ae393ecd0e}{operand}};}
+\DoxyCodeLine{37   u1 \mbox{\hyperlink{structOp_af7d764f9a5529e767b910b92df5edbbd}{operand\_type}};}
+\DoxyCodeLine{38 \};}
+\DoxyCodeLine{39 }
+\DoxyCodeLine{41 \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\mbox{\hyperlink{structlocal}{local}} \{}
+\DoxyCodeLine{43   u4 *\mbox{\hyperlink{structlocal_a9ffaff0d3096e76d2ffcfd241050c46f}{variavel}};}
+\DoxyCodeLine{45   u1 \mbox{\hyperlink{structlocal_a763220dbeb7a8592aec36342bf3d9962}{tipo\_variavel}};}
+\DoxyCodeLine{46 \} \mbox{\hyperlink{Frame_8h_a94344b9948e6378a210fab5b090afac9}{Local}};}
+\DoxyCodeLine{47 }
+\DoxyCodeLine{48 \textcolor{keyword}{class }\mbox{\hyperlink{classFrame}{Frame}} \{}
+\DoxyCodeLine{49   \textcolor{keyword}{public}:}
+\DoxyCodeLine{51     \mbox{\hyperlink{classFrame_a1f545144d6dfe52262e20c2ec0d221ac}{Frame}}(\mbox{\hyperlink{classClassFile}{ClassFile}}\& currentClass, u2 max\_locals);}
+\DoxyCodeLine{52     \mbox{\hyperlink{classFrame}{\string~Frame}}();}
+\DoxyCodeLine{53 }
+\DoxyCodeLine{58     \textcolor{keywordtype}{string} \mbox{\hyperlink{classFrame_a5c96499d458ac9ae42b030b8175df05f}{getClassName}}();}
+\DoxyCodeLine{59 }
+\DoxyCodeLine{60   \textcolor{keyword}{private}:}
+\DoxyCodeLine{62     u4 end\_retorno;        }
+\DoxyCodeLine{64     u2 vetor\_length;}
+\DoxyCodeLine{66     \textcolor{keywordtype}{string} classeCorrente;}
+\DoxyCodeLine{68     \mbox{\hyperlink{classConstantPool}{ConstantPool}}\& constant\_pool;}
+\DoxyCodeLine{70     vector<Op> \mbox{\hyperlink{classOpStack}{OpStack}};}
+\DoxyCodeLine{72     vector<Local> local\_vector;}
+\DoxyCodeLine{73 \};}
+\DoxyCodeLine{74 }
+\DoxyCodeLine{75 \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

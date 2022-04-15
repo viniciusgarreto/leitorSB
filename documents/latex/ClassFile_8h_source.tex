@@ -1,0 +1,66 @@
+\hypertarget{ClassFile_8h_source}{}\doxysection{Class\+File.\+h}
+\label{ClassFile_8h_source}\index{headers/ClassFile.h@{headers/ClassFile.h}}
+\mbox{\hyperlink{ClassFile_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{/*}}
+\DoxyCodeLine{2 \textcolor{comment}{Universidade de Brasília -\/ 2021/2}}
+\DoxyCodeLine{3 \textcolor{comment}{Software Básico -\/ Turma A}}
+\DoxyCodeLine{4 \textcolor{comment}{Trabalho: JVM}}
+\DoxyCodeLine{5 \textcolor{comment}{Alunos:}}
+\DoxyCodeLine{6 \textcolor{comment}{            Caio Bernardon N. K. Massucato – 16/0115001}}
+\DoxyCodeLine{7 \textcolor{comment}{            Rafael Gonçalves de Paulo -\/ 17/0043959}}
+\DoxyCodeLine{8 \textcolor{comment}{            José Vinícius Garreto Costa – 18/0123734}}
+\DoxyCodeLine{9 \textcolor{comment}{            Alice da Costa Borges  -\/ 18/0011855}}
+\DoxyCodeLine{10 \textcolor{comment}{            Lucas Vinicius Magalhães Pinheiro -\/ 17/0061001}}
+\DoxyCodeLine{11 \textcolor{comment}{*/}}
+\DoxyCodeLine{12 }
+\DoxyCodeLine{13 \textcolor{preprocessor}{\#ifndef classFile\_h}}
+\DoxyCodeLine{14 \textcolor{preprocessor}{\#define classFile\_h}}
+\DoxyCodeLine{15 }
+\DoxyCodeLine{16 \textcolor{keyword}{class }\mbox{\hyperlink{classClassFile}{ClassFile}};}
+\DoxyCodeLine{17 }
+\DoxyCodeLine{18 \textcolor{preprocessor}{\#include <stdio.h>}}
+\DoxyCodeLine{19 }
+\DoxyCodeLine{20 \textcolor{preprocessor}{\#include "{}../headers/definitions.h"{}}}
+\DoxyCodeLine{21 \textcolor{preprocessor}{\#include "{}../headers/ConstantPool.h"{}}}
+\DoxyCodeLine{22 \textcolor{preprocessor}{\#include "{}../headers/Interfaces.h"{}}}
+\DoxyCodeLine{23 \textcolor{preprocessor}{\#include "{}../headers/Fields.h"{}}}
+\DoxyCodeLine{24 \textcolor{preprocessor}{\#include "{}../headers/Methods.h"{}}}
+\DoxyCodeLine{25 \textcolor{preprocessor}{\#include "{}../headers/Attributes.h"{}}}
+\DoxyCodeLine{26 }
+\DoxyCodeLine{31 \textcolor{keyword}{using namespace }std;}
+\DoxyCodeLine{32 \textcolor{keyword}{class }\mbox{\hyperlink{classClassFile}{ClassFile}} \{}
+\DoxyCodeLine{33   \textcolor{keyword}{public}:}
+\DoxyCodeLine{35     \mbox{\hyperlink{classClassFile_aed7c4bc94d4d7aff8785a262befa19fc}{ClassFile}}(FILE* fp);}
+\DoxyCodeLine{36     \mbox{\hyperlink{classClassFile}{\string~ClassFile}}();}
+\DoxyCodeLine{37 }
+\DoxyCodeLine{39 }
+\DoxyCodeLine{44     \textcolor{keyword}{static} \mbox{\hyperlink{classClassFile}{ClassFile}}* \mbox{\hyperlink{classClassFile_a8a7d28163dba39e564fd52c89cc2a0ce}{lerArquivo}}(\textcolor{keywordtype}{string} nomeArquivo);}
+\DoxyCodeLine{45     }
+\DoxyCodeLine{50     \textcolor{keywordtype}{string} \mbox{\hyperlink{classClassFile_aa2d252ccff84c96af1e582ab07ff551d}{getName}}();}
+\DoxyCodeLine{51 }
+\DoxyCodeLine{56     \mbox{\hyperlink{classConstantPool}{ConstantPool}}\& \mbox{\hyperlink{classClassFile_a5d6bd37c7a0e52eb052b4b732b843fbb}{getConstantPool}}();}
+\DoxyCodeLine{57 }
+\DoxyCodeLine{62     \mbox{\hyperlink{classMethod}{Method}}* \mbox{\hyperlink{classClassFile_a4281c17a7f05e4a90a31223b26a45a75}{getMain}}();}
+\DoxyCodeLine{67     \mbox{\hyperlink{classMethod}{Method}}* \mbox{\hyperlink{classClassFile_ab295d2a578c0589d05ee6476b0f63753}{getCLinit}}();}
+\DoxyCodeLine{68 }
+\DoxyCodeLine{70     ostream\& \mbox{\hyperlink{classClassFile_ac5a02c78b20db225967ba027739367d0}{print}}(ostream\& output = cout) \textcolor{keyword}{const};}
+\DoxyCodeLine{71     \textcolor{keyword}{friend} ostream\& operator<<(ostream\& out, \textcolor{keyword}{const} \mbox{\hyperlink{classClassFile}{ClassFile}}\& cf);}
+\DoxyCodeLine{72 }
+\DoxyCodeLine{73   \textcolor{keyword}{private}:}
+\DoxyCodeLine{75     u4 magic;}
+\DoxyCodeLine{77     u2 minor\_version;}
+\DoxyCodeLine{79     u2 major\_version;}
+\DoxyCodeLine{81     \mbox{\hyperlink{classConstantPool}{ConstantPool}}* constant\_pool;}
+\DoxyCodeLine{83     u2 access\_flags;}
+\DoxyCodeLine{85     u2 this\_class;}
+\DoxyCodeLine{87     u2 super\_class; }
+\DoxyCodeLine{89     \mbox{\hyperlink{classInterfaces}{Interfaces}}* interfaces;  }
+\DoxyCodeLine{91     \mbox{\hyperlink{classFields}{Fields}}* fields;   }
+\DoxyCodeLine{93     \mbox{\hyperlink{classMethods}{Methods}}* methods;  }
+\DoxyCodeLine{95     \mbox{\hyperlink{classAttributes}{Attributes}}* attributes;       }
+\DoxyCodeLine{96 \};}
+\DoxyCodeLine{97 }
+\DoxyCodeLine{98 \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

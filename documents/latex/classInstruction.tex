@@ -1,0 +1,61 @@
+\hypertarget{classInstruction}{}\doxysection{Instruction Class Reference}
+\label{classInstruction}\index{Instruction@{Instruction}}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classInstruction_abb15d8b6f83d1261fc62ff28d4ad25b5}\label{classInstruction_abb15d8b6f83d1261fc62ff28d4ad25b5}} 
+{\bfseries Instruction} (string \mbox{\hyperlink{classInstruction_af0880d3430a526808456ad82fdf86a21}{name}}, int \mbox{\hyperlink{classInstruction_ac09540bbae6bf2669f83f0799382a934}{opcode}}, int \mbox{\hyperlink{classInstruction_a96118ddea8c8cba810434337bf8eaccf}{argnum}}, int \mbox{\hyperlink{classInstruction_a124aa19b4a83dbc9c9ecb7cfb5abff62}{opnum}})
+\begin{DoxyCompactList}\small\item\em construtor \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classInstruction_a02e2014c0ece9ccbe32ad256715a4ace}\label{classInstruction_a02e2014c0ece9ccbe32ad256715a4ace}} 
+ostream \& {\bfseries print} (ostream \&output, u1 $\ast$code, \mbox{\hyperlink{classConstantPool}{Constant\+Pool}} \&cp) const
+\begin{DoxyCompactList}\small\item\em print methods \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{classInstruction}{Instruction}} \& \mbox{\hyperlink{classInstruction_a6daf809524fb76d53accadce7c599858}{get\+Instruction}} (int \mbox{\hyperlink{classInstruction_ac09540bbae6bf2669f83f0799382a934}{opcode}})
+\begin{DoxyCompactList}\small\item\em cria todas as instruções e as atribui ao array de instruções (instruc\mbox{[}opcode\mbox{]}) \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classInstruction_af0880d3430a526808456ad82fdf86a21}\label{classInstruction_af0880d3430a526808456ad82fdf86a21}} 
+string {\bfseries name}
+\begin{DoxyCompactList}\small\item\em Nome da instrução. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classInstruction_ac09540bbae6bf2669f83f0799382a934}\label{classInstruction_ac09540bbae6bf2669f83f0799382a934}} 
+int {\bfseries opcode}
+\begin{DoxyCompactList}\small\item\em Codigo de instrução. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classInstruction_a96118ddea8c8cba810434337bf8eaccf}\label{classInstruction_a96118ddea8c8cba810434337bf8eaccf}} 
+int {\bfseries argnum}
+\begin{DoxyCompactList}\small\item\em Numero de argumento. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classInstruction_a124aa19b4a83dbc9c9ecb7cfb5abff62}\label{classInstruction_a124aa19b4a83dbc9c9ecb7cfb5abff62}} 
+int {\bfseries opnum}
+\begin{DoxyCompactList}\small\item\em Numero do operador. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classInstruction_a0417677bd539c3d0370b55795a09df71}\label{classInstruction_a0417677bd539c3d0370b55795a09df71}} 
+int {\bfseries instruct\+\_\+pc}
+\begin{DoxyCompactList}\small\item\em Contador de programas. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classInstruction_a6daf809524fb76d53accadce7c599858}\label{classInstruction_a6daf809524fb76d53accadce7c599858}} 
+\index{Instruction@{Instruction}!getInstruction@{getInstruction}}
+\index{getInstruction@{getInstruction}!Instruction@{Instruction}}
+\doxysubsubsection{\texorpdfstring{getInstruction()}{getInstruction()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classInstruction}{Instruction}} \& Instruction\+::get\+Instruction (\begin{DoxyParamCaption}\item[{int}]{opcode }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+cria todas as instruções e as atribui ao array de instruções (instruc\mbox{[}opcode\mbox{]}) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em opcode} & -\/ referência da instrução desejada \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{classInstruction}{Instruction}} -\/ retorna a instrução procurada 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+headers/\mbox{\hyperlink{Instructions_8h}{Instructions.\+h}}\item 
+src/Instructions.\+cpp\end{DoxyCompactItemize}

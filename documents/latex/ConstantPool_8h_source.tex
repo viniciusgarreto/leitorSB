@@ -1,0 +1,52 @@
+\hypertarget{ConstantPool_8h_source}{}\doxysection{Constant\+Pool.\+h}
+\label{ConstantPool_8h_source}\index{headers/ConstantPool.h@{headers/ConstantPool.h}}
+\mbox{\hyperlink{ConstantPool_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{/*}}
+\DoxyCodeLine{2 \textcolor{comment}{Universidade de Brasília -\/ 2021/2}}
+\DoxyCodeLine{3 \textcolor{comment}{Software Básico -\/ Turma A}}
+\DoxyCodeLine{4 \textcolor{comment}{Trabalho: JVM}}
+\DoxyCodeLine{5 \textcolor{comment}{Alunos:}}
+\DoxyCodeLine{6 \textcolor{comment}{            Caio Bernardon N. K. Massucato – 16/0115001}}
+\DoxyCodeLine{7 \textcolor{comment}{            Rafael Gonçalves de Paulo -\/ 17/0043959}}
+\DoxyCodeLine{8 \textcolor{comment}{            José Vinícius Garreto Costa – 18/0123734}}
+\DoxyCodeLine{9 \textcolor{comment}{            Alice da Costa Borges  -\/ 18/0011855}}
+\DoxyCodeLine{10 \textcolor{comment}{            Lucas Vinicius Magalhães Pinheiro -\/ 17/0061001}}
+\DoxyCodeLine{11 \textcolor{comment}{*/}}
+\DoxyCodeLine{12 }
+\DoxyCodeLine{13 \textcolor{preprocessor}{\#ifndef constant\_pool\_h}}
+\DoxyCodeLine{14 \textcolor{preprocessor}{\#define constant\_pool\_h}}
+\DoxyCodeLine{15 }
+\DoxyCodeLine{16 \textcolor{keyword}{class }\mbox{\hyperlink{classConstantPool}{ConstantPool}};}
+\DoxyCodeLine{17 }
+\DoxyCodeLine{18 \textcolor{preprocessor}{\#include <vector>}}
+\DoxyCodeLine{19 \textcolor{preprocessor}{\#include <stdio.h>}}
+\DoxyCodeLine{20 \textcolor{comment}{// \#include <stdlib.h>}}
+\DoxyCodeLine{21 }
+\DoxyCodeLine{22 \textcolor{preprocessor}{\#include "{}../headers/definitions.h"{}}}
+\DoxyCodeLine{23 \textcolor{preprocessor}{\#include "{}../headers/CpInfo.h"{}}}
+\DoxyCodeLine{24 }
+\DoxyCodeLine{29 \textcolor{keyword}{using namespace }std;}
+\DoxyCodeLine{30 }
+\DoxyCodeLine{31 \textcolor{keyword}{class }\mbox{\hyperlink{classConstantPool}{ConstantPool}} \{}
+\DoxyCodeLine{32   \textcolor{keyword}{public}:}
+\DoxyCodeLine{34     \mbox{\hyperlink{classConstantPool_a999e9a6bb24b58a3ec36093248649e84}{ConstantPool}}(FILE* fp);}
+\DoxyCodeLine{35     \mbox{\hyperlink{classConstantPool}{\string~ConstantPool}}();}
+\DoxyCodeLine{36 }
+\DoxyCodeLine{38     ostream\& \mbox{\hyperlink{classConstantPool_a7e94f1418868370cd649e5447e7518e1}{print}}(ostream\& output = cout) \textcolor{keyword}{const};}
+\DoxyCodeLine{39     \textcolor{keyword}{friend} ostream\& operator<<(ostream\& out, \textcolor{keyword}{const} \mbox{\hyperlink{classConstantPool}{ConstantPool}}\& cf);}
+\DoxyCodeLine{40 }
+\DoxyCodeLine{46     \mbox{\hyperlink{classCpInfo}{CpInfo}}* \mbox{\hyperlink{classConstantPool_a99a3bf22b859ec708b7eaeb34f143c18}{getCpInfo}}(u2 index);}
+\DoxyCodeLine{47 }
+\DoxyCodeLine{53     \textcolor{keywordtype}{string} \mbox{\hyperlink{classConstantPool_a51a7e6b5f3be636bb1f93cff14416a6f}{getValueUTF8String}}(u2 index);}
+\DoxyCodeLine{54   \textcolor{keyword}{private}:}
+\DoxyCodeLine{55 }
+\DoxyCodeLine{60     \textcolor{keywordtype}{void} ReadConstantPoolFromFile(FILE* fp);}
+\DoxyCodeLine{61     u2 count;}
+\DoxyCodeLine{62     \mbox{\hyperlink{classCpInfo}{CpInfo}}** cp\_infos;}
+\DoxyCodeLine{63 \};}
+\DoxyCodeLine{64 }
+\DoxyCodeLine{65 }
+\DoxyCodeLine{66 \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

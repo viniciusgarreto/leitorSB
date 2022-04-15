@@ -1,0 +1,42 @@
+\hypertarget{StackFrame_8h_source}{}\doxysection{Stack\+Frame.\+h}
+\label{StackFrame_8h_source}\index{headers/StackFrame.h@{headers/StackFrame.h}}
+\mbox{\hyperlink{StackFrame_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{/*}}
+\DoxyCodeLine{2 \textcolor{comment}{Universidade de Brasília -\/ 2021/2}}
+\DoxyCodeLine{3 \textcolor{comment}{Software Básico -\/ Turma A}}
+\DoxyCodeLine{4 \textcolor{comment}{Trabalho: JVM}}
+\DoxyCodeLine{5 \textcolor{comment}{Alunos:}}
+\DoxyCodeLine{6 \textcolor{comment}{            Caio Bernardon N. K. Massucato – 16/0115001}}
+\DoxyCodeLine{7 \textcolor{comment}{            Rafael Gonçalves de Paulo -\/ 17/0043959}}
+\DoxyCodeLine{8 \textcolor{comment}{            José Vinícius Garreto Costa – 18/0123734}}
+\DoxyCodeLine{9 \textcolor{comment}{            Alice da Costa Borges  -\/ 18/0011855}}
+\DoxyCodeLine{10 \textcolor{comment}{            Lucas Vinicius Magalhães Pinheiro -\/ 17/0061001}}
+\DoxyCodeLine{11 \textcolor{comment}{*/}}
+\DoxyCodeLine{12 }
+\DoxyCodeLine{13 \textcolor{preprocessor}{\#ifndef stack\_frame\_h}}
+\DoxyCodeLine{14 \textcolor{preprocessor}{\#define stack\_frame\_h}}
+\DoxyCodeLine{15 }
+\DoxyCodeLine{16 \textcolor{keyword}{class }\mbox{\hyperlink{classStackFrame}{StackFrame}};}
+\DoxyCodeLine{17 }
+\DoxyCodeLine{18 \textcolor{preprocessor}{\#include <vector>}}
+\DoxyCodeLine{19 \textcolor{preprocessor}{\#include "{}../headers/Frame.h"{}}}
+\DoxyCodeLine{20 }
+\DoxyCodeLine{26 \textcolor{keyword}{class }\mbox{\hyperlink{classStackFrame}{StackFrame}} \{}
+\DoxyCodeLine{27   \textcolor{keyword}{public}:}
+\DoxyCodeLine{29     \mbox{\hyperlink{classStackFrame_aafd12760eafab836ff0e19960ef8e2af}{StackFrame}}();}
+\DoxyCodeLine{30     \mbox{\hyperlink{classStackFrame}{\string~StackFrame}}();}
+\DoxyCodeLine{31 }
+\DoxyCodeLine{36     \textcolor{keywordtype}{void} \mbox{\hyperlink{classStackFrame_a97e7b404595ef4992061671107a5b609}{pushFrame}}(\mbox{\hyperlink{classFrame}{Frame}}* frame);}
+\DoxyCodeLine{37     }
+\DoxyCodeLine{42     \mbox{\hyperlink{classFrame}{Frame}}* \mbox{\hyperlink{classStackFrame_a12b57a9971157f21f01c2627557b815b}{topFrame}}();}
+\DoxyCodeLine{43     }
+\DoxyCodeLine{47     \textcolor{keywordtype}{void} \mbox{\hyperlink{classStackFrame_ab90516f0a1ac37d80230eddba63c20e3}{popFrame}}();}
+\DoxyCodeLine{48 }
+\DoxyCodeLine{49   \textcolor{keyword}{private}:}
+\DoxyCodeLine{51     vector<Frame*> frames;}
+\DoxyCodeLine{52 \};}
+\DoxyCodeLine{53 }
+\DoxyCodeLine{54 \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

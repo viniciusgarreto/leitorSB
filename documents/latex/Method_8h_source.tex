@@ -1,0 +1,56 @@
+\hypertarget{Method_8h_source}{}\doxysection{Method.\+h}
+\label{Method_8h_source}\index{headers/Method.h@{headers/Method.h}}
+\mbox{\hyperlink{Method_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{/*}}
+\DoxyCodeLine{2 \textcolor{comment}{Universidade de Brasília -\/ 2021/2}}
+\DoxyCodeLine{3 \textcolor{comment}{Software Básico -\/ Turma A}}
+\DoxyCodeLine{4 \textcolor{comment}{Trabalho: JVM}}
+\DoxyCodeLine{5 \textcolor{comment}{Alunos:}}
+\DoxyCodeLine{6 \textcolor{comment}{            Caio Bernardon N. K. Massucato – 16/0115001}}
+\DoxyCodeLine{7 \textcolor{comment}{            Rafael Gonçalves de Paulo -\/ 17/0043959}}
+\DoxyCodeLine{8 \textcolor{comment}{            José Vinícius Garreto Costa – 18/0123734}}
+\DoxyCodeLine{9 \textcolor{comment}{            Alice da Costa Borges  -\/ 18/0011855}}
+\DoxyCodeLine{10 \textcolor{comment}{            Lucas Vinicius Magalhães Pinheiro -\/ 17/0061001}}
+\DoxyCodeLine{11 \textcolor{comment}{*/}}
+\DoxyCodeLine{12 }
+\DoxyCodeLine{13 \textcolor{preprocessor}{\#ifndef method\_h}}
+\DoxyCodeLine{14 \textcolor{preprocessor}{\#define method\_h}}
+\DoxyCodeLine{15 }
+\DoxyCodeLine{16 \textcolor{keyword}{class }\mbox{\hyperlink{classMethod}{Method}};}
+\DoxyCodeLine{17 }
+\DoxyCodeLine{18 \textcolor{preprocessor}{\#include <stdio.h>}}
+\DoxyCodeLine{19 \textcolor{preprocessor}{\#include <vector>}}
+\DoxyCodeLine{20 }
+\DoxyCodeLine{21 \textcolor{preprocessor}{\#include "{}../headers/JVM.h"{}}}
+\DoxyCodeLine{22 \textcolor{preprocessor}{\#include "{}../headers/definitions.h"{}}}
+\DoxyCodeLine{23 \textcolor{preprocessor}{\#include "{}../headers/Attribute.h"{}}}
+\DoxyCodeLine{24 }
+\DoxyCodeLine{30 \textcolor{keyword}{class }\mbox{\hyperlink{classMethod}{Method}} \{}
+\DoxyCodeLine{31   \textcolor{keyword}{public}:}
+\DoxyCodeLine{33     \mbox{\hyperlink{classMethod_ac7484f7dfbed93b2671bc2da313d2f48}{Method}}(FILE* fp, \mbox{\hyperlink{classConstantPool}{ConstantPool}}\& cp);}
+\DoxyCodeLine{34     \mbox{\hyperlink{classMethod}{\string~Method}}();}
+\DoxyCodeLine{35 }
+\DoxyCodeLine{36     \textcolor{comment}{// run method}}
+\DoxyCodeLine{44 \textcolor{comment}{}    \textcolor{keywordtype}{void} \mbox{\hyperlink{classMethod_a937a6d923221068d0a1239ccd3758b95}{execute}}(\mbox{\hyperlink{classJVM}{JVM}}\& jvm, \mbox{\hyperlink{classClassFile}{ClassFile}}\& current\_class, \textcolor{keywordtype}{bool} createFrame);}
+\DoxyCodeLine{45 }
+\DoxyCodeLine{47     \textcolor{keywordtype}{string} \mbox{\hyperlink{classMethod_a0ce2f7dceca675dfb73694f9255c2a6b}{getName}}(\mbox{\hyperlink{classConstantPool}{ConstantPool}}\& cp);}
+\DoxyCodeLine{49     \textcolor{keywordtype}{string} \mbox{\hyperlink{classMethod_ad57dcace8c5ea1b10335c259d3c92685}{getDescriptor}}(\mbox{\hyperlink{classConstantPool}{ConstantPool}}\& cp);}
+\DoxyCodeLine{50     \mbox{\hyperlink{classCodeAttribute}{CodeAttribute}}* getCodeAttb(\mbox{\hyperlink{classConstantPool}{ConstantPool}}\& cp);}
+\DoxyCodeLine{51 }
+\DoxyCodeLine{53     ostream\& \mbox{\hyperlink{classMethod_abdcec89c4ee6b9d04d8afafa53ae22a6}{print}}(\mbox{\hyperlink{classConstantPool}{ConstantPool}}\& cp, ostream\& output = cout) \textcolor{keyword}{const};}
+\DoxyCodeLine{54 }
+\DoxyCodeLine{55   \textcolor{keyword}{private}:}
+\DoxyCodeLine{62     \textcolor{keywordtype}{void} ReadAttributesFromFile(FILE* fp, \mbox{\hyperlink{classConstantPool}{ConstantPool}}\& cp);}
+\DoxyCodeLine{68     \textcolor{keywordtype}{void} AddAttribute(\mbox{\hyperlink{classAttribute}{Attribute}}* attb);}
+\DoxyCodeLine{69 }
+\DoxyCodeLine{71     u2 access\_flags;}
+\DoxyCodeLine{73     u2 name\_index;}
+\DoxyCodeLine{75     u2 descriptor\_index;}
+\DoxyCodeLine{77     u2 attributes\_count;}
+\DoxyCodeLine{79     std::vector<Attribute*> attributes;}
+\DoxyCodeLine{80 \};}
+\DoxyCodeLine{81 }
+\DoxyCodeLine{82 \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

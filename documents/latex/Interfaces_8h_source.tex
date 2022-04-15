@@ -1,0 +1,46 @@
+\hypertarget{Interfaces_8h_source}{}\doxysection{Interfaces.\+h}
+\label{Interfaces_8h_source}\index{headers/Interfaces.h@{headers/Interfaces.h}}
+\mbox{\hyperlink{Interfaces_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{/*}}
+\DoxyCodeLine{2 \textcolor{comment}{Universidade de Brasília -\/ 2021/2}}
+\DoxyCodeLine{3 \textcolor{comment}{Software Básico -\/ Turma A}}
+\DoxyCodeLine{4 \textcolor{comment}{Trabalho: JVM}}
+\DoxyCodeLine{5 \textcolor{comment}{Alunos:}}
+\DoxyCodeLine{6 \textcolor{comment}{            Caio Bernardon N. K. Massucato – 16/0115001}}
+\DoxyCodeLine{7 \textcolor{comment}{            Rafael Gonçalves de Paulo -\/ 17/0043959}}
+\DoxyCodeLine{8 \textcolor{comment}{            José Vinícius Garreto Costa – 18/0123734}}
+\DoxyCodeLine{9 \textcolor{comment}{            Alice da Costa Borges  -\/ 18/0011855}}
+\DoxyCodeLine{10 \textcolor{comment}{            Lucas Vinicius Magalhães Pinheiro -\/ 17/0061001}}
+\DoxyCodeLine{11 \textcolor{comment}{*/}}
+\DoxyCodeLine{12 }
+\DoxyCodeLine{13 \textcolor{preprocessor}{\#ifndef interfaces\_h}}
+\DoxyCodeLine{14 \textcolor{preprocessor}{\#define interfaces\_h}}
+\DoxyCodeLine{15 }
+\DoxyCodeLine{16 \textcolor{preprocessor}{\#include <vector>}}
+\DoxyCodeLine{17 \textcolor{preprocessor}{\#include <stdio.h>}}
+\DoxyCodeLine{18 \textcolor{preprocessor}{\#include <iostream>}}
+\DoxyCodeLine{19 \textcolor{preprocessor}{\#include <sstream>}}
+\DoxyCodeLine{20 }
+\DoxyCodeLine{21 \textcolor{preprocessor}{\#include "{}../headers/definitions.h"{}}}
+\DoxyCodeLine{22 \textcolor{preprocessor}{\#include "{}../headers/ConstantPool.h"{}}}
+\DoxyCodeLine{23 }
+\DoxyCodeLine{24 \textcolor{keyword}{using namespace }std;}
+\DoxyCodeLine{25 }
+\DoxyCodeLine{31 \textcolor{keyword}{class }\mbox{\hyperlink{classInterfaces}{Interfaces}} \{}
+\DoxyCodeLine{32   \textcolor{keyword}{public}:}
+\DoxyCodeLine{34     \mbox{\hyperlink{classInterfaces_af20ea1e402f51a143c08c7c645ce1ccd}{Interfaces}}(FILE *fp);}
+\DoxyCodeLine{35     \mbox{\hyperlink{classInterfaces}{\string~Interfaces}}();}
+\DoxyCodeLine{36 }
+\DoxyCodeLine{38     ostream\& \mbox{\hyperlink{classInterfaces_ab40319fbff5926a1301695c19672dd97}{print}}(\mbox{\hyperlink{classConstantPool}{ConstantPool}}\& cp, ostream\& output = cout) \textcolor{keyword}{const};}
+\DoxyCodeLine{39 }
+\DoxyCodeLine{40   \textcolor{keyword}{private}:}
+\DoxyCodeLine{45     \textcolor{keywordtype}{void} AddInterface(u2 interface);}
+\DoxyCodeLine{47     std::vector<u2> interfaces;}
+\DoxyCodeLine{49     u2 count;}
+\DoxyCodeLine{50 \};}
+\DoxyCodeLine{51 }
+\DoxyCodeLine{52 }
+\DoxyCodeLine{53 \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}
