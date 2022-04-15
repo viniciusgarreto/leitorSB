@@ -158,14 +158,14 @@ string ConstantPool::getValueUTF8String(u2 index) {
 
     case CONSTANT_Long:
       {
-        long result = ((long) ((CONSTANT_Double_info*)cpInfo)->high_bytes << 32) | (long) (((CONSTANT_Double_info*)cpInfo)->low_bytes);
+        long result = ((unsigned long long) ((CONSTANT_Double_info*)cpInfo)->high_bytes << 32) | (unsigned long long) (((CONSTANT_Double_info*)cpInfo)->low_bytes);
         return to_string(result);
       }
       break;
 
     case CONSTANT_Double: 
       {
-        double buffer = ((long) ((CONSTANT_Double_info*)cpInfo)->high_bytes << 32) | (long) (((CONSTANT_Double_info*)cpInfo)->low_bytes);
+        double buffer = ((unsigned long long) ((CONSTANT_Double_info*)cpInfo)->high_bytes << 32) | (unsigned long long) (((CONSTANT_Double_info*)cpInfo)->low_bytes);
         return string("0x") + to_string((double) buffer);
       }
 
