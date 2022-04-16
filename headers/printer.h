@@ -12,10 +12,13 @@ Alunos:
 
 #ifndef printer_h
 #define printer_h
-
+/**
+* @file printer.h
+* @brief Imprime o conteúdo do arquivo .class.
+*/
 /**
   * @brief Função de exibir o conteúdo do arquivo .class.
-  * @param class_file - Class File
+  * @param class_file - referencia para o arquivo .class
   */
 void imprimirArquivo(ClassFile *class_file, ostream& output = cout);
 

@@ -21,6 +21,19 @@ Alunos:
 #include "../headers/LineNumberTable.h"
 #include "../headers/VerificationTypeInfo.h"
 
+/**
+* @file StackMapFrame.h
+* @brief Classe Stack Map Frame definida pelo atributo Stack Map Table,
+union stack_map_frame {
+  same_frame;
+  same_locals_1_stack_item_frame;
+  same_locals_1_stack_item_frame_extended;
+  chop_frame;
+  same_frame_extended;
+  append_frame;
+  full_frame;
+}
+*/
 class StackMapFrame {
   public:
     /// Construtor
@@ -30,22 +43,30 @@ class StackMapFrame {
     /// print methods
     ostream& print(unsigned int indent = 0, ostream& output = cout) const;
 
-    /***/
+    /**
+    * @brief lê o stack map frame do arquivo .class e a partir do valor de entrada lido, definindo assim o tipo do frame lido
+    (classes herdeiras)
+    * @param fp - referencia para o arquivo class
+    * @return StackMapFrame - retorna o stack map frame existente no arquivo .class
+    */
     static StackMapFrame* readStackMapFrame(FILE* fp);
 
   protected:
+    /// tipo do frame
     u1 frame_type;
 };
 
+/// representada pelas tags no intervalo [0-63]
 class SameFrame : public StackMapFrame {
   public:
     SameFrame(u1 tag);
     ~SameFrame();
 
-    // print methods
+    /// print methods
     ostream& print(unsigned int indent = 0, ostream& output = cout) const;
 };
 
+/// representada pela tag 251 
 class SameFrameExtended : public StackMapFrame {
   public:
     SameFrameExtended(u1 tag, FILE* fp);
@@ -58,6 +79,7 @@ class SameFrameExtended : public StackMapFrame {
     u2 offset_delta;
 };
 
+/// representada pelas tags no intervalo [64-127]
 class SameLocals1StackItemFrame : public StackMapFrame {
   public:
     SameLocals1StackItemFrame(u1 tag, FILE* fp);
@@ -70,6 +92,7 @@ class SameLocals1StackItemFrame : public StackMapFrame {
     VerificationTypeInfo* item;
 };
 
+/// representada pela tag 247
 class SameLocals1StackItemFrameExtended : public StackMapFrame {
   public:
     SameLocals1StackItemFrameExtended(u1 tag, FILE* fp);
@@ -83,6 +106,7 @@ class SameLocals1StackItemFrameExtended : public StackMapFrame {
     VerificationTypeInfo* item;
 };
 
+/// representada pelas tags no intervalo [248-250]
 class ChopFrame : public StackMapFrame {
   public:
     ChopFrame(u1 tag, FILE* fp);
@@ -95,6 +119,7 @@ class ChopFrame : public StackMapFrame {
     u2 offset_delta;
 };
 
+/// representada pelas tags no intervalo [252-254]
 class AppendFrame : public StackMapFrame {
   public:
     AppendFrame(u1 tag, FILE* fp);
@@ -108,6 +133,7 @@ class AppendFrame : public StackMapFrame {
     vector<VerificationTypeInfo*> stack;
 };
 
+/// representada pela tag 255
 class FullFrame : public StackMapFrame {
   public:
     FullFrame(u1 tag, FILE* fp);
