@@ -107,6 +107,177 @@ void CodeAttribute::interpret(JVM& jvm, Method& method) {
 	cout << "TODO: implement CodeAttribute::interpret" << endl;
 	if (jvm.pc) {}
 	if (&method == &method) {}
+	
+	// /* cout << "TODO: implement CodeAttribute::interpret" << endl; */
+	// // begin
+	// // u1 *code, u4 length, Method_info *m
+	// CodeAttribute *codAt;
+	// u1 *code = codAt->code;
+	// u4 length = codAt->code_length;
+
+	// Instruction instrucoes;
+	// instrucoes.setInstructions();
+
+	// // cout << "lalala é " << instrucoes.instruc[00].name << endl;
+
+	// u1 opcode;
+	// int pcAtual;
+	// u2 handler_pc = 0;
+
+	// for (u1 *j = code; j < code + length;)
+	// {
+	// 	opcode = *j;
+	// 	pcAtual = jvm.pc;
+
+	// 	Instruction i = instrucoes.instruc[opcode];
+	// 	u1 numarg = i.argnum;
+	// 	j++;
+	// 	if (numarg > 0){
+
+	// 		u1 *argumentos = (u1 *)malloc(numarg * sizeof(u1));
+	// 		// Criar vetor de ponteiro de funções
+	// 		// Deixar todas as funções com a mesma assinatura
+	// 		for (u1 arg = 0; arg < numarg; arg++)
+	// 		{
+	// 			argumentos[arg] = *j;
+	// 			j++;
+	// 		}
+
+	// 		switch (numarg){
+	// 			case 1:
+	// 				(*func_ptr[i.opcode])(&jvm.frame_stack->topFrame(), argumentos[0], 0);
+	// 				if (jvm.exception == 1){
+	// 					handler_pc = verificaHandlerMetodo(m);
+	// 					// Se encontrou o handler
+	// 					if (handler_pc != USHRT_MAX){
+	// 						jvm.exception = 0;
+	// 						free( jvm.exception_name );
+	// 						jvm.exception_name = (char*) malloc(100 * sizeof(char));
+	// 						jvm.pc = handler_pc;
+	// 					}
+	// 					jvm.pc = handler_pc;
+	// 					j = atualizarPCMetodoAtual(code, length);
+	// 					jvm.exception = 0;
+	// 				}
+	// 				jvm.pc += i.instruct_pc;
+	// 				break;
+
+	// 			case 2:
+	// 				(*func_ptr[i.opcode])(&jvm.frame_stack->topFrame(), argumentos[0], argumentos[1]);
+	// 				// Verificar se flag de exceção foi setada
+	// 				if (jvm.exception == 1){
+	// 					handler_pc = verificaHandlerMetodo(m);
+	// 					if (handler_pc != USHRT_MAX){
+	// 						jvm.exception = 0;
+	// 						free( jvm.exception_name );
+	// 						jvm.exception_name = (char*) malloc(100 * sizeof(char));
+	// 						jvm.pc = handler_pc;
+	// 					}
+	// 					jvm.pc = handler_pc;
+	// 					j = atualizarPCMetodoAtual(code, length);
+	// 					jvm.exception = 0;
+	// 				}
+	// 				if (instrucaoBranch(i.name)){
+	// 					if (pcAtual != jvm.pc){
+	// 						j = atualizarPCMetodoAtual(code, length);
+	// 					}	else {
+	// 						if (i.name == "invokestatic" ||
+	// 							i.name == "invokevirtual" ||
+	// 							i.name == "invokespecial")
+	// 							jvm.pc += i.instruct_pc;
+	// 					}
+	// 				} else {
+	// 					jvm.pc += i.instruct_pc;
+	// 				}
+	// 				break;
+
+	// 			case 3:
+	// 				if (i.name == "multianewarray"){
+	// 					multianewarray_impl(&jvm.frame_stack->topFrame(), argumentos[0], argumentos[1], argumentos[2]);
+	// 					if (jvm.exception == 1){
+	// 						handler_pc = verificaHandlerMetodo(m);
+	// 						if (handler_pc != USHRT_MAX){
+	// 							jvm.exception = 0;
+	// 							free( jvm.exception_name );
+	// 							jvm.exception_name = (char*) malloc(100 * sizeof(char));
+	// 							jvm.pc = handler_pc;
+	// 						}
+	// 						jvm.pc = handler_pc;
+	// 						j = atualizarPCMetodoAtual(code, length);
+	// 					}
+	// 				}
+	// 				break;
+
+	// 			case 4:
+	// 				if (i.name == "invokeinterface"){
+	// 					invokeinterface_impl(&jvm.frame_stack->topFrame(), argumentos[0], argumentos[1], argumentos[2]);
+	// 					// Verificar se flag de exceção foi setada
+	// 					if (jvm.exception == 1){
+	// 						handler_pc = verificaHandlerMetodo(m);
+	// 						if (handler_pc != USHRT_MAX){
+	// 							jvm.exception = 0;
+	// 							free( jvm.exception_name );
+	// 							jvm.exception_name = (char*) malloc(100 * sizeof(char));
+	// 							jvm.pc = handler_pc;
+	// 						}
+	// 						jvm.pc = handler_pc;
+	// 						j = atualizarPCMetodoAtual(code, length);
+	// 						jvm.exception = 0;
+	// 					}
+	// 				}
+	// 				break;
+	// 		}
+	// 	} else if (numarg == 0)	{
+	// 		// Verificar se é a instrução wide
+	// 		if (i.name == "wide"){
+	// 			// Obter o opcode da instrução que deve ser modificada
+	// 			u1 novo_opcode = *j;
+	// 			i = instrucoes.instruc[novo_opcode];
+	// 			j++;
+	// 			// Verificar se é diferente de iinc
+	// 			if (novo_opcode != iinc){
+	// 				// Pegar os parâmetros
+	// 				u1 *argumentos = (u1*) malloc(numarg * sizeof(u1));
+	// 				// Obter um argumento a mais, porque é o índice que será modificado
+	// 				for (u1 arg = 0; arg < i.argnum + 1; arg++){
+	// 					argumentos[arg] = *j;
+	// 					j++;
+	// 				}
+
+	// 				(*func_ptr[i.opcode])(&jvm.frame_stack->topFrame(), argumentos[0], argumentos[1]);
+
+	// 				jvm.pc += i.argnum + 1;
+	// 			}	else {
+	// 				u1 *argumentos = (u1*) malloc(i.argnum * 2 * sizeof(u1));
+
+	// 				for (u1 arg = 0; arg < i.argnum * 2; arg++){
+	// 					argumentos[arg] = *j;
+	// 					j++;
+	// 				}
+
+	// 				iinc_wide_fantasma(&jvm.frame_stack->topFrame(), argumentos[0], argumentos[1], argumentos[2], argumentos[3]);
+
+	// 				jvm.pc += i.argnum * 2 - 1;
+	// 			}
+	// 		} else {
+	// 			(*func_ptr[i.opcode])(&jvm.frame_stack->topFrame(), 0, 0);
+	// 		}
+
+	// 		if (jvm.exception == 1){
+	// 			handler_pc = verificaHandlerMetodo(m);
+	// 			if (handler_pc != USHRT_MAX){
+	// 				free( jvm.exception_name );
+	// 				jvm.exception_name = (char*) malloc(100 * sizeof(char));
+	// 				jvm.pc = handler_pc;
+	// 			}
+	// 			jvm.pc = handler_pc;
+	// 			j = atualizarPCMetodoAtual(code, length);
+	// 			jvm.exception = 0;
+	// 		}
+
+	// 		jvm.pc += i.instruct_pc;
+	// 	}
+	// }
 }
 
 // constructor
