@@ -84,7 +84,7 @@ class SourceFileAttribute : public Attribute {
     SourceFileAttribute(FILE* fp, u2 attbName, u4 attbLength);
     ~SourceFileAttribute();
     
-    /// print methods
+    // print methods
     ostream& print(ConstantPool& cp, unsigned int indent = 0, ostream& output = cout) const;
 
   private:
@@ -110,6 +110,8 @@ class CodeAttribute : public Attribute {
      * nao possui retorno
      */
     void interpret(JVM& jvm, Method& method);
+    /// numero maximo de variaveis locais no code array 
+    string bytecodeToString(u1 bytecode) const;
 
     /**
      * @brief pega a tabela de exceções 
@@ -156,7 +158,7 @@ class LineNumberTableAttribute : public Attribute {
     LineNumberTableAttribute(FILE* fp, u2 attbName, u4 attbLength);
     ~LineNumberTableAttribute();
     
-    /// print methods
+    // print methods
     ostream& print(ConstantPool& cp, unsigned int indent = 0, ostream& output = cout) const;
 
   private:
@@ -180,7 +182,7 @@ class StackMapAttribute : public Attribute {
     StackMapAttribute(FILE* fp, u2 attbName, u4 attbLength);
     ~StackMapAttribute();
     
-    /// print methods
+    // print methods
     ostream& print(ConstantPool& cp, unsigned int indent = 0, ostream& output = cout) const;
 
   private:
@@ -203,7 +205,7 @@ class InnerClassesAttribute : public Attribute {
     InnerClassesAttribute(FILE* fp, u2 attbName, u4 attbLength);
     ~InnerClassesAttribute();
     
-    /// print methods
+    // print methods
     ostream& print(ConstantPool& cp, unsigned int indent = 0, ostream& output = cout) const;
 
   private:
@@ -226,7 +228,7 @@ class SignatureAttribute : public Attribute {
     SignatureAttribute(FILE* fp, u2 attbName, u4 attbLength);
     ~SignatureAttribute();
     
-    /// print methods
+    // print methods
     ostream& print(ConstantPool& cp, unsigned int indent = 0, ostream& output = cout) const;
 
   private:
@@ -241,7 +243,7 @@ class ConstantValueAttribute : public Attribute {
     ConstantValueAttribute(FILE* fp, u2 attbName, u4 attbLength);
     ~ConstantValueAttribute();
     
-    /// print methods
+    // print methods
     ostream& print(ConstantPool& cp, unsigned int indent = 0, ostream& output = cout) const;
 
   private:

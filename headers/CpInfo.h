@@ -48,7 +48,7 @@ public:
   ~CONSTANT_Utf8_info();
   u2 length;
   u1 *bytes;
-  ostream& print(ostream& out, const ConstantPool& cp);
+  ostream& print(ostream& out);
 };
 
 /**
@@ -63,7 +63,7 @@ public:
   CONSTANT_Integer_info(FILE *fp);
   ~CONSTANT_Integer_info();
   u4 bytes;
-  ostream& print(ostream& out, const ConstantPool& cp);
+  ostream& print(ostream& out);
 };
 /**
 * As classes CONSTANT_Integer_info e CONSTANT_Float_info representam 4-byte numerico (int e float) constantes
@@ -77,7 +77,7 @@ public:
   CONSTANT_Float_info(FILE *fp);
   ~CONSTANT_Float_info();
   u4 bytes;
-  ostream& print(ostream& out, const ConstantPool& cp);
+  ostream& print(ostream& out);
 };
 
 /**
@@ -93,7 +93,7 @@ public:
   ~CONSTANT_Long_info();
   u4 high_bytes;
   u4 low_bytes;
-  ostream& print(ostream& out, const ConstantPool& cp);
+  ostream& print(ostream& out);
 };
 /**
 *  As classes CONSTANT_Long_info e CONSTANT_Double_info representam 8-byte numerico (long e double) constantes
@@ -108,7 +108,7 @@ public:
   ~CONSTANT_Double_info();
   u4 high_bytes;
   u4 low_bytes;
-  ostream& print(ostream& out, const ConstantPool& cp);
+  ostream& print(ostream& out);
 };
 
 ///Classe usada para representar uma classe ou interface

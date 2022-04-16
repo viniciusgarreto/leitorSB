@@ -120,8 +120,10 @@ std::vector<OpStack> InserirPosicao_operandos(std::vector<OpStack> lis, i4 op, u
   atual.operand_type = opType;
 
   lis.insert(lis.begin()+posicao, atual);
+  return lis;
 }
 
 std::vector<OpStack> RemoverPosicao_operandos(std::vector<OpStack> lis, int posicao){
   lis.erase(lis.begin()+posicao);
+  return lis;
 }

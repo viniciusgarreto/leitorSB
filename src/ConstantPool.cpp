@@ -168,19 +168,19 @@ string ConstantPool::getValueUTF8String(u2 index) const {
       return to_string((int) ((CONSTANT_Integer_info*)cpInfo)->bytes);
 
     case CONSTANT_Float:
-      return to_string((float) ((CONSTANT_Float_info*)cpInfo)->bytes);
+      return to_string((*((float*)(&((CONSTANT_Float_info*)cpInfo)->bytes))) );
 
     case CONSTANT_Long:
       {
-        long result = ((unsigned long long) ((CONSTANT_Double_info*)cpInfo)->high_bytes << 32) | (unsigned long long) (((CONSTANT_Double_info*)cpInfo)->low_bytes);
+        uint64_t result = ((uint64_t) ((CONSTANT_Double_info*)cpInfo)->high_bytes << 32) | (uint64_t) (((CONSTANT_Double_info*)cpInfo)->low_bytes);
         return to_string(result);
       }
       break;
 
     case CONSTANT_Double: 
       {
-        double buffer = ((unsigned long long) ((CONSTANT_Double_info*)cpInfo)->high_bytes << 32) | (unsigned long long) (((CONSTANT_Double_info*)cpInfo)->low_bytes);
-        return string("0x") + to_string((double) buffer);
+        uint64_t buffer = ((uint64_t) ((CONSTANT_Double_info*)cpInfo)->high_bytes << 32) | (uint64_t) (((CONSTANT_Double_info*)cpInfo)->low_bytes);
+        return to_string(*((double*)(&buffer)));
       }
 
     case CONSTANT_Class:
