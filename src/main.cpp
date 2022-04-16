@@ -75,7 +75,7 @@ int main(int argc, char *argv[]) {
   // if exec mode
   if (mode == execMode) {
     // get command argument
-    string filename(argv[1]);
+    string filename(argv[2]);
 
     // initialize JVM
     auto jvm = new JVM();
