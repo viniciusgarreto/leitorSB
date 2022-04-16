@@ -76,13 +76,13 @@ Inheritance diagram for StackMapFrame:</div>
  <div class="center">
   <img src="classStackMapFrame.png" usemap="#StackMapFrame_map" alt=""/>
   <map id="StackMapFrame_map" name="StackMapFrame_map">
-<area href="classAppendFrame.html" alt="AppendFrame" shape="rect" coords="0,56,228,80"/>
-<area href="classChopFrame.html" alt="ChopFrame" shape="rect" coords="238,56,466,80"/>
-<area href="classFullFrame.html" alt="FullFrame" shape="rect" coords="476,56,704,80"/>
-<area href="classSameFrame.html" alt="SameFrame" shape="rect" coords="714,56,942,80"/>
-<area href="classSameFrameExtended.html" alt="SameFrameExtended" shape="rect" coords="952,56,1180,80"/>
-<area href="classSameLocals1StackItemFrame.html" alt="SameLocals1StackItemFrame" shape="rect" coords="1190,56,1418,80"/>
-<area href="classSameLocals1StackItemFrameExtended.html" alt="SameLocals1StackItemFrameExtended" shape="rect" coords="1428,56,1656,80"/>
+<area href="classAppendFrame.html" title="representada pelas tags no intervalo [252-254]" alt="AppendFrame" shape="rect" coords="0,56,228,80"/>
+<area href="classChopFrame.html" title="representada pelas tags no intervalo [248-250]" alt="ChopFrame" shape="rect" coords="238,56,466,80"/>
+<area href="classFullFrame.html" title="representada pela tag 255" alt="FullFrame" shape="rect" coords="476,56,704,80"/>
+<area href="classSameFrame.html" title="representada pelas tags no intervalo [0-63]" alt="SameFrame" shape="rect" coords="714,56,942,80"/>
+<area href="classSameFrameExtended.html" title="representada pela tag 251" alt="SameFrameExtended" shape="rect" coords="952,56,1180,80"/>
+<area href="classSameLocals1StackItemFrame.html" title="representada pelas tags no intervalo [64-127]" alt="SameLocals1StackItemFrame" shape="rect" coords="1190,56,1418,80"/>
+<area href="classSameLocals1StackItemFrameExtended.html" title="representada pela tag 247" alt="SameLocals1StackItemFrameExtended" shape="rect" coords="1428,56,1656,80"/>
   </map>
 </div></div>
 <table class="memberdecls">
@@ -99,16 +99,53 @@ ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>print</b> (u
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
-<tr class="memitem:ab1e7b86ca79dc8150143533c612c16a0"><td class="memItemLeft" align="right" valign="top"><a id="ab1e7b86ca79dc8150143533c612c16a0" name="ab1e7b86ca79dc8150143533c612c16a0"></a>
-static <a class="el" href="classStackMapFrame.html">StackMapFrame</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>readStackMapFrame</b> (FILE *fp)</td></tr>
+<tr class="memitem:ab1e7b86ca79dc8150143533c612c16a0"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classStackMapFrame.html">StackMapFrame</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classStackMapFrame.html#ab1e7b86ca79dc8150143533c612c16a0">readStackMapFrame</a> (FILE *fp)</td></tr>
+<tr class="memdesc:ab1e7b86ca79dc8150143533c612c16a0"><td class="mdescLeft">&#160;</td><td class="mdescRight">lê o stack map frame do arquivo .class e a partir do valor de entrada lido, definindo assim o tipo do frame lido (classes herdeiras)  <a href="classStackMapFrame.html#ab1e7b86ca79dc8150143533c612c16a0">More...</a><br /></td></tr>
 <tr class="separator:ab1e7b86ca79dc8150143533c612c16a0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-attribs" name="pro-attribs"></a>
 Protected Attributes</h2></td></tr>
 <tr class="memitem:a906e3eef5ec78099a3251b5e5850941c"><td class="memItemLeft" align="right" valign="top"><a id="a906e3eef5ec78099a3251b5e5850941c" name="a906e3eef5ec78099a3251b5e5850941c"></a>
 u1&#160;</td><td class="memItemRight" valign="bottom"><b>frame_type</b></td></tr>
+<tr class="memdesc:a906e3eef5ec78099a3251b5e5850941c"><td class="mdescLeft">&#160;</td><td class="mdescRight">tipo do frame <br /></td></tr>
 <tr class="separator:a906e3eef5ec78099a3251b5e5850941c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="ab1e7b86ca79dc8150143533c612c16a0" name="ab1e7b86ca79dc8150143533c612c16a0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab1e7b86ca79dc8150143533c612c16a0">&#9670;&nbsp;</a></span>readStackMapFrame()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classStackMapFrame.html">StackMapFrame</a> * StackMapFrame::readStackMapFrame </td>
+          <td>(</td>
+          <td class="paramtype">FILE *&#160;</td>
+          <td class="paramname"><em>fp</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>lê o stack map frame do arquivo .class e a partir do valor de entrada lido, definindo assim o tipo do frame lido (classes herdeiras) </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">fp</td><td>- referencia para o arquivo class </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="classStackMapFrame.html">StackMapFrame</a> - retorna o stack map frame existente no arquivo .class </dd></dl>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>headers/<a class="el" href="StackMapFrame_8h_source.html">StackMapFrame.h</a></li>
 <li>src/StackMapFrame.cpp</li>

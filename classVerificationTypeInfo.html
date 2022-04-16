@@ -76,15 +76,15 @@ Inheritance diagram for VerificationTypeInfo:</div>
  <div class="center">
   <img src="classVerificationTypeInfo.png" usemap="#VerificationTypeInfo_map" alt=""/>
   <map id="VerificationTypeInfo_map" name="VerificationTypeInfo_map">
-<area href="classDoubleVariableInfo.html" alt="DoubleVariableInfo" shape="rect" coords="181,56,352,80"/>
-<area href="classFloatVariableInfo.html" alt="FloatVariableInfo" shape="rect" coords="181,112,352,136"/>
-<area href="classIntegerVariableInfo.html" alt="IntegerVariableInfo" shape="rect" coords="181,168,352,192"/>
-<area href="classLongVariableInfo.html" alt="LongVariableInfo" shape="rect" coords="181,224,352,248"/>
-<area href="classNullVariableInfo.html" alt="NullVariableInfo" shape="rect" coords="181,280,352,304"/>
-<area href="classObjectVariableInfo.html" alt="ObjectVariableInfo" shape="rect" coords="181,336,352,360"/>
-<area href="classTopVariableInfo.html" alt="TopVariableInfo" shape="rect" coords="181,392,352,416"/>
-<area href="classUninitializedThisVariableInfo.html" alt="UninitializedThisVariableInfo" shape="rect" coords="181,448,352,472"/>
-<area href="classUninitializedVariableInfo.html" alt="UninitializedVariableInfo" shape="rect" coords="181,504,352,528"/>
+<area href="classDoubleVariableInfo.html" title="se a tag for = 4" alt="DoubleVariableInfo" shape="rect" coords="181,56,352,80"/>
+<area href="classFloatVariableInfo.html" title="se a tag for = 2" alt="FloatVariableInfo" shape="rect" coords="181,112,352,136"/>
+<area href="classIntegerVariableInfo.html" title="se a tag for = 1" alt="IntegerVariableInfo" shape="rect" coords="181,168,352,192"/>
+<area href="classLongVariableInfo.html" title="se a tag for = 3" alt="LongVariableInfo" shape="rect" coords="181,224,352,248"/>
+<area href="classNullVariableInfo.html" title="se a tag for = 5" alt="NullVariableInfo" shape="rect" coords="181,280,352,304"/>
+<area href="classObjectVariableInfo.html" title="se a tag for = 7" alt="ObjectVariableInfo" shape="rect" coords="181,336,352,360"/>
+<area href="classTopVariableInfo.html" title="se a tag for = 0" alt="TopVariableInfo" shape="rect" coords="181,392,352,416"/>
+<area href="classUninitializedThisVariableInfo.html" title="se a tag for = 6" alt="UninitializedThisVariableInfo" shape="rect" coords="181,448,352,472"/>
+<area href="classUninitializedVariableInfo.html" title="se a tag for = 8" alt="UninitializedVariableInfo" shape="rect" coords="181,504,352,528"/>
   </map>
 </div></div>
 <table class="memberdecls">
@@ -99,8 +99,8 @@ ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>print</b> (u
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
-<tr class="memitem:a966335764192645958a2630f0cc50616"><td class="memItemLeft" align="right" valign="top"><a id="a966335764192645958a2630f0cc50616" name="a966335764192645958a2630f0cc50616"></a>
-static <a class="el" href="classVerificationTypeInfo.html">VerificationTypeInfo</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>readVerificationTypeInfo</b> (FILE *fp)</td></tr>
+<tr class="memitem:a966335764192645958a2630f0cc50616"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classVerificationTypeInfo.html">VerificationTypeInfo</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classVerificationTypeInfo.html#a966335764192645958a2630f0cc50616">readVerificationTypeInfo</a> (FILE *fp)</td></tr>
+<tr class="memdesc:a966335764192645958a2630f0cc50616"><td class="mdescLeft">&#160;</td><td class="mdescRight">lê o verification type info do arquivo .class e a partir do valor de entrada lido, definindo assim a tag de entrada  <a href="classVerificationTypeInfo.html#a966335764192645958a2630f0cc50616">More...</a><br /></td></tr>
 <tr class="separator:a966335764192645958a2630f0cc50616"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
@@ -109,6 +109,42 @@ Public Attributes</h2></td></tr>
 u1&#160;</td><td class="memItemRight" valign="bottom"><b>tag</b></td></tr>
 <tr class="separator:ad52039d15db664affe92233d1152e391"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a966335764192645958a2630f0cc50616" name="a966335764192645958a2630f0cc50616"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a966335764192645958a2630f0cc50616">&#9670;&nbsp;</a></span>readVerificationTypeInfo()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classVerificationTypeInfo.html">VerificationTypeInfo</a> * VerificationTypeInfo::readVerificationTypeInfo </td>
+          <td>(</td>
+          <td class="paramtype">FILE *&#160;</td>
+          <td class="paramname"><em>fp</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>lê o verification type info do arquivo .class e a partir do valor de entrada lido, definindo assim a tag de entrada </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">fp</td><td>- referencia para o arquivo class </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="classVerificationTypeInfo.html">VerificationTypeInfo</a> - retorna o verification type info existente no arquivo .class </dd></dl>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>headers/<a class="el" href="VerificationTypeInfo_8h_source.html">VerificationTypeInfo.h</a></li>
 <li>src/VerificationTypeInfo.cpp</li>

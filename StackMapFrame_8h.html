@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.3"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Grupo 06 -  JVM 2021/2: headers/Attribute.h File Reference</title>
+<title>Grupo 06 -  JVM 2021/2: headers/StackMapFrame.h File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -68,47 +68,49 @@ $(function() {
 <div class="header">
   <div class="summary">
 <a href="#nested-classes">Classes</a>  </div>
-  <div class="headertitle"><div class="title">Attribute.h File Reference</div></div>
+  <div class="headertitle"><div class="title">StackMapFrame.h File Reference</div></div>
 </div><!--header-->
 <div class="contents">
 
-<p><a class="el" href="classClasses.html">Classes</a> sobre os atributos do arquivo class.  
+<p>Classe Stack Map <a class="el" href="classFrame.html">Frame</a> definida pelo atributo Stack Map Table, union stack_map_frame { same_frame; same_locals_1_stack_item_frame; same_locals_1_stack_item_frame_extended; chop_frame; same_frame_extended; append_frame; full_frame; }.  
 <a href="#details">More...</a></p>
 <div class="textblock"><code>#include &lt;stdio.h&gt;</code><br />
 <code>#include &quot;../headers/definitions.h&quot;</code><br />
 <code>#include &quot;<a class="el" href="ConstantPool_8h_source.html">../headers/ConstantPool.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="Classes_8h_source.html">../headers/Classes.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="LineNumberTable_8h_source.html">../headers/LineNumberTable.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="StackMapFrame_8h_source.html">../headers/StackMapFrame.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="JVM_8h_source.html">../headers/JVM.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="Method_8h_source.html">../headers/Method.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="ExceptionTable_8h_source.html">../headers/ExceptionTable.h</a>&quot;</code><br />
+<code>#include &quot;../headers/VerificationTypeInfo.h&quot;</code><br />
 </div>
-<p><a href="Attribute_8h_source.html">Go to the source code of this file.</a></p>
+<p><a href="StackMapFrame_8h_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAttribute.html">Attribute</a></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classStackMapFrame.html">StackMapFrame</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSourceFileAttribute.html">SourceFileAttribute</a></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSameFrame.html">SameFrame</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">representada pelas tags no intervalo [0-63]  <a href="classSameFrame.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCodeAttribute.html">CodeAttribute</a></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSameFrameExtended.html">SameFrameExtended</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">representada pela tag 251  <a href="classSameFrameExtended.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLineNumberTableAttribute.html">LineNumberTableAttribute</a></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSameLocals1StackItemFrame.html">SameLocals1StackItemFrame</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">representada pelas tags no intervalo [64-127]  <a href="classSameLocals1StackItemFrame.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classStackMapAttribute.html">StackMapAttribute</a></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSameLocals1StackItemFrameExtended.html">SameLocals1StackItemFrameExtended</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">representada pela tag 247  <a href="classSameLocals1StackItemFrameExtended.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classInnerClassesAttribute.html">InnerClassesAttribute</a></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classChopFrame.html">ChopFrame</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">representada pelas tags no intervalo [248-250]  <a href="classChopFrame.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSignatureAttribute.html">SignatureAttribute</a></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAppendFrame.html">AppendFrame</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">representada pelas tags no intervalo [252-254]  <a href="classAppendFrame.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classConstantValueAttribute.html">ConstantValueAttribute</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classExceptionsAttribute.html">ExceptionsAttribute</a></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFullFrame.html">FullFrame</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">representada pela tag 255  <a href="classFullFrame.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p ><a class="el" href="classClasses.html">Classes</a> sobre os atributos do arquivo class. </p>
+<div class="textblock"><p >Classe Stack Map <a class="el" href="classFrame.html">Frame</a> definida pelo atributo Stack Map Table, union stack_map_frame { same_frame; same_locals_1_stack_item_frame; same_locals_1_stack_item_frame_extended; chop_frame; same_frame_extended; append_frame; full_frame; }. </p>
 </div></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
