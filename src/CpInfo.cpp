@@ -62,6 +62,7 @@ CONSTANT_Float_info::~CONSTANT_Float_info() {}
 ostream& CONSTANT_Float_info::print(ostream& os) {
   os << "CONSTANT_Float_info: " << endl;
   os << "bytes: 0x" << hex << (unsigned) this->bytes << dec << endl;
+  os << "Float: " << *((float*)(&this->bytes)) << endl;
   return os;
 };
 
@@ -73,9 +74,11 @@ CONSTANT_Long_info::CONSTANT_Long_info(FILE *fp) : CpInfo(CONSTANT_Long)
 CONSTANT_Long_info::~CONSTANT_Long_info() {}
 
 ostream& CONSTANT_Long_info::print(ostream& os) {
+  int64_t longTest = ((uint64_t) this->high_bytes << 32) | ((uint64_t) this->low_bytes);
   os << "CONSTANT_Long_info: " << endl;
   os << "high_bytes: 0x" << hex << this->high_bytes << dec << endl;
   os << "low_bytes: 0x" << hex << this->low_bytes << dec << endl;
+  os << "Long: " << longTest << endl;
   return os;
 };
 
@@ -87,9 +90,11 @@ CONSTANT_Double_info::CONSTANT_Double_info(FILE *fp) : CpInfo(CONSTANT_Double)
 CONSTANT_Double_info::~CONSTANT_Double_info() {}
 
 ostream& CONSTANT_Double_info::print(ostream& os) {
+  int64_t doubleTest = ((uint64_t) this->high_bytes << 32) | ((uint64_t) this->low_bytes);
   os << "CONSTANT_Double_info: " << endl;
   os << "high_bytes: 0x" << hex << this->high_bytes << dec << endl;
   os << "low_bytes: 0x" << hex << this->low_bytes << dec << endl;
+  os << "Double: " << *((double*)(&doubleTest)) << endl;
   return os;
 };
 
