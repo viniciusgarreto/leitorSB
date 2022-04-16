@@ -1,0 +1,51 @@
+\hypertarget{classCONSTANT__Methodref__info}{}\doxysection{CONSTANT\+\_\+\+Methodref\+\_\+info Class Reference}
+\label{classCONSTANT__Methodref__info}\index{CONSTANT\_Methodref\_info@{CONSTANT\_Methodref\_info}}
+
+
+Tipo de entrada da Cp\+: Metodo de uma classe.  
+
+
+
+
+{\ttfamily \#include $<$Cp\+Info.\+h$>$}
+
+Inheritance diagram for CONSTANT\+\_\+\+Methodref\+\_\+info\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classCONSTANT__Methodref__info}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classCONSTANT__Methodref__info_ae261906c98d946eed7f036d4b69adec9}\label{classCONSTANT__Methodref__info_ae261906c98d946eed7f036d4b69adec9}} 
+{\bfseries CONSTANT\+\_\+\+Methodref\+\_\+info} (FILE $\ast$fp)
+\begin{DoxyCompactList}\small\item\em construtor \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classCONSTANT__Methodref__info_a140c7b84b07259ec0b2217c73a791989}\label{classCONSTANT__Methodref__info_a140c7b84b07259ec0b2217c73a791989}} 
+ostream \& {\bfseries print} (ostream \&out, const \mbox{\hyperlink{classConstantPool}{Constant\+Pool}} \&cp)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classCONSTANT__Methodref__info_ac625db7f532b350843d6cb88c3fbde0c}\label{classCONSTANT__Methodref__info_ac625db7f532b350843d6cb88c3fbde0c}} 
+u2 {\bfseries class\+\_\+index}
+\item 
+\mbox{\Hypertarget{classCONSTANT__Methodref__info_aa5933f9d2469d4be22a19960bb25da5e}\label{classCONSTANT__Methodref__info_aa5933f9d2469d4be22a19960bb25da5e}} 
+u2 {\bfseries name\+\_\+and\+\_\+type\+\_\+index}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Tipo de entrada da Cp\+: Metodo de uma classe. 
+
+\mbox{\hyperlink{classFields}{Fields}}, methods, and interface methods are represented by similar structures\+:
+\begin{DoxyItemize}
+\item tag\+: O atributo tag tem o valor da CONSTANT\+\_\+\+Fieldref, CONSTANT\+\_\+\+Methodref e CONSTANT\+\_\+\+Interface\+Methodref, respectivamente 9, 10 e 11
+\item class\+\_\+index\+: Index válido na tabela de constant pool. A entrada constant\+\_\+pool desse index deve ser uma estrutura \mbox{\hyperlink{classCONSTANT__Class__info}{CONSTANT\+\_\+\+Class\+\_\+info}}.
+\item name\+\_\+and\+\_\+type\+\_\+index\+: Index válido na tabela de constant pool. A entrada constant\+\_\+pool desse index deve ser uma estrutura \mbox{\hyperlink{classCONSTANT__NameAndType__info}{CONSTANT\+\_\+\+Name\+And\+Type\+\_\+info}}. 
+\end{DoxyItemize}
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+headers/\mbox{\hyperlink{CpInfo_8h}{Cp\+Info.\+h}}\item 
+src/Cp\+Info.\+cpp\end{DoxyCompactItemize}

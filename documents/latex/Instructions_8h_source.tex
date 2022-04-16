@@ -1,0 +1,49 @@
+\hypertarget{Instructions_8h_source}{}\doxysection{Instructions.\+h}
+\label{Instructions_8h_source}\index{headers/Instructions.h@{headers/Instructions.h}}
+\mbox{\hyperlink{Instructions_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{/*}}
+\DoxyCodeLine{2 \textcolor{comment}{Universidade de Brasília -\/ 2021/2}}
+\DoxyCodeLine{3 \textcolor{comment}{Software Básico -\/ Turma A}}
+\DoxyCodeLine{4 \textcolor{comment}{Trabalho: JVM}}
+\DoxyCodeLine{5 \textcolor{comment}{Alunos:}}
+\DoxyCodeLine{6 \textcolor{comment}{            Caio Bernardon N. K. Massucato – 16/0115001}}
+\DoxyCodeLine{7 \textcolor{comment}{            Rafael Gonçalves de Paulo -\/ 17/0043959}}
+\DoxyCodeLine{8 \textcolor{comment}{            José Vinícius Garreto Costa – 18/0123734}}
+\DoxyCodeLine{9 \textcolor{comment}{            Alice da Costa Borges  -\/ 18/0011855}}
+\DoxyCodeLine{10 \textcolor{comment}{            Lucas Vinicius Magalhães Pinheiro -\/ 17/0061001}}
+\DoxyCodeLine{11 \textcolor{comment}{*/}}
+\DoxyCodeLine{12 }
+\DoxyCodeLine{13 \textcolor{preprocessor}{\#ifndef instructions\_h}}
+\DoxyCodeLine{14 \textcolor{preprocessor}{\#define instructions\_h}}
+\DoxyCodeLine{15 }
+\DoxyCodeLine{16 \textcolor{preprocessor}{\#include "{}../headers/definitions.h"{}}}
+\DoxyCodeLine{17 \textcolor{preprocessor}{\#include "{}../headers/ConstantPool.h"{}}}
+\DoxyCodeLine{18 \textcolor{preprocessor}{\#include <stdio.h>}}
+\DoxyCodeLine{19 }
+\DoxyCodeLine{20 \textcolor{keyword}{using namespace }std;}
+\DoxyCodeLine{21 }
+\DoxyCodeLine{26 \textcolor{keyword}{class }\mbox{\hyperlink{classInstruction}{Instruction}} \{}
+\DoxyCodeLine{27   \textcolor{keyword}{public}:}
+\DoxyCodeLine{29     \mbox{\hyperlink{classInstruction_abb15d8b6f83d1261fc62ff28d4ad25b5}{Instruction}}(\textcolor{keywordtype}{string} \mbox{\hyperlink{classInstruction_af0880d3430a526808456ad82fdf86a21}{name}}, \textcolor{keywordtype}{int} \mbox{\hyperlink{classInstruction_ac09540bbae6bf2669f83f0799382a934}{opcode}}, \textcolor{keywordtype}{int} \mbox{\hyperlink{classInstruction_a96118ddea8c8cba810434337bf8eaccf}{argnum}}, \textcolor{keywordtype}{int} \mbox{\hyperlink{classInstruction_a124aa19b4a83dbc9c9ecb7cfb5abff62}{opnum}});}
+\DoxyCodeLine{30     \mbox{\hyperlink{classInstruction}{\string~Instruction}}();}
+\DoxyCodeLine{31     }
+\DoxyCodeLine{37     \textcolor{keyword}{static} \mbox{\hyperlink{classInstruction}{Instruction}}\& \mbox{\hyperlink{classInstruction_a6daf809524fb76d53accadce7c599858}{getInstruction}}(\textcolor{keywordtype}{int} \mbox{\hyperlink{classInstruction_ac09540bbae6bf2669f83f0799382a934}{opcode}});}
+\DoxyCodeLine{38     \textcolor{keyword}{static} \textcolor{keywordtype}{void} setInstructions();}
+\DoxyCodeLine{39 }
+\DoxyCodeLine{41     ostream\& \mbox{\hyperlink{classInstruction_a02e2014c0ece9ccbe32ad256715a4ace}{print}}(ostream\& output, u1* code, \mbox{\hyperlink{classConstantPool}{ConstantPool}}\& cp) \textcolor{keyword}{const};}
+\DoxyCodeLine{42 }
+\DoxyCodeLine{44     \textcolor{keywordtype}{string} \mbox{\hyperlink{classInstruction_af0880d3430a526808456ad82fdf86a21}{name}};}
+\DoxyCodeLine{46     \textcolor{keywordtype}{int} \mbox{\hyperlink{classInstruction_ac09540bbae6bf2669f83f0799382a934}{opcode}};}
+\DoxyCodeLine{48     \textcolor{keywordtype}{int} \mbox{\hyperlink{classInstruction_a96118ddea8c8cba810434337bf8eaccf}{argnum}};}
+\DoxyCodeLine{50     \textcolor{keywordtype}{int} \mbox{\hyperlink{classInstruction_a124aa19b4a83dbc9c9ecb7cfb5abff62}{opnum}};}
+\DoxyCodeLine{52     \textcolor{keywordtype}{int} \mbox{\hyperlink{classInstruction_a0417677bd539c3d0370b55795a09df71}{instruct\_pc}};}
+\DoxyCodeLine{53 }
+\DoxyCodeLine{54   \textcolor{keyword}{private}:}
+\DoxyCodeLine{56     \textcolor{keyword}{static} \mbox{\hyperlink{classInstruction}{Instruction}}** instruc;}
+\DoxyCodeLine{58     \textcolor{keyword}{static} \textcolor{keywordtype}{bool} isBuilt;}
+\DoxyCodeLine{60     \textcolor{keyword}{static} \textcolor{keywordtype}{int} EnumCheck;}
+\DoxyCodeLine{61 \};}
+\DoxyCodeLine{62 \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

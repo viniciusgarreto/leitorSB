@@ -1,8 +1,21 @@
+/*
+Universidade de Brasília - 2021/2
+Software Básico - Turma A
+Trabalho: JVM
+Alunos:
+            Caio Bernardon N. K. Massucato – 16/0115001
+            Rafael Gonçalves de Paulo - 17/0043959
+            José Vinícius Garreto Costa – 18/0123734
+            Alice da Costa Borges  - 18/0011855
+            Lucas Vinicius Magalhães Pinheiro - 17/0061001
+*/
+
 #include <iostream>
 
 #include "../headers/Attribute.h"
 #include "../headers/definitions.h"
 #include "../headers/ExceptionTable.h"
+#include "../headers/Instructions.h"
 
 using namespace std;
 
@@ -88,12 +101,6 @@ CodeAttribute::CodeAttribute(FILE* fp, ConstantPool& cp, u2 attbName, u4 attbLen
 		}
 	}
 }
-void CodeAttribute::AddAttribute(Attribute* interface) {
-  this->attributes.push_back(interface);
-}
-void CodeAttribute::AddExceptionTable(ExceptionTable* table) {
-  this->exception_table.push_back(table);
-}
 // destructor
 CodeAttribute::~CodeAttribute() {
 	free(this->code);
@@ -101,8 +108,188 @@ CodeAttribute::~CodeAttribute() {
 void CodeAttribute::AddAttribute(Attribute* interface) {
   this->attributes.push_back(interface);
 }
+void CodeAttribute::AddExceptionTable(ExceptionTable* table) {
+  this->exception_table.push_back(table);
+}
+vector<ExceptionTable*> CodeAttribute::getExceptionTable() {
+	return this->exception_table;
+}
+
 void CodeAttribute::interpret(JVM& jvm, Method& method) {
 	cout << "TODO: implement CodeAttribute::interpret" << endl;
+	if (jvm.pc) {}
+	if (&method == &method) {}
+	
+	// /* cout << "TODO: implement CodeAttribute::interpret" << endl; */
+	// // begin
+	// // u1 *code, u4 length, Method_info *m
+	// CodeAttribute *codAt;
+	// u1 *code = codAt->code;
+	// u4 length = codAt->code_length;
+
+	// Instruction instrucoes;
+	// instrucoes.setInstructions();
+
+	// // cout << "lalala é " << instrucoes.instruc[00].name << endl;
+
+	// u1 opcode;
+	// int pcAtual;
+	// u2 handler_pc = 0;
+
+	// for (u1 *j = code; j < code + length;)
+	// {
+	// 	opcode = *j;
+	// 	pcAtual = jvm.pc;
+
+	// 	Instruction i = instrucoes.instruc[opcode];
+	// 	u1 numarg = i.argnum;
+	// 	j++;
+	// 	if (numarg > 0){
+
+	// 		u1 *argumentos = (u1 *)malloc(numarg * sizeof(u1));
+	// 		// Criar vetor de ponteiro de funções
+	// 		// Deixar todas as funções com a mesma assinatura
+	// 		for (u1 arg = 0; arg < numarg; arg++)
+	// 		{
+	// 			argumentos[arg] = *j;
+	// 			j++;
+	// 		}
+
+	// 		switch (numarg){
+	// 			case 1:
+	// 				(*func_ptr[i.opcode])(&jvm.frame_stack->topFrame(), argumentos[0], 0);
+	// 				if (jvm.exception == 1){
+	// 					handler_pc = verificaHandlerMetodo(m);
+	// 					// Se encontrou o handler
+	// 					if (handler_pc != USHRT_MAX){
+	// 						jvm.exception = 0;
+	// 						free( jvm.exception_name );
+	// 						jvm.exception_name = (char*) malloc(100 * sizeof(char));
+	// 						jvm.pc = handler_pc;
+	// 					}
+	// 					jvm.pc = handler_pc;
+	// 					j = atualizarPCMetodoAtual(code, length);
+	// 					jvm.exception = 0;
+	// 				}
+	// 				jvm.pc += i.instruct_pc;
+	// 				break;
+
+	// 			case 2:
+	// 				(*func_ptr[i.opcode])(&jvm.frame_stack->topFrame(), argumentos[0], argumentos[1]);
+	// 				// Verificar se flag de exceção foi setada
+	// 				if (jvm.exception == 1){
+	// 					handler_pc = verificaHandlerMetodo(m);
+	// 					if (handler_pc != USHRT_MAX){
+	// 						jvm.exception = 0;
+	// 						free( jvm.exception_name );
+	// 						jvm.exception_name = (char*) malloc(100 * sizeof(char));
+	// 						jvm.pc = handler_pc;
+	// 					}
+	// 					jvm.pc = handler_pc;
+	// 					j = atualizarPCMetodoAtual(code, length);
+	// 					jvm.exception = 0;
+	// 				}
+	// 				if (instrucaoBranch(i.name)){
+	// 					if (pcAtual != jvm.pc){
+	// 						j = atualizarPCMetodoAtual(code, length);
+	// 					}	else {
+	// 						if (i.name == "invokestatic" ||
+	// 							i.name == "invokevirtual" ||
+	// 							i.name == "invokespecial")
+	// 							jvm.pc += i.instruct_pc;
+	// 					}
+	// 				} else {
+	// 					jvm.pc += i.instruct_pc;
+	// 				}
+	// 				break;
+
+	// 			case 3:
+	// 				if (i.name == "multianewarray"){
+	// 					multianewarray_impl(&jvm.frame_stack->topFrame(), argumentos[0], argumentos[1], argumentos[2]);
+	// 					if (jvm.exception == 1){
+	// 						handler_pc = verificaHandlerMetodo(m);
+	// 						if (handler_pc != USHRT_MAX){
+	// 							jvm.exception = 0;
+	// 							free( jvm.exception_name );
+	// 							jvm.exception_name = (char*) malloc(100 * sizeof(char));
+	// 							jvm.pc = handler_pc;
+	// 						}
+	// 						jvm.pc = handler_pc;
+	// 						j = atualizarPCMetodoAtual(code, length);
+	// 					}
+	// 				}
+	// 				break;
+
+	// 			case 4:
+	// 				if (i.name == "invokeinterface"){
+	// 					invokeinterface_impl(&jvm.frame_stack->topFrame(), argumentos[0], argumentos[1], argumentos[2]);
+	// 					// Verificar se flag de exceção foi setada
+	// 					if (jvm.exception == 1){
+	// 						handler_pc = verificaHandlerMetodo(m);
+	// 						if (handler_pc != USHRT_MAX){
+	// 							jvm.exception = 0;
+	// 							free( jvm.exception_name );
+	// 							jvm.exception_name = (char*) malloc(100 * sizeof(char));
+	// 							jvm.pc = handler_pc;
+	// 						}
+	// 						jvm.pc = handler_pc;
+	// 						j = atualizarPCMetodoAtual(code, length);
+	// 						jvm.exception = 0;
+	// 					}
+	// 				}
+	// 				break;
+	// 		}
+	// 	} else if (numarg == 0)	{
+	// 		// Verificar se é a instrução wide
+	// 		if (i.name == "wide"){
+	// 			// Obter o opcode da instrução que deve ser modificada
+	// 			u1 novo_opcode = *j;
+	// 			i = instrucoes.instruc[novo_opcode];
+	// 			j++;
+	// 			// Verificar se é diferente de iinc
+	// 			if (novo_opcode != iinc){
+	// 				// Pegar os parâmetros
+	// 				u1 *argumentos = (u1*) malloc(numarg * sizeof(u1));
+	// 				// Obter um argumento a mais, porque é o índice que será modificado
+	// 				for (u1 arg = 0; arg < i.argnum + 1; arg++){
+	// 					argumentos[arg] = *j;
+	// 					j++;
+	// 				}
+
+	// 				(*func_ptr[i.opcode])(&jvm.frame_stack->topFrame(), argumentos[0], argumentos[1]);
+
+	// 				jvm.pc += i.argnum + 1;
+	// 			}	else {
+	// 				u1 *argumentos = (u1*) malloc(i.argnum * 2 * sizeof(u1));
+
+	// 				for (u1 arg = 0; arg < i.argnum * 2; arg++){
+	// 					argumentos[arg] = *j;
+	// 					j++;
+	// 				}
+
+	// 				iinc_wide_fantasma(&jvm.frame_stack->topFrame(), argumentos[0], argumentos[1], argumentos[2], argumentos[3]);
+
+	// 				jvm.pc += i.argnum * 2 - 1;
+	// 			}
+	// 		} else {
+	// 			(*func_ptr[i.opcode])(&jvm.frame_stack->topFrame(), 0, 0);
+	// 		}
+
+	// 		if (jvm.exception == 1){
+	// 			handler_pc = verificaHandlerMetodo(m);
+	// 			if (handler_pc != USHRT_MAX){
+	// 				free( jvm.exception_name );
+	// 				jvm.exception_name = (char*) malloc(100 * sizeof(char));
+	// 				jvm.pc = handler_pc;
+	// 			}
+	// 			jvm.pc = handler_pc;
+	// 			j = atualizarPCMetodoAtual(code, length);
+	// 			jvm.exception = 0;
+	// 		}
+
+	// 		jvm.pc += i.instruct_pc;
+	// 	}
+	// }
 }
 
 // constructor
@@ -200,25 +387,25 @@ ostream& Attribute::print(ConstantPool& cp, unsigned int i, ostream& output) con
 	string string_name = cp.getValueUTF8String(this->attribute_name);
 
 	if (string_name == string(SOURCE_FILE_ATTRIBUTE))
-		return ((SourceFileAttribute*) this)->print(i, output);
+		return ((SourceFileAttribute*) this)->print(cp, i, output);
 
 	if (string_name == string(CODE_ATTRIBUTE))
 		return ((CodeAttribute*) this)->print(cp, i, output);
 
 	if (string_name == string(LINE_NUMBER_ATTRIBUTE))
-		return ((LineNumberTableAttribute*) this)->print(i, output);
+		return ((LineNumberTableAttribute*) this)->print(cp, i, output);
 
 	if (string_name == string(STACK_MAP_ATTRIBUTE))
-		return ((StackMapAttribute*) this)->print(i, output);
+		return ((StackMapAttribute*) this)->print(cp, i, output);
 
 	if (string_name == string(INNER_CLASS_ATTRIBUTE))
-		return ((InnerClassesAttribute*) this)->print(i, output);
+		return ((InnerClassesAttribute*) this)->print(cp, i, output);
 
 	if (string_name == string(SIGNATURE_ATTRIBUTE))
-		return ((SignatureAttribute*) this)->print(i, output);
+		return ((SignatureAttribute*) this)->print(cp, i, output);
 
 	if (string_name == string(CONSTANT_ATTRIBUTE))
-		return ((ConstantValueAttribute*) this)->print(i, output);
+		return ((ConstantValueAttribute*) this)->print(cp, i, output);
 
 	if (string_name == string(EXCEPTIONS_ATTRIBUTE))
 		return ((ExceptionsAttribute*) this)->print(cp, i, output);
@@ -226,30 +413,35 @@ ostream& Attribute::print(ConstantPool& cp, unsigned int i, ostream& output) con
 	return output;
 }
 
-ostream& SourceFileAttribute::print(unsigned int i, ostream& out) const {
-	indentBy(i, out) << "attribute_name: " << (unsigned) this->attribute_name << endl;
-	indentBy(i, out) << "attribute_length: " << (unsigned)  this->attribute_length << endl;
-	indentBy(i, out) << "source_file: " << (unsigned)  this->source_file << endl;
+ostream& SourceFileAttribute::print(ConstantPool& cp, unsigned int i, ostream& out) const {
+	indentBy(i, out) << "attribute_name: (" << this->attribute_name << ") " << cp.getValueUTF8String(this->attribute_name) << endl;
+	indentBy(i, out) << "attribute_length: " << (unsigned) this->attribute_length << endl;
+	indentBy(i, out) << "source_file: (" << this->source_file << ") " << cp.getValueUTF8String(this->source_file) << endl;
 
 	return out;
 }
 
 ostream& CodeAttribute::print(ConstantPool& cp, unsigned int tab, ostream& out) const {
 	indentBy(tab, out) << "Code Attribute: " << endl;
-	indentBy(tab, out) << "attribute_name: " << (unsigned) this->attribute_name << endl;
+	indentBy(tab, out) << "attribute_name: (" << this->attribute_name << ") " << cp.getValueUTF8String(this->attribute_name) << endl;
 	indentBy(tab, out) << "attribute_length: " << (unsigned) this->attribute_length << endl;
 	indentBy(tab, out) << "max_locals: " << (unsigned) this->max_locals << endl;
 	indentBy(tab, out) << "max_stack: " << (unsigned) this->max_stack << endl;
 
 	indentBy(tab, out) << "code_length: " << (unsigned) this->code_length << endl;
 	indentBy(tab, out) << "code: " << endl; 
-	for (size_t i = 0; i < this->code_length; i++) {
-		indentBy(tab+1, out) << i+1 << ") " << (unsigned) this->code[i] << endl;
+	int instructionCount = 1;
+	for (size_t i = 0; i < this->code_length; i++, instructionCount++) {
+		auto instruction = Instruction::getInstruction(this->code[i]);
+		
+		indentBy(tab+1, out) << instructionCount << ") [" << i << "] ";
+		instruction.print(out, this->code+i+1, cp) << endl;
+		i += instruction.argnum;
 	}
 	
 	indentBy(tab, out) << "exception_length: " << (unsigned) this->exception_info_length << endl;
 	indentBy(tab, out) << "exceptions: " << endl; 
-	for(auto table : this->exception_table) {
+	for (auto table : this->exception_table) {
 		table->print(tab + 1, out);
 	}
 
@@ -261,8 +453,8 @@ ostream& CodeAttribute::print(ConstantPool& cp, unsigned int tab, ostream& out) 
 	return out;
 }
 
-ostream& LineNumberTableAttribute::print(unsigned int i, ostream& out) const {
-	indentBy(i, out) << "attribute_name: " << (unsigned) this->attribute_name << endl;
+ostream& LineNumberTableAttribute::print(ConstantPool& cp, unsigned int i, ostream& out) const {
+	indentBy(i, out) << "attribute_name: (" << this->attribute_name << ") " << cp.getValueUTF8String(this->attribute_name) << endl;
 	indentBy(i, out) << "attribute_length: " << (unsigned)  this->attribute_length << endl;
 	indentBy(i, out) << "line_number_table_length: " << (unsigned)  this->line_number_table_length << endl;
 	for (auto table : this->line_number_table) {
@@ -272,10 +464,10 @@ ostream& LineNumberTableAttribute::print(unsigned int i, ostream& out) const {
 	return out;
 }
 
-ostream& StackMapAttribute::print(unsigned int i, ostream& out) const {
-	indentBy(i, out) << "attribute_name: " << (unsigned) this->attribute_name << endl;
-	indentBy(i, out) << "attribute_length: " << (unsigned)  this->attribute_length << endl;
-	indentBy(i, out) << "attributes_num: " << (unsigned)  this->num_entries << endl;
+ostream& StackMapAttribute::print(ConstantPool& cp, unsigned int i, ostream& out) const {
+	indentBy(i, out) << "attribute_name: (" << this->attribute_name << ") " << cp.getValueUTF8String(this->attribute_name) << endl;
+	indentBy(i, out) << "attribute_length: " << (unsigned) this->attribute_length << endl;
+	indentBy(i, out) << "attributes_num: " << (unsigned) this->num_entries << endl;
 	indentBy(i, out) << "Attributes: " << endl;
 
 	for (int i = 0; i < this->num_entries; i++)
@@ -285,9 +477,9 @@ ostream& StackMapAttribute::print(unsigned int i, ostream& out) const {
 	return out;
 }
 
-ostream& InnerClassesAttribute::print(unsigned int i, ostream& out) const {
-	indentBy(i, out) << "attribute_name: " << (unsigned) this->attribute_name << endl;
-	indentBy(i, out) << "attribute_length: " << (unsigned)  this->attribute_length << endl;
+ostream& InnerClassesAttribute::print(ConstantPool& cp, unsigned int i, ostream& out) const {
+	indentBy(i, out) << "attribute_name: (" << this->attribute_name << ") " << cp.getValueUTF8String(this->attribute_name) << endl;
+	indentBy(i, out) << "attribute_length: " << (unsigned) this->attribute_length << endl;
 	indentBy(i, out) << "Inner Classes Attributes: " << endl;
 	indentBy(i, out) << "num_class: " << (unsigned) this->num_classes << endl;
 	for (auto c : this->classes)
@@ -296,33 +488,34 @@ ostream& InnerClassesAttribute::print(unsigned int i, ostream& out) const {
 	return out;
 }
 
-ostream& SignatureAttribute::print(unsigned int i, ostream& out) const {
-	indentBy(i, out) << "attribute_name: " << (unsigned) this->attribute_name << endl;
+ostream& SignatureAttribute::print(ConstantPool& cp, unsigned int i, ostream& out) const {
+	indentBy(i, out) << "attribute_name: (" << this->attribute_name << ") " << cp.getValueUTF8String(this->attribute_name) << endl;
 	indentBy(i, out) << "attribute_length: " << (unsigned)  this->attribute_length << endl;
 	indentBy(i, out) << "Signature Attribute: " << endl;
-	indentBy(i, out) << "signature: " << (unsigned) this->signature << endl;
+	indentBy(i, out) << "signature: (" << this->signature << ") " << cp.getValueUTF8String(this->signature) << endl;
 
 	return out;
 }
 
-ostream& ConstantValueAttribute::print(unsigned int i, ostream& out) const {
-	indentBy(i, out) << "attribute_name: " << (unsigned) this->attribute_name << endl;
+ostream& ConstantValueAttribute::print(ConstantPool& cp, unsigned int i, ostream& out) const {
+	indentBy(i, out) << "attribute_name: (" << this->attribute_name << ") " << cp.getValueUTF8String(this->attribute_name) << endl;
 	indentBy(i, out) << "attribute_length: " << (unsigned)  this->attribute_length << endl;
 	indentBy(i, out) << "Constant Value Attribute: " << endl;
-	indentBy(i, out) << "constant_value: " << (unsigned) this->constantValue << endl;
+	indentBy(i, out) << "constant_value: (" << this->constantValue << ") " << cp.getValueUTF8String(this->constantValue) << endl;
 
 	return out;
 }
 
 ostream& ExceptionsAttribute::print(ConstantPool& cp, unsigned int i, ostream& out) const {
-	indentBy(i, out) << "attribute_name: " << (unsigned) this->attribute_name << endl;
+	indentBy(i, out) << "attribute_name: (" << this->attribute_name << ") " << cp.getValueUTF8String(this->attribute_name) << endl;
 	indentBy(i, out) << "attribute_length: " << (unsigned) this->attribute_length << endl;
 	indentBy(i, out) << "Exceptions Attribute: " << endl;
 	indentBy(i, out) << "num_exceptions: " << (unsigned) this->num_exceptions << endl;
 	indentBy(i, out) << "exceptions: " << endl;
 	for (int n = 0; n < this->num_exceptions; n++){
 		indentBy(i + 1, out) << "Exception Table: " << i << endl;
-		indentBy(i + 1, out) << *cp.getCpInfo(this->exception_index_table[n]) << endl;
+		indentBy(i + 1, out);
+		cp.getCpInfo(this->exception_index_table[n])->print(out, cp) << endl;
 	}
 	
 	return out;

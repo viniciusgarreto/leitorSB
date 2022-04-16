@@ -1,3 +1,15 @@
+/*
+Universidade de Brasília - 2021/2
+Software Básico - Turma A
+Trabalho: JVM
+Alunos:
+            Caio Bernardon N. K. Massucato – 16/0115001
+            Rafael Gonçalves de Paulo - 17/0043959
+            José Vinícius Garreto Costa – 18/0123734
+            Alice da Costa Borges  - 18/0011855
+            Lucas Vinicius Magalhães Pinheiro - 17/0061001
+*/
+
 #include <iostream>
 
 #include "../headers/definitions.h"
@@ -41,8 +53,8 @@ void Method::AddAttribute(Attribute* attb) {
 
 ostream& Method::print(ConstantPool& cp, ostream& output) const {
   output << "access_flag: "<< (unsigned) this->access_flags << endl;
-  output << "name: "<< (unsigned)  this->name_index << endl;
-  output << "descriptor: "<< (unsigned)  this->descriptor_index << endl;
+  output << "name: ("<< (unsigned) this->name_index << ") " << cp.getValueUTF8String(this->name_index) << endl;
+  output << "descriptor: ("<< (unsigned) this->descriptor_index << ") " << cp.getValueUTF8String(this->descriptor_index) << endl;
   output << "attributes_count: "<< (unsigned)  this->attributes_count << endl;
   
 	for (auto atb : this->attributes)
@@ -59,7 +71,7 @@ string Method::getDescriptor(ConstantPool& cp) {
   return cp.getValueUTF8String(this->descriptor_index);
 }
 
-CodeAttribute* Method::GetCodeAttb(ConstantPool& cp) {
+CodeAttribute* Method::getCodeAttb(ConstantPool& cp) {
   for (auto attb : this->attributes)
   if (attb->getName(cp) == string(CODE_ATTRIBUTE)) {
 
@@ -70,7 +82,7 @@ CodeAttribute* Method::GetCodeAttb(ConstantPool& cp) {
 }
 
 void Method::execute(JVM& jvm, ClassFile& current_class, bool createFrame) {
-  auto code = this->GetCodeAttb(current_class.getConstantPool());
+  auto code = this->getCodeAttb(current_class.getConstantPool());
   if (code == nullptr) {
     cout << "ERROR: tried to execute method but no Code attribute found" << endl;
     exit(1);

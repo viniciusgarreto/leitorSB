@@ -1,0 +1,98 @@
+\hypertarget{classJVM}{}\doxysection{JVM Class Reference}
+\label{classJVM}\index{JVM@{JVM}}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classJVM_a732f4d1f16b2ea39bc7197cf294ab763}\label{classJVM_a732f4d1f16b2ea39bc7197cf294ab763}} 
+{\bfseries JVM} ()
+\begin{DoxyCompactList}\small\item\em construtor \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classClassFile}{Class\+File}} \& \mbox{\hyperlink{classJVM_a4bbe56c8fd455db49e9da35625c90745}{get\+Class\+File\+By\+Name}} (string classfile\+\_\+name)
+\begin{DoxyCompactList}\small\item\em Pega um class file pelo seu nome. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classJVM_ae8ca451d36a740f8c5d2498ab3b26e30}\label{classJVM_ae8ca451d36a740f8c5d2498ab3b26e30}} 
+void {\bfseries Read\+Class\+File} (string classfile\+\_\+name)
+\item 
+\mbox{\Hypertarget{classJVM_ad38aad6069155af0f3e18134da5fda0a}\label{classJVM_ad38aad6069155af0f3e18134da5fda0a}} 
+void {\bfseries execute} ()
+\begin{DoxyCompactList}\small\item\em Executa a \mbox{\hyperlink{classJVM}{JVM}}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classJVM_aef1a3dc43a38282807499531bff916ee}{push\+Frame}} (\mbox{\hyperlink{classClassFile}{Class\+File}} \&current\+\_\+class, u2 max\+\_\+locals)
+\begin{DoxyCompactList}\small\item\em Adiciona arquibvo class atual na pilha de frames. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classJVM_a0b0b54026fc882659729ad5b0f25ae68}\label{classJVM_a0b0b54026fc882659729ad5b0f25ae68}} 
+u2 {\bfseries find\+Handler\+Method} (\mbox{\hyperlink{classMethod}{Method}} \&method)
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{classJVM}{JVM}} \& \mbox{\hyperlink{classJVM_a28517b32fe17590cc32792a31de4b1f1}{get\+Instance}} ()
+\begin{DoxyCompactList}\small\item\em Singleton é o padrão utilizado, então garante que haja apaenas uma instancia \mbox{\hyperlink{classJVM}{JVM}}. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classJVM_a9a09c419ad5a4b242dc4120ace4d1c8b}\label{classJVM_a9a09c419ad5a4b242dc4120ace4d1c8b}} 
+static void {\bfseries remove\+Instance} ()
+\begin{DoxyCompactList}\small\item\em Remove a instancia \mbox{\hyperlink{classJVM}{JVM}}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classJVM_aeacbab6a3ba9b278832add772ad82a19}\label{classJVM_aeacbab6a3ba9b278832add772ad82a19}} 
+u4 {\bfseries pc}
+\begin{DoxyCompactList}\small\item\em Contador de programa. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classJVM_a6ebefc14b4b8370cfcebdf678d7f99b6}\label{classJVM_a6ebefc14b4b8370cfcebdf678d7f99b6}} 
+u2 {\bfseries exception}
+\begin{DoxyCompactList}\small\item\em Exceção. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classJVM_a4bbe56c8fd455db49e9da35625c90745}\label{classJVM_a4bbe56c8fd455db49e9da35625c90745}} 
+\index{JVM@{JVM}!getClassFileByName@{getClassFileByName}}
+\index{getClassFileByName@{getClassFileByName}!JVM@{JVM}}
+\doxysubsubsection{\texorpdfstring{getClassFileByName()}{getClassFileByName()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classClassFile}{Class\+File}} \& JVM\+::get\+Class\+File\+By\+Name (\begin{DoxyParamCaption}\item[{string}]{classfile\+\_\+name }\end{DoxyParamCaption})}
+
+
+
+Pega um class file pelo seu nome. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em classfile\+\_\+name} & -\/ string\+: nome do arquivo .class \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Class\+FIle -\/ retorna o arquivo .class. 
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{classClassFile}{Class\+File}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{classJVM_a28517b32fe17590cc32792a31de4b1f1}\label{classJVM_a28517b32fe17590cc32792a31de4b1f1}} 
+\index{JVM@{JVM}!getInstance@{getInstance}}
+\index{getInstance@{getInstance}!JVM@{JVM}}
+\doxysubsubsection{\texorpdfstring{getInstance()}{getInstance()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classJVM}{JVM}} \& JVM\+::get\+Instance (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Singleton é o padrão utilizado, então garante que haja apaenas uma instancia \mbox{\hyperlink{classJVM}{JVM}}. 
+
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{classJVM}{JVM}} instance 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classJVM_aef1a3dc43a38282807499531bff916ee}\label{classJVM_aef1a3dc43a38282807499531bff916ee}} 
+\index{JVM@{JVM}!pushFrame@{pushFrame}}
+\index{pushFrame@{pushFrame}!JVM@{JVM}}
+\doxysubsubsection{\texorpdfstring{pushFrame()}{pushFrame()}}
+{\footnotesize\ttfamily void JVM\+::push\+Frame (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classClassFile}{Class\+File}} \&}]{current\+\_\+class,  }\item[{u2}]{max\+\_\+locals }\end{DoxyParamCaption})}
+
+
+
+Adiciona arquibvo class atual na pilha de frames. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em current\+\_\+class} & \\
+\hline
+{\em max\+\_\+locals} & \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+headers/\mbox{\hyperlink{JVM_8h}{JVM.\+h}}\item 
+src/JVM.\+cpp\end{DoxyCompactItemize}

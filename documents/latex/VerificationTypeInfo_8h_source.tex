@@ -1,0 +1,128 @@
+\hypertarget{VerificationTypeInfo_8h_source}{}\doxysection{Verification\+Type\+Info.\+h}
+\label{VerificationTypeInfo_8h_source}\index{headers/VerificationTypeInfo.h@{headers/VerificationTypeInfo.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{/*}}
+\DoxyCodeLine{2 \textcolor{comment}{Universidade de Brasília -\/ 2021/2}}
+\DoxyCodeLine{3 \textcolor{comment}{Software Básico -\/ Turma A}}
+\DoxyCodeLine{4 \textcolor{comment}{Trabalho: JVM}}
+\DoxyCodeLine{5 \textcolor{comment}{Alunos:}}
+\DoxyCodeLine{6 \textcolor{comment}{            Caio Bernardon N. K. Massucato – 16/0115001}}
+\DoxyCodeLine{7 \textcolor{comment}{            Rafael Gonçalves de Paulo -\/ 17/0043959}}
+\DoxyCodeLine{8 \textcolor{comment}{            José Vinícius Garreto Costa – 18/0123734}}
+\DoxyCodeLine{9 \textcolor{comment}{            Alice da Costa Borges  -\/ 18/0011855}}
+\DoxyCodeLine{10 \textcolor{comment}{            Lucas Vinicius Magalhães Pinheiro -\/ 17/0061001}}
+\DoxyCodeLine{11 \textcolor{comment}{*/}}
+\DoxyCodeLine{12 }
+\DoxyCodeLine{13 \textcolor{preprocessor}{\#ifndef verification\_type\_info\_h}}
+\DoxyCodeLine{14 \textcolor{preprocessor}{\#define verification\_type\_info\_h}}
+\DoxyCodeLine{15 }
+\DoxyCodeLine{16 \textcolor{preprocessor}{\#include <stdio.h>}}
+\DoxyCodeLine{17 }
+\DoxyCodeLine{18 \textcolor{preprocessor}{\#include "{}../headers/definitions.h"{}}}
+\DoxyCodeLine{19 \textcolor{preprocessor}{\#include "{}../headers/ConstantPool.h"{}}}
+\DoxyCodeLine{20 \textcolor{preprocessor}{\#include "{}../headers/LineNumberTable.h"{}}}
+\DoxyCodeLine{21 }
+\DoxyCodeLine{31 \textcolor{keyword}{class }\mbox{\hyperlink{classVerificationTypeInfo}{VerificationTypeInfo}} \{}
+\DoxyCodeLine{32   \textcolor{keyword}{public}:}
+\DoxyCodeLine{33     \mbox{\hyperlink{classVerificationTypeInfo}{VerificationTypeInfo}}(u1 tag);}
+\DoxyCodeLine{34     \mbox{\hyperlink{classVerificationTypeInfo}{\string~VerificationTypeInfo}}();}
+\DoxyCodeLine{35 }
+\DoxyCodeLine{36     \textcolor{comment}{// print methods}}
+\DoxyCodeLine{37     ostream\& print(\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} indent = 0, ostream\& output = cout) \textcolor{keyword}{const};}
+\DoxyCodeLine{38 }
+\DoxyCodeLine{44     \textcolor{keyword}{static} \mbox{\hyperlink{classVerificationTypeInfo}{VerificationTypeInfo}}* \mbox{\hyperlink{classVerificationTypeInfo_a966335764192645958a2630f0cc50616}{readVerificationTypeInfo}}(FILE* fp);}
+\DoxyCodeLine{45 }
+\DoxyCodeLine{46   \textcolor{keyword}{public}:}
+\DoxyCodeLine{47     u1 tag;}
+\DoxyCodeLine{48 \};}
+\DoxyCodeLine{49 }
+\DoxyCodeLine{51 \textcolor{keyword}{class }\mbox{\hyperlink{classTopVariableInfo}{TopVariableInfo}} : \textcolor{keyword}{public} \mbox{\hyperlink{classVerificationTypeInfo}{VerificationTypeInfo}} \{}
+\DoxyCodeLine{52   \textcolor{keyword}{public}:}
+\DoxyCodeLine{53     \mbox{\hyperlink{classTopVariableInfo}{TopVariableInfo}}();}
+\DoxyCodeLine{54     \mbox{\hyperlink{classTopVariableInfo}{\string~TopVariableInfo}}();}
+\DoxyCodeLine{55 }
+\DoxyCodeLine{56     \textcolor{comment}{// print methods}}
+\DoxyCodeLine{57     ostream\& print(\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} indent = 0, ostream\& output = cout) \textcolor{keyword}{const};}
+\DoxyCodeLine{58 \};}
+\DoxyCodeLine{59 }
+\DoxyCodeLine{61 \textcolor{keyword}{class }\mbox{\hyperlink{classIntegerVariableInfo}{IntegerVariableInfo}} : \textcolor{keyword}{public} \mbox{\hyperlink{classVerificationTypeInfo}{VerificationTypeInfo}} \{}
+\DoxyCodeLine{62   \textcolor{keyword}{public}:}
+\DoxyCodeLine{63     \mbox{\hyperlink{classIntegerVariableInfo}{IntegerVariableInfo}}();}
+\DoxyCodeLine{64     \mbox{\hyperlink{classIntegerVariableInfo}{\string~IntegerVariableInfo}}();}
+\DoxyCodeLine{65 }
+\DoxyCodeLine{66     \textcolor{comment}{// print methods}}
+\DoxyCodeLine{67     ostream\& print(\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} indent = 0, ostream\& output = cout) \textcolor{keyword}{const};}
+\DoxyCodeLine{68 \};}
+\DoxyCodeLine{70 \textcolor{keyword}{class }\mbox{\hyperlink{classFloatVariableInfo}{FloatVariableInfo}} : \textcolor{keyword}{public} \mbox{\hyperlink{classVerificationTypeInfo}{VerificationTypeInfo}} \{}
+\DoxyCodeLine{71   \textcolor{keyword}{public}:}
+\DoxyCodeLine{72     \mbox{\hyperlink{classFloatVariableInfo}{FloatVariableInfo}}();}
+\DoxyCodeLine{73     \mbox{\hyperlink{classFloatVariableInfo}{\string~FloatVariableInfo}}();}
+\DoxyCodeLine{74 }
+\DoxyCodeLine{75     \textcolor{comment}{// print methods}}
+\DoxyCodeLine{76     ostream\& print(\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} indent = 0, ostream\& output = cout) \textcolor{keyword}{const};}
+\DoxyCodeLine{77 \};}
+\DoxyCodeLine{78 }
+\DoxyCodeLine{80 \textcolor{keyword}{class }\mbox{\hyperlink{classLongVariableInfo}{LongVariableInfo}} : \textcolor{keyword}{public} \mbox{\hyperlink{classVerificationTypeInfo}{VerificationTypeInfo}} \{}
+\DoxyCodeLine{81   \textcolor{keyword}{public}:}
+\DoxyCodeLine{82     \mbox{\hyperlink{classLongVariableInfo}{LongVariableInfo}}();}
+\DoxyCodeLine{83     \mbox{\hyperlink{classLongVariableInfo}{\string~LongVariableInfo}}();}
+\DoxyCodeLine{84 }
+\DoxyCodeLine{85     \textcolor{comment}{// print methods}}
+\DoxyCodeLine{86     ostream\& print(\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} indent = 0, ostream\& output = cout) \textcolor{keyword}{const};}
+\DoxyCodeLine{87 \};}
+\DoxyCodeLine{88 }
+\DoxyCodeLine{90 \textcolor{keyword}{class }\mbox{\hyperlink{classDoubleVariableInfo}{DoubleVariableInfo}} : \textcolor{keyword}{public} \mbox{\hyperlink{classVerificationTypeInfo}{VerificationTypeInfo}} \{}
+\DoxyCodeLine{91   \textcolor{keyword}{public}:}
+\DoxyCodeLine{92     \mbox{\hyperlink{classDoubleVariableInfo}{DoubleVariableInfo}}();}
+\DoxyCodeLine{93     \mbox{\hyperlink{classDoubleVariableInfo}{\string~DoubleVariableInfo}}();}
+\DoxyCodeLine{94 }
+\DoxyCodeLine{95     \textcolor{comment}{// print methods}}
+\DoxyCodeLine{96     ostream\& print(\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} indent = 0, ostream\& output = cout) \textcolor{keyword}{const};}
+\DoxyCodeLine{97 \};}
+\DoxyCodeLine{98 }
+\DoxyCodeLine{100 \textcolor{keyword}{class }\mbox{\hyperlink{classNullVariableInfo}{NullVariableInfo}} : \textcolor{keyword}{public} \mbox{\hyperlink{classVerificationTypeInfo}{VerificationTypeInfo}} \{}
+\DoxyCodeLine{101   \textcolor{keyword}{public}:}
+\DoxyCodeLine{102     \mbox{\hyperlink{classNullVariableInfo}{NullVariableInfo}}();}
+\DoxyCodeLine{103     \mbox{\hyperlink{classNullVariableInfo}{\string~NullVariableInfo}}();}
+\DoxyCodeLine{104 }
+\DoxyCodeLine{105     \textcolor{comment}{// print methods}}
+\DoxyCodeLine{106     ostream\& print(\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} indent = 0, ostream\& output = cout) \textcolor{keyword}{const};}
+\DoxyCodeLine{107 \};}
+\DoxyCodeLine{108 }
+\DoxyCodeLine{110 \textcolor{keyword}{class }\mbox{\hyperlink{classUninitializedThisVariableInfo}{UninitializedThisVariableInfo}} : \textcolor{keyword}{public} \mbox{\hyperlink{classVerificationTypeInfo}{VerificationTypeInfo}} \{}
+\DoxyCodeLine{111   \textcolor{keyword}{public}:}
+\DoxyCodeLine{112     \mbox{\hyperlink{classUninitializedThisVariableInfo}{UninitializedThisVariableInfo}}();}
+\DoxyCodeLine{113     \mbox{\hyperlink{classUninitializedThisVariableInfo}{\string~UninitializedThisVariableInfo}}();}
+\DoxyCodeLine{114 }
+\DoxyCodeLine{115     \textcolor{comment}{// print methods}}
+\DoxyCodeLine{116     ostream\& print(\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} indent = 0, ostream\& output = cout) \textcolor{keyword}{const};}
+\DoxyCodeLine{117 \};}
+\DoxyCodeLine{118 }
+\DoxyCodeLine{120 \textcolor{keyword}{class }\mbox{\hyperlink{classObjectVariableInfo}{ObjectVariableInfo}} : \textcolor{keyword}{public} \mbox{\hyperlink{classVerificationTypeInfo}{VerificationTypeInfo}} \{}
+\DoxyCodeLine{121   \textcolor{keyword}{public}:}
+\DoxyCodeLine{122     \mbox{\hyperlink{classObjectVariableInfo}{ObjectVariableInfo}}(FILE* fp);}
+\DoxyCodeLine{123     \mbox{\hyperlink{classObjectVariableInfo}{\string~ObjectVariableInfo}}();}
+\DoxyCodeLine{124 }
+\DoxyCodeLine{125     \textcolor{comment}{// print methods}}
+\DoxyCodeLine{126     ostream\& print(\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} indent = 0, ostream\& output = cout) \textcolor{keyword}{const};}
+\DoxyCodeLine{127 }
+\DoxyCodeLine{128   \textcolor{keyword}{protected}:}
+\DoxyCodeLine{129     u2 cpool\_index;}
+\DoxyCodeLine{130 \};}
+\DoxyCodeLine{131 }
+\DoxyCodeLine{133 \textcolor{keyword}{class }\mbox{\hyperlink{classUninitializedVariableInfo}{UninitializedVariableInfo}} : \textcolor{keyword}{public} \mbox{\hyperlink{classVerificationTypeInfo}{VerificationTypeInfo}} \{}
+\DoxyCodeLine{134   \textcolor{keyword}{public}:}
+\DoxyCodeLine{135     \mbox{\hyperlink{classUninitializedVariableInfo}{UninitializedVariableInfo}}(FILE* fp);}
+\DoxyCodeLine{136     \mbox{\hyperlink{classUninitializedVariableInfo}{\string~UninitializedVariableInfo}}();}
+\DoxyCodeLine{137 }
+\DoxyCodeLine{138     \textcolor{comment}{// print methods}}
+\DoxyCodeLine{139     ostream\& print(\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} indent = 0, ostream\& output = cout) \textcolor{keyword}{const};}
+\DoxyCodeLine{140 }
+\DoxyCodeLine{141   \textcolor{keyword}{protected}:}
+\DoxyCodeLine{142     u2 offset;}
+\DoxyCodeLine{143 \};}
+\DoxyCodeLine{144 }
+\DoxyCodeLine{145 \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

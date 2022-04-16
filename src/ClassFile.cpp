@@ -1,3 +1,15 @@
+/*
+Universidade de Brasília - 2021/2
+Software Básico - Turma A
+Trabalho: JVM
+Alunos:
+            Caio Bernardon N. K. Massucato – 16/0115001
+            Rafael Gonçalves de Paulo - 17/0043959
+            José Vinícius Garreto Costa – 18/0123734
+            Alice da Costa Borges  - 18/0011855
+            Lucas Vinicius Magalhães Pinheiro - 17/0061001
+*/
+
 #include "../headers/ClassFile.h"
 
 ClassFile::ClassFile(FILE* fp) {
@@ -47,12 +59,27 @@ ostream& ClassFile::print(ostream& output) const {
   output << "------------- EXIBIDOR -------------" << endl;
   output << endl;
 
-  output << "Magic Number: "  << this->magic      << endl
+  output
+    << "Magic Number: 0x" << hex << this->magic << dec << endl
     << "Minor Version: " << this->minor_version   << endl
-    << "Major Version: " << this->major_version   << endl
-    << "Access Flags: "  << this->access_flags    << endl
-    << "This Class: "    << this->this_class      << endl
-    << "Super Class: "   << this->super_class     << endl
+    << "Major Version: " << this->major_version   << " [1." << this->major_version-44 << "]" << endl
+    << "Access Flags: " << this->access_flags    << endl;
+  if (this->access_flags & ACC_PUBLIC)       output << "\t- ACC_PUBLIC"       << endl;
+  if (this->access_flags & ACC_PRIVATE)      output << "\t- ACC_PRIVATE"      << endl;
+  if (this->access_flags & ACC_PROTECTED)    output << "\t- ACC_PROTECTED"    << endl;
+  if (this->access_flags & ACC_STATIC)       output << "\t- ACC_STATIC"       << endl;
+  if (this->access_flags & ACC_FINAL)        output << "\t- ACC_FINAL"        << endl;
+  if (this->access_flags & ACC_SYNCHRONIZED) output << "\t- ACC_SYNCHRONIZED" << endl;
+  if (this->access_flags & ACC_BRIDGE)       output << "\t- ACC_BRIDGE"       << endl;
+  if (this->access_flags & ACC_VARARGS)      output << "\t- ACC_VARARGS"      << endl;
+  if (this->access_flags & ACC_NATIVE)       output << "\t- ACC_NATIVE"       << endl;
+  if (this->access_flags & ACC_ABSTRACT)     output << "\t- ACC_ABSTRACT"     << endl;
+  if (this->access_flags & ACC_STRICT)       output << "\t- ACC_STRICT"       << endl;
+  if (this->access_flags & ACC_SYNTHETIC)    output << "\t- ACC_SYNTHETIC"    << endl;
+  
+  output
+    << "This Class: <" << this->constant_pool->getValueUTF8String(this->this_class)  << ">" << endl
+    << "Super Class: <" << this->constant_pool->getValueUTF8String(this->super_class) << ">" << endl
   ;
 
   output << endl << "######### Constant Pool: " << endl << *this->constant_pool << endl;

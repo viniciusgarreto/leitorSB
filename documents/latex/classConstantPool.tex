@@ -1,0 +1,66 @@
+\hypertarget{classConstantPool}{}\doxysection{Constant\+Pool Class Reference}
+\label{classConstantPool}\index{ConstantPool@{ConstantPool}}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classConstantPool_a999e9a6bb24b58a3ec36093248649e84}\label{classConstantPool_a999e9a6bb24b58a3ec36093248649e84}} 
+{\bfseries Constant\+Pool} (FILE $\ast$fp)
+\begin{DoxyCompactList}\small\item\em Construtor. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classConstantPool_a7e94f1418868370cd649e5447e7518e1}\label{classConstantPool_a7e94f1418868370cd649e5447e7518e1}} 
+ostream \& {\bfseries print} (ostream \&output=cout) const
+\begin{DoxyCompactList}\small\item\em print methods \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classCpInfo}{Cp\+Info}} $\ast$ \mbox{\hyperlink{classConstantPool_a40739decb7a5ee83e8a236ce335273c9}{get\+Cp\+Info}} (u2 index) const
+\begin{DoxyCompactList}\small\item\em Retorna Constant Pool Info. \end{DoxyCompactList}\item 
+string \mbox{\hyperlink{classConstantPool_a87a612f7c9f9f77c8fbc4b460f602e1f}{get\+Value\+UTF8\+String}} (u2 index) const
+\begin{DoxyCompactList}\small\item\em Retorna valor UTF8 em string. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classConstantPool_a4a3f13871cab9768566591b26d4c6b38}\label{classConstantPool_a4a3f13871cab9768566591b26d4c6b38}} 
+ostream \& {\bfseries operator$<$$<$} (ostream \&out, const \mbox{\hyperlink{classConstantPool}{Constant\+Pool}} \&cf)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classConstantPool_a40739decb7a5ee83e8a236ce335273c9}\label{classConstantPool_a40739decb7a5ee83e8a236ce335273c9}} 
+\index{ConstantPool@{ConstantPool}!getCpInfo@{getCpInfo}}
+\index{getCpInfo@{getCpInfo}!ConstantPool@{ConstantPool}}
+\doxysubsubsection{\texorpdfstring{getCpInfo()}{getCpInfo()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classCpInfo}{Cp\+Info}} $\ast$ Constant\+Pool\+::get\+Cp\+Info (\begin{DoxyParamCaption}\item[{u2}]{index }\end{DoxyParamCaption}) const}
+
+
+
+Retorna Constant Pool Info. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em index} & -\/ index valido da tabela de constant pool \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Contant Pool Info 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classConstantPool_a87a612f7c9f9f77c8fbc4b460f602e1f}\label{classConstantPool_a87a612f7c9f9f77c8fbc4b460f602e1f}} 
+\index{ConstantPool@{ConstantPool}!getValueUTF8String@{getValueUTF8String}}
+\index{getValueUTF8String@{getValueUTF8String}!ConstantPool@{ConstantPool}}
+\doxysubsubsection{\texorpdfstring{getValueUTF8String()}{getValueUTF8String()}}
+{\footnotesize\ttfamily string Constant\+Pool\+::get\+Value\+UTF8\+String (\begin{DoxyParamCaption}\item[{u2}]{index }\end{DoxyParamCaption}) const}
+
+
+
+Retorna valor UTF8 em string. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em index} & -\/ index valido de valor UTF8 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+string UTF8 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+headers/\mbox{\hyperlink{ConstantPool_8h}{Constant\+Pool.\+h}}\item 
+src/Constant\+Pool.\+cpp\end{DoxyCompactItemize}

@@ -1,4 +1,18 @@
+/*
+Universidade de Brasília - 2021/2
+Software Básico - Turma A
+Trabalho: JVM
+Alunos:
+            Caio Bernardon N. K. Massucato – 16/0115001
+            Rafael Gonçalves de Paulo - 17/0043959
+            José Vinícius Garreto Costa – 18/0123734
+            Alice da Costa Borges  - 18/0011855
+            Lucas Vinicius Magalhães Pinheiro - 17/0061001
+*/
+
 #include "../headers/JVM.h"
+#include "../headers/Frame.h"
+#include <climits>
 #include <string>
 
 JVM* JVM::instance = nullptr;
@@ -8,7 +22,7 @@ JVM::JVM() {
 
   this->pc = 0;
   this->exception = 0;
-  this->exception_name = (char*) malloc(100 * sizeof(char));
+  this->exception_name = string("");
 }
 
 JVM::~JVM() {
@@ -17,8 +31,6 @@ JVM::~JVM() {
     delete classFile;
   this->classes.clear();
   this->objects.clear();
-
-  delete this->exception_name;
 }
 
 JVM& JVM::getInstance() {
@@ -70,5 +82,28 @@ void JVM::execute() {
 }
 
 void JVM::pushFrame(ClassFile& current_class, u2 max_locals) {
-  cout << "TODO: implement JVM::pushFrame" << endl;
+  this->frame_stack->pushFrame(new Frame(current_class, max_locals));
+}
+
+u2 JVM::findHandlerMethod(Method& method) {
+	// Procurar no método corrente se existe um handler para a exceção que foi lançada
+	auto classeAtual = this->getClassFileByName(this->frame_stack->topFrame()->getClassName());
+  auto code = method.getCodeAttb(classeAtual.getConstantPool());
+
+  // auto* auxmetodo;
+
+  Frame* curFrame;
+	while (nullptr != (curFrame = this->frame_stack->topFrame())) {
+    for (auto except : code->getExceptionTable()){
+      auto nomeexcecao = classeAtual.getConstantPool().getValueUTF8String(except->catch_type);
+      if (nomeexcecao == this->exception_name)
+        return except->handler_pc;
+    }
+
+		// Se não encontrar o handler, pop o frameatual
+    this->frame_stack->popFrame();
+	}
+
+	// Retornar USHRT_MAX para indicar que o handler não foi encontrado
+	return USHRT_MAX;
 }
