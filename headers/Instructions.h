@@ -35,6 +35,7 @@ class Instruction {
     * @return Instruction - retorna a instrução procurada
     */
     static Instruction& getInstruction(int opcode);
+    static void setInstructions();
 
     /// print methods
     ostream& print(ostream& output, u1* code, ConstantPool& cp) const;
