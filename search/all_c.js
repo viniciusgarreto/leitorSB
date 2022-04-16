@@ -1,8 +1,15 @@
 var searchData=
 [
-  ['pc_0',['pc',['../classJVM.html#aeacbab6a3ba9b278832add772ad82a19',1,'JVM']]],
-  ['popframe_1',['popFrame',['../classStackFrame.html#ab90516f0a1ac37d80230eddba63c20e3',1,'StackFrame']]],
-  ['print_2',['print',['../classConstantPool.html#a7e94f1418868370cd649e5447e7518e1',1,'ConstantPool::print()'],['../classSameFrame.html#a9ae7b1af0cd96fb3595caedc36561aa0',1,'SameFrame::print()'],['../classStackMapFrame.html#a4b28ae545cc4212b7b46c60616e46937',1,'StackMapFrame::print()'],['../classMethods.html#ae67620cc1ca3e7ac075210a731707fa0',1,'Methods::print()'],['../classMethod.html#abdcec89c4ee6b9d04d8afafa53ae22a6',1,'Method::print()'],['../classLineNumberTable.html#ace3d3dc44282866d2a6b30647d9d57fb',1,'LineNumberTable::print()'],['../classInterfaces.html#ab40319fbff5926a1301695c19672dd97',1,'Interfaces::print()'],['../classInstruction.html#a02e2014c0ece9ccbe32ad256715a4ace',1,'Instruction::print()'],['../classFields.html#aca09d35715b37aed8b293a3e1680fca8',1,'Fields::print()'],['../classField.html#ae978faad07129d471a5c2e63f5dd9404',1,'Field::print()'],['../classExceptionTable.html#ae293d3135f6a72afe6b123ee7d576288',1,'ExceptionTable::print()'],['../classClassFile.html#ac5a02c78b20db225967ba027739367d0',1,'ClassFile::print()'],['../classClasses.html#a277add8572a0faf5607cc7615f23cd1b',1,'Classes::print()'],['../classExceptionsAttribute.html#a060a81c7b5dc474471560d4c082b6a77',1,'ExceptionsAttribute::print()'],['../classConstantValueAttribute.html#ad8a840c54184d8f61573af43c65080f3',1,'ConstantValueAttribute::print()'],['../classSignatureAttribute.html#ad973ff3c99f4c3477d690fcdccc2a297',1,'SignatureAttribute::print()'],['../classInnerClassesAttribute.html#a77323c0bc3c448b0d91bb3ef504f6587',1,'InnerClassesAttribute::print()'],['../classStackMapAttribute.html#ae5c6e26698ea7b38b545c0d7516ab773',1,'StackMapAttribute::print()'],['../classLineNumberTableAttribute.html#a80314f92e98441771b064eb24ab5f124',1,'LineNumberTableAttribute::print()'],['../classSourceFileAttribute.html#a04a95143b388713eb25a23127ccc5de0',1,'SourceFileAttribute::print()'],['../classAttribute.html#a18a61a174bc156434c65cc0603318c5d',1,'Attribute::print()']]],
-  ['printer_2eh_3',['printer.h',['../printer_8h.html',1,'']]],
-  ['pushframe_4',['pushFrame',['../classJVM.html#aef1a3dc43a38282807499531bff916ee',1,'JVM::pushFrame()'],['../classStackFrame.html#a97e7b404595ef4992061671107a5b609',1,'StackFrame::pushFrame()']]]
+  ['object_0',['Object',['../classObject.html',1,'Object'],['../classObject.html#a40860402e64d8008fb42329df7097cdb',1,'Object::Object()']]],
+  ['object_2eh_1',['Object.h',['../Object_8h.html',1,'']]],
+  ['objectvariableinfo_2',['ObjectVariableInfo',['../classObjectVariableInfo.html',1,'']]],
+  ['op_3',['Op',['../structOp.html',1,'']]],
+  ['opcode_4',['opcode',['../classInstruction.html#ac09540bbae6bf2669f83f0799382a934',1,'Instruction']]],
+  ['operand_5',['operand',['../structOp.html#a544dd6a5e702b9e99f1ea0ae393ecd0e',1,'Op::operand()'],['../classOpStack.html#a5bd5ea347d407177aec6763fc5185525',1,'OpStack::operand()']]],
+  ['operand_5fref_6',['operand_ref',['../classOpStack.html#a318e6fa32f076ca683f9695f3365df64',1,'OpStack']]],
+  ['operand_5ftype_7',['operand_type',['../structOp.html#af7d764f9a5529e767b910b92df5edbbd',1,'Op::operand_type()'],['../classOpStack.html#a5288a40a222a59401352c1fffc3d40d4',1,'OpStack::operand_type()']]],
+  ['opnum_8',['opnum',['../classInstruction.html#a124aa19b4a83dbc9c9ecb7cfb5abff62',1,'Instruction']]],
+  ['opstack_9',['OpStack',['../classOpStack.html',1,'']]],
+  ['opstack_2eh_10',['OpStack.h',['../OpStack_8h.html',1,'']]],
+  ['outer_5fclass_5finfo_11',['outer_class_info',['../classClasses.html#ab00428c86dbc9172a13e4fee74cb5064',1,'Classes']]]
 ];

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['comando_20para_20execução_3a_0',['Comando para execução:',['../index.html',1,'']]]
+  ['para_20executar_20o_20código_3a_0',['Para executar o código:',['../index.html',1,'']]]
 ];
