@@ -92,4 +92,4 @@ make; ./JVM exec ./java/<NomeDoArquivo>.class
 
 # Diagrama Lógico
 
-![Comunicação entre os módulos](images/diagrama.jpg)
+![Comunicação entre os módulos](https://github.com/viniciusgarreto/leitorSB/blob/feat/documentation/images/diagrama.jpg)
