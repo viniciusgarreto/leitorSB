@@ -1,0 +1,37 @@
+\hypertarget{StackMapFrame_8h}{}\doxysection{headers/\+Stack\+Map\+Frame.h File Reference}
+\label{StackMapFrame_8h}\index{headers/StackMapFrame.h@{headers/StackMapFrame.h}}
+
+
+Classe Stack Map \mbox{\hyperlink{classFrame}{Frame}} definida pelo atributo Stack Map Table Um Stack Map \mbox{\hyperlink{classFrame}{Frame}} especifica (explícita ou implicitamente) o deslocamento de bytecode em que se aplica, e os tipos de verificação de variáveis locais e pilha de operandos entradas para esse deslocamento.  
+
+
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}../headers/definitions.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}../headers/\+Constant\+Pool.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}../headers/\+Classes.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}../headers/\+Line\+Number\+Table.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}../headers/\+Verification\+Type\+Info.\+h\char`\"{}}\newline
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classStackMapFrame}{Stack\+Map\+Frame}}
+\item 
+class \mbox{\hyperlink{classSameFrame}{Same\+Frame}}
+\begin{DoxyCompactList}\small\item\em representada pelas tags no intervalo \mbox{[}0-\/63\mbox{]} \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classSameFrameExtended}{Same\+Frame\+Extended}}
+\begin{DoxyCompactList}\small\item\em representada pela tag 251 \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classSameLocals1StackItemFrame}{Same\+Locals1\+Stack\+Item\+Frame}}
+\begin{DoxyCompactList}\small\item\em representada pelas tags no intervalo \mbox{[}64-\/127\mbox{]} \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classSameLocals1StackItemFrameExtended}{Same\+Locals1\+Stack\+Item\+Frame\+Extended}}
+\begin{DoxyCompactList}\small\item\em representada pela tag 247 \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classChopFrame}{Chop\+Frame}}
+\begin{DoxyCompactList}\small\item\em representada pelas tags no intervalo \mbox{[}248-\/250\mbox{]} \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classAppendFrame}{Append\+Frame}}
+\begin{DoxyCompactList}\small\item\em representada pelas tags no intervalo \mbox{[}252-\/254\mbox{]} \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classFullFrame}{Full\+Frame}}
+\begin{DoxyCompactList}\small\item\em representada pela tag 255 \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Classe Stack Map \mbox{\hyperlink{classFrame}{Frame}} definida pelo atributo Stack Map Table Um Stack Map \mbox{\hyperlink{classFrame}{Frame}} especifica (explícita ou implicitamente) o deslocamento de bytecode em que se aplica, e os tipos de verificação de variáveis locais e pilha de operandos entradas para esse deslocamento. 
+

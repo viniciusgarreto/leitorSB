@@ -18,15 +18,35 @@ ostream \& {\bfseries print} (unsigned int indent=0, ostream \&output=cout) cons
 \doxysubsection*{Static Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{classVerificationTypeInfo_a966335764192645958a2630f0cc50616}\label{classVerificationTypeInfo_a966335764192645958a2630f0cc50616}} 
-static \mbox{\hyperlink{classVerificationTypeInfo}{Verification\+Type\+Info}} $\ast$ {\bfseries read\+Verification\+Type\+Info} (FILE $\ast$fp)
-\end{DoxyCompactItemize}
+static \mbox{\hyperlink{classVerificationTypeInfo}{Verification\+Type\+Info}} $\ast$ \mbox{\hyperlink{classVerificationTypeInfo_a966335764192645958a2630f0cc50616}{read\+Verification\+Type\+Info}} (FILE $\ast$fp)
+\begin{DoxyCompactList}\small\item\em lê o verification type info do arquivo .class e a partir do valor de entrada lido, definindo assim a tag de entrada \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
 \mbox{\Hypertarget{classVerificationTypeInfo_ad52039d15db664affe92233d1152e391}\label{classVerificationTypeInfo_ad52039d15db664affe92233d1152e391}} 
 u1 {\bfseries tag}
 \end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classVerificationTypeInfo_a966335764192645958a2630f0cc50616}\label{classVerificationTypeInfo_a966335764192645958a2630f0cc50616}} 
+\index{VerificationTypeInfo@{VerificationTypeInfo}!readVerificationTypeInfo@{readVerificationTypeInfo}}
+\index{readVerificationTypeInfo@{readVerificationTypeInfo}!VerificationTypeInfo@{VerificationTypeInfo}}
+\doxysubsubsection{\texorpdfstring{readVerificationTypeInfo()}{readVerificationTypeInfo()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classVerificationTypeInfo}{Verification\+Type\+Info}} $\ast$ Verification\+Type\+Info\+::read\+Verification\+Type\+Info (\begin{DoxyParamCaption}\item[{FILE $\ast$}]{fp }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+lê o verification type info do arquivo .class e a partir do valor de entrada lido, definindo assim a tag de entrada 
+
+
+\begin{DoxyParams}{Parameters}
+{\em fp} & -\/ referencia para o arquivo class \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{classVerificationTypeInfo}{Verification\+Type\+Info}} -\/ retorna o verification type info existente no arquivo .class 
+\end{DoxyReturn}
 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}

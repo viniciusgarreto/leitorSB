@@ -1,5 +1,9 @@
 \hypertarget{classCONSTANT__Float__info}{}\doxysection{CONSTANT\+\_\+\+Float\+\_\+info Class Reference}
 \label{classCONSTANT__Float__info}\index{CONSTANT\_Float\_info@{CONSTANT\_Float\_info}}
+
+
+{\ttfamily \#include $<$Cp\+Info.\+h$>$}
+
 Inheritance diagram for CONSTANT\+\_\+\+Float\+\_\+info\+:\begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -11,20 +15,24 @@ Inheritance diagram for CONSTANT\+\_\+\+Float\+\_\+info\+:\begin{figure}[H]
 \item 
 \mbox{\Hypertarget{classCONSTANT__Float__info_a0c9d3470ec489d7036f103ade8bd6aea}\label{classCONSTANT__Float__info_a0c9d3470ec489d7036f103ade8bd6aea}} 
 {\bfseries CONSTANT\+\_\+\+Float\+\_\+info} (FILE $\ast$fp)
-\begin{DoxyCompactList}\small\item\em construtor \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em construtor \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classCONSTANT__Float__info_af6ca0cbcf17a2c91300ac1c7c3712eb1}\label{classCONSTANT__Float__info_af6ca0cbcf17a2c91300ac1c7c3712eb1}} 
+ostream \& {\bfseries print} (ostream \&out, const \mbox{\hyperlink{classConstantPool}{Constant\+Pool}} \&cp)
+\end{DoxyCompactItemize}
 \doxysubsection*{Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
 \mbox{\Hypertarget{classCONSTANT__Float__info_a9ebd8fbd25f329288cbe934c889de72e}\label{classCONSTANT__Float__info_a9ebd8fbd25f329288cbe934c889de72e}} 
 u4 {\bfseries bytes}
 \end{DoxyCompactItemize}
-\doxysubsection*{Friends}
-\begin{DoxyCompactItemize}
-\item 
-\mbox{\Hypertarget{classCONSTANT__Float__info_a408d185bdc1b68ffed5012d41e80cdcb}\label{classCONSTANT__Float__info_a408d185bdc1b68ffed5012d41e80cdcb}} 
-std\+::ostream \& {\bfseries operator$<$$<$} (std\+::ostream \&, const \mbox{\hyperlink{classCONSTANT__Float__info}{CONSTANT\+\_\+\+Float\+\_\+info}} \&)
-\end{DoxyCompactItemize}
 
+
+\doxysubsection{Detailed Description}
+As classes \mbox{\hyperlink{classCONSTANT__Integer__info}{CONSTANT\+\_\+\+Integer\+\_\+info}} e \mbox{\hyperlink{classCONSTANT__Float__info}{CONSTANT\+\_\+\+Float\+\_\+info}} representam 4-\/byte numerico (int e float) constantes
+\begin{DoxyItemize}
+\item tag -\/ O atributo tag tem o valor da \mbox{\hyperlink{classCONSTANT__Integer__info}{CONSTANT\+\_\+\+Integer\+\_\+info}} e \mbox{\hyperlink{classCONSTANT__Float__info}{CONSTANT\+\_\+\+Float\+\_\+info}}, respectivamente 3 e 4
+\item bytes -\/ O atributo bytes represents the value de int e float constante. 
+\end{DoxyItemize}
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 

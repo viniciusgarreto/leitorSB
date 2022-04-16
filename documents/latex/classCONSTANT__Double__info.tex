@@ -1,5 +1,9 @@
 \hypertarget{classCONSTANT__Double__info}{}\doxysection{CONSTANT\+\_\+\+Double\+\_\+info Class Reference}
 \label{classCONSTANT__Double__info}\index{CONSTANT\_Double\_info@{CONSTANT\_Double\_info}}
+
+
+{\ttfamily \#include $<$Cp\+Info.\+h$>$}
+
 Inheritance diagram for CONSTANT\+\_\+\+Double\+\_\+info\+:\begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -11,7 +15,10 @@ Inheritance diagram for CONSTANT\+\_\+\+Double\+\_\+info\+:\begin{figure}[H]
 \item 
 \mbox{\Hypertarget{classCONSTANT__Double__info_afecf720226ecf4608b041e849510ef1b}\label{classCONSTANT__Double__info_afecf720226ecf4608b041e849510ef1b}} 
 {\bfseries CONSTANT\+\_\+\+Double\+\_\+info} (FILE $\ast$fp)
-\begin{DoxyCompactList}\small\item\em construtor \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em construtor \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classCONSTANT__Double__info_a5730ef87478579f2deeef489a3c87f7a}\label{classCONSTANT__Double__info_a5730ef87478579f2deeef489a3c87f7a}} 
+ostream \& {\bfseries print} (ostream \&out, const \mbox{\hyperlink{classConstantPool}{Constant\+Pool}} \&cp)
+\end{DoxyCompactItemize}
 \doxysubsection*{Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
@@ -21,13 +28,14 @@ u4 {\bfseries high\+\_\+bytes}
 \mbox{\Hypertarget{classCONSTANT__Double__info_acb94347bd17a80b4a11d6ee35ae1eee3}\label{classCONSTANT__Double__info_acb94347bd17a80b4a11d6ee35ae1eee3}} 
 u4 {\bfseries low\+\_\+bytes}
 \end{DoxyCompactItemize}
-\doxysubsection*{Friends}
-\begin{DoxyCompactItemize}
-\item 
-\mbox{\Hypertarget{classCONSTANT__Double__info_a13362a7827f5b1ffa55d08150734f4c0}\label{classCONSTANT__Double__info_a13362a7827f5b1ffa55d08150734f4c0}} 
-std\+::ostream \& {\bfseries operator$<$$<$} (std\+::ostream \&, const \mbox{\hyperlink{classCONSTANT__Double__info}{CONSTANT\+\_\+\+Double\+\_\+info}} \&)
-\end{DoxyCompactItemize}
 
+
+\doxysubsection{Detailed Description}
+As classes \mbox{\hyperlink{classCONSTANT__Long__info}{CONSTANT\+\_\+\+Long\+\_\+info}} e \mbox{\hyperlink{classCONSTANT__Double__info}{CONSTANT\+\_\+\+Double\+\_\+info}} representam 8-\/byte numerico (long e double) constantes
+\begin{DoxyItemize}
+\item tag\+: O atributo tag tem o valor da \mbox{\hyperlink{classCONSTANT__Long__info}{CONSTANT\+\_\+\+Long\+\_\+info}} e \mbox{\hyperlink{classCONSTANT__Double__info}{CONSTANT\+\_\+\+Double\+\_\+info}}, respectivamente 5 e 6
+\item high\+\_\+bytes e low\+\_\+bytes\+: Esses atributos da \mbox{\hyperlink{classCONSTANT__Long__info}{CONSTANT\+\_\+\+Long\+\_\+info}} e \mbox{\hyperlink{classCONSTANT__Double__info}{CONSTANT\+\_\+\+Double\+\_\+info}} juntos representam o valor de long ou double constante. 
+\end{DoxyItemize}
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 

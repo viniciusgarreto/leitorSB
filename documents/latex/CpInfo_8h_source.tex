@@ -17,201 +17,162 @@
 \DoxyCodeLine{13 \textcolor{preprocessor}{\#ifndef cpInfo\_h}}
 \DoxyCodeLine{14 \textcolor{preprocessor}{\#define cpInfo\_h}}
 \DoxyCodeLine{15 }
-\DoxyCodeLine{16 \textcolor{preprocessor}{\#include "{}../headers/definitions.h"{}}}
-\DoxyCodeLine{17 \textcolor{preprocessor}{\#include <stdio.h>}}
-\DoxyCodeLine{18 \textcolor{preprocessor}{\#include <iostream>}}
-\DoxyCodeLine{19 }
-\DoxyCodeLine{20 \textcolor{keyword}{using namespace }std;}
-\DoxyCodeLine{21 }
-\DoxyCodeLine{27 \textcolor{keyword}{class }\mbox{\hyperlink{classCpInfo}{CpInfo}} \{}
-\DoxyCodeLine{28   }
-\DoxyCodeLine{29   \textcolor{keyword}{public}:}
-\DoxyCodeLine{31     \mbox{\hyperlink{classCpInfo_a65c986aba9bb532c84e147c5784e0eb4}{CpInfo}}(u1 \mbox{\hyperlink{classCpInfo_aa3157ac49fcbcdf83f56a09b638007a9}{tag}});}
-\DoxyCodeLine{33     u1 \mbox{\hyperlink{classCpInfo_aa3157ac49fcbcdf83f56a09b638007a9}{tag}};}
-\DoxyCodeLine{34 }
-\DoxyCodeLine{35     \textcolor{keyword}{friend} ostream\& operator<<(ostream\& out, \textcolor{keyword}{const} \mbox{\hyperlink{classCpInfo}{CpInfo}}\& cf);}
-\DoxyCodeLine{36 \};}
+\DoxyCodeLine{16 \textcolor{keyword}{class }\mbox{\hyperlink{classCpInfo}{CpInfo}};}
+\DoxyCodeLine{17 }
+\DoxyCodeLine{18 \textcolor{preprocessor}{\#include "{}../headers/definitions.h"{}}}
+\DoxyCodeLine{19 \textcolor{preprocessor}{\#include "{}../headers/ConstantPool.h"{}}}
+\DoxyCodeLine{20 \textcolor{preprocessor}{\#include <stdio.h>}}
+\DoxyCodeLine{21 \textcolor{preprocessor}{\#include <iostream>}}
+\DoxyCodeLine{22 }
+\DoxyCodeLine{23 \textcolor{keyword}{using namespace }std;}
+\DoxyCodeLine{24 }
+\DoxyCodeLine{30 \textcolor{keyword}{class }\mbox{\hyperlink{classCpInfo}{CpInfo}} \{}
+\DoxyCodeLine{31   }
+\DoxyCodeLine{32   \textcolor{keyword}{public}:}
+\DoxyCodeLine{34     \mbox{\hyperlink{classCpInfo_a65c986aba9bb532c84e147c5784e0eb4}{CpInfo}}(u1 \mbox{\hyperlink{classCpInfo_aa3157ac49fcbcdf83f56a09b638007a9}{tag}});}
+\DoxyCodeLine{36     u1 \mbox{\hyperlink{classCpInfo_aa3157ac49fcbcdf83f56a09b638007a9}{tag}};}
 \DoxyCodeLine{37 }
-\DoxyCodeLine{40   }
-\DoxyCodeLine{41 \textcolor{keyword}{class }\mbox{\hyperlink{classCONSTANT__Utf8__info}{CONSTANT\_Utf8\_info}} : \textcolor{keyword}{public} \mbox{\hyperlink{classCpInfo}{CpInfo}}}
-\DoxyCodeLine{42 \{}
-\DoxyCodeLine{43 \textcolor{keyword}{public}:}
-\DoxyCodeLine{45   \mbox{\hyperlink{classCONSTANT__Utf8__info_a130a11af63b82b74802b03a8f61d3f78}{CONSTANT\_Utf8\_info}}(FILE *fp);}
-\DoxyCodeLine{46   \mbox{\hyperlink{classCONSTANT__Utf8__info}{\string~CONSTANT\_Utf8\_info}}();}
-\DoxyCodeLine{47   u2 length;}
-\DoxyCodeLine{48   u1 *bytes;}
-\DoxyCodeLine{49 }
-\DoxyCodeLine{50 \textcolor{keyword}{private}:}
-\DoxyCodeLine{51   \textcolor{keyword}{friend} std::ostream \&operator<<(std::ostream \&, \textcolor{keyword}{const} \mbox{\hyperlink{classCONSTANT__Utf8__info}{CONSTANT\_Utf8\_info}} \&);}
+\DoxyCodeLine{38     ostream\& print(ostream\& out, \textcolor{keyword}{const} \mbox{\hyperlink{classConstantPool}{ConstantPool}}\& cp);}
+\DoxyCodeLine{39 \};}
+\DoxyCodeLine{40 }
+\DoxyCodeLine{42   }
+\DoxyCodeLine{43 \textcolor{keyword}{class }\mbox{\hyperlink{classCONSTANT__Utf8__info}{CONSTANT\_Utf8\_info}} : \textcolor{keyword}{public} \mbox{\hyperlink{classCpInfo}{CpInfo}}}
+\DoxyCodeLine{44 \{}
+\DoxyCodeLine{45 \textcolor{keyword}{public}:}
+\DoxyCodeLine{47   \mbox{\hyperlink{classCONSTANT__Utf8__info_a130a11af63b82b74802b03a8f61d3f78}{CONSTANT\_Utf8\_info}}(FILE *fp);}
+\DoxyCodeLine{48   \mbox{\hyperlink{classCONSTANT__Utf8__info}{\string~CONSTANT\_Utf8\_info}}();}
+\DoxyCodeLine{49   u2 length;}
+\DoxyCodeLine{50   u1 *bytes;}
+\DoxyCodeLine{51   ostream\& print(ostream\& out, \textcolor{keyword}{const} \mbox{\hyperlink{classConstantPool}{ConstantPool}}\& cp);}
 \DoxyCodeLine{52 \};}
 \DoxyCodeLine{53 }
-\DoxyCodeLine{55 }
-\DoxyCodeLine{60 \textcolor{keyword}{class }\mbox{\hyperlink{classCONSTANT__Integer__info}{CONSTANT\_Integer\_info}} : \textcolor{keyword}{public} \mbox{\hyperlink{classCpInfo}{CpInfo}}}
-\DoxyCodeLine{61 \{}
-\DoxyCodeLine{62 \textcolor{keyword}{public}:}
-\DoxyCodeLine{64   \mbox{\hyperlink{classCONSTANT__Integer__info_a85b95b4b6aec585263110d66108e1442}{CONSTANT\_Integer\_info}}(FILE *fp);}
-\DoxyCodeLine{65   \mbox{\hyperlink{classCONSTANT__Integer__info}{\string~CONSTANT\_Integer\_info}}();}
-\DoxyCodeLine{66   u4 bytes;}
-\DoxyCodeLine{67 }
-\DoxyCodeLine{68 \textcolor{keyword}{private}:}
-\DoxyCodeLine{69   \textcolor{keyword}{friend} std::ostream \&operator<<(std::ostream \&, \textcolor{keyword}{const} \mbox{\hyperlink{classCONSTANT__Integer__info}{CONSTANT\_Integer\_info}} \&);}
-\DoxyCodeLine{70 \};}
-\DoxyCodeLine{71 }
-\DoxyCodeLine{72 \textcolor{keyword}{class }\mbox{\hyperlink{classCONSTANT__Float__info}{CONSTANT\_Float\_info}} : \textcolor{keyword}{public} \mbox{\hyperlink{classCpInfo}{CpInfo}}}
-\DoxyCodeLine{73 \{}
-\DoxyCodeLine{74 \textcolor{keyword}{public}:}
-\DoxyCodeLine{76   \mbox{\hyperlink{classCONSTANT__Float__info_a0c9d3470ec489d7036f103ade8bd6aea}{CONSTANT\_Float\_info}}(FILE *fp);}
-\DoxyCodeLine{77   \mbox{\hyperlink{classCONSTANT__Float__info}{\string~CONSTANT\_Float\_info}}();}
-\DoxyCodeLine{78   u4 bytes;}
-\DoxyCodeLine{79 }
-\DoxyCodeLine{80 \textcolor{keyword}{private}:}
-\DoxyCodeLine{81   \textcolor{keyword}{friend} std::ostream \&operator<<(std::ostream \&, \textcolor{keyword}{const} \mbox{\hyperlink{classCONSTANT__Float__info}{CONSTANT\_Float\_info}} \&);}
-\DoxyCodeLine{82 \};}
-\DoxyCodeLine{84 }
-\DoxyCodeLine{86 \textcolor{comment}{/*}}
-\DoxyCodeLine{87 \textcolor{comment}{  As classes CONSTANT\_Long\_info e CONSTANT\_Double\_info representam 8-\/byte numerico (long e double) constantes}}
-\DoxyCodeLine{88 \textcolor{comment}{  -\/ tag: O atributo tag tem o valor da CONSTANT\_Long\_info e CONSTANT\_Double\_info, respectivamente 5 e 6}}
-\DoxyCodeLine{89 \textcolor{comment}{  -\/ high\_bytes e low\_bytes: Esses atributos da CONSTANT\_Long\_info e CONSTANT\_Double\_info juntos representam o valor de long ou double constante.}}
-\DoxyCodeLine{90 \textcolor{comment}{*/}}
-\DoxyCodeLine{91 \textcolor{keyword}{class }\mbox{\hyperlink{classCONSTANT__Long__info}{CONSTANT\_Long\_info}} : \textcolor{keyword}{public} \mbox{\hyperlink{classCpInfo}{CpInfo}}}
-\DoxyCodeLine{92 \{}
-\DoxyCodeLine{93 \textcolor{keyword}{public}:}
-\DoxyCodeLine{95   \mbox{\hyperlink{classCONSTANT__Long__info_ac09fbccaf5abc29ae1616f57b6626ca5}{CONSTANT\_Long\_info}}(FILE *fp);}
-\DoxyCodeLine{96   \mbox{\hyperlink{classCONSTANT__Long__info}{\string~CONSTANT\_Long\_info}}();}
-\DoxyCodeLine{97   u4 high\_bytes;}
-\DoxyCodeLine{98   u4 low\_bytes;}
-\DoxyCodeLine{99 }
-\DoxyCodeLine{100 \textcolor{keyword}{private}:}
-\DoxyCodeLine{101   \textcolor{keyword}{friend} std::ostream \&operator<<(std::ostream \&, \textcolor{keyword}{const} \mbox{\hyperlink{classCONSTANT__Long__info}{CONSTANT\_Long\_info}} \&);}
-\DoxyCodeLine{102 \};}
-\DoxyCodeLine{103 }
-\DoxyCodeLine{104 \textcolor{keyword}{class }\mbox{\hyperlink{classCONSTANT__Double__info}{CONSTANT\_Double\_info}} : \textcolor{keyword}{public} \mbox{\hyperlink{classCpInfo}{CpInfo}}}
-\DoxyCodeLine{105 \{}
-\DoxyCodeLine{106 \textcolor{keyword}{public}:}
-\DoxyCodeLine{108   \mbox{\hyperlink{classCONSTANT__Double__info_afecf720226ecf4608b041e849510ef1b}{CONSTANT\_Double\_info}}(FILE *fp);}
-\DoxyCodeLine{109   \mbox{\hyperlink{classCONSTANT__Double__info}{\string~CONSTANT\_Double\_info}}();}
-\DoxyCodeLine{110   u4 high\_bytes;}
-\DoxyCodeLine{111   u4 low\_bytes;}
-\DoxyCodeLine{112 }
-\DoxyCodeLine{113 \textcolor{keyword}{private}:}
-\DoxyCodeLine{114   \textcolor{keyword}{friend} std::ostream \&operator<<(std::ostream \&, \textcolor{keyword}{const} \mbox{\hyperlink{classCONSTANT__Double__info}{CONSTANT\_Double\_info}} \&);}
-\DoxyCodeLine{115 \};}
-\DoxyCodeLine{117 }
-\DoxyCodeLine{119 \textcolor{keyword}{class }\mbox{\hyperlink{classCONSTANT__Class__info}{CONSTANT\_Class\_info}} : \textcolor{keyword}{public} \mbox{\hyperlink{classCpInfo}{CpInfo}}}
-\DoxyCodeLine{120 \{}
-\DoxyCodeLine{121 \textcolor{keyword}{public}:}
-\DoxyCodeLine{123   \mbox{\hyperlink{classCONSTANT__Class__info_af2f07e94b8bcb00734bd8dae70eebb4c}{CONSTANT\_Class\_info}}(FILE *fp);}
-\DoxyCodeLine{124   \mbox{\hyperlink{classCONSTANT__Class__info}{\string~CONSTANT\_Class\_info}}();}
-\DoxyCodeLine{125   u2 name\_index;}
-\DoxyCodeLine{126 }
-\DoxyCodeLine{127 \textcolor{keyword}{private}:}
-\DoxyCodeLine{128   \textcolor{keyword}{friend} std::ostream \&operator<<(std::ostream \&, \textcolor{keyword}{const} \mbox{\hyperlink{classCONSTANT__Class__info}{CONSTANT\_Class\_info}} \&);}
-\DoxyCodeLine{129 \};}
-\DoxyCodeLine{130 }
-\DoxyCodeLine{132 \textcolor{keyword}{class }\mbox{\hyperlink{classCONSTANT__String__info}{CONSTANT\_String\_info}} : \textcolor{keyword}{public} \mbox{\hyperlink{classCpInfo}{CpInfo}}}
-\DoxyCodeLine{133 \{}
-\DoxyCodeLine{134 \textcolor{keyword}{public}:}
-\DoxyCodeLine{136   \mbox{\hyperlink{classCONSTANT__String__info_a46cd40101b93deedb11ea923d3085585}{CONSTANT\_String\_info}}(FILE *fp);}
-\DoxyCodeLine{137   \mbox{\hyperlink{classCONSTANT__String__info}{\string~CONSTANT\_String\_info}}();}
-\DoxyCodeLine{138   u2 string\_index;}
-\DoxyCodeLine{139 }
-\DoxyCodeLine{140 \textcolor{keyword}{private}:}
-\DoxyCodeLine{141   \textcolor{keyword}{friend} std::ostream \&operator<<(std::ostream \&, \textcolor{keyword}{const} \mbox{\hyperlink{classCONSTANT__String__info}{CONSTANT\_String\_info}} \&);}
-\DoxyCodeLine{142 \};}
-\DoxyCodeLine{143 }
-\DoxyCodeLine{145 \textcolor{comment}{/*}}
-\DoxyCodeLine{146 \textcolor{comment}{Fields, methods, and interface methods are represented by similar structures:}}
-\DoxyCodeLine{147 \textcolor{comment}{-\/ tag: O atributo tag tem o valor da CONSTANT\_Fieldref, CONSTANT\_Methodref e CONSTANT\_InterfaceMethodref, respectivamente 9, 10 e 11}}
-\DoxyCodeLine{148 \textcolor{comment}{-\/ class\_index: Index válido na tabela de constant pool. A entrada constant\_pool desse index deve ser uma estrutura CONSTANT\_Class\_info.}}
-\DoxyCodeLine{149 \textcolor{comment}{-\/ name\_and\_type\_index: Index válido na tabela de constant pool. A entrada constant\_pool desse index deve ser uma estrutura CONSTANT\_NameAndType\_info.}}
-\DoxyCodeLine{150 \textcolor{comment}{*/}}
-\DoxyCodeLine{151 \textcolor{keyword}{class }\mbox{\hyperlink{classCONSTANT__Fieldref__info}{CONSTANT\_Fieldref\_info}} : \textcolor{keyword}{public} \mbox{\hyperlink{classCpInfo}{CpInfo}}}
-\DoxyCodeLine{152 \{}
-\DoxyCodeLine{153 \textcolor{keyword}{public}:}
-\DoxyCodeLine{155   \mbox{\hyperlink{classCONSTANT__Fieldref__info_a642d58a5943339c41cfba0e52c629c6f}{CONSTANT\_Fieldref\_info}}(FILE *fp);}
-\DoxyCodeLine{156   \mbox{\hyperlink{classCONSTANT__Fieldref__info}{\string~CONSTANT\_Fieldref\_info}}();}
-\DoxyCodeLine{157   u2 class\_index;}
-\DoxyCodeLine{158   u2 name\_and\_type\_index;}
-\DoxyCodeLine{159 }
-\DoxyCodeLine{160 \textcolor{keyword}{private}:}
-\DoxyCodeLine{161   \textcolor{keyword}{friend} std::ostream \&operator<<(std::ostream \&, \textcolor{keyword}{const} \mbox{\hyperlink{classCONSTANT__Fieldref__info}{CONSTANT\_Fieldref\_info}} \&);}
-\DoxyCodeLine{162 \};}
-\DoxyCodeLine{163 }
-\DoxyCodeLine{164 }
-\DoxyCodeLine{166 \textcolor{keyword}{class }\mbox{\hyperlink{classCONSTANT__Methodref__info}{CONSTANT\_Methodref\_info}} : \textcolor{keyword}{public} \mbox{\hyperlink{classCpInfo}{CpInfo}}}
-\DoxyCodeLine{167 \{}
-\DoxyCodeLine{168 \textcolor{keyword}{public}:}
-\DoxyCodeLine{170   \mbox{\hyperlink{classCONSTANT__Methodref__info_ae261906c98d946eed7f036d4b69adec9}{CONSTANT\_Methodref\_info}}(FILE *fp);}
-\DoxyCodeLine{171   \mbox{\hyperlink{classCONSTANT__Methodref__info}{\string~CONSTANT\_Methodref\_info}}();}
-\DoxyCodeLine{172   u2 class\_index;}
-\DoxyCodeLine{173   u2 name\_and\_type\_index;}
-\DoxyCodeLine{174 }
-\DoxyCodeLine{175 \textcolor{keyword}{private}:}
-\DoxyCodeLine{176   \textcolor{keyword}{friend} std::ostream \&operator<<(std::ostream \&, \textcolor{keyword}{const} \mbox{\hyperlink{classCONSTANT__Methodref__info}{CONSTANT\_Methodref\_info}} \&);}
-\DoxyCodeLine{177 \};}
-\DoxyCodeLine{178 }
-\DoxyCodeLine{179 }
-\DoxyCodeLine{180 \textcolor{keyword}{class }\mbox{\hyperlink{classCONSTANT__InterfaceMethodref__info}{CONSTANT\_InterfaceMethodref\_info}} : \textcolor{keyword}{public} \mbox{\hyperlink{classCpInfo}{CpInfo}}}
-\DoxyCodeLine{181 \{}
-\DoxyCodeLine{182 \textcolor{keyword}{public}:}
-\DoxyCodeLine{184   \mbox{\hyperlink{classCONSTANT__InterfaceMethodref__info_a02d9196ba07926d2b7bba7f078f3fde9}{CONSTANT\_InterfaceMethodref\_info}}(FILE *fp);}
-\DoxyCodeLine{185   \mbox{\hyperlink{classCONSTANT__InterfaceMethodref__info}{\string~CONSTANT\_InterfaceMethodref\_info}}();}
-\DoxyCodeLine{186   u2 class\_index;}
-\DoxyCodeLine{187   u2 name\_and\_type\_index;}
+\DoxyCodeLine{59 \textcolor{keyword}{class }\mbox{\hyperlink{classCONSTANT__Integer__info}{CONSTANT\_Integer\_info}} : \textcolor{keyword}{public} \mbox{\hyperlink{classCpInfo}{CpInfo}}}
+\DoxyCodeLine{60 \{}
+\DoxyCodeLine{61 \textcolor{keyword}{public}:}
+\DoxyCodeLine{63   \mbox{\hyperlink{classCONSTANT__Integer__info_a85b95b4b6aec585263110d66108e1442}{CONSTANT\_Integer\_info}}(FILE *fp);}
+\DoxyCodeLine{64   \mbox{\hyperlink{classCONSTANT__Integer__info}{\string~CONSTANT\_Integer\_info}}();}
+\DoxyCodeLine{65   u4 bytes;}
+\DoxyCodeLine{66   ostream\& print(ostream\& out, \textcolor{keyword}{const} \mbox{\hyperlink{classConstantPool}{ConstantPool}}\& cp);}
+\DoxyCodeLine{67 \};}
+\DoxyCodeLine{73 \textcolor{keyword}{class }\mbox{\hyperlink{classCONSTANT__Float__info}{CONSTANT\_Float\_info}} : \textcolor{keyword}{public} \mbox{\hyperlink{classCpInfo}{CpInfo}}}
+\DoxyCodeLine{74 \{}
+\DoxyCodeLine{75 \textcolor{keyword}{public}:}
+\DoxyCodeLine{77   \mbox{\hyperlink{classCONSTANT__Float__info_a0c9d3470ec489d7036f103ade8bd6aea}{CONSTANT\_Float\_info}}(FILE *fp);}
+\DoxyCodeLine{78   \mbox{\hyperlink{classCONSTANT__Float__info}{\string~CONSTANT\_Float\_info}}();}
+\DoxyCodeLine{79   u4 bytes;}
+\DoxyCodeLine{80   ostream\& print(ostream\& out, \textcolor{keyword}{const} \mbox{\hyperlink{classConstantPool}{ConstantPool}}\& cp);}
+\DoxyCodeLine{81 \};}
+\DoxyCodeLine{82 }
+\DoxyCodeLine{88 \textcolor{keyword}{class }\mbox{\hyperlink{classCONSTANT__Long__info}{CONSTANT\_Long\_info}} : \textcolor{keyword}{public} \mbox{\hyperlink{classCpInfo}{CpInfo}}}
+\DoxyCodeLine{89 \{}
+\DoxyCodeLine{90 \textcolor{keyword}{public}:}
+\DoxyCodeLine{92   \mbox{\hyperlink{classCONSTANT__Long__info_ac09fbccaf5abc29ae1616f57b6626ca5}{CONSTANT\_Long\_info}}(FILE *fp);}
+\DoxyCodeLine{93   \mbox{\hyperlink{classCONSTANT__Long__info}{\string~CONSTANT\_Long\_info}}();}
+\DoxyCodeLine{94   u4 high\_bytes;}
+\DoxyCodeLine{95   u4 low\_bytes;}
+\DoxyCodeLine{96   ostream\& print(ostream\& out, \textcolor{keyword}{const} \mbox{\hyperlink{classConstantPool}{ConstantPool}}\& cp);}
+\DoxyCodeLine{97 \};}
+\DoxyCodeLine{103 \textcolor{keyword}{class }\mbox{\hyperlink{classCONSTANT__Double__info}{CONSTANT\_Double\_info}} : \textcolor{keyword}{public} \mbox{\hyperlink{classCpInfo}{CpInfo}}}
+\DoxyCodeLine{104 \{}
+\DoxyCodeLine{105 \textcolor{keyword}{public}:}
+\DoxyCodeLine{107   \mbox{\hyperlink{classCONSTANT__Double__info_afecf720226ecf4608b041e849510ef1b}{CONSTANT\_Double\_info}}(FILE *fp);}
+\DoxyCodeLine{108   \mbox{\hyperlink{classCONSTANT__Double__info}{\string~CONSTANT\_Double\_info}}();}
+\DoxyCodeLine{109   u4 high\_bytes;}
+\DoxyCodeLine{110   u4 low\_bytes;}
+\DoxyCodeLine{111   ostream\& print(ostream\& out, \textcolor{keyword}{const} \mbox{\hyperlink{classConstantPool}{ConstantPool}}\& cp);}
+\DoxyCodeLine{112 \};}
+\DoxyCodeLine{113 }
+\DoxyCodeLine{115 \textcolor{keyword}{class }\mbox{\hyperlink{classCONSTANT__Class__info}{CONSTANT\_Class\_info}} : \textcolor{keyword}{public} \mbox{\hyperlink{classCpInfo}{CpInfo}}}
+\DoxyCodeLine{116 \{}
+\DoxyCodeLine{117 \textcolor{keyword}{public}:}
+\DoxyCodeLine{119   \mbox{\hyperlink{classCONSTANT__Class__info_af2f07e94b8bcb00734bd8dae70eebb4c}{CONSTANT\_Class\_info}}(FILE *fp);}
+\DoxyCodeLine{120   \mbox{\hyperlink{classCONSTANT__Class__info}{\string~CONSTANT\_Class\_info}}();}
+\DoxyCodeLine{121   u2 name\_index;}
+\DoxyCodeLine{122   ostream\& print(ostream\& out, \textcolor{keyword}{const} \mbox{\hyperlink{classConstantPool}{ConstantPool}}\& cp);}
+\DoxyCodeLine{123 \};}
+\DoxyCodeLine{124 }
+\DoxyCodeLine{126 \textcolor{keyword}{class }\mbox{\hyperlink{classCONSTANT__String__info}{CONSTANT\_String\_info}} : \textcolor{keyword}{public} \mbox{\hyperlink{classCpInfo}{CpInfo}}}
+\DoxyCodeLine{127 \{}
+\DoxyCodeLine{128 \textcolor{keyword}{public}:}
+\DoxyCodeLine{130   \mbox{\hyperlink{classCONSTANT__String__info_a46cd40101b93deedb11ea923d3085585}{CONSTANT\_String\_info}}(FILE *fp);}
+\DoxyCodeLine{131   \mbox{\hyperlink{classCONSTANT__String__info}{\string~CONSTANT\_String\_info}}();}
+\DoxyCodeLine{132   u2 string\_index;}
+\DoxyCodeLine{133   ostream\& print(ostream\& out, \textcolor{keyword}{const} \mbox{\hyperlink{classConstantPool}{ConstantPool}}\& cp);}
+\DoxyCodeLine{134 \};}
+\DoxyCodeLine{135 }
+\DoxyCodeLine{142 \textcolor{keyword}{class }\mbox{\hyperlink{classCONSTANT__Fieldref__info}{CONSTANT\_Fieldref\_info}} : \textcolor{keyword}{public} \mbox{\hyperlink{classCpInfo}{CpInfo}}}
+\DoxyCodeLine{143 \{}
+\DoxyCodeLine{144 \textcolor{keyword}{public}:}
+\DoxyCodeLine{146   \mbox{\hyperlink{classCONSTANT__Fieldref__info_a642d58a5943339c41cfba0e52c629c6f}{CONSTANT\_Fieldref\_info}}(FILE *fp);}
+\DoxyCodeLine{147   \mbox{\hyperlink{classCONSTANT__Fieldref__info}{\string~CONSTANT\_Fieldref\_info}}();}
+\DoxyCodeLine{148   u2 class\_index;}
+\DoxyCodeLine{149   u2 name\_and\_type\_index;}
+\DoxyCodeLine{150   ostream\& print(ostream\& out, \textcolor{keyword}{const} \mbox{\hyperlink{classConstantPool}{ConstantPool}}\& cp);}
+\DoxyCodeLine{151 \};}
+\DoxyCodeLine{152 }
+\DoxyCodeLine{153 }
+\DoxyCodeLine{155 }
+\DoxyCodeLine{161 \textcolor{keyword}{class }\mbox{\hyperlink{classCONSTANT__Methodref__info}{CONSTANT\_Methodref\_info}} : \textcolor{keyword}{public} \mbox{\hyperlink{classCpInfo}{CpInfo}}}
+\DoxyCodeLine{162 \{}
+\DoxyCodeLine{163 \textcolor{keyword}{public}:}
+\DoxyCodeLine{165   \mbox{\hyperlink{classCONSTANT__Methodref__info_ae261906c98d946eed7f036d4b69adec9}{CONSTANT\_Methodref\_info}}(FILE *fp);}
+\DoxyCodeLine{166   \mbox{\hyperlink{classCONSTANT__Methodref__info}{\string~CONSTANT\_Methodref\_info}}();}
+\DoxyCodeLine{167   u2 class\_index;}
+\DoxyCodeLine{168   u2 name\_and\_type\_index;}
+\DoxyCodeLine{169   ostream\& print(ostream\& out, \textcolor{keyword}{const} \mbox{\hyperlink{classConstantPool}{ConstantPool}}\& cp);}
+\DoxyCodeLine{170 \};}
+\DoxyCodeLine{171 }
+\DoxyCodeLine{178 \textcolor{keyword}{class }\mbox{\hyperlink{classCONSTANT__InterfaceMethodref__info}{CONSTANT\_InterfaceMethodref\_info}} : \textcolor{keyword}{public} \mbox{\hyperlink{classCpInfo}{CpInfo}}}
+\DoxyCodeLine{179 \{}
+\DoxyCodeLine{180 \textcolor{keyword}{public}:}
+\DoxyCodeLine{182   \mbox{\hyperlink{classCONSTANT__InterfaceMethodref__info_a02d9196ba07926d2b7bba7f078f3fde9}{CONSTANT\_InterfaceMethodref\_info}}(FILE *fp);}
+\DoxyCodeLine{183   \mbox{\hyperlink{classCONSTANT__InterfaceMethodref__info}{\string~CONSTANT\_InterfaceMethodref\_info}}();}
+\DoxyCodeLine{184   u2 class\_index;}
+\DoxyCodeLine{185   u2 name\_and\_type\_index;}
+\DoxyCodeLine{186   ostream\& print(ostream\& out, \textcolor{keyword}{const} \mbox{\hyperlink{classConstantPool}{ConstantPool}}\& cp);}
+\DoxyCodeLine{187 \};}
 \DoxyCodeLine{188 }
-\DoxyCodeLine{189 \textcolor{keyword}{private}:}
-\DoxyCodeLine{190   \textcolor{keyword}{friend} std::ostream \&operator<<(std::ostream \&, \textcolor{keyword}{const} \mbox{\hyperlink{classCONSTANT__InterfaceMethodref__info}{CONSTANT\_InterfaceMethodref\_info}} \&);}
-\DoxyCodeLine{191 \};}
-\DoxyCodeLine{193 }
-\DoxyCodeLine{195 \textcolor{keyword}{class }\mbox{\hyperlink{classCONSTANT__NameAndType__info}{CONSTANT\_NameAndType\_info}} : \textcolor{keyword}{public} \mbox{\hyperlink{classCpInfo}{CpInfo}}}
-\DoxyCodeLine{196 \{}
-\DoxyCodeLine{197 \textcolor{keyword}{public}:}
-\DoxyCodeLine{199   \mbox{\hyperlink{classCONSTANT__NameAndType__info_a0e7175d621dc305c41f8b133a4700a9d}{CONSTANT\_NameAndType\_info}}(FILE *fp);}
-\DoxyCodeLine{200   \mbox{\hyperlink{classCONSTANT__NameAndType__info}{\string~CONSTANT\_NameAndType\_info}}();}
-\DoxyCodeLine{201   u2 name\_index;}
-\DoxyCodeLine{202   u2 descriptor\_index;}
-\DoxyCodeLine{203 }
-\DoxyCodeLine{204 \textcolor{keyword}{private}:}
-\DoxyCodeLine{205   \textcolor{keyword}{friend} std::ostream \&operator<<(std::ostream \&, \textcolor{keyword}{const} \mbox{\hyperlink{classCONSTANT__NameAndType__info}{CONSTANT\_NameAndType\_info}} \&);}
-\DoxyCodeLine{206 \};}
-\DoxyCodeLine{207 }
-\DoxyCodeLine{208 \textcolor{comment}{/* Classe utilizada para representar o Method handle */}}
-\DoxyCodeLine{209 \textcolor{keyword}{class }\mbox{\hyperlink{classCONSTANT__MethodHandle__info}{CONSTANT\_MethodHandle\_info}} : \textcolor{keyword}{public} \mbox{\hyperlink{classCpInfo}{CpInfo}}}
-\DoxyCodeLine{210 \{}
-\DoxyCodeLine{211 \textcolor{keyword}{public}:}
-\DoxyCodeLine{213   \mbox{\hyperlink{classCONSTANT__MethodHandle__info_a5aaab2a7ebc383d9b5ef8efaaa5477b7}{CONSTANT\_MethodHandle\_info}}(FILE *fp);}
-\DoxyCodeLine{214   \mbox{\hyperlink{classCONSTANT__MethodHandle__info}{\string~CONSTANT\_MethodHandle\_info}}();}
-\DoxyCodeLine{216   u1 \mbox{\hyperlink{classCONSTANT__MethodHandle__info_a4cb90b551cc5069fe7a2dbc4ecbeb3d2}{reference\_kind}};}
-\DoxyCodeLine{217   u2 reference\_index;}
-\DoxyCodeLine{218 }
-\DoxyCodeLine{219 \textcolor{keyword}{private}:}
-\DoxyCodeLine{220   \textcolor{keyword}{friend} std::ostream \&operator<<(std::ostream \&, \textcolor{keyword}{const} \mbox{\hyperlink{classCONSTANT__MethodHandle__info}{CONSTANT\_MethodHandle\_info}} \&);}
-\DoxyCodeLine{221 \};}
-\DoxyCodeLine{222 }
-\DoxyCodeLine{223 \textcolor{keyword}{class }\mbox{\hyperlink{classCONSTANT__MethodType__info}{CONSTANT\_MethodType\_info}} : \textcolor{keyword}{public} \mbox{\hyperlink{classCpInfo}{CpInfo}}}
-\DoxyCodeLine{224 \{}
-\DoxyCodeLine{225 \textcolor{keyword}{public}:}
-\DoxyCodeLine{227   \mbox{\hyperlink{classCONSTANT__MethodType__info_a29f278aaf606a426912374ab04e01068}{CONSTANT\_MethodType\_info}}(FILE *fp);}
-\DoxyCodeLine{228   \mbox{\hyperlink{classCONSTANT__MethodType__info}{\string~CONSTANT\_MethodType\_info}}();}
-\DoxyCodeLine{229   u2 descriptor\_index;}
-\DoxyCodeLine{230 }
-\DoxyCodeLine{231 \textcolor{keyword}{private}:}
-\DoxyCodeLine{232   \textcolor{keyword}{friend} std::ostream \&operator<<(std::ostream \&, \textcolor{keyword}{const} \mbox{\hyperlink{classCONSTANT__MethodType__info}{CONSTANT\_MethodType\_info}} \&);}
-\DoxyCodeLine{233 \};}
-\DoxyCodeLine{234 }
-\DoxyCodeLine{235 \textcolor{comment}{/*Classe utilizada pela instrução invokedynamic para especificar um método bootstrap, o dynamic invocation name, o argumento e os tipos de retorno da chamada,}}
-\DoxyCodeLine{236 \textcolor{comment}{ sendo opcional a sequencia de constantes adicionais chamadas arumentos estaticos do metodo bootstrap */}}
-\DoxyCodeLine{237 \textcolor{keyword}{class }\mbox{\hyperlink{classCONSTANT__InvokeDynamic__info}{CONSTANT\_InvokeDynamic\_info}} : \textcolor{keyword}{public} \mbox{\hyperlink{classCpInfo}{CpInfo}}}
-\DoxyCodeLine{238 \{}
-\DoxyCodeLine{239 \textcolor{keyword}{public}:}
-\DoxyCodeLine{241   \mbox{\hyperlink{classCONSTANT__InvokeDynamic__info_ac80a7cfcdcf8fba45a526b858ff7d917}{CONSTANT\_InvokeDynamic\_info}}(FILE *fp);}
-\DoxyCodeLine{242   \mbox{\hyperlink{classCONSTANT__InvokeDynamic__info}{\string~CONSTANT\_InvokeDynamic\_info}}();}
-\DoxyCodeLine{243   u2 bootstrap\_method\_attr\_index;}
-\DoxyCodeLine{244   u2 name\_and\_type\_index;}
-\DoxyCodeLine{245 }
-\DoxyCodeLine{246 \textcolor{keyword}{private}:}
-\DoxyCodeLine{247   \textcolor{keyword}{friend} std::ostream \&operator<<(std::ostream \&, \textcolor{keyword}{const} \mbox{\hyperlink{classCONSTANT__InvokeDynamic__info}{CONSTANT\_InvokeDynamic\_info}} \&);}
-\DoxyCodeLine{248 \};}
-\DoxyCodeLine{250 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{190 \textcolor{keyword}{class }\mbox{\hyperlink{classCONSTANT__NameAndType__info}{CONSTANT\_NameAndType\_info}} : \textcolor{keyword}{public} \mbox{\hyperlink{classCpInfo}{CpInfo}}}
+\DoxyCodeLine{191 \{}
+\DoxyCodeLine{192 \textcolor{keyword}{public}:}
+\DoxyCodeLine{194   \mbox{\hyperlink{classCONSTANT__NameAndType__info_a0e7175d621dc305c41f8b133a4700a9d}{CONSTANT\_NameAndType\_info}}(FILE *fp);}
+\DoxyCodeLine{195   \mbox{\hyperlink{classCONSTANT__NameAndType__info}{\string~CONSTANT\_NameAndType\_info}}();}
+\DoxyCodeLine{196   u2 name\_index;}
+\DoxyCodeLine{197   u2 descriptor\_index;}
+\DoxyCodeLine{198   ostream\& print(ostream\& out, \textcolor{keyword}{const} \mbox{\hyperlink{classConstantPool}{ConstantPool}}\& cp);}
+\DoxyCodeLine{199 \};}
+\DoxyCodeLine{200 }
+\DoxyCodeLine{201 \textcolor{comment}{/* Classe utilizada para representar o Method handle */}}
+\DoxyCodeLine{202 \textcolor{keyword}{class }\mbox{\hyperlink{classCONSTANT__MethodHandle__info}{CONSTANT\_MethodHandle\_info}} : \textcolor{keyword}{public} \mbox{\hyperlink{classCpInfo}{CpInfo}}}
+\DoxyCodeLine{203 \{}
+\DoxyCodeLine{204 \textcolor{keyword}{public}:}
+\DoxyCodeLine{206   \mbox{\hyperlink{classCONSTANT__MethodHandle__info_a5aaab2a7ebc383d9b5ef8efaaa5477b7}{CONSTANT\_MethodHandle\_info}}(FILE *fp);}
+\DoxyCodeLine{207   \mbox{\hyperlink{classCONSTANT__MethodHandle__info}{\string~CONSTANT\_MethodHandle\_info}}();}
+\DoxyCodeLine{209   u1 \mbox{\hyperlink{classCONSTANT__MethodHandle__info_a4cb90b551cc5069fe7a2dbc4ecbeb3d2}{reference\_kind}};}
+\DoxyCodeLine{210   u2 reference\_index;}
+\DoxyCodeLine{211   ostream\& print(ostream\& out, \textcolor{keyword}{const} \mbox{\hyperlink{classConstantPool}{ConstantPool}}\& cp);}
+\DoxyCodeLine{212 \};}
+\DoxyCodeLine{213 }
+\DoxyCodeLine{214 \textcolor{keyword}{class }\mbox{\hyperlink{classCONSTANT__MethodType__info}{CONSTANT\_MethodType\_info}} : \textcolor{keyword}{public} \mbox{\hyperlink{classCpInfo}{CpInfo}}}
+\DoxyCodeLine{215 \{}
+\DoxyCodeLine{216 \textcolor{keyword}{public}:}
+\DoxyCodeLine{218   \mbox{\hyperlink{classCONSTANT__MethodType__info_a29f278aaf606a426912374ab04e01068}{CONSTANT\_MethodType\_info}}(FILE *fp);}
+\DoxyCodeLine{219   \mbox{\hyperlink{classCONSTANT__MethodType__info}{\string~CONSTANT\_MethodType\_info}}();}
+\DoxyCodeLine{220   u2 descriptor\_index;}
+\DoxyCodeLine{221   ostream\& print(ostream\& out, \textcolor{keyword}{const} \mbox{\hyperlink{classConstantPool}{ConstantPool}}\& cp);}
+\DoxyCodeLine{222 \};}
+\DoxyCodeLine{223 }
+\DoxyCodeLine{224 \textcolor{comment}{/*Classe utilizada pela instrução invokedynamic para especificar um método bootstrap, o dynamic invocation name, o argumento e os tipos de retorno da chamada,}}
+\DoxyCodeLine{225 \textcolor{comment}{ sendo opcional a sequencia de constantes adicionais chamadas arumentos estaticos do metodo bootstrap */}}
+\DoxyCodeLine{226 \textcolor{keyword}{class }\mbox{\hyperlink{classCONSTANT__InvokeDynamic__info}{CONSTANT\_InvokeDynamic\_info}} : \textcolor{keyword}{public} \mbox{\hyperlink{classCpInfo}{CpInfo}}}
+\DoxyCodeLine{227 \{}
+\DoxyCodeLine{228 \textcolor{keyword}{public}:}
+\DoxyCodeLine{230   \mbox{\hyperlink{classCONSTANT__InvokeDynamic__info_ac80a7cfcdcf8fba45a526b858ff7d917}{CONSTANT\_InvokeDynamic\_info}}(FILE *fp);}
+\DoxyCodeLine{231   \mbox{\hyperlink{classCONSTANT__InvokeDynamic__info}{\string~CONSTANT\_InvokeDynamic\_info}}();}
+\DoxyCodeLine{232   u2 bootstrap\_method\_attr\_index;}
+\DoxyCodeLine{233   u2 name\_and\_type\_index;}
+\DoxyCodeLine{234   ostream\& print(ostream\& out, \textcolor{keyword}{const} \mbox{\hyperlink{classConstantPool}{ConstantPool}}\& cp);}
+\DoxyCodeLine{235 \};}
+\DoxyCodeLine{236 \textcolor{preprocessor}{\#endif}}
 
 \end{DoxyCode}

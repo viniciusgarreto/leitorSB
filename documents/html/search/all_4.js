@@ -7,5 +7,6 @@ var searchData=
   ['floatvariableinfo_4',['FloatVariableInfo',['../classFloatVariableInfo.html',1,'']]],
   ['frame_5',['Frame',['../classFrame.html',1,'Frame'],['../classFrame.html#a1f545144d6dfe52262e20c2ec0d221ac',1,'Frame::Frame()']]],
   ['frame_2eh_6',['Frame.h',['../Frame_8h.html',1,'']]],
-  ['fullframe_7',['FullFrame',['../classFullFrame.html',1,'']]]
+  ['frame_5ftype_7',['frame_type',['../classStackMapFrame.html#a906e3eef5ec78099a3251b5e5850941c',1,'StackMapFrame']]],
+  ['fullframe_8',['FullFrame',['../classFullFrame.html',1,'']]]
 ];

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['name_0',['name',['../classInstruction.html#af0880d3430a526808456ad82fdf86a21',1,'Instruction']]]
+  ['max_5flocals_0',['max_locals',['../classCodeAttribute.html#a1407b9bddee5eca9e0b0b20fbf1a8f1f',1,'CodeAttribute']]]
 ];

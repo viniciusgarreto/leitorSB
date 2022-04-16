@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['max_5flocals_0',['max_locals',['../classCodeAttribute.html#a1407b9bddee5eca9e0b0b20fbf1a8f1f',1,'CodeAttribute']]]
+  ['line_5fnumber_0',['line_number',['../classLineNumberTable.html#a725cc8fff7109848d0a570930b381037',1,'LineNumberTable']]]
 ];
