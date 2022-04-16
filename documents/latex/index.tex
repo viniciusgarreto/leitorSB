@@ -1,24 +1,32 @@
 \label{index_md_README}%
 \Hypertarget{index_md_README}%
- \hypertarget{index_autotoc_md1}{}\doxysubsection{Para compilar os arquivos cpp, utilize a seguinte linha de código dentro da pasta src\+:}\label{index_autotoc_md1}
-
+ Obs\+: deve-\/se ter o make e g++ instalado no sistema.\hypertarget{index_autotoc_md1}{}\doxysubsection{Windows}\label{index_autotoc_md1}
+Para chamar o leitor-\/exibidor\+: 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{g++ Attribute.cpp Attributes.cpp Classes.cpp ConstantPool.cpp CpInfo.cpp definitions.cpp Field.cpp Fields.cpp Interfaces.cpp LineNumberTable.cpp main.cpp Method.cpp Methods.cpp printer.cpp reader.cpp}
+\DoxyCodeLine{make; .\(\backslash\)JVM.exe read .\(\backslash\)java\(\backslash\)<NomeDoArquivo>.class argumento\_opcional\_com\_nome\_arquivo\_output.txt}
 
 \end{DoxyCode}
- \hypertarget{index_autotoc_md2}{}\doxysubsection{No Linux, ainda na pasta src, para exercutar o arquivo compilado, e escolher um arquivo .\+class a ser lido, utilize a seguinte linha de código\+:}\label{index_autotoc_md2}
 
+
+Para executar a jvm\+: 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{./a.out ../java/<Nome\_do\_Arquivo>}
+\DoxyCodeLine{make; .\(\backslash\)JVM.exe exec .\(\backslash\)java\(\backslash\)<NomeDoArquivo>.class}
 
 \end{DoxyCode}
- \hypertarget{index_autotoc_md3}{}\doxysubsection{No Windows, ainda na pasta src, para exercutar o arquivo compilado, e escolher um arquivo .\+class a ser lido, utilize a seguinte linha de código\+:}\label{index_autotoc_md3}
-
+\hypertarget{index_autotoc_md2}{}\doxysubsection{Linux}\label{index_autotoc_md2}
+Para chamar o leitor-\/exibidor\+: 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{./a.exe ../java/<Nome\_do\_Arquivo>}
+\DoxyCodeLine{make; .\(\backslash\)JVM read ./java/<NomeDoArquivo>.class argumento\_opcional\_com\_nome\_arquivo\_output.txt}
 
 \end{DoxyCode}
- ./a.out $<$\+Nome\+\_\+do\+\_\+\+Arquivo$>$ \`{}\`{}\`{}\hypertarget{index_autotoc_md4}{}\doxysubsection{Autores}\label{index_autotoc_md4}
+
+
+Para executar a jvm\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{make; .\(\backslash\)JVM exec ./java/<NomeDoArquivo>.class}
+
+\end{DoxyCode}
+\hypertarget{index_autotoc_md3}{}\doxysubsection{Autores}\label{index_autotoc_md3}
 
 \begin{DoxyItemize}
 \item Caio Bernardon N. K. Massucato – 16/0115001
