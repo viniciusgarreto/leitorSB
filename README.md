@@ -16,12 +16,12 @@ make; .\JVM.exe exec .\java\<NomeDoArquivo>.class
 ### Linux
 Para chamar o leitor-exibidor:
 ```
-make; .\JVM read ./java/<NomeDoArquivo>.class argumento_opcional_com_nome_arquivo_output.txt
+make; ./JVM read ./java/<NomeDoArquivo>.class argumento_opcional_com_nome_arquivo_output.txt
 ```
 
 Para executar a jvm:
 ```
-make; .\JVM exec ./java/<NomeDoArquivo>.class
+make; ./JVM exec ./java/<NomeDoArquivo>.class
 ```
 
 # Autores
