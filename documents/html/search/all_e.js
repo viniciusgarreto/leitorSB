@@ -1,15 +1,8 @@
 var searchData=
 [
-  ['sameframe_0',['SameFrame',['../classSameFrame.html',1,'']]],
-  ['sameframeextended_1',['SameFrameExtended',['../classSameFrameExtended.html',1,'']]],
-  ['samelocals1stackitemframe_2',['SameLocals1StackItemFrame',['../classSameLocals1StackItemFrame.html',1,'']]],
-  ['samelocals1stackitemframeextended_3',['SameLocals1StackItemFrameExtended',['../classSameLocals1StackItemFrameExtended.html',1,'']]],
-  ['signatureattribute_4',['SignatureAttribute',['../classSignatureAttribute.html',1,'SignatureAttribute'],['../classSignatureAttribute.html#a4fe9cf71bbc3398b0eec16149f2ff15f',1,'SignatureAttribute::SignatureAttribute()']]],
-  ['sourcefileattribute_5',['SourceFileAttribute',['../classSourceFileAttribute.html',1,'SourceFileAttribute'],['../classSourceFileAttribute.html#a58b077cf5f81d937718ff90f32dd945a',1,'SourceFileAttribute::SourceFileAttribute()']]],
-  ['stackframe_6',['StackFrame',['../classStackFrame.html',1,'StackFrame'],['../classStackFrame.html#aafd12760eafab836ff0e19960ef8e2af',1,'StackFrame::StackFrame()']]],
-  ['stackframe_2eh_7',['StackFrame.h',['../StackFrame_8h.html',1,'']]],
-  ['stackmapattribute_8',['StackMapAttribute',['../classStackMapAttribute.html',1,'StackMapAttribute'],['../classStackMapAttribute.html#a1d38a4220e3d281f115678a1b7c24cea',1,'StackMapAttribute::StackMapAttribute()']]],
-  ['stackmapframe_9',['StackMapFrame',['../classStackMapFrame.html',1,'StackMapFrame'],['../classStackMapFrame.html#a910e5b68a4e6427bac7299aaa94d1989',1,'StackMapFrame::StackMapFrame()']]],
-  ['stackmapframe_2eh_10',['StackMapFrame.h',['../StackMapFrame_8h.html',1,'']]],
-  ['start_5fpc_11',['start_pc',['../classExceptionTable.html#af137b3a966825f91146039797d3b1ba5',1,'ExceptionTable::start_pc()'],['../classLineNumberTable.html#a16496fea3c8c74d3a54f0104061f0df9',1,'LineNumberTable::start_pc()']]]
+  ['readattribute_0',['readAttribute',['../classAttribute.html#a30f568192e8ba2a28011b3f3c47684c7',1,'Attribute']]],
+  ['readstackmapframe_1',['readStackMapFrame',['../classStackMapFrame.html#ab1e7b86ca79dc8150143533c612c16a0',1,'StackMapFrame']]],
+  ['readverificationtypeinfo_2',['readVerificationTypeInfo',['../classVerificationTypeInfo.html#a966335764192645958a2630f0cc50616',1,'VerificationTypeInfo']]],
+  ['reference_5fkind_3',['reference_kind',['../classCONSTANT__MethodHandle__info.html#a4cb90b551cc5069fe7a2dbc4ecbeb3d2',1,'CONSTANT_MethodHandle_info']]],
+  ['removeinstance_4',['removeInstance',['../classJVM.html#a9a09c419ad5a4b242dc4120ace4d1c8b',1,'JVM']]]
 ];

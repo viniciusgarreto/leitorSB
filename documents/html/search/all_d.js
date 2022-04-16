@@ -1,8 +1,9 @@
 var searchData=
 [
-  ['readattribute_0',['readAttribute',['../classAttribute.html#a30f568192e8ba2a28011b3f3c47684c7',1,'Attribute']]],
-  ['readstackmapframe_1',['readStackMapFrame',['../classStackMapFrame.html#ab1e7b86ca79dc8150143533c612c16a0',1,'StackMapFrame']]],
-  ['readverificationtypeinfo_2',['readVerificationTypeInfo',['../classVerificationTypeInfo.html#a966335764192645958a2630f0cc50616',1,'VerificationTypeInfo']]],
-  ['reference_5fkind_3',['reference_kind',['../classCONSTANT__MethodHandle__info.html#a4cb90b551cc5069fe7a2dbc4ecbeb3d2',1,'CONSTANT_MethodHandle_info']]],
-  ['removeinstance_4',['removeInstance',['../classJVM.html#a9a09c419ad5a4b242dc4120ace4d1c8b',1,'JVM']]]
+  ['para_20executar_20o_20código_3a_0',['Para executar o código:',['../index.html',1,'']]],
+  ['pc_1',['pc',['../classJVM.html#aeacbab6a3ba9b278832add772ad82a19',1,'JVM']]],
+  ['popframe_2',['popFrame',['../classStackFrame.html#ab90516f0a1ac37d80230eddba63c20e3',1,'StackFrame']]],
+  ['print_3',['print',['../classAttribute.html#a18a61a174bc156434c65cc0603318c5d',1,'Attribute::print()'],['../classSameFrame.html#a9ae7b1af0cd96fb3595caedc36561aa0',1,'SameFrame::print()'],['../classStackMapFrame.html#a4b28ae545cc4212b7b46c60616e46937',1,'StackMapFrame::print()'],['../classMethods.html#ae67620cc1ca3e7ac075210a731707fa0',1,'Methods::print()'],['../classMethod.html#abdcec89c4ee6b9d04d8afafa53ae22a6',1,'Method::print()'],['../classLineNumberTable.html#ace3d3dc44282866d2a6b30647d9d57fb',1,'LineNumberTable::print()'],['../classInterfaces.html#ab40319fbff5926a1301695c19672dd97',1,'Interfaces::print()'],['../classInstruction.html#a02e2014c0ece9ccbe32ad256715a4ace',1,'Instruction::print()'],['../classFields.html#aca09d35715b37aed8b293a3e1680fca8',1,'Fields::print()'],['../classField.html#ae978faad07129d471a5c2e63f5dd9404',1,'Field::print()'],['../classExceptionTable.html#ae293d3135f6a72afe6b123ee7d576288',1,'ExceptionTable::print()'],['../classConstantPool.html#a7e94f1418868370cd649e5447e7518e1',1,'ConstantPool::print()'],['../classClassFile.html#ac5a02c78b20db225967ba027739367d0',1,'ClassFile::print()'],['../classClasses.html#a277add8572a0faf5607cc7615f23cd1b',1,'Classes::print()'],['../classExceptionsAttribute.html#a060a81c7b5dc474471560d4c082b6a77',1,'ExceptionsAttribute::print()']]],
+  ['printer_2eh_4',['printer.h',['../printer_8h.html',1,'']]],
+  ['pushframe_5',['pushFrame',['../classJVM.html#aef1a3dc43a38282807499531bff916ee',1,'JVM::pushFrame()'],['../classStackFrame.html#a97e7b404595ef4992061671107a5b609',1,'StackFrame::pushFrame()']]]
 ];
